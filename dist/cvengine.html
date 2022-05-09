@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer=""></script>
+    <!-- start -->
+    <meta name="description" content="Cv-Studio is an AI-powered resume creator that will reduce stress.">
+
+    <!-- Always include this line of code!!! -->
+
+    <link rel="icon" href="/fav%20180X180.b4a1fd16.png">
+    <link rel="apple-touch-icon" href="/fav%2064X64.ae340396.png">
+    <!-- <link rel="manifest" href="manifest.webmanifest" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cvengine.3d65e064.css">
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js" defer=""></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <script defer="" src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+    <script defer="" src="/cvengine.1c974c2f.js"></script>
+    <!-- end -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <title>CV studio&mdash; engine!</title>
+  </head>
+  <body>
+    <div class="welcome-message hiddenClass">
+      <h1>Welcome</h1>
+      <p class="message">
+        Confirmation link was sent to your email check your inbox or spam. You
+        can log in after confirmation is successful!
+      </p>
+      <button class="btn-large goto-login">Log in</button>
+    </div>
+
+    <div class="logAndRegisContainer">
+      <div class="cv-form-log logandregister">
+        <form class="form-style register register-section">
+          <h2>Register</h2>
+          <div class="input-container">
+            <input type="text" class="inputTypeText" name="userName" value="" placeholder="user name" autocomplete="off" required="">
+            <input type="tel" class="suser-tel inputTypeText" name="phone" value="" placeholder="phone number" autocomplete="off" required="">
+            <input type="email" class="sign-up-email inputTypeText" name="email" value="" placeholder="email address" autocomplete="off" required="">
+            <input type="password" class="sign-up-password inputTypeText" name="password" value="" placeholder="password" autocomplete="off" required="">
+            <input type="password" class="confirm-sign-up-password inputTypeText" name="confirmPassword" value="" placeholder="confirm password" autocomplete="off" required="">
+          </div>
+          <button class="btn-large btn-signup">sign up</button>
+          <div>
+            <p class="message">
+              Already registered? <a href="#" class="to-login">Sign In</a>
+            </p>
+            <p class="message message1"></p>
+          </div>
+        </form>
+        <form class="form-style login login-section">
+          <h2>Log in</h2>
+          <input type="email" class="login-email inputTypeText" name="email" value="" autocomplete="off" placeholder="email" required="">
+          <input type="password" name="password" class="login-password inputTypeText" value="" autocomplete="off" placeholder="password" required="">
+          <button class="btn-large btn-login">log in</button>
+          <div>
+            <p class="message">
+              Not registered?
+              <a href="#" class="to-register">Create an account</a>
+            </p>
+            <p class="message message2"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="admin-dashboard hiddenClass">
+      <div class="admin-side-bar">
+        <header class="">
+          <!-- <h2>Resumes and cover letters</h2>
+          <div class="buttons">
+            <button class="btn-large">Resumes</button>
+            <button class="btn-large">cover letters</button>
+          </div> -->
+          <h2>Dashboard</h2>
+        </header>
+        <!-- <div class="user-res-cl-container "></div>
+      -->
+        <ul class="admin-nav-bar">
+          <li class="admin-nav-element admin-visited" id="admin-user-table">
+            Current users
+          </li>
+          <li class="admin-nav-element" id="admin-user-resumes">Resumes</li>
+          <li class="admin-nav-element" id="admin-user-letters">
+            Cover letters
+          </li>
+        </ul>
+      </div>
+      <div class="users">
+        <!-- <span class="header-text">Dashboard</span> -->
+
+        <div class="user-resources-container">
+          <div class="users-resources-summary">
+            <div class="number-of-registered">
+              <div class="icon-and-number">
+                <i class="fa fa-users"></i>
+                <p class="icon-number current-users">67</p>
+              </div>
+              <span class="icon-and-number-pointer">Current users</span>
+            </div>
+
+            <div class="number-of-resumes">
+              <div class="icon-and-number">
+                <i class="fa fa-save"></i>
+                <p class="icon-number current-cvs">67</p>
+              </div>
+              <span class="icon-and-number-pointer">user's resumes</span>
+            </div>
+            <div class="number-of-letters">
+              <div class="icon-and-number">
+                <i class="fa fa-tasks"></i>
+                <p class="icon-number current-letters">67</p>
+              </div>
+              <span class="icon-and-number-pointer">user's letters</span>
+            </div>
+          </div>
+          <div class="users-data-and-resource-container">
+            <div class="admin-user-resumes section-in-admin hideMe">
+              <h1>resumes</h1>
+            </div>
+            <div class="admin-user-letters section-in-admin hideMe">
+              <h1>letters</h1>
+            </div>
+            <div class="users-table-and-pagination admin-user-table section-in-admin">
+              <table class="list">
+                <tr>
+                  <th>User Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Date</th>
+                </tr>
+                <tbody class="user-list"></tbody>
+              </table>
+              <div class="pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-wrap userDashBoard hiddenClass header">
+      <!-- start -->
+      <form class="cover-letter-container">
+        <button type="button" class="btnCloseView closeForm">
+          <i type="icon" class="fa fa-times icon-mobile-nav" aria-hidden="true"></i>
+        </button>
+        <div id="letterForm" autocomplete="off">
+          <div class="cover-letter-user-employer" id="cover-letter-form">
+            <div class="cover-employer-information">
+              <div class="section-header">
+                <h2>Employer Data</h2>
+              </div>
+
+              <div class="input-container">
+                <input type="text" class="inputTypeText fullName" name="receipient" value="" placeholder="receipient">
+                <input type="text" class="inputTypeText" name="compenyname" value="" placeholder="Enter compey name">
+                <input type="text" class="inputTypeText" name="city" value="" placeholder="Enter city">
+                <input type="text" class="inputTypeText" name="streetaddress" value="" placeholder="Enter street address">
+                <input type="text" class="inputTypeText" name="state" value="" placeholder="Enter state">
+              </div>
+            </div>
+
+            <div class="cover-personal-information">
+              <div class="section-header">
+                <h2>Personal Data</h2>
+              </div>
+
+              <div class="input-container">
+                <input type="text" class="inputTypeText fullName" name="fullName" value="" placeholder="Full name">
+                <input type="text" class="inputTypeText" name="profession" value="" placeholder="Enter profession">
+                <input type="text" class="inputTypeText" name="phoneNumber" value="" placeholder="Enter phone Number">
+                <input type="text" class="inputTypeText" name="address" value="" placeholder="Enter address">
+                <input type="email" class="inputTypeText" name="email" value="" placeholder="Enter email">
+              </div>
+            </div>
+          </div>
+
+          <div class="letterContainer" id="showtheletter">
+            <div class="image-container">
+              <div class="display_image2"></div>
+              <label id="image-input-label" for="image_input2">Choose Image</label>
+              <input type="file" id="image_input2" accept="image/png, image/jpg">
+            </div>
+            <div contenteditable="true" name="theletter" id="theletter">
+              Dear [Ms.] [Miss] [Mr.] [Dr.] [Last Name],<br><br>
+              I am writing today in application to the [Target Job Title]
+              position with [Target Company Name]. I am confident that my [Skill
+              1] and [Skill 2], as well as my experience in [Industry] make me
+              an excellent fit for this position.<br><br>
+              As my attached resume outlines, I have [Number] years of
+              experience working in the [Industry] field. I have achieved
+              [accomplishment], with [describe results], and I am confident I
+              can achieve similar results for [Target Company Name]. I am
+              [Quality 1] and [Quality 2], attributes I know are important to
+              your organization. I am looking for an opportunity to [outline
+              goal], and develop [Skill 3] and [Skill 4], while offering
+              expertise in [Skill 5].<br><br>
+              I greatly appreciate you taking the time to consider my
+              application. I look forward to the opportunity to speak with you
+              further regarding how I can contribute to the continued success of
+              [Target Company Name]. Thank you again.<br><br>
+              Regards, <br>
+              [First Name] [Last Name] <br>
+              [Phone Number]<br>
+              [Email Address]
+              <br><br>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-box">
+          <span class="btn-span btn-save-letter">Done</span>
+        </div>
+      </form>
+      <div class="resumesViewer"></div>
+      <div class="cv-form-container">
+        <button type="button" class="btnCloseView closeForm">
+          <i type="icon" class="fa fa-times icon-mobile-nav" aria-hidden="true"></i>
+        </button>
+        <div class="cv-form cv-form-log" id="cv-form">
+          <form class="s1 form-style">
+            <div class="section-header">
+              <h2>Personal Data</h2>
+            </div>
+            <p class="jobsInUk">
+              Jobs in Canada, USA, and UK do not mostly require photo
+            </p>
+            <div class="image-container">
+              <div class="display_image2"></div>
+              <label id="image-input-label" for="image_input">Choose Image</label>
+              <input type="file" id="image_input" accept="image/png, image/jpg">
+            </div>
+            <div class="input-container">
+              <input type="text" class="inputTypeText fullName" name="fullName" value="" placeholder="Full name">
+              <input type="text" class="inputTypeText" name="profession" value="" placeholder="Enter profession">
+              <input type="email" class="inputTypeText" name="email" value="" placeholder="Enter email">
+              <div class="dateofbirth">
+                <label for="dateofbirth">Date of birth: </label>
+                <input type="date" class="dateofbirth" name="dateofbirth" value="" placeholder="Date of birth">
+              </div>
+            </div>
+            <div class="btn-box">
+              <span class="btn-span" id="next1">next</span>
+            </div>
+          </form>
+          <form class="s2 form-style">
+            <div class="section-header">
+              <h2>Personal Data</h2>
+            </div>
+            <div class="input-container">
+              <input type="text" class="inputTypeText" name="city" value="" placeholder="Enter city">
+              <input type="text" class="inputTypeText" name="idCard" value="" placeholder="Id or passport number">
+              <input type="text" class="inputTypeText" name="state" value="" placeholder="Enter state">
+              <input type="text" class="inputTypeText" name="zipCode" value="" placeholder="Enter zip code">
+              <input type="text" class="inputTypeText" name="phoneNumber" placeholder="Enter phone number">
+              <input type="text" class="inputTypeText" name="address" value="" placeholder="Enter address">
+              <div class="countryBox">
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                  <option value="Afganistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Anguilla">Anguilla</option>
+                  <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Aruba">Aruba</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bermuda">Bermuda</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bonaire">Bonaire</option>
+                  <option value="Bosnia & Herzegovina">
+                    Bosnia & Herzegovina
+                  </option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="British Indian Ocean Ter">
+                    British Indian Ocean Ter
+                  </option>
+                  <option value="Brunei">Brunei</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Canary Islands">Canary Islands</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Cayman Islands">Cayman Islands</option>
+                  <option value="Central African Republic">
+                    Central African Republic
+                  </option>
+                  <option value="Chad">Chad</option>
+                  <option value="Channel Islands">Channel Islands</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Christmas Island">Christmas Island</option>
+                  <option value="Cocos Island">Cocos Island</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo">Congo</option>
+                  <option value="Cook Islands">Cook Islands</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Cote DIvoire">Cote DIvoire</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Curaco">Curacao</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="East Timor">East Timor</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Falkland Islands">Falkland Islands</option>
+                  <option value="Faroe Islands">Faroe Islands</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="French Guiana">French Guiana</option>
+                  <option value="French Polynesia">French Polynesia</option>
+                  <option value="French Southern Ter">
+                    French Southern Ter
+                  </option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Gibraltar">Gibraltar</option>
+                  <option value="Great Britain">Great Britain</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Greenland">Greenland</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guadeloupe">Guadeloupe</option>
+                  <option value="Guam">Guam</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="India">India</option>
+                  <option value="Iran">Iran</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Isle of Man">Isle of Man</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Korea North">Korea North</option>
+                  <option value="Korea Sout">Korea South</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Laos">Laos</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Macau">Macau</option>
+                  <option value="Macedonia">Macedonia</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Martinique">Martinique</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Midway Islands">Midway Islands</option>
+                  <option value="Moldova">Moldova</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montserrat">Montserrat</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Myanmar">Myanmar</option>
+                  <option value="Nambia">Nambia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherland Antilles">
+                    Netherland Antilles
+                  </option>
+                  <option value="Netherlands">
+                    Netherlands (Holland, Europe)
+                  </option>
+                  <option value="Nevis">Nevis</option>
+                  <option value="New Caledonia">New Caledonia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Niue">Niue</option>
+                  <option value="Norfolk Island">Norfolk Island</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau Island">Palau Island</option>
+                  <option value="Palestine">Palestine</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Phillipines">Philippines</option>
+                  <option value="Pitcairn Island">Pitcairn Island</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Republic of Montenegro">
+                    Republic of Montenegro
+                  </option>
+                  <option value="Republic of Serbia">Republic of Serbia</option>
+                  <option value="Reunion">Reunion</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="St Barthelemy">St Barthelemy</option>
+                  <option value="St Eustatius">St Eustatius</option>
+                  <option value="St Helena">St Helena</option>
+                  <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                  <option value="St Lucia">St Lucia</option>
+                  <option value="St Maarten">St Maarten</option>
+                  <option value="St Pierre & Miquelon">
+                    St Pierre & Miquelon
+                  </option>
+                  <option value="St Vincent & Grenadines">
+                    St Vincent & Grenadines
+                  </option>
+                  <option value="Saipan">Saipan</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="Samoa American">Samoa American</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome & Principe">
+                    Sao Tome & Principe
+                  </option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Swaziland">Swaziland</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syria</option>
+                  <option value="Tahiti">Tahiti</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tokelau">Tokelau</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Erimates">
+                    United Arab Emirates
+                  </option>
+                  <option value="United States of America">
+                    United States of America
+                  </option>
+                  <option value="Uraguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Vatican City State">Vatican City State</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Virgin Islands (Brit)">
+                    Virgin Islands (Brit)
+                  </option>
+                  <option value="Virgin Islands (USA)">
+                    Virgin Islands (USA)
+                  </option>
+                  <option value="Wake Island">Wake Island</option>
+                  <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zaire">Zaire</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+              </div>
+            </div>
+            <div class="btn-box">
+              <span class="btn-span" id="back1">back</span>
+              <span class="btn-span" id="next2">next</span>
+            </div>
+          </form>
+          <form class="s3 form-style">
+            <div class="section-header">
+              <h2>Educational Data</h2>
+            </div>
+            <div class="input-container">
+              <div class="inputBox">
+                <label for="qualification">Qualification</label>
+                <input type="text" class="inputTypeText eduInputs" name="qualification" value="" placeholder="eg. BSC in Mathematics">
+              </div>
+              <div class="inputBox">
+                <label for="eduAndAddress">School and address</label>
+                <textarea rows="2" name="eduAndAddress" class="eduInputs" value="" placeholder="eg. University of Derby (UK) England..."></textarea>
+              </div>
+              <div class="date">
+                <div class="start">
+                  <label for="startDate">Start date </label>
+                  <input type="date" class="startDate eduInputs" name="educationstarts" value="">
+                </div>
+                <div class="end">
+                  <label for="endDate">End date </label>
+                  <input type="date" class="endDate eduInputs" name="educationends" value="">
+                </div>
+              </div>
+              <button type="button" class="txt-area-btn btnAddEducation">
+                Add New
+              </button>
+              <div class="inputBox">
+                <label for="certification">Certification</label>
+                <textarea rows="2" class="certInput" name="certification" value="" placeholder="eg. The complete javaScript course 2022: from zero to hero.."></textarea>
+                <button type="button" class="txt-area-btn btnAddCertification">
+                  Add New
+                </button>
+              </div>
+            </div>
+            <div class="btn-box">
+              <span class="btn-span" id="back2">back</span>
+              <span class="btn-span" id="next3">next</span>
+            </div>
+          </form>
+          <form class="s7 form-style">
+            <p>Added successfuly</p>
+          </form>
+          <form class="s4 form-style">
+            <div class="section-header">
+              <h2>Recent Experience</h2>
+            </div>
+            <div class="input-container">
+              <div class="inputBox">
+                <label for="jobTitle">Job title</label>
+                <input type="text" class="inputTypeText exInput" name="jobTitle" value="" placeholder="eg. Internet marketter">
+              </div>
+              <div class="inputBox">
+                <label for="experience">Experience</label>
+                <textarea rows="2" class="exInput" name="experience" value="" placeholder="eg. I started off as an intern where I mostly wrote and scheduled social media posts.."></textarea>
+              </div>
+              <div class="inputBox">
+                <label for="orgAddress">Organization and address</label>
+                <textarea rows="2" class="exInput" name="orgAddress" value="" placeholder="eg. LukyLaku lab Indonesia.."></textarea>
+              </div>
+              <div class="date">
+                <div class="start">
+                  <label for="startDate">Start date </label>
+                  <input type="date" class="startDate exInput" name="experiencestarts" value="">
+                </div>
+                <div class="end">
+                  <label for="endDate">End date </label>
+                  <input type="date" class="endDate exInput" name="experienceends" value="">
+                </div>
+              </div>
+
+              <button type="button" class="txt-area-btn btnWorkExperience">
+                Add New
+              </button>
+            </div>
+            <div class="btn-box">
+              <span class="btn-span" id="back3">back</span>
+              <span class="btn-span" id="next4">next</span>
+            </div>
+          </form>
+          <form class="s5 form-style">
+            <div class="section-header">
+              <h2>Social Media Links</h2>
+            </div>
+            <div class="input-container">
+              <input type="text" class="inputTypeText" name="facebook" value="" placeholder="Facebook">
+
+              <input type="text" class="inputTypeText" name="instagram" value="" placeholder="Instagram">
+
+              <input type="text" class="inputTypeText" name="linkedin" value="" placeholder="LinkedIn">
+
+              <input type="text" class="inputTypeText" name="twitter" value="" placeholder="Twitter">
+              <div class="inputBox">
+                <label for="objective">Objective</label>
+                <textarea rows="6" name="objective" value="" placeholder="eg. I disciplined my selve to plan, organize, motivate.."></textarea>
+              </div>
+            </div>
+
+            <div class="btn-box">
+              <span class="btn-span" id="back4">back</span>
+              <span class="btn-span" id="next5">next</span>
+            </div>
+          </form>
+          <form class="s6 form-style">
+            <div class="section-header">
+              <h2>Summary and others</h2>
+            </div>
+            <div class="input-container">
+              <div>
+                <textarea name="profile" value="" rows="2" placeholder="profile"></textarea>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="skill" class="inputTypeText skillInput" placeholder="skill">
+                <button type="button" class="txt-area-btn addskill">
+                  Add New
+                </button>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="interest" class="inputTypeText intInput" placeholder="interest or hobby">
+                <button type="button" class="txt-area-btn addinterest">
+                  Add New
+                </button>
+              </div>
+              <div class="inputBox">
+                <h2>Refrence</h2>
+                <input type="text" name="refrenceName" class="inputTypeText refInputs" placeholder="Reference name">
+                <input type="text" name="referenceTitleAndOrg" class="inputTypeText refInputs" placeholder="title and organization">
+                <input type="text" name="refrenceEmail" class="inputTypeText refInputs" placeholder="email address">
+                <button type="button" class="txt-area-btn addrefrence">
+                  Add New
+                </button>
+              </div>
+            </div>
+            <div class="btn-box">
+              <span class="btn-span" id="back5">back</span>
+              <span class="generateCv btn-span" id="generateCvbtn">generate cv</span>
+            </div>
+          </form>
+          <div class="step-row">
+            <div id="progress"></div>
+            <div class="step-coll"><small></small></div>
+            <div class="step-coll"><small></small></div>
+            <div class="step-coll"><small></small></div>
+            <div class="step-coll"><small></small></div>
+            <div class="step-coll"><small></small></div>
+            <div class="step-coll"><small></small></div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="site-nav">
+        <div class="site-user-name">EL RUFAI</div>
+        <ul class="site-menu">
+          <li id="myResume" class="user-site-button active">
+            <a href="#0">My resumes and letters</a>
+          </li>
+          <li id="myTemplates" class="user-site-button">
+            <a href="#0">My templates</a>
+          </li>
+          <li id="templates" class="user-site-button">
+            <a href="#0">Templates</a>
+          </li>
+          <li id="myProfile" class="user-site-button">
+            <a href="#0">My profile</a>
+          </li>
+          <li id="mySite" class="user-site-button"><a href="#0">My site</a></li>
+          <li class="log-out" id="logout"><a href="#0">Log out</a></li>
+        </ul>
+        <div class="note">
+          <p>
+            A CV is a broad overview of your educational and career history. It
+            can list most or all of the relevant professional skills and
+            experience that apply to your current job search. The cover letter
+            should focus specifically on the job you are applying for....
+          </p>
+        </div>
+      </nav>
+
+      <main class="user-main">
+        <header class="main-header">
+          <h1 class="user-section-name">My resumes and letters</h1>
+
+          <nav class="nav-tabs" id="nav-tabs">
+            <a href="#0" class="active1 tab tab-all"> All </a>
+            <a href="#0" class="tab tab-resumes"> Resumes </a>
+            <a href="#0" class="tab tab-cl"> Cover letters </a>
+          </nav>
+          <button class="btn-mobile-nav">
+            <i class="fa fa-bars icon-mobile-nav" name="menu-outline" aria-hidden="true"></i>
+            <i class="fa fa-times icon-mobile-nav" name="close-outline" aria-hidden="true"></i>
+          </button>
+        </header>
+
+        <div class="content-columns">
+          <div class="templates hiddenClass user-content-child">
+            <div class="resumeAndLetter rl resume resume1">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+
+              <img src="/template1.2c0806c4.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl resume resume2">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+              <img src="/template2.c280c6e0.jpg" class="meal-img" alt="Resume Template">
+            </div>
+            <div class="resumeAndLetter rl resume resume3">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+              <img src="/template3.0ff78110.jpg" class="meal-img" alt="Resume Template">
+            </div>
+            <div class="resumeAndLetter rl resume resume4">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+              <img src="/template4.7f2b3f56.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl resume resume5">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+
+              <img src="/template5.8d603b8b.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl resume resume6">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+
+              <img src="/template6.f58cfa52.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl letter letter1">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+
+              <img src="/Letter1.24ef1b62.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl letter letter2">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+              <img src="/Letter2.1da38df0.jpg" class="meal-img" alt="Resume Template">
+            </div>
+            <div class="resumeAndLetter rl letter letter3">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+              <img src="/Letter3.82a64827.jpg" class="meal-img" alt="Resume Template">
+            </div>
+            <div class="resumeAndLetter rl letter letter4">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+              <img src="/Letter4.0a238b3f.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl letter letter5">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+
+              <img src="/Letter5.e4befab2.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter rl letter letter6">
+              <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+              <button class="custom-btn btn-5">select this</button>
+
+              <img src="/Letter6.003fd55e.jpg" class="meal-img" alt="Resume Template">
+            </div>
+          </div>
+
+          <div class="myResume user-content-child">
+            <div class="no-resume-infor-container">
+              <p class="p16px no-resume-infor">
+                You do not have any resume, click the button below to create new
+              </p>
+              <button class="create-new">Create new</button>
+            </div>
+          </div>
+          <div class="mySite user-content-child hiddenClass">
+            <p class="no-resume-infor">We are working on it</p>
+          </div>
+          <div class="myProfile user-content-child hiddenClass">
+            <p class="no-resume-infor">Your profile is coming soon</p>
+          </div>
+          <div class="myTemplates user-content-child hiddenClass">
+            <div class="no-template-infor-container">
+              <p class="no-resume-infor">Your do not have any template now</p>
+              <button class="get-one">Get one</button>
+            </div>
+
+            <div class="resumeAndLetter resume resume1 hiddenClass">
+              <button class="custom-btn btn-5">USE THIS</button>
+
+              <img src="/template1.2c0806c4.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter resume resume2 hiddenClass">
+              <button class="custom-btn btn-5">Use this</button>
+              <img src="/template2.c280c6e0.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter resume resume3 hiddenClass">
+              <button class="custom-btn btn-5">Use this</button>
+              <img src="/template3.0ff78110.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter resume resume4 hiddenClass">
+              <button class="custom-btn btn-5">Use this</button>
+              <img src="/template4.7f2b3f56.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter resume resume5 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/template5.8d603b8b.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter resume resume6 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/template6.f58cfa52.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter letter letter1 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/Letter1.24ef1b62.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter letter letter2 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/Letter2.1da38df0.jpg" class="meal-img" alt="letter Template">
+            </div>
+
+            <div class="resumeAndLetter letter letter3 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/Letter3.82a64827.jpg" class="meal-img" alt="letter Template">
+            </div>
+
+            <div class="resumeAndLetter letter letter4 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/Letter4.0a238b3f.jpg" class="meal-img" alt="letter Template">
+            </div>
+
+            <div class="resumeAndLetter letter letter5 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/Letter5.e4befab2.jpg" class="meal-img" alt="Resume Template">
+            </div>
+
+            <div class="resumeAndLetter letter letter6 hiddenClass">
+              <button class="custom-btn btn-5">use this</button>
+
+              <img src="/Letter6.003fd55e.jpg" class="meal-img" alt="Resume Template">
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="loaderContainer hiddenClass">
+      <div class="loader"></div>
+    </div>
+  </body>
+</html>

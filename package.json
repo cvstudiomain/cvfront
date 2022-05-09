@@ -1,0 +1,21 @@
+{
+  "name": "cvcreator",
+  "version": "1.0.0",
+  "description": "",
+  "default": "index.html",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.26.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.3.2",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

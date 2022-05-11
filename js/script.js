@@ -1,3 +1,4 @@
+
 const state = {
   templateToUse: { type: "", template: "" },
   section: "myResume",

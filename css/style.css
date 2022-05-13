@@ -580,14 +580,23 @@
 /**************************/
 
 .footer {
-  padding: 12.8rem 0;
+  padding: 6.4rem 0;
   border-top: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
+  padding-bottom: 6.4rem;
+  margin-bottom: 3.4rem;
 }
 
 .grid--footer {
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
 }
-
+.copyright-container{
+  display: flex;
+  margin-bottom: 3.4rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
 .logo-col {
   display: flex;
   flex-direction: column;
@@ -612,7 +621,7 @@
 .copyright {
   font-size: 1.4rem;
   line-height: 1.6;
-  color: #767676;
+  color: #999;
   margin-top: auto;
 }
 
@@ -645,6 +654,9 @@
   font-size: 1.6rem;
   color: #767676;
   transition: all 0.3s;
+}
+.footer-link-email{
+  margin-top: 2rem;
 }
 
 .footer-link:hover,

@@ -1,4 +1,3 @@
-
 const state = {
   templateToUse: { type: "", template: "" },
   section: "myResume",
@@ -121,7 +120,7 @@ document.querySelector(".nav-tabs").addEventListener("click", function (e) {
 });
 
 btnNavEl.addEventListener("click", function () {
-  console.log('ok')
+  console.log("ok");
   headerEl.classList.toggle("nav-open");
 });
 function checkFlexGap() {
@@ -336,17 +335,21 @@ const getCvOrLetter = async function (data) {
     let token = state.user.token;
     formData.append("file", state.user.file);
 
-    let res = await axios.post("http://localhost:5000/upload/", formData, {
-      headers: {
-        "content-type": "multipart/form-data",
-        Authorization: token,
-      },
-    });
+    let res = await axios.post(
+      "https://www.cvstudio.io/app/upload/",
+      formData,
+      {
+        headers: {
+          "content-type": "multipart/form-data",
+          Authorization: token,
+        },
+      }
+    );
     state.templateToUse.type === "resume"
       ? (state.user.inputData.images = res.data)
       : (state.user.coverLetter.images = res.data);
   }
-  const res = await axios.post("http://localhost:5000/resume/create", {
+  const res = await axios.post("https://www.cvstudio.io/app/resume/create", {
     ...data,
   });
 
@@ -462,7 +465,9 @@ document.querySelector(".log-out").addEventListener("click", (e) => {
 const deletUserAndResumes = async function (id) {
   let confirmAction = confirm("Are you sure to execute this action?");
   if (!confirmAction) return;
-  const res = await axios.delete(`http://localhost:5000/user/delete/:${id}`);
+  const res = await axios.delete(
+    `https://www.cvstudio.io/app/user/delete/:${id}`
+  );
   renderUserData();
   // console.log(res);
 };
@@ -2670,7 +2675,7 @@ const getAndGenerateMarckup = function (listofuser) {
     .insertAdjacentHTML("afterbegin", marckup);
 };
 const renderUserData = async function () {
-  const usersData = await axios.get("http://localhost:5000/user/", {
+  const usersData = await axios.get("https://www.cvstudio.io/app/user/", {
     ...state.user,
   });
   userlist.innerHTML = "";
@@ -2715,7 +2720,7 @@ btnLogin.addEventListener("click", async function (e) {
     state.user.password = password;
 
     document.querySelector(".message2").textContent = `please wait...`;
-    const res = await axios.post("http://localhost:5000/user/login", {
+    const res = await axios.post("https://www.cvstudio.io/app/user/login", {
       ...state.user,
     });
     if (res.data.data === "1") {
@@ -2745,10 +2750,12 @@ btnLogin.addEventListener("click", async function (e) {
       .classList.add("hiddenClass");
 
     document.querySelector(".loaderContainer").classList.remove("hiddenClass");
-    const resume = await axios.post(`http://localhost:5000/resume/:${id}`);
+    const resume = await axios.post(
+      `https://www.cvstudio.io/app/resume/:${id}`
+    );
 
     const templatesRes = await axios.post(
-      `http://localhost:5000/resume/gettemplate/:${id}`
+      `https://www.cvstudio.io/app/resume/gettemplate/:${id}`
     );
 
     userDashBoard.classList.remove("hiddenClass");
@@ -2784,7 +2791,7 @@ btnLogin.addEventListener("click", async function (e) {
   }
 });
 const register = async function (user) {
-  const res = await axios.post("http://localhost:5000/user/register", {
+  const res = await axios.post("https://www.cvstudio.io/app/user/register", {
     ...user,
   });
 
@@ -2827,9 +2834,12 @@ templates.addEventListener("click", async function (e) {
     template: state.user.template,
   };
   // templates.classList.add("hiddenClass");
-  const res = await axios.post("http://localhost:5000/resume/savetemplate/", {
-    templateData,
-  });
+  const res = await axios.post(
+    "https://www.cvstudio.io/app/resume/savetemplate/",
+    {
+      templateData,
+    }
+  );
   if (res.data.msg) {
     let messageBox = templateContainer.querySelector(".s7");
     messageBox.style.opacity = "1";
@@ -2984,7 +2994,7 @@ cvDataForm.addEventListener("click", async function (e) {
     newData = [...new FormData(e.target.closest("form"))].filter(
       (val) => val[1] !== "" && val !== {}
     );
-    if (newData.length === 0) return //console.log("not added");
+    if (newData.length === 0) return; //console.log("not added");
 
     messageBox.style.opacity = "1";
     messageBox.style.left = "0";
@@ -3198,7 +3208,6 @@ document.querySelector(".pagination").addEventListener("click", function (e) {
 // });
 
 ///////////////////////////////////////////////////////////
-
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions

@@ -5,15 +5,11 @@
 }
 
 html {
-  /* font-size: 10px; */
-
-  /* 10px / 16px = 0.625 = 62.5% */
-  /* Percentage of user's browser font-size setting */
+  
   font-size: 6px;
   overflow-x: hidden;
 
-  /* Does NOT work on Safari */
-  /* scroll-behavior: smooth; */
+ 
 }
 
 body {
@@ -27,13 +23,11 @@ body {
   justify-content: center;
 
   position: relative;
-  /* Only works if there is nothing absolutely positioned in relation to body */
-  /* overflow-x: hidden; */
+ 
 }
 
-/* loader */
 .loader {
-  width: 200px; /* control the size */
+  width: 200px;
   aspect-ratio: 1;
   display: grid;
   background: linear-gradient(135deg, #f0094a, #ff105f);
@@ -311,7 +305,7 @@ body {
   row-gap: 32px;
   transition: 0.5s;
 }
-/* cover letter */
+
 #letterForm {
   display: flex;
   flex-direction: row;
@@ -355,7 +349,7 @@ body {
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   width: 520px;
   padding: 16px;
-  /* border: 0.3px solid #999; */
+ 
   outline: none;
 }
 
@@ -481,9 +475,7 @@ input[type="submit"] {
   opacity: 0;
   width: 100%;
 }
-/* .template {
-  position: relative;
-} */
+
 .template .passport-box {
   text-align: center;
   display: flex;
@@ -670,7 +662,7 @@ button {
   transform: translate(-50%, -50%);
 }
 
-/*user dashboard */
+
 
 .site-wrap {
   margin: 1rem;
@@ -717,17 +709,13 @@ button {
   justify-content: flex-start;
   transition: all 0.5s ease-in;
 
-  /* Hide navigation */
-  /* Allows NO transitions at all */
-  /* display: none; */
-
-  /* 1) Hide it visually */
+ 
   opacity: 0;
 
-  /* 2) Make it unaccessible to mouse and keyboard */
+
   pointer-events: none;
 
-  /* 3) Hide it from screen readers */
+
   visibility: hidden;
 }
 .showIt {
@@ -735,7 +723,7 @@ button {
 
   opacity: 1;
   visibility: visible;
-  /* 2) Make it unaccessible to mouse and keyboard */
+
   pointer-events: all;
 }
 .btnCloseView {
@@ -771,7 +759,7 @@ button {
   margin-bottom: auto;
 }
 
-/*mobile button*/
+
 .btn-mobile-nav {
   position: absolute;
   z-index: 2;
@@ -779,7 +767,7 @@ button {
   right: 0;
   font-size: 32px;
   font-weight: 200;
-  /* transform: translate(50%,-50%); */
+ 
   padding: none;
 
   background: none;
@@ -888,12 +876,12 @@ button {
   font-weight: 600;
 }
 
-/* Resume template */
+
 .myTemplates,
 .myResume,
 .templates {
   display: flex;
-  /* align-items: center; */
+
   gap: 32px;
 
   justify-content: center;
@@ -902,7 +890,7 @@ button {
   height: 100%;
   flex-wrap: wrap;
 }
-/* cover letter */
+
 .resumeAndLetter,
 .template {
   height: auto;
@@ -991,7 +979,7 @@ button {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* height: 100%; */
+
   gap: 1rem;
   padding: 1rem;
 }
@@ -1006,7 +994,7 @@ button {
   gap: 0.5rem;
   color: #ff105f;
 }
-/* template 1 */
+
 .template1 {
   display: grid;
   grid-template-columns: 1fr 18rem;
@@ -1071,17 +1059,7 @@ button {
   outline: none;
   border: none;
 }
-/* .myResume {
-  width: 100%;
 
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-} */
 .no-resume-infor-container {
   text-align: center;
   display: flex;
@@ -1109,7 +1087,7 @@ button {
   color: #8a786d;
 }
 
-/* template 2 */
+
 .template2 {
   color: #1b2d4f;
   display: grid;
@@ -1272,9 +1250,7 @@ button {
   flex-direction: row;
   justify-content: space-between;
 }
-/* .templat4 .contact-information .secondContent{
-  padding-left: 1rem;
-} */
+
 .template4 .user-name-and-profession {
   grid-column: 1/-1;
   display: flex;
@@ -1439,7 +1415,7 @@ button {
 .template6 .large-content {
   grid-column: 1/2;
   grid-row: 2/-1;
-  /* margin-top: 10rem; */
+ 
 }
 .template6 .tiny-content {
   grid-column: 2/-1;
@@ -1461,7 +1437,7 @@ button {
   transition: 1s;
 }
 
-* cover letter */ .cover {
+.cover {
   line-height: 1.6;
   grid-template-rows: auto auto 1fr;
   align-items: start;

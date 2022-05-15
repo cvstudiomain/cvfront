@@ -219,7 +219,6 @@ myResume.addEventListener("click", function (e) {
  `
     );
     resumesViewer.classList.add("showIt");
-    
 
     return;
   }
@@ -332,16 +331,12 @@ const getCvOrLetter = async function (data) {
     let token = state.user.token;
     formData.append("file", state.user.file);
 
-    let res = await axios.post(
-      "https://app.cvstudio.io/upload/",
-      formData,
-      {
-        headers: {
-          "content-type": "multipart/form-data",
-          Authorization: token,
-        },
-      }
-    );
+    let res = await axios.post("https://app.cvstudio.io/upload/", formData, {
+      headers: {
+        "content-type": "multipart/form-data",
+        Authorization: token,
+      },
+    });
     state.templateToUse.type === "resume"
       ? (state.user.inputData.images = res.data)
       : (state.user.coverLetter.images = res.data);
@@ -462,9 +457,7 @@ document.querySelector(".log-out").addEventListener("click", (e) => {
 const deletUserAndResumes = async function (id) {
   let confirmAction = confirm("Are you sure to execute this action?");
   if (!confirmAction) return;
-  const res = await axios.delete(
-    `https://app.cvstudio.io/user/delete/:${id}`
-  );
+  const res = await axios.delete(`https://app.cvstudio.io/user/delete/:${id}`);
   renderUserData();
   // console.log(res);
 };
@@ -2720,6 +2713,7 @@ btnLogin.addEventListener("click", async function (e) {
     const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
+
     if (res.data.data === "1") {
       document
         .querySelector(".logAndRegisContainer")
@@ -2730,26 +2724,25 @@ btnLogin.addEventListener("click", async function (e) {
       renderUserData();
       return console.log("admin");
     }
+
     const accesstoken = (state.user.token = res.data.accesstoken);
 
     if (!accesstoken)
       return (document.querySelector(
         ".message2"
       ).textContent = `${res.data.msg}`);
+    if (!res.data.user.isVerified) return register(res.data.user);
     let id = (state.user.userid = res.data.user._id);
     state.user.siteUserName = res.data.user.userName;
     document.querySelector(".site-user-name").innerText =
       state.user.siteUserName;
 
-    if (!res.data.user.isVerified) return register(res.data.user);
     document
       .querySelector(".logAndRegisContainer")
       .classList.add("hiddenClass");
 
     document.querySelector(".loaderContainer").classList.remove("hiddenClass");
-    const resume = await axios.post(
-      `https://app.cvstudio.io/resume/:${id}`
-    );
+    const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
 
     const templatesRes = await axios.post(
       `https://app.cvstudio.io/resume/gettemplate/:${id}`
@@ -2770,9 +2763,6 @@ btnLogin.addEventListener("click", async function (e) {
       state.user.myResumes.forEach((resume) =>
         myResume.insertAdjacentHTML("beforeend", resume.toString())
       );
-      // myResume.innerHTML=[...marckup].join('')
-      // myResume.innerHTML= ...marckup.join('');
-      // myResume.innerHTML=marckup.join("");
     }
 
     if (templatesRes.data.templates.length !== 0) {
@@ -2831,12 +2821,9 @@ templates.addEventListener("click", async function (e) {
     template: state.user.template,
   };
   // templates.classList.add("hiddenClass");
-  const res = await axios.post(
-    "https://app.cvstudio.io/resume/savetemplate/",
-    {
-      templateData,
-    }
-  );
+  const res = await axios.post("https://app.cvstudio.io/resume/savetemplate/", {
+    templateData,
+  });
   if (res.data.msg) {
     let messageBox = templateContainer.querySelector(".s7");
     messageBox.style.opacity = "1";

@@ -2910,10 +2910,11 @@ myTemplates.addEventListener("click", function (e) {
     templateBtn.addEventListener("click", function (e) {
       state.templateToUse.type = "";
       state.templateToUse.template = "";
+      let thisTemplate= this.closest(".resumeAndLetter").getAttribute('id');
 
-      state.templateToUse.type = this.closest(".resumeAndLetter").classList[1];
-      state.templateToUse.template =
-        this.closest(".resumeAndLetter").classList[2];
+      state.templateToUse.template =thisTemplate
+      state.templateToUse.type =thisTemplate.slice(0,-1)
+       
       // console.log(state.templateToUse);
       window.scrollTo({
         top: 0,

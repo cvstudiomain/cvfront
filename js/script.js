@@ -333,7 +333,7 @@ const getCvOrLetter = async function (data) {
     formData.append("file", state.user.file);
 
     let res = await axios.post(
-      "https://www.cvstudio.io/app/upload/",
+      "https://app.cvstudio.io/upload/",
       formData,
       {
         headers: {
@@ -346,7 +346,7 @@ const getCvOrLetter = async function (data) {
       ? (state.user.inputData.images = res.data)
       : (state.user.coverLetter.images = res.data);
   }
-  const res = await axios.post("https://www.cvstudio.io/app/resume/create", {
+  const res = await axios.post("https://app.cvstudio.io/resume/create", {
     ...data,
   });
 
@@ -463,7 +463,7 @@ const deletUserAndResumes = async function (id) {
   let confirmAction = confirm("Are you sure to execute this action?");
   if (!confirmAction) return;
   const res = await axios.delete(
-    `https://www.cvstudio.io/app/user/delete/:${id}`
+    `https://app.cvstudio.io/user/delete/:${id}`
   );
   renderUserData();
   // console.log(res);
@@ -2672,7 +2672,7 @@ const getAndGenerateMarckup = function (listofuser) {
     .insertAdjacentHTML("afterbegin", marckup);
 };
 const renderUserData = async function () {
-  const usersData = await axios.get("https://www.cvstudio.io/app/user/", {
+  const usersData = await axios.get("https://app.cvstudio.io/user/", {
     ...state.user,
   });
   userlist.innerHTML = "";
@@ -2717,7 +2717,7 @@ btnLogin.addEventListener("click", async function (e) {
     state.user.password = password;
 
     document.querySelector(".message2").textContent = `please wait...`;
-    const res = await axios.post("https://www.cvstudio.io/app/user/login", {
+    const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
     if (res.data.data === "1") {
@@ -2748,11 +2748,11 @@ btnLogin.addEventListener("click", async function (e) {
 
     document.querySelector(".loaderContainer").classList.remove("hiddenClass");
     const resume = await axios.post(
-      `https://www.cvstudio.io/app/resume/:${id}`
+      `https://app.cvstudio.io/resume/:${id}`
     );
 
     const templatesRes = await axios.post(
-      `https://www.cvstudio.io/app/resume/gettemplate/:${id}`
+      `https://app.cvstudio.io/resume/gettemplate/:${id}`
     );
 
     userDashBoard.classList.remove("hiddenClass");
@@ -2788,7 +2788,7 @@ btnLogin.addEventListener("click", async function (e) {
   }
 });
 const register = async function (user) {
-  const res = await axios.post("https://www.cvstudio.io/app/user/register", {
+  const res = await axios.post("https://app.cvstudio.io/user/register", {
     ...user,
   });
 
@@ -2832,7 +2832,7 @@ templates.addEventListener("click", async function (e) {
   };
   // templates.classList.add("hiddenClass");
   const res = await axios.post(
-    "https://www.cvstudio.io/app/resume/savetemplate/",
+    "https://app.cvstudio.io/resume/savetemplate/",
     {
       templateData,
     }

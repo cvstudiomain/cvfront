@@ -2717,7 +2717,7 @@ btnLogin.addEventListener("click", async function (e) {
     state.user.password = password;
 
     document.querySelector(".message2").textContent = `please wait...`;
-    const res = await axios.post("https://app.cvstudio.io/login", {
+    const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
     if (res.data.data === "1") {
@@ -2788,7 +2788,7 @@ btnLogin.addEventListener("click", async function (e) {
   }
 });
 const register = async function (user) {
-  const res = await axios.post("https://app.cvstudio.io/register", {
+  const res = await axios.post("https://app.cvstudio.io/user/register", {
     ...user,
   });
 

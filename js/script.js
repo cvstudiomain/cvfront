@@ -2747,7 +2747,7 @@ btnLogin.addEventListener("click", async function (e) {
     const templatesRes = await axios.post(
       `https://app.cvstudio.io/resume/gettemplate/:${id}`
     );
-
+    console.log(resume, templatesRes);
     userDashBoard.classList.remove("hiddenClass");
     if (resume.data.cv) {
       state.resumes.push(...resume.data.cv);
@@ -2814,7 +2814,7 @@ btnSignup.addEventListener("click", async function (e) {
 templates.addEventListener("click", async function (e) {
   if (!e.target.classList.contains("custom-btn")) return;
   let templateContainer = e.target.closest(".resumeAndLetter");
-  state.user.template = templateContainer.classList[3];
+  state.user.template = templateContainer.getAttribute("id");
   // return console.log(state.user.template)
   const templateData = {
     userid: state.user.userid,

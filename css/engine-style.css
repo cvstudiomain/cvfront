@@ -385,7 +385,7 @@ body {
 }
 .message1,
 .message2 {
-  margin-top: 0;
+  margin-top: 16px;
   color: #999;
   font-size: 13px;
   text-align: center;
@@ -670,7 +670,7 @@ button {
 .site-wrap {
   margin: 1rem;
   width: 100%;
- 
+ align-self: flex-start;
   height: auto;
   display: grid;
   position: relative;

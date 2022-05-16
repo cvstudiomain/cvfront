@@ -152,8 +152,10 @@ resumesViewer.addEventListener("click", async function (e) {
     behavior: "smooth",
   });
   // userDashBoard.classList.remove("hiddenClass");
-  if (e.target.closest("button").classList.contains("btnCloseView"))
+  if (e.target.closest("button").classList.contains("btnCloseView")){
+    userDashBoard.classList.remove('hiddenClass')
     return resumesViewer.classList.remove("showIt");
+  }
   htmlParent.style.fontSize = "16px";
   let container = e.target.closest(".resumesViewer");
   let myCv = container.querySelector(".template");
@@ -242,6 +244,7 @@ myResume.addEventListener("click", function (e) {
 document.querySelectorAll(".closeForm").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     cvFormContainer.classList.remove("showIt");
+    userDashBoard.classList.remove('hiddenClass')
     document
       .querySelector(".cover-letter-container")
       .classList.remove("showIt");
@@ -360,6 +363,7 @@ const getCvOrLetter = async function (data) {
   });
   cvFormContainer.classList.remove("showIt");
   document.querySelector(".cover-letter-container").classList.remove("showIt");
+userDashBoard.classList.remove('hiddenClass')
 };
 
 formBtn.addEventListener("click", async function (e) {
@@ -2916,19 +2920,31 @@ myTemplates.addEventListener("click", function (e) {
       state.templateToUse.type =thisTemplate.slice(0,-1)
        
       // console.log(state.templateToUse);
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-      if (state.templateToUse.type === "resume")
-        return cvFormContainer.classList.add("showIt");
-      if (state.templateToUse.type === "letter")
-        return document
-          .querySelector(".cover-letter-container")
-          .classList.add("showIt");
+    
+      if (state.templateToUse.type === "resume"){
+       cvFormContainer.classList.add("showIt");
+         returnToTop(); 
+
+      }
+      if (state.templateToUse.type === "letter"){
+        document.querySelector(".cover-letter-container").classList.add("showIt");
+         returnToTop()
+
+
+      }
     });
   }
 });
+
+
+const returnToTop=()=>{
+  userDashBoard.classList.add('hiddenClass')
+
+  return window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
 // userTemplates = myTemplates.querySelectorAll(".template");
 // // userTemplatesButtons.forEach((btn) => console.log(btn));
 // userTemplates.forEach(ut=>{

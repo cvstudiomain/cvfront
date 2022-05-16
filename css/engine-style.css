@@ -15,13 +15,16 @@ html {
 body {
   font-family: "Rubik", sans-serif;
   width: 100%;
+  min-height: 100vh;
+ height: auto;
   line-height: 1;
   font-weight: 400;
   color: #555;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  overflow: auto;
+  overflow-x: hidden;
   position: relative;
  
 }
@@ -667,7 +670,8 @@ button {
 .site-wrap {
   margin: 1rem;
   width: 100%;
-  height: 100%;
+ 
+  height: auto;
   display: grid;
   position: relative;
   grid-template-columns: 280px 1fr;
@@ -696,10 +700,10 @@ button {
   top: 0;
   left: 0;
   font-size: 16px;
-  min-height: 1300px;
+
   width: 100%;
 
-  height: 100%;
+  height: auto;
   transform: translateX(1000%);
   z-index: 4;
   display: flex;
@@ -1618,6 +1622,7 @@ button {
     font-size: 3rem;
   }
 }
+
 @media (max-width: 550px) {
   .cover-letter-user-employer {
     flex-direction: column;

@@ -255,6 +255,8 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
+  document.querySelector('.myResumeInfor').classList.add('hiddenClass')
+
   document
     .querySelector(".nav-tabs")
     .querySelectorAll("a")
@@ -275,6 +277,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   });
   if (buttonId === "myResume") {
     state.section = "myResume";
+    document.querySelector('.myResumeInfor').classList.remove('hiddenClass')
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
@@ -2875,6 +2878,28 @@ allTemplates.forEach((tmf) => {
     btnUseThis.style.pointerEvents = "auto";
   });
 });
+const allMyTemplates = myTemplates.querySelectorAll(".resumeAndLetter");
+allMyTemplates.forEach((tmf) => {
+  tmf.addEventListener("mouseleave", function (e) {
+    let btnUseThis = e.target
+      .closest(".resumeAndLetter")
+      .querySelector(".custom-btn");
+
+    if (!btnUseThis) return;
+    btnUseThis.style.opacity = "0";
+    btnUseThis.style.pointerEvents = "auto";
+  });
+  tmf.addEventListener("mouseenter", function (e) {
+    let btnUseThis = e.target
+      .closest(".resumeAndLetter")
+      .querySelector(".custom-btn");
+
+    if (!btnUseThis) return;
+    btnUseThis.style.opacity = "1";
+    btnUseThis.style.pointerEvents = "auto";
+  });
+});
+
 myTemplates.addEventListener("click", function (e) {
   // console.log(e.target)
   if (e.target.classList.contains("get-one")) {
@@ -2900,17 +2925,6 @@ myTemplates.addEventListener("click", function (e) {
       .closest(".resumeAndLetter")
       .querySelector("button");
     // console.log(templateBtn,'confirm')
-
-    let allUserTemplateButtons = this.querySelectorAll("button");
-    allUserTemplateButtons.forEach((btn) => {
-      if (btn.style.opacity === "1") {
-        btn.style.pointerEvents = "none";
-        btn.style.opacity = "0";
-      }
-    });
-
-    templateBtn.style.pointerEvents = "auto";
-    templateBtn.style.opacity = "1";
     templateBtn.addEventListener("click", function (e) {
       state.templateToUse.type = "";
       state.templateToUse.template = "";

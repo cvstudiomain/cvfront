@@ -25,7 +25,7 @@ body {
   justify-content: center;
   overflow: auto;
   overflow-x: hidden;
-  position: relative;
+  
  
 }
 
@@ -862,6 +862,7 @@ button {
   flex-direction: column;
   background: #fff;
   align-items: center;
+  position: relative;
   justify-content: center;
 }
 
@@ -894,7 +895,24 @@ button {
   height: 100%;
   flex-wrap: wrap;
 }
+.myResume{
+  margin-top: 22px;
+}
 
+.myResumeInfor{
+  position: absolute;
+  padding: 8px;
+  font-weight: 600;
+  top:2px ;
+  
+  
+  font-size: 10px;
+  background-color: #00bd003b;
+  text-transform: uppercase;
+  text-align: center;
+  color:#9e9393;
+  width: fit-content;
+}
 .resumeAndLetter,
 .template {
   height: auto;

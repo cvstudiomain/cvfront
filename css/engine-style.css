@@ -16,7 +16,7 @@ body {
   font-family: "Rubik", sans-serif;
   width: 100%;
   min-height: 100vh;
- height: auto;
+ height: 100%;
   line-height: 1;
   font-weight: 400;
   color: #555;
@@ -25,7 +25,7 @@ body {
   justify-content: center;
   overflow: auto;
   overflow-x: hidden;
-  
+  position: relative;
  
 }
 
@@ -862,7 +862,6 @@ button {
   flex-direction: column;
   background: #fff;
   align-items: center;
-  position: relative;
   justify-content: center;
 }
 
@@ -895,16 +894,12 @@ button {
   height: 100%;
   flex-wrap: wrap;
 }
-.myResume{
-  margin-top: 22px;
-}
-
 .myResumeInfor{
-  position: absolute;
+  
   padding: 8px;
   font-weight: 600;
-  top:2px ;
-  
+  margin-bottom: 16px;
+ 
   
   font-size: 10px;
   background-color: #00bd003b;

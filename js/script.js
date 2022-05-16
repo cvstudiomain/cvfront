@@ -154,6 +154,7 @@ resumesViewer.addEventListener("click", async function (e) {
   // userDashBoard.classList.remove("hiddenClass");
   if (e.target.closest("button").classList.contains("btnCloseView")){
     userDashBoard.classList.remove('hiddenClass')
+    userDashBoard.classList.remove('hiddenClass')
     return resumesViewer.classList.remove("showIt");
   }
   htmlParent.style.fontSize = "16px";
@@ -162,7 +163,7 @@ resumesViewer.addEventListener("click", async function (e) {
 
   resumesViewer.classList.remove("showIt");
   myResume.innerHTML = `<div class="loader"></div>`;
-
+  userDashBoard.classList.remove('hiddenClass')
   var opt = {
     pagebreak: {
       avoid: [
@@ -201,6 +202,7 @@ myResume.addEventListener("click", function (e) {
     behavior: "smooth",
   });
   if (e.target.closest(".template")) {
+    userDashBoard.classList.add('hiddenClass')
     let id = e.target.closest(".template").getAttribute("id");
     let marckupData = "";
     state.resumes.forEach((resume) =>
@@ -2921,15 +2923,15 @@ myTemplates.addEventListener("click", function (e) {
   }
   if (e.target.closest(".resumeAndLetter")) {
     if (!e.target.closest(".rl")) return;
-    let templateBtn = e.target
-      .closest(".resumeAndLetter")
-      .querySelector("button");
+    
+      
     // console.log(templateBtn,'confirm')
-    templateBtn.addEventListener("click", function (e) {
+   if(e.target.classList.contains('custom-btn')) {
+    
       state.templateToUse.type = "";
       state.templateToUse.template = "";
-      let thisTemplate= this.closest(".resumeAndLetter").getAttribute('id');
-
+      let thisTemplate= e.target.closest(".resumeAndLetter").getAttribute('id');
+      
       state.templateToUse.template =thisTemplate
       state.templateToUse.type =thisTemplate.slice(0,-1)
        
@@ -2946,7 +2948,7 @@ myTemplates.addEventListener("click", function (e) {
 
 
       }
-    });
+    }
   }
 });
 

@@ -2740,7 +2740,13 @@ btnLogin.addEventListener("click", async function (e) {
       return (document.querySelector(
         ".message2"
       ).textContent = `${res.data.msg}`);
-    if (!res.data.user.isVerified) return register(res.data.user);
+    if (!res.data.user.isVerified){
+
+      register(res.data.user);
+      return (document.querySelector(
+        ".message2"
+      ).textContent = `Check your email for verification`);
+    } 
     let id = (state.user.userid = res.data.user._id);
     state.user.siteUserName = res.data.user.userName;
     document.querySelector(".site-user-name").innerText =
@@ -2786,14 +2792,23 @@ btnLogin.addEventListener("click", async function (e) {
     console.log(error);
   }
 });
+document.querySelector('.goto-login').addEventListener('click',function(e){
+  let mailSends=document.querySelector(".welcome-message");
+  mailSends.style.opacity = "0";
+    mailSends.style.left = "1000px";
+    mailSends.style.zIndex = "999";
+    fromRegisterToLogin()
+})
 const register = async function (user) {
   const res = await axios.post("https://app.cvstudio.io/user/register", {
     ...user,
   });
 
   if (!res.data.accesstoken) return (message2.textContent = `${res.data.msg}`);
-  document.querySelector(".welcome-message").classList.remove("hiddenClass");
-  document.querySelector(".logAndRegisContainer").classList.add("hiddenClass");
+  let mailSends=document.querySelector(".welcome-message");
+  mailSends.style.opacity = "1";
+    mailSends.style.left = "0";
+    mailSends.style.zIndex = "999";
 };
 btnSignup.addEventListener("click", async function (e) {
   e.preventDefault();
@@ -3077,10 +3092,13 @@ toRegister.addEventListener("click", (e) => {
   document.querySelector(".register-section").style.left = "40px";
   document.querySelector(".login-section").style.left = "450px";
 });
-toLogin.addEventListener("click", (e) => {
-  e.preventDefault();
+const fromRegisterToLogin=function(){
   document.querySelector(".register-section").style.left = "450px";
   document.querySelector(".login-section").style.left = "40px";
+}
+toLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+ fromRegisterToLogin()
 });
 
 btnNext1.addEventListener("click", (e) => {

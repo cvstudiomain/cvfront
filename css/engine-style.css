@@ -272,10 +272,7 @@ body {
   background-color: #999;
 }
 
-.welcome-message h1 {
-  color: #555;
-  font-size: 48px;
-}
+
 .use-this {
   opacity: 0;
   pointer-events: none;
@@ -293,7 +290,7 @@ body {
 }
 .register-section,
 .login-section,
-.form-style {
+.form-style{
   width: 280px;
   font-weight: 500;
   position: absolute;
@@ -460,10 +457,14 @@ input[type="submit"] {
 .s6 {
   left: 450px;
 }
-.s7 {
+.s7,.welcome-message{
   background-color: #ff105f;
   color: #ffe7ef;
+  position: absolute;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   justify-content: center;
   align-items: center;
 
@@ -477,6 +478,11 @@ input[type="submit"] {
   left: 1000px;
   opacity: 0;
   width: 100%;
+}
+.welcome-message p{
+  text-align: center;
+  margin: 8px;
+  line-height: 1.6;
 }
 
 .template .passport-box {
@@ -1376,14 +1382,7 @@ button {
 .template5 .passport {
   border-radius: inherit;
 }
-.welcome-message {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center;
-  justify-content: center;
-}
+
 .template6 {
   display: grid;
   grid-template-columns: 1fr 18rem;
@@ -1654,9 +1653,7 @@ button {
   }
 }
 @media (max-width: 530px) {
-  .welcome-message h1 {
-    font-size: 48px;
-  }
+  
   .cv-form-h2 {
     font-size: 18px;
   }
@@ -1689,9 +1686,7 @@ button {
   }
 }
 @media (max-width: 408px) {
-  .welcome-message h1 {
-    font-size: 38px;
-  }
+  
 }
 @media (max-width: 371px) {
   .icon-mobile-nav {

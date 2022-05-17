@@ -178,7 +178,7 @@ resumesViewer.addEventListener("click", async function (e) {
 
     filename: "cv.pdf",
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: { scale: 1, useCORS: true },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
   resumesViewer.classList.remove("showIt");
@@ -228,6 +228,8 @@ myResume.addEventListener("click", function (e) {
   }
 
   allUserContentChilds.forEach((child) => {
+    document.querySelector('.myResumeInfor').classList.add('hiddenClass')
+
     if (!child.classList.contains("hiddenClass"))
       child.classList.add("hiddenClass");
   });
@@ -2943,6 +2945,8 @@ myTemplates.addEventListener("click", function (e) {
       
     // console.log(templateBtn,'confirm')
    if(e.target.classList.contains('custom-btn')) {
+    document.querySelector('.myResumeInfor').classList.remove('hiddenClass')
+
     
       state.templateToUse.type = "";
       state.templateToUse.template = "";

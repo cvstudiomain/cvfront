@@ -366,7 +366,7 @@ body {
   justify-content: center;
 }
 .logandregister {
-  height: 520px;
+  height: 546px;
 }
 
 .input-container {
@@ -946,11 +946,26 @@ button {
   height: 100%;
 }
 .template .initials {
-  font-size: 9rem;
   text-align: center;
   font-weight: 600;
-
+  
   margin: 0.3rem;
+}
+.template1 .initials,.template2 .initials{
+  font-size: 5rem;
+}
+.template3 .initials{
+  font-size: 8rem;
+}
+.template4 .initials{
+  font-size: 4rem;
+
+}
+.template5 .initials{
+  font-size: 7rem;
+}
+.template6 .initials{
+  font-size: 6rem;
 }
 
 .template .content-wrapper {

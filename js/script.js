@@ -2819,6 +2819,7 @@ btnSignup.addEventListener("click", async function (e) {
     const { password, confirmPassword } = formData;
     if (password !== confirmPassword)
       return (message2.innerText = "Password did not match");
+      message2.innerText = "Please wait...";
     state.user = formData;
     register(state.user);
   } catch (error) {

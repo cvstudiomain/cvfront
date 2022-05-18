@@ -316,6 +316,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   }
 });
 btnSaveLetter.addEventListener("click", async function (e) {
+  this.innerText="please wait.."
   let formData = Object.fromEntries(
     ...[new FormData(document.querySelector(".cover-letter-container"))]
   );
@@ -330,6 +331,7 @@ btnSaveLetter.addEventListener("click", async function (e) {
   state.user.coverLetter = coverLetter;
   // console.log(state.user.coverLetter)
   await getCvOrLetter(state.user.coverLetter);
+  this.innerText="Done"
   state.templateToUse.type = "";
   state.templateToUse.template = "";
 });
@@ -376,6 +378,7 @@ userDashBoard.classList.remove('hiddenClass')
 formBtn.addEventListener("click", async function (e) {
   try {
     e.preventDefault();
+    this.innerText="Please wait..";
     [...new FormData(e.target.closest("form"))].filter(
       (val) => val[1] !== "" && state.user.summeryData.push(val)
     );
@@ -452,6 +455,7 @@ formBtn.addEventListener("click", async function (e) {
     };
 
     await getCvOrLetter(state.user.inputData);
+    this.innerText="Generate Cv"
   } catch (error) {
     console.log(error);
   }
@@ -2844,6 +2848,10 @@ templates.addEventListener("click", async function (e) {
   let templateContainer = e.target.closest(".resumeAndLetter");
   state.user.template = templateContainer.getAttribute("id");
   // return console.log(state.user.template)
+  
+//   select this
+// Please wait...
+  e.target.innerText="Please wait..."
   const templateData = {
     userid: state.user.userid,
     template: state.user.template,
@@ -2852,6 +2860,7 @@ templates.addEventListener("click", async function (e) {
   const res = await axios.post("https://app.cvstudio.io/resume/savetemplate/", {
     templateData,
   });
+  e.target.innerText="Select this"
   if (res.data.msg) {
     let messageBox = templateContainer.querySelector(".s7");
     messageBox.style.opacity = "1";
@@ -2946,6 +2955,7 @@ myTemplates.addEventListener("click", function (e) {
       
     // console.log(templateBtn,'confirm')
    if(e.target.classList.contains('custom-btn')) {
+     e.target.innerText="Please wait..."
     document.querySelector('.myResumeInfor').classList.remove('hiddenClass')
 
     
@@ -2957,7 +2967,7 @@ myTemplates.addEventListener("click", function (e) {
       state.templateToUse.type =thisTemplate.slice(0,-1)
        
       // console.log(state.templateToUse);
-    
+      e.target.innerText="Use this..."
       if (state.templateToUse.type === "resume"){
        cvFormContainer.classList.add("showIt");
          returnToTop(); 

@@ -2664,7 +2664,7 @@ const getAndGenerateMarckup = function (listofuser) {
   const marckup = listofuser
     .map(
       (user) => `
-      <tr class="user-infor-row" id="${user._id}"><td>${
+      <tr class="user-infor-row" id="${user._id}"><td ${user.isVerified?'class="verifiedTrue"':'class="verifiedFalse"'}>${
         user.userName
       }</td><td>e${user.email}</td><td>${user.phone}</td><td>${new Date(
         user.date

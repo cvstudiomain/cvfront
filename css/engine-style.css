@@ -273,6 +273,12 @@ body {
 }
 
 
+.verifiedFalse{
+  background-color: #ff105f;
+}
+.verifiedTrue{
+  background-color: #00d700;
+}
 .use-this {
   opacity: 0;
   pointer-events: none;

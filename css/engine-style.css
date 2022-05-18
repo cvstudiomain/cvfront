@@ -463,11 +463,12 @@ input[type="submit"] {
 .s6 {
   left: 450px;
 }
-.s7,.welcome-message{
+.s7,.welcome-message, .updating-the-system{
   background-color: #ff105f;
   color: #ffe7ef;
   position: absolute;
   height: 100%;
+  
   display: flex;
   flex-direction: column;
   gap: 32px;

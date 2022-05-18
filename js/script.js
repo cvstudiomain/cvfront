@@ -342,13 +342,14 @@ const getCvOrLetter = async function (data) {
     let formData = new FormData();
     let token = state.user.token;
     formData.append("file", state.user.file);
-
-    let res = await axios.post("https://app.cvstudio.io/upload/", formData, {
+    
+    let res = await axios.post("http://localhost:8888/upload/", formData, {
       headers: {
-        "content-type": "multipart/form-data",
+        "Accept":"application/json, text/plain, /","Content-Type": "multipart/form-data",
         Authorization: token,
       },
     });
+    return console.log(res)
     state.templateToUse.type === "resume"
       ? (state.user.inputData.images = res.data)
       : (state.user.coverLetter.images = res.data);

@@ -2666,7 +2666,7 @@ const getAndGenerateMarckup = function (listofuser) {
       (user) => `
       <tr class="user-infor-row" id="${user._id}"><td ${user.isVerified?'class="verifiedTrue"':'class="verifiedFalse"'}>${
         user.userName
-      }</td><td>e${user.email}</td><td>${user.phone}</td><td>${new Date(
+      }</td><td>${user.email}</td><td>${user.phone}</td><td>${new Date(
         user.date
       ).toDateString()}</td><td><span class="btn-delete list-btn">delete</span><span class="list-btn btn-view">view</span></td></tr>`
     )

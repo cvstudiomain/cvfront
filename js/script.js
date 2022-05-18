@@ -373,8 +373,15 @@ const getCvOrLetter = async function (data) {
   cvFormContainer.classList.remove("showIt");
   document.querySelector(".cover-letter-container").classList.remove("showIt");
 userDashBoard.classList.remove('hiddenClass')
+s6.style.left = "-450px";
+  s1.style.left = "40px";
+  progress.style.width = "60px";
+  clearInput();
 };
-
+const clearInput=function(){
+  document.querySelectorAll('.inputTypeText').forEach(elem=>elem.value="")
+  document.querySelectorAll('textarea').forEach(elem=>elem.value="")
+}
 formBtn.addEventListener("click", async function (e) {
   try {
     e.preventDefault();

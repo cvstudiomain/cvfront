@@ -2676,9 +2676,10 @@ const getAndGenerateMarckup = function (listofuser) {
     .insertAdjacentHTML("afterbegin", marckup);
 };
 const renderUserData = async function () {
-  const usersData = await axios.get("https://app.cvstudio.io/user/", {
+  const usersData = await axios.get("https://app.cvstudio.io/", {
     ...state.user,
   });
+  console.log(usersData)
   userlist.innerHTML = "";
   // userResums.innerHTML = "";
   // if (!userResums.classList.contains("hiddenClass"))

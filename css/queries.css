@@ -182,7 +182,23 @@
     font-size: 3rem;
   }
 }
-
+@media (max-width: 51.8em){
+  .legal-main{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  .legal-section{
+    width: 100%;
+  }
+  .legal-section .container{
+    width: 100%;
+  }
+  .legal-body{
+    width: 100%;
+    overflow: hidden;
+  }
+}
 /**************************/
 /* BELOW 704px (Smaller tablets) */
 /**************************/

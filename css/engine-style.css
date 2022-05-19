@@ -482,10 +482,10 @@ input[type="submit"] {
   transition: 1s;
   z-index: 99;
   text-align: center;
-  /* font-weight: 600; */
-  /* left: 0;
+  font-weight: 600;
+  left: 0;
   left: 1000px;
-  opacity: 0; */
+  opacity: 0;
   width: 100%;
 }
 .welcome-message p{

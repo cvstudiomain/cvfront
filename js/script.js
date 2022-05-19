@@ -342,9 +342,10 @@ const getCvOrLetter = async function (data) {
     let formData = new FormData();
     let token = state.user.token;
     formData.append("file", state.user.file);
-    
-    let res = await axios.post("http://localhost:8888/upload/", formData, {
+  
+    let res = await axios.post("https://app.cvstudio.io/upload/", formData, {
       headers: {
+       
         "Accept":"application/json, text/plain, /","Content-Type": "multipart/form-data",
         Authorization: token,
       },
@@ -2777,7 +2778,7 @@ btnLogin.addEventListener("click", async function (e) {
     const templatesRes = await axios.post(
       `https://app.cvstudio.io/resume/gettemplate/:${id}`
     );
-    console.log(resume, templatesRes);
+    // console.log(resume, templatesRes);
     userDashBoard.classList.remove("hiddenClass");
     if (resume.data.cv) {
       state.resumes.push(...resume.data.cv);
@@ -3008,8 +3009,8 @@ const returnToTop=()=>{
 //     console.log(e.target)
 // })
 
-// })
-[image_input, image_input2].forEach(function (imageIn) {
+//  image_input2})
+[image_input].forEach(function (imageIn) {
   imageIn.addEventListener("change", async function (e) {
     e.preventDefault();
     try {

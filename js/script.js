@@ -2689,7 +2689,7 @@ const getAndGenerateMarckup = function (listofuser) {
     .insertAdjacentHTML("afterbegin", marckup);
 };
 const renderUserData = async function () {
-  const usersData = await axios.get("http://localhost:8888/", {
+  const usersData = await axios.get("https://cvstudio.io/", {
     ...state.user,
   });
   console.log(usersData)

@@ -2689,7 +2689,7 @@ const getAndGenerateMarckup = function (listofuser) {
     .insertAdjacentHTML("afterbegin", marckup);
 };
 const renderUserData = async function () {
-  const usersData = await axios.get("https://app.cvstudio.io/", {
+  const usersData = await axios.get("http://localhost:8888/", {
     ...state.user,
   });
   console.log(usersData)
@@ -2699,13 +2699,21 @@ const renderUserData = async function () {
   //   userResums.classList.add("hiddenClass");
   state.page = 1;
   state.allData = usersData.data;
-
+htmlParent.style.fontSize="3px"
   state.searchResult = getSearchResultPage(state.page);
 
   getAndGenerateMarckup(state.searchResult);
   generatePaginationMarkcup(state.allData.users);
-  document.querySelector(".current-users").innerText =
-    state.allData.users.length;
+  state.allData.letters.forEach(val=>{
+    document.querySelector(".admin-user-letters").insertAdjacentHTML('beforeend',createPdfMarckup(val))
+
+  })
+  state.allData.cvs.forEach(val=>{
+
+    document.querySelector(".admin-user-resumes").insertAdjacentHTML('beforeend',createPdfMarckup(val))
+  })
+  document.querySelector(".current-letters").innerText = state.allData.letters.length;
+  document.querySelector(".current-users").innerText =    state.allData.users.length;
   document.querySelector(".current-cvs").innerText = state.allData.cvs.length;
 };
 const getTheTemplates = function (data) {

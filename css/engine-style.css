@@ -200,11 +200,22 @@ body {
 }
 .section-in-admin {
   padding: 16px;
+  
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: 100%;
-  height: 360px;
+  
+  height: max-content;
   border: none;
   border-radius: 10px;
+}
+.admin-user-resumes,
+.admin-user-letters{
+  display: flex;
+  align-items: auto;
+  justify-content: center;
+  flex-direction: row;
+  gap: 3rem;
+ overflow-x: scroll;
+width: 800px;
 }
 .hideMe {
   position: absolute;

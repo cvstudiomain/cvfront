@@ -939,31 +939,43 @@ const createPdfMarckup = function (data) {
   
   
   
-         ${
-           data.experiences.length !== 0
-             ? `
-           <div class="recent-experience informationContainer">
-        <h3 class="inforHeader">Experience</h3>${data.experiences
-          .map((experience) => {
-            return `<div class="experience content-wrapper">
-        <div class="start-and-end-date">
-            <p class="start">${experience.experiencestarts} to</p>
-            <p class="end">${experience.experienceends}</p>
-          </div>
-          <p class="jobtitle">${experience.jobTitle}</p>
-          <p class="experienceOptain">
-           ${experience.experience}
-          </p>
-          <p class="organizationAndAddress">
-            ${experience.orgAddress}
-          </p>
-        </div>`;
-          })
-          .join("")}      
-        </div>`
-             : ""
-         }
+       ${
+        data.experiences.length !== 0
+          ? `
+      <div class="recent-experience informationContainer">
+      <h3 class="inforHeader">Experience</h3>${data.experiences
+        .map((experience) => {
+          return `${
+            Object.keys(experience).length !== 0
+              ? `<div class="experience content-wrapper">
+      <div class="start-and-end-date">
+      ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
+    
+    
+    }
+       ${
+        experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+       }  
          
+        </div>
+  
+        ${
+          experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+        }
+       ${
+         experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+       }
+       ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+       
+      </div>`
+              : ""
+          }`;
+        })
+        .join("")}      
+      </div>`
+          : ""
+      }
+     
   
   ${
     data.educations.length !== 0
@@ -1410,31 +1422,43 @@ const createPdfMarckup = function (data) {
          : ""
      }
   
-      ${
-        data.experiences.length !== 0
-          ? `
-      <div class="recent-experience informationContainer">
-      <h3 class="inforHeader">Experience</h3>${data.experiences
-        .map((experience) => {
-          return `<div class="experience content-wrapper">
-      <div class="start-and-end-date">
-          <p class="start">${experience.experiencestarts} to</p>
-          <p class="end">${experience.experienceends}</p>
-        </div>
-        <p class="jobtitle">${experience.jobTitle}</p>
-        <p class="experienceOptain">
-         ${experience.experience}
-        </p>
-        <p class="organizationAndAddress">
-          ${experience.orgAddress}
-        </p>
-      </div>`;
-        })
-        .join("")}      
-      </div>`
-          : ""
-      }
+     ${
+      data.experiences.length !== 0
+        ? `
+    <div class="recent-experience informationContainer">
+    <h3 class="inforHeader">Experience</h3>${data.experiences
+      .map((experience) => {
+        return `${
+          Object.keys(experience).length !== 0
+            ? `<div class="experience content-wrapper">
+    <div class="start-and-end-date">
+    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
+  
+  
+  }
+     ${
+      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+     }  
        
+      </div>
+
+      ${
+        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+      }
+     ${
+       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+     }
+     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     
+    </div>`
+            : ""
+        }`;
+      })
+      .join("")}      
+    </div>`
+        : ""
+    }
+   
   
   ${
     data.educations.length !== 0
@@ -1697,27 +1721,38 @@ const createPdfMarckup = function (data) {
         ? `
     <div class="recent-experience informationContainer">
     <h3 class="inforHeader">Experience</h3>${data.experiences
-      .filter((val) => val !== {})
       .map((experience) => {
-        return `<div class="experience content-wrapper">
+        return `${
+          Object.keys(experience).length !== 0
+            ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-        <p class="start">${experience.experiencestarts} to</p>
-        <p class="end">${experience.experienceends}</p>
+    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
+  
+  
+  }
+     ${
+      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+     }  
+       
       </div>
-      <p class="jobtitle">${experience.jobTitle}</p>
-      <p class="experienceOptain">
-       ${experience.experience}
-      </p>
-      <p class="organizationAndAddress">
-        ${experience.orgAddress}
-      </p>
-    </div>`;
+
+      ${
+        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+      }
+     ${
+       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+     }
+     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     
+    </div>`
+            : ""
+        }`;
       })
       .join("")}      
     </div>`
         : ""
     }
-     
+   
   
   ${
     data.educations.length !== 0
@@ -2013,24 +2048,37 @@ const createPdfMarckup = function (data) {
       <div class="recent-experience informationContainer">
       <h3 class="inforHeader">Experience</h3>${data.experiences
         .map((experience) => {
-          return `<div class="experience content-wrapper">
+          return `${
+            Object.keys(experience).length !== 0
+              ? `<div class="experience content-wrapper">
       <div class="start-and-end-date">
-          <p class="start">${experience.experiencestarts} to</p>
-          <p class="end">${experience.experienceends}</p>
+      ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
+    
+    
+    }
+       ${
+        experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+       }  
+         
         </div>
-        <p class="jobtitle">${experience.jobTitle}</p>
-        <p class="experienceOptain">
-         ${experience.experience}
-        </p>
-        <p class="organizationAndAddress">
-          ${experience.orgAddress}
-        </p>
-      </div>`;
+  
+        ${
+          experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+        }
+       ${
+         experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+       }
+       ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+       
+      </div>`
+              : ""
+          }`;
         })
         .join("")}      
       </div>`
           : ""
       }
+     
      
     
       ${
@@ -2315,7 +2363,7 @@ const createPdfMarckup = function (data) {
        experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
      }
      ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
-     
+
     </div>`
             : ""
         }`;
@@ -2402,7 +2450,7 @@ const createPdfMarckup = function (data) {
           : ""
       }
   
-    ${
+     ${
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
@@ -2412,16 +2460,24 @@ const createPdfMarckup = function (data) {
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-        <p class="start">${experience.experiencestarts} to</p>
-        <p class="end">${experience.experienceends}</p>
+    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
+  
+  
+  }
+     ${
+      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+     }  
+       
       </div>
-      <p class="jobtitle">${experience.jobTitle}</p>
-      <p class="experienceOptain">
-       ${experience.experience}
-      </p>
-      <p class="organizationAndAddress">
-        ${experience.orgAddress}
-      </p>
+
+      ${
+        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+      }
+     ${
+       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+     }
+     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     
     </div>`
             : ""
         }`;

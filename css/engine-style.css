@@ -1063,6 +1063,7 @@ button {
 .template .user-name-and-profession{
   text-align: center;
   line-height: 1;
+  gap: 1rem;
   
 } 
 .template1 {

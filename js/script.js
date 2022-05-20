@@ -2298,16 +2298,24 @@ const createPdfMarckup = function (data) {
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-        <p class="start">${experience.experiencestarts} to</p>
-        <p class="end">${experience.experienceends}</p>
+    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
+  
+  
+  }
+     ${
+      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+     }  
+       
       </div>
-      <p class="jobtitle">${experience.jobTitle}</p>
-      <p class="experienceOptain">
-       ${experience.experience}
-      </p>
-      <p class="organizationAndAddress">
-        ${experience.orgAddress}
-      </p>
+
+      ${
+        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+      }
+     ${
+       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+     }
+     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     
     </div>`
             : ""
         }`;

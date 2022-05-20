@@ -1060,7 +1060,11 @@ button {
   gap: 0.5rem;
   color: #ff105f;
 }
-
+.template .user-name-and-profession{
+  text-align: center;
+  line-height: 1;
+  
+} 
 .template1 {
   display: grid;
   grid-template-columns: 1fr 18rem;

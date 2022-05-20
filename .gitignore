@@ -3,3 +3,5 @@ cv
 .parcel-cache
 .vscode
 dist
+# Local Netlify folder
+.netlify

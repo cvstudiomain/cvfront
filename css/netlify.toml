@@ -2,3 +2,11 @@
    for = "/*"
    [headers.values]
       Access-Control-Allow-Origin = "*"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+  [plugins.inputs]
+  buildDir = "public"
+  filePath = "/sitemap.xml"
+    [plugins.inputs]
+  baseUrl = "https://cvstudio.io"

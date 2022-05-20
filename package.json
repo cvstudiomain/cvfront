@@ -8,6 +8,9 @@
     "axios": "^0.26.1"
   },
   "devDependencies": {
+    "@netlify/plugin-sitemap": "^0.8.1",
+    "@parcel/packager-raw-url": "^2.3.2",
+    "@parcel/transformer-jsonld": "^2.3.2",
     "parcel": "^2.3.2",
     "regenerator-runtime": "^0.13.9"
   },
@@ -18,5 +21,5 @@
   },
   "author": "",
   "license": "ISC",
-  "proxy":"https://app.cvstudio.io/"
+  "proxy": "https://app.cvstudio.io/"
 }

@@ -2764,7 +2764,7 @@ const renderUserData = async function () {
   //   userResums.classList.add("hiddenClass");
   state.page = 1;
   state.allData = usersData.data;
-htmlParent.style.fontSize="3px"
+// htmlParent.style.fontSize="3px"
   state.searchResult = getSearchResultPage(state.page);
 
   getAndGenerateMarckup(state.searchResult);

@@ -212,7 +212,7 @@ body {
 .admin-user-letters{
   display: flex;
   align-items: auto;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
   gap: 3rem;
  overflow-x: scroll;
@@ -955,6 +955,10 @@ button {
   position: relative;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.admin-dashboard .template{
+  height: 250px;
+  overflow: hidden;
 }
 .resumeAndLetter {
   overflow-y: hidden;

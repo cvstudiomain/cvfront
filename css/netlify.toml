@@ -3,3 +3,9 @@
    [headers.values]
       Access-Control-Allow-Origin = "*"
 
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  changeFreq = "daily"
+  priority = 1

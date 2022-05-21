@@ -563,17 +563,17 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -609,17 +609,17 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -667,17 +667,17 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -716,17 +716,17 @@ const createPdfMarckup = function (data) {
     <div class="contact-container">
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
         <p class="profession">${data.profession}</p>
@@ -795,17 +795,17 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -861,17 +861,17 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -1041,74 +1041,65 @@ const createPdfMarckup = function (data) {
   ${
     data.email
       ? `<div class="information">
-    <p class="inforLabel">Email:</p>
-    <p class="inforVal">${data.email}</p>
+      <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+      <p class="inforVal">${data.email}</p>
     </div>
     `
       : ""
   }  
-  ${
-    data.phoneNumber
-      ? ` <div class="information">
-    <p class="inforLabel">phone:</p>
-    <p class="inforVal">${data.phoneNumber}</p>
+    ${
+      data.phoneNumber
+        ? ` <div class="information">
+      <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+      <p class="inforVal">${data.phoneNumber}</p>
     </div>`
-      : ""
-  }
-  ${
-    data.country
-      ? `
-    <div class="information">
-    <p class="inforLabel">country:</p>
-    <p class="inforVal">${data.country}</p>
-          </div>`
-      : ""
-  }
-           ${
-             data.state
-               ? `
-            <div class="information">
-            <p class="inforLabel">state:</p>
-            <p class="inforVal">${data.state}</p>
-            </div>`
-               : ""
-           }
-          ${
-            data.city
-              ? `<div class="information">
-            <p class="inforLabel">city:</p>
-            <p class="inforVal">${data.city}</p>
-            </div>`
-              : ""
-          }
-          ${
-            data.address
-              ? `<div class="information">
-            <p class="inforLabel">address:</p>
-            <p class="inforVal">${data.address}</p>
-            </div>
-            `
-              : ""
-          }
-          ${
-            data.zipCode
-              ? `<div class="information">
-            <p class="inforLabel">zipcode:</p>
-            <p class="inforVal">${data.zipCode}</p>
-          </div>
-            `
-              : ""
-          }
-          ${
-            data.idCard
-              ? `    <div class="information">
-            <p class="inforLabel">idnumber:</p>
-            <p class="inforVal">${data.idCard}</p>
-            </div>
-            `
-              : ""
-          }
-        </div>
+        : ""
+    }
+     ${
+       data.country
+         ? `
+      <div class="information">
+      <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+      <p class="inforVal">${data.country}</p>
+    </div>`
+         : ""
+     }
+     ${
+       data.state
+         ? `
+      <div class="information">
+      <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+      <p class="inforVal">${data.state}</p>
+    </div>`
+         : ""
+     }
+     ${
+       data.gender
+         ? `<div class="information">
+      <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+      <p class="inforVal">${data.gender}</p>
+    </div>`
+         : ""
+     }
+    ${
+      data.address
+        ? `<div class="information">
+      <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+      <p class="inforVal">${data.address}</p>
+    </div>
+      `
+        : ""
+    }
+    ${
+      data.maritalStatus
+        ? `<div class="information">
+      <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+      <p class="inforVal">${data.maritalStatus}</p>
+    </div>
+      `
+        : ""
+    }
+      </div>
   
         </div>
   
@@ -1122,7 +1113,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel">facebook:</p>
+      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1130,7 +1121,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel">instagram:</p>
+      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1139,7 +1130,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel">twitter:</p>
+      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1147,12 +1138,11 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel">linkedin:</p>
+      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
     }
-    
     </div>
     </div>
     `
@@ -1242,7 +1232,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel">Email:</p>
+            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1251,7 +1241,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel">phone:</p>
+            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1260,7 +1250,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel">country:</p>
+            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1269,46 +1259,38 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel">state:</p>
+            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
            }
            ${
-             data.city
+             data.gender
                ? `<div class="information">
-            <p class="inforLabel">city:</p>
-            <p class="inforVal">${data.city}</p>
+            <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+            <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
            }
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel">address:</p>
+            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
               : ""
           }
           ${
-            data.zipCode
+            data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">zipcode:</p>
-            <p class="inforVal">${data.zipCode}</p>
+            <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+            <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
               : ""
           }
-          ${
-            data.idCard
-              ? `    <div class="information">
-            <p class="inforLabel">idnumber:</p>
-            <p class="inforVal">${data.idCard}</p>
-          </div>
-        `
-              : ""
-          }
+         
         </div>
       </div>
   
@@ -1323,7 +1305,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel">facebook:</p>
+      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1331,7 +1313,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel">instagram:</p>
+      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1340,7 +1322,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel">twitter:</p>
+      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1348,12 +1330,11 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel">linkedin:</p>
+      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
     }
-  
     </div>
     </div>
   `
@@ -1549,7 +1530,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel">Email:</p>
+            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1558,7 +1539,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel">phone:</p>
+            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1567,7 +1548,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel">country:</p>
+            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1576,46 +1557,38 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel">state:</p>
+            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
            }
            ${
-             data.city
+             data.gender
                ? `<div class="information">
-            <p class="inforLabel">city:</p>
-            <p class="inforVal">${data.city}</p>
+            <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+            <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
            }
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel">address:</p>
+            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
               : ""
           }
           ${
-            data.zipCode
+            data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">zipcode:</p>
-            <p class="inforVal">${data.zipCode}</p>
+            <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+            <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
               : ""
           }
-          ${
-            data.idCard
-              ? `    <div class="information">
-            <p class="inforLabel">idnumber:</p>
-            <p class="inforVal">${data.idCard}</p>
-          </div>
-        `
-              : ""
-          }
+         
         </div>
       </div>
   
@@ -1630,7 +1603,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel">facebook:</p>
+      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1638,7 +1611,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel">instagram:</p>
+      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1647,7 +1620,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel">twitter:</p>
+      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1655,7 +1628,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel">linkedin:</p>
+      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1819,7 +1792,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel">Email:</p>
+            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1828,7 +1801,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel">phone:</p>
+            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1837,7 +1810,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel">country:</p>
+            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1846,7 +1819,7 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel">state:</p>
+            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1855,40 +1828,32 @@ const createPdfMarckup = function (data) {
           
            <div class="content-wrapper secondContent">
            ${
-             data.city
+             data.gender
                ? `<div class="information">
-            <p class="inforLabel">city:</p>
-            <p class="inforVal">${data.city}</p>
+               <p class="inforVal">${data.gender}</p>
+            <p class="inforLabel"><ion-icon name="person-outline"></ion-icon></p>
           </div>`
                : ""
            }
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel">address:</p>
-            <p class="inforVal">${data.address}</p>
+              <p class="inforVal">${data.address}</p>
+            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           </div>
             `
               : ""
           }
           ${
-            data.zipCode
+            data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">zipcode:</p>
-            <p class="inforVal">${data.zipCode}</p>
+              <p class="inforVal">${data.maritalStatus}</p>
+            <p class="inforLabel"><ion-icon name="people-outline"></ion-icon></p>
           </div>
             `
               : ""
           }
-          ${
-            data.idCard
-              ? `    <div class="information">
-            <p class="inforLabel">idnumber:</p>
-            <p class="inforVal">${data.idCard}</p>
-          </div>
-        `
-              : ""
-          }
+         
           </div>
         </div>
       </div>
@@ -1945,7 +1910,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel">facebook:</p>
+      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1953,7 +1918,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel">instagram:</p>
+      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1962,7 +1927,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel">twitter:</p>
+      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1970,12 +1935,11 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel">linkedin:</p>
+      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
     }
-  
     </div>
     </div>
   `
@@ -2154,7 +2118,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel">Email:</p>
+            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -2163,7 +2127,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel">phone:</p>
+            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -2172,7 +2136,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel">country:</p>
+            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -2181,46 +2145,38 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel">state:</p>
+            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
            }
            ${
-             data.city
+             data.gender
                ? `<div class="information">
-            <p class="inforLabel">city:</p>
-            <p class="inforVal">${data.city}</p>
+            <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+            <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
            }
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel">address:</p>
+            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
               : ""
           }
           ${
-            data.zipCode
+            data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">zipcode:</p>
-            <p class="inforVal">${data.zipCode}</p>
+            <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+            <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
               : ""
           }
-          ${
-            data.idCard
-              ? `    <div class="information">
-            <p class="inforLabel">idnumber:</p>
-            <p class="inforVal">${data.idCard}</p>
-          </div>
-        `
-              : ""
-          }
+         
         </div>
       </div>
   
@@ -2233,7 +2189,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel">facebook:</p>
+      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -2241,7 +2197,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel">instagram:</p>
+      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -2250,7 +2206,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel">twitter:</p>
+      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -2258,7 +2214,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel">linkedin:</p>
+      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -2549,7 +2505,7 @@ const createPdfMarckup = function (data) {
       ${
         data.email
           ? `<div class="information">
-          <p class="inforLabel">Email:</p>
+          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
           <p class="inforVal">${data.email}</p>
         </div>
         `
@@ -2558,7 +2514,7 @@ const createPdfMarckup = function (data) {
         ${
           data.phoneNumber
             ? ` <div class="information">
-          <p class="inforLabel">phone:</p>
+          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
             : ""
@@ -2567,7 +2523,7 @@ const createPdfMarckup = function (data) {
            data.country
              ? `
           <div class="information">
-          <p class="inforLabel">country:</p>
+          <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
           <p class="inforVal">${data.country}</p>
         </div>`
              : ""
@@ -2576,46 +2532,38 @@ const createPdfMarckup = function (data) {
            data.state
              ? `
           <div class="information">
-          <p class="inforLabel">state:</p>
+          <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
           <p class="inforVal">${data.state}</p>
         </div>`
              : ""
          }
          ${
-           data.city
+           data.gender
              ? `<div class="information">
-          <p class="inforLabel">city:</p>
-          <p class="inforVal">${data.city}</p>
+          <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+          <p class="inforVal">${data.gender}</p>
         </div>`
              : ""
          }
         ${
           data.address
             ? `<div class="information">
-          <p class="inforLabel">address:</p>
+          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
           <p class="inforVal">${data.address}</p>
         </div>
           `
             : ""
         }
         ${
-          data.zipCode
+          data.maritalStatus
             ? `<div class="information">
-          <p class="inforLabel">zipcode:</p>
-          <p class="inforVal">${data.zipCode}</p>
+          <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+          <p class="inforVal">${data.maritalStatus}</p>
         </div>
           `
             : ""
         }
-        ${
-          data.idCard
-            ? `    <div class="information">
-          <p class="inforLabel">idnumber:</p>
-          <p class="inforVal">${data.idCard}</p>
-        </div>
-      `
-            : ""
-        }
+    
       </div>
     </div>
   
@@ -2628,7 +2576,7 @@ const createPdfMarckup = function (data) {
   ${
     data.facebook
       ? `<div class="information">
-    <p class="inforLabel">facebook:</p>
+    <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
     <p class="inforVal">${data.facebook}</p>
     </div>`
       : ""
@@ -2636,7 +2584,7 @@ const createPdfMarckup = function (data) {
   ${
     data.instagram
       ? `<div class="information">
-    <p class="inforLabel">instagram:</p>
+    <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
     <p class="inforVal">${data.instagram}</p>
     </div>`
       : ""
@@ -2645,7 +2593,7 @@ const createPdfMarckup = function (data) {
   ${
     data.twitter
       ? `<div class="information">
-    <p class="inforLabel">twitter:</p>
+    <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
     <p class="inforVal">${data.twitter}</p>
     </div>`
       : ""
@@ -2653,12 +2601,11 @@ const createPdfMarckup = function (data) {
   ${
     data.linkedin
       ? `<div class="information">
-    <p class="inforLabel">linkedin:</p>
+    <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
     <p class="inforVal">${data.linkedin}</p>
     </div>`
       : ""
   }
-  
   </div>
   </div>
   `
@@ -2764,7 +2711,7 @@ const renderUserData = async function () {
   //   userResums.classList.add("hiddenClass");
   state.page = 1;
   state.allData = usersData.data;
-htmlParent.style.fontSize="3px"
+htmlParent.style.fontSize="16px"
   state.searchResult = getSearchResultPage(state.page);
 
   getAndGenerateMarckup(state.searchResult);

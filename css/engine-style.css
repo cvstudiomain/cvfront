@@ -583,7 +583,7 @@ input[type="file"] {
   gap: 12px;
 }
 .dateofbirth,
-.countryBox {
+.selectBox {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -597,7 +597,8 @@ label {
   font-size: 14px;
 }
 input[type="date"],
-#country {
+#country ,#gender,
+#maritalstatus{
   padding: 8px;
   border: 1px solid #999;
   background-color: inherit;
@@ -1011,11 +1012,11 @@ button {
   display: flex;
   flex-direction: row;
   gap: 0.3rem;
+  align-items: center;
 }
 /* .template .tiny-content .information {
  width: 100%;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   
 } */
@@ -1039,9 +1040,15 @@ button {
   flex-direction: column;
   gap: 1rem;
 }
-.template .inforLabel {
+.template .tiny-content .inforLabel {
   text-transform: uppercase;
   font-weight: 500;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+
 }
 .template .date-of-birth {
   display: flex;
@@ -1323,7 +1330,7 @@ button {
 .template4 .contact-information {
   background-color: #660626;
   color: #ffe7ef;
-  padding: 1rem;
+  padding: 1.5rem;
 grid-row: 1;
   grid-column: 1/-1;
 }
@@ -1331,8 +1338,14 @@ grid-row: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
 }
-
+.template4 .contact-information .contact-container .content-wrapper{
+  width: 18rem;
+}
+.template4 .contact-information .contact-container .secondContent{
+  align-items: flex-end;
+}
 .template4 .user-name-and-profession {
   grid-row: 2;
   grid-column: 1/-1;

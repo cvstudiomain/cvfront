@@ -160,11 +160,11 @@ resumesViewer.addEventListener("click", async function (e) {
   htmlParent.style.fontSize = "16px";
   let container = e.target.closest(".resumesViewer");
   let myCv = container.querySelector(".template");
-  // let svgElements = document.body.querySelectorAll(".icon");
-  // svgElements.forEach(function (item) {
-  //   item.setAttribute("width", item.getBoundingClientRect().width);
-  //   item.setAttribute("height", item.getBoundingClientRect().height);
-  // });
+  let svgElements = document.body.querySelectorAll(".icon");
+  svgElements.forEach(function (item) {
+    item.setAttribute("width", item.getBoundingClientRect().width);
+    item.setAttribute("height", item.getBoundingClientRect().height);
+  });
 
   resumesViewer.classList.remove("showIt");
   myResume.innerHTML = `<div class="loader"></div>`;
@@ -569,17 +569,17 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+          <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -615,17 +615,17 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -673,17 +673,17 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
-<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -722,17 +722,17 @@ const createPdfMarckup = function (data) {
     <div class="contact-container">
       <div class="content-wrapper">
         <div class="information">
-<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
         <p class="profession">${data.profession}</p>
@@ -801,17 +801,17 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
-<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -867,17 +867,17 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -1058,7 +1058,7 @@ const createPdfMarckup = function (data) {
   ${
     data.email
       ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
       <p class="inforVal">${data.email}</p>
     </div>
     `
@@ -1067,7 +1067,7 @@ const createPdfMarckup = function (data) {
     ${
       data.phoneNumber
         ? ` <div class="information">
-     <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+     <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
       <p class="inforVal">${data.phoneNumber}</p>
     </div>`
         : ""
@@ -1076,7 +1076,7 @@ const createPdfMarckup = function (data) {
        data.country
          ? `
       <div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.svg"/></p>
       <p class="inforVal">${data.country}</p>
     </div>`
          : ""
@@ -1085,7 +1085,7 @@ const createPdfMarckup = function (data) {
        data.state
          ? `
       <div class="information">
-                  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.png"/></p>
+                  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.svg"/></p>
       <p class="inforVal">${data.state}</p>
     </div>`
          : ""
@@ -1093,7 +1093,7 @@ const createPdfMarckup = function (data) {
      ${
        data.gender
          ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
       <p class="inforVal">${data.gender}</p>
     </div>`
          : ""
@@ -1101,7 +1101,7 @@ const createPdfMarckup = function (data) {
     ${
       data.address
         ? `<div class="information">
-     <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+     <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
       <p class="inforVal">${data.address}</p>
     </div>
       `
@@ -1110,7 +1110,7 @@ const createPdfMarckup = function (data) {
     ${
       data.maritalStatus
         ? `<div class="information">
-     <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+     <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
       <p class="inforVal">${data.maritalStatus}</p>
     </div>
       `
@@ -1130,7 +1130,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.svg"/></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1138,7 +1138,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.svg"/></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1147,7 +1147,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.png"/></p>
+             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.svg"/></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1155,7 +1155,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.svg"/></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1249,7 +1249,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1258,7 +1258,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1267,7 +1267,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.svg"/></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1276,7 +1276,7 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.svg"/></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1284,7 +1284,7 @@ const createPdfMarckup = function (data) {
            ${
              data.gender
                ? `<div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
@@ -1292,7 +1292,7 @@ const createPdfMarckup = function (data) {
           ${
             data.address
               ? `<div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
@@ -1301,7 +1301,7 @@ const createPdfMarckup = function (data) {
           ${
             data.maritalStatus
               ? `<div class="information">
-              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
             <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
@@ -1322,7 +1322,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.png"/></p>
+              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.svg"/></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1330,7 +1330,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.svg"/></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1339,7 +1339,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.svg"/></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1347,7 +1347,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.svg"/></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1558,7 +1558,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1567,7 +1567,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1576,7 +1576,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.svg"/></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1585,7 +1585,7 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.svg"/></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1593,7 +1593,7 @@ const createPdfMarckup = function (data) {
            ${
              data.gender
                ? `<div class="information">
-               <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+               <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
@@ -1601,7 +1601,7 @@ const createPdfMarckup = function (data) {
           ${
             data.address
               ? `<div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
@@ -1610,7 +1610,7 @@ const createPdfMarckup = function (data) {
           ${
             data.maritalStatus
               ? `<div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
             <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
@@ -1631,7 +1631,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.png"/></p>
+              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.svg"/></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1639,7 +1639,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.svg"/></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1648,7 +1648,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.png"/></p>
+             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.svg"/></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1656,7 +1656,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.svg"/></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1831,7 +1831,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1840,7 +1840,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1849,7 +1849,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.svg"/></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1858,7 +1858,7 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-                        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.png"/></p>
+                        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.svg"/></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1870,7 +1870,7 @@ const createPdfMarckup = function (data) {
              data.gender
                ? `<div class="information">
                <p class="inforVal">${data.gender}</p>
-               <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+               <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
           </div>`
                : ""
            }
@@ -1878,7 +1878,7 @@ const createPdfMarckup = function (data) {
             data.address
               ? `<div class="information">
               <p class="inforVal">${data.address}</p>
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           </div>
             `
               : ""
@@ -1887,7 +1887,7 @@ const createPdfMarckup = function (data) {
             data.maritalStatus
               ? `<div class="information">
               <p class="inforVal">${data.maritalStatus}</p>
-              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
           </div>
             `
               : ""
@@ -1949,7 +1949,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.png"/></p>
+              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.svg"/></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1957,7 +1957,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.svg"/></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1966,7 +1966,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.png"/></p>
+             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.svg"/></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1974,7 +1974,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.svg"/></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -2168,7 +2168,7 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+  <p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -2177,7 +2177,7 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -2186,7 +2186,7 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.svg"/></p>
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -2195,7 +2195,7 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-                        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.png"/></p>
+                        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.svg"/></p>
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -2203,7 +2203,7 @@ const createPdfMarckup = function (data) {
            ${
              data.gender
                ? `<div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
@@ -2211,7 +2211,7 @@ const createPdfMarckup = function (data) {
           ${
             data.address
               ? `<div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
@@ -2220,7 +2220,7 @@ const createPdfMarckup = function (data) {
           ${
             data.maritalStatus
               ? `<div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
             <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
@@ -2239,7 +2239,7 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.png"/></p>
+              <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.svg"/></p>
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -2247,7 +2247,7 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.png"/></p>
+        <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.svg"/></p>
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -2256,7 +2256,7 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.png"/></p>
+             <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.svg"/></p>
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -2264,7 +2264,7 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.png"/></p>
+      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.svg"/></p>
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -2577,7 +2577,7 @@ const createPdfMarckup = function (data) {
       ${
         data.email
           ? `<div class="information">
-<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.png"/></p>
+<p class="inforLabel"><img class="icon" alt="icon" src="./icons/mail-outline.svg"/></p>
           <p class="inforVal">${data.email}</p>
         </div>
         `
@@ -2586,7 +2586,7 @@ const createPdfMarckup = function (data) {
         ${
           data.phoneNumber
             ? ` <div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/call-outline.svg"/></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
             : ""
@@ -2595,7 +2595,7 @@ const createPdfMarckup = function (data) {
            data.country
              ? `
           <div class="information">
-          <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.png"/></p>
+          <p class="inforLabel"><img class="icon" alt="icon" src="./icons/flag-outline.svg"/></p>
           <p class="inforVal">${data.country}</p>
         </div>`
              : ""
@@ -2604,7 +2604,7 @@ const createPdfMarckup = function (data) {
            data.state
              ? `
           <div class="information">
-                      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.png"/></p>
+                      <p class="inforLabel"><img class="icon" alt="icon" src="./icons/home-outline.svg"/></p>
           <p class="inforVal">${data.state}</p>
         </div>`
              : ""
@@ -2612,7 +2612,7 @@ const createPdfMarckup = function (data) {
          ${
            data.gender
              ? `<div class="information">
-          <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+          <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
           <p class="inforVal">${data.gender}</p>
         </div>`
              : ""
@@ -2620,7 +2620,7 @@ const createPdfMarckup = function (data) {
         ${
           data.address
             ? `<div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/location-outline.svg"/></p>
           <p class="inforVal">${data.address}</p>
         </div>
           `
@@ -2629,7 +2629,7 @@ const createPdfMarckup = function (data) {
         ${
           data.maritalStatus
             ? `<div class="information">
-         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.png"/></p>
+         <p class="inforLabel"><img class="icon" alt="icon" src="./icons/person-circle-outline.svg"/></p>
           <p class="inforVal">${data.maritalStatus}</p>
         </div>
           `
@@ -2648,7 +2648,7 @@ const createPdfMarckup = function (data) {
   ${
     data.facebook
       ? `<div class="information">
-            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.png"/></p>
+            <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-facebook.svg"/></p>
     <p class="inforVal">${data.facebook}</p>
     </div>`
       : ""
@@ -2656,7 +2656,7 @@ const createPdfMarckup = function (data) {
   ${
     data.instagram
       ? `<div class="information">
-    <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.png"/></p>
+    <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-instagram.svg"/></p>
     <p class="inforVal">${data.instagram}</p>
     </div>`
       : ""
@@ -2665,7 +2665,7 @@ const createPdfMarckup = function (data) {
   ${
     data.twitter
       ? `<div class="information">
-           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.png"/></p>
+           <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-twitter.svg"/></p>
     <p class="inforVal">${data.twitter}</p>
     </div>`
       : ""
@@ -2673,7 +2673,7 @@ const createPdfMarckup = function (data) {
   ${
     data.linkedin
       ? `<div class="information">
-    <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.png"/></p>
+    <p class="inforLabel"><img class="icon" alt="icon" src="./icons/logo-linkedin.svg"/></p>
     <p class="inforVal">${data.linkedin}</p>
     </div>`
       : ""
@@ -2756,7 +2756,6 @@ const createPdfMarckup = function (data) {
   }
   return marckup;
 };
-// generate pdf
 const getAndGenerateMarckup = function (listofuser) {
   const marckup = listofuser
     .map(

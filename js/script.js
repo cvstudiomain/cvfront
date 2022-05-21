@@ -2756,6 +2756,7 @@ const createPdfMarckup = function (data) {
   }
   return marckup;
 };
+// generate pdf
 const getAndGenerateMarckup = function (listofuser) {
   const marckup = listofuser
     .map(

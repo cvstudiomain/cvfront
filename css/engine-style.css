@@ -1047,8 +1047,15 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  height: 1.8rem;
+  width: 1.8rem;
 
+}
+.template .tiny-content .inforLabel img{
+height: 1.8rem;
+width: 1.8rem;
+background-color: inherit;
+color: inherit;
 }
 .template .date-of-birth {
   display: flex;

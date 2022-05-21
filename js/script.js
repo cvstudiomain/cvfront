@@ -483,7 +483,7 @@ const deletUserAndResumes = async function (id) {
   if (!confirmAction) return;
   const res = await axios.delete(`https://app.cvstudio.io/user/delete/:${id}`);
   renderUserData();
-  // console.log(res);
+  
 };
 document.querySelector(".user-list").addEventListener("click", function (e) {
   const userInforRow = e.target.closest(".user-infor-row");

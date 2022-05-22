@@ -1070,7 +1070,7 @@ color: inherit;
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  min-width: 100%;
   gap: 1rem;
   padding: 1rem;
 }
@@ -1432,10 +1432,18 @@ grid-row: 1;
   justify-content: center;
 }
 .template5 .user-name-and-profession {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+
+  display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    align-items: center;
+    justify-content: center;
+    grid-row: 1;
+    margin-top: 2rem;
 }
 .template5 .user-name {
   font-size: 2.7rem;

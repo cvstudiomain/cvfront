@@ -1341,6 +1341,12 @@ color: inherit;
 grid-row: 1;
   grid-column: 1/-1;
 }
+.template4 .contact-information .inforLabel{
+  background-color: #ffe7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .template4 .contact-information .contact-container {
   display: flex;
   flex-direction: row;
@@ -1417,6 +1423,12 @@ grid-row: 1;
 
   border-top-right-radius: 5rem;
   border-bottom-left-radius: 5rem;
+}
+.template5 .tiny-content .inforLabel{
+  background-color: #ccf2cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .template5 .user-name-and-profession {
   display: flex;

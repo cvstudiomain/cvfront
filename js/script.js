@@ -557,23 +557,38 @@ const createPdfMarckup = function (data) {
       </div>
     </div>
   </div>
+ 
   
   <div class="tiny-content">
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
-  
+       
+
         <div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -609,17 +624,30 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -667,17 +695,30 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -716,17 +757,30 @@ const createPdfMarckup = function (data) {
     <div class="contact-container">
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
         <p class="profession">${data.profession}</p>
@@ -795,17 +849,30 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -861,17 +928,30 @@ const createPdfMarckup = function (data) {
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
         <div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>
   
         <div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
       </div>
@@ -1041,16 +1121,25 @@ const createPdfMarckup = function (data) {
   ${
     data.email
       ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+      <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
       <p class="inforVal">${data.email}</p>
     </div>
     `
       : ""
-  }  
+  } 
     ${
       data.phoneNumber
         ? ` <div class="information">
-      <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+       <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
       <p class="inforVal">${data.phoneNumber}</p>
     </div>`
         : ""
@@ -1059,24 +1148,29 @@ const createPdfMarckup = function (data) {
        data.country
          ? `
       <div class="information">
-      <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.country}</p>
     </div>`
          : ""
      }
+
      ${
        data.state
          ? `
       <div class="information">
-      <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.state}</p>
     </div>`
          : ""
      }
+
      ${
        data.gender
          ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.gender}</p>
     </div>`
          : ""
@@ -1084,7 +1178,11 @@ const createPdfMarckup = function (data) {
     ${
       data.address
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+       <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
       <p class="inforVal">${data.address}</p>
     </div>
       `
@@ -1093,7 +1191,8 @@ const createPdfMarckup = function (data) {
     ${
       data.maritalStatus
         ? `<div class="information">
-      <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.maritalStatus}</p>
     </div>
       `
@@ -1113,7 +1212,8 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1121,7 +1221,8 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1130,7 +1231,8 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1138,7 +1240,8 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1232,7 +1335,12 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+            <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1241,7 +1349,11 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1250,7 +1362,8 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1259,7 +1372,8 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1267,7 +1381,8 @@ const createPdfMarckup = function (data) {
            ${
              data.gender
                ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
@@ -1275,7 +1390,11 @@ const createPdfMarckup = function (data) {
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
@@ -1284,7 +1403,8 @@ const createPdfMarckup = function (data) {
           ${
             data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
@@ -1305,7 +1425,8 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1313,7 +1434,8 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1322,7 +1444,8 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1330,7 +1453,8 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1530,7 +1654,12 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+            <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1539,7 +1668,11 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1548,7 +1681,8 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1557,7 +1691,8 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1565,7 +1700,8 @@ const createPdfMarckup = function (data) {
            ${
              data.gender
                ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
@@ -1573,7 +1709,11 @@ const createPdfMarckup = function (data) {
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
@@ -1582,7 +1722,8 @@ const createPdfMarckup = function (data) {
           ${
             data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
@@ -1603,7 +1744,8 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1611,7 +1753,8 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1620,7 +1763,8 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1628,7 +1772,8 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1792,7 +1937,12 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+            <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -1801,7 +1951,11 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -1810,7 +1964,8 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -1819,7 +1974,8 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -1831,7 +1987,8 @@ const createPdfMarckup = function (data) {
              data.gender
                ? `<div class="information">
                <p class="inforVal">${data.gender}</p>
-            <p class="inforLabel"><ion-icon name="person-outline"></ion-icon></p>
+               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+
           </div>`
                : ""
            }
@@ -1839,16 +1996,22 @@ const createPdfMarckup = function (data) {
             data.address
               ? `<div class="information">
               <p class="inforVal">${data.address}</p>
-            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           </div>
             `
               : ""
           }
+
           ${
             data.maritalStatus
               ? `<div class="information">
               <p class="inforVal">${data.maritalStatus}</p>
-            <p class="inforLabel"><ion-icon name="people-outline"></ion-icon></p>
+              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+
           </div>
             `
               : ""
@@ -1910,7 +2073,8 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1918,7 +2082,8 @@ const createPdfMarckup = function (data) {
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1927,7 +2092,8 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1935,7 +2101,8 @@ const createPdfMarckup = function (data) {
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -2118,7 +2285,12 @@ const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+            <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
             <p class="inforVal">${data.email}</p>
           </div>
           `
@@ -2127,7 +2299,11 @@ const createPdfMarckup = function (data) {
           ${
             data.phoneNumber
               ? ` <div class="information">
-            <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
             <p class="inforVal">${data.phoneNumber}</p>
           </div>`
               : ""
@@ -2136,7 +2312,8 @@ const createPdfMarckup = function (data) {
              data.country
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
@@ -2145,7 +2322,8 @@ const createPdfMarckup = function (data) {
              data.state
                ? `
             <div class="information">
-            <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
@@ -2153,7 +2331,8 @@ const createPdfMarckup = function (data) {
            ${
              data.gender
                ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
@@ -2161,7 +2340,11 @@ const createPdfMarckup = function (data) {
           ${
             data.address
               ? `<div class="information">
-            <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+             <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
             <p class="inforVal">${data.address}</p>
           </div>
             `
@@ -2170,7 +2353,8 @@ const createPdfMarckup = function (data) {
           ${
             data.maritalStatus
               ? `<div class="information">
-            <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+
             <p class="inforVal">${data.maritalStatus}</p>
           </div>
             `
@@ -2179,6 +2363,7 @@ const createPdfMarckup = function (data) {
          
         </div>
       </div>
+
   
   ${
     data.twitter || data.instagram || data.facebook || data.linkedin
@@ -2189,15 +2374,18 @@ const createPdfMarckup = function (data) {
     ${
       data.facebook
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
     }
+
     ${
       data.instagram
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -2206,15 +2394,18 @@ const createPdfMarckup = function (data) {
     ${
       data.twitter
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
     }
+
     ${
       data.linkedin
         ? `<div class="information">
-      <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
+          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -2505,7 +2696,12 @@ const createPdfMarckup = function (data) {
       ${
         data.email
           ? `<div class="information">
-          <p class="inforLabel"><ion-icon name="mail-outline"></ion-icon></p>
+          <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
+      "
+      alt=""
+      class="email-logo"
+      /></p>
           <p class="inforVal">${data.email}</p>
         </div>
         `
@@ -2514,7 +2710,11 @@ const createPdfMarckup = function (data) {
         ${
           data.phoneNumber
             ? ` <div class="information">
-          <p class="inforLabel"><ion-icon name="call-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
+      alt=""
+      class="logo"
+      /></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
             : ""
@@ -2523,7 +2723,8 @@ const createPdfMarckup = function (data) {
            data.country
              ? `
           <div class="information">
-          <p class="inforLabel"><ion-icon name="flag-outline"></ion-icon></p>
+            <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+
           <p class="inforVal">${data.country}</p>
         </div>`
              : ""
@@ -2532,7 +2733,8 @@ const createPdfMarckup = function (data) {
            data.state
              ? `
           <div class="information">
-          <p class="inforLabel"><ion-icon name="home-outline"></ion-icon></p>
+               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+
           <p class="inforVal">${data.state}</p>
         </div>`
              : ""
@@ -2540,7 +2742,8 @@ const createPdfMarckup = function (data) {
          ${
            data.gender
              ? `<div class="information">
-          <p class="inforLabel"><ion-icon name="person-circle-outline"></ion-icon></p>
+               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+
           <p class="inforVal">${data.gender}</p>
         </div>`
              : ""
@@ -2548,7 +2751,11 @@ const createPdfMarckup = function (data) {
         ${
           data.address
             ? `<div class="information">
-          <p class="inforLabel"><ion-icon name="location-outline"></ion-icon></p>
+           <p class="inforLabel"><img
+        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
+        alt=""
+        class="logo"
+        /></p>
           <p class="inforVal">${data.address}</p>
         </div>
           `
@@ -2557,7 +2764,8 @@ const createPdfMarckup = function (data) {
         ${
           data.maritalStatus
             ? `<div class="information">
-          <p class="inforLabel">z<ion-icon name="people-outline"></ion-icon></p>
+              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+
           <p class="inforVal">${data.maritalStatus}</p>
         </div>
           `
@@ -2576,7 +2784,8 @@ const createPdfMarckup = function (data) {
   ${
     data.facebook
       ? `<div class="information">
-    <p class="inforLabel"><ion-icon name="logo-facebook"></ion-icon></p>
+      <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+
     <p class="inforVal">${data.facebook}</p>
     </div>`
       : ""
@@ -2584,7 +2793,8 @@ const createPdfMarckup = function (data) {
   ${
     data.instagram
       ? `<div class="information">
-    <p class="inforLabel"><ion-icon name="logo-instagram"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+
     <p class="inforVal">${data.instagram}</p>
     </div>`
       : ""
@@ -2593,7 +2803,8 @@ const createPdfMarckup = function (data) {
   ${
     data.twitter
       ? `<div class="information">
-    <p class="inforLabel"><ion-icon name="logo-twitter"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+
     <p class="inforVal">${data.twitter}</p>
     </div>`
       : ""
@@ -2601,7 +2812,8 @@ const createPdfMarckup = function (data) {
   ${
     data.linkedin
       ? `<div class="information">
-    <p class="inforLabel"><ion-icon name="logo-linkedin"></ion-icon></p>
+        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+
     <p class="inforVal">${data.linkedin}</p>
     </div>`
       : ""

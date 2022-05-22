@@ -476,11 +476,13 @@ const generateMarckup = function (marckup) {
   myResume.innerHTML = "";
   myResume.insertAdjacentHTML("afterbegin", marckup);
 };
-document.querySelector(".log-out").addEventListener("click", (e) => {
-  e.preventDefault();
-  localStorage.clear();
-  location.reload();
-});
+document.querySelectorAll(".log-out").forEach(btn=>{
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    location.reload();
+  });
+})
 const deletUserAndResumes = async function (id) {
   let confirmAction = confirm("Are you sure to execute this action?");
   if (!confirmAction) return;
@@ -1202,11 +1204,11 @@ const createPdfMarckup = function (data) {
         : ""
     }
     ${
-      data.maritalStatus
+      data.maritalstatus
         ? `<div class="information">
           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
 
-      <p class="inforVal">${data.maritalStatus}</p>
+      <p class="inforVal">${data.maritalstatus}</p>
     </div>
       `
         : ""
@@ -1414,11 +1416,11 @@ const createPdfMarckup = function (data) {
               : ""
           }
           ${
-            data.maritalStatus
+            data.maritalstatus
               ? `<div class="information">
                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
 
-            <p class="inforVal">${data.maritalStatus}</p>
+            <p class="inforVal">${data.maritalstatus}</p>
           </div>
             `
               : ""
@@ -1733,11 +1735,11 @@ const createPdfMarckup = function (data) {
               : ""
           }
           ${
-            data.maritalStatus
+            data.maritalstatus
               ? `<div class="information">
                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
 
-            <p class="inforVal">${data.maritalStatus}</p>
+            <p class="inforVal">${data.maritalstatus}</p>
           </div>
             `
               : ""
@@ -2020,9 +2022,9 @@ const createPdfMarckup = function (data) {
           }
 
           ${
-            data.maritalStatus
+            data.maritalstatus
               ? `<div class="information">
-              <p class="inforVal">${data.maritalStatus}</p>
+              <p class="inforVal">${data.maritalstatus}</p>
               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
 
           </div>
@@ -2364,11 +2366,11 @@ const createPdfMarckup = function (data) {
               : ""
           }
           ${
-            data.maritalStatus
+            data.maritalstatus
               ? `<div class="information">
                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
 
-            <p class="inforVal">${data.maritalStatus}</p>
+            <p class="inforVal">${data.maritalstatus}</p>
           </div>
             `
               : ""
@@ -2775,11 +2777,11 @@ const createPdfMarckup = function (data) {
             : ""
         }
         ${
-          data.maritalStatus
+          data.maritalstatus
             ? `<div class="information">
               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
 
-          <p class="inforVal">${data.maritalStatus}</p>
+          <p class="inforVal">${data.maritalstatus}</p>
         </div>
           `
             : ""
@@ -2969,14 +2971,9 @@ const init=async function(){
   let userData=JSON.parse(localStorage.getItem('user'));
 
    if(!userData)return;
+  //  console.log(userData)
 
-state.user.accesstoken=userData.accesstoken;
-state.user.email=userData.email;
-state.user.siteUserName=userData.siteUserName;
-state.user.userid =userData.userid;
-
-
-  if(state.user.isAdmin){
+   if(userData.isAdmin){
     document
       .querySelector(".logAndRegisContainer")
       .classList.add("hiddenClass");
@@ -2988,6 +2985,13 @@ state.user.userid =userData.userid;
   }
 
 
+state.user.accesstoken=userData.accesstoken;
+state.user.email=userData.email;
+state.user.siteUserName=userData.siteUserName;
+state.user.userid =userData.userid;
+
+
+ 
  
   let id = state.user.userid
   document.querySelector(".site-user-name").innerText =
@@ -3010,6 +3014,7 @@ state.user.userid =userData.userid;
     noResumeInfor.classList.add("hiddenClass");
 
     state.resumes.forEach((resume) => {
+      // console.log(resume)
       state.user.myResumes.push(createPdfMarckup(resume));
     });
     document
@@ -3052,29 +3057,38 @@ btnLogin.addEventListener("click", async function (e) {
     const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
-    if (!res.data.user.isVerified&&res.data.data!=="1") {
+   
+    if (res.data.data === "1"){
+      state.user.isAdmin=true;
+      let user={
+        isAdmin:state.user.isAdmin
+      }
+      localStorage.setItem('user', JSON.stringify(user))
+
+     return init();
+    }   
+    
+    state.user.accesstoken= state.user.token = res.data.accesstoken;
+    if (!state.user.accesstoken)
+    return (document.querySelector(
+      ".message2"
+    ).textContent = "User or password incorrect");
+     
+    let user={
+      email:res.data.user.email,
+      siteUserName:res.data.user.userName,
+      userid:res.data.user._id,
+      accesstoken:state.user.accesstoken
+    }
+   
+
+    if (!res.data.user.isVerified) {
       register(res.data.user);
       return (document.querySelector(
         ".message2"
       ).textContent = `Check your email for verification`);
     }
-    state.user.accesstoken= state.user.token = res.data.accesstoken;
-    
-    if (!state.user.accesstoken)
-    return (document.querySelector(
-      ".message2"
-    ).textContent = `${res.data.msg}`);
-
-    state.user.email=res.data.user.email;
-    state.user.siteUserName = res.data.user.userName;
-    state.user.userid = res.data.user._id;
-    if (res.data.data === "1") state.user.isAdmin=true;
-    const user={
-      email:state.user.email,
-      siteUserName:state.user.siteUserName,
-      userid:state.user.userid,
-      accesstoken:state.user.accesstoken
-    }
+   
     localStorage.setItem('user', JSON.stringify(user))
 
     init();

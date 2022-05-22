@@ -515,6 +515,12 @@ const useInitial = function (data) {
     .toString()
     .toUpperCase();
 };
+function capitalizeFirstLetter(string) {
+  const wordsInString = string.toLowerCase().split(' ')
+  const fixedString= wordsInString.map(stringVal=>stringVal.charAt(0).toUpperCase()+stringVal.slice(1)).join(" ")
+  return console.log(fixedString);
+}
+
 const createPdfMarckup = function (data) {
   let marckup = "";
 
@@ -524,7 +530,7 @@ const createPdfMarckup = function (data) {
      <div class="template rl template1 letter cover cover1" id="${data._id}">
   
   <div class="user-name-and-profession">
-    <h1 class="user-name">${data.fullName}</h1>
+    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
     <p class="profession">${data.profession}</p>
   </div>
   
@@ -602,7 +608,7 @@ const createPdfMarckup = function (data) {
   <div class="template rl template2 letter cover cover2" id="${data._id}">
   
   <div class="user-name-and-profession">
-    <h1 class="user-name">${data.fullName}</h1>
+    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
     <p class="profession">${data.profession}</p>
   </div>
   <div class="tiny-content">
@@ -727,7 +733,7 @@ const createPdfMarckup = function (data) {
   
   <div class="user-name-and-profession">
     <p class="profession">${data.profession}</p>
-    <h1 class="user-name">${data.fullName}</h1>
+    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
   </div>
   
   <div class="large-content">
@@ -802,7 +808,7 @@ const createPdfMarckup = function (data) {
             </div>
           </div>
   
-          <h1 class="user-name">${data.fullName}</h1>
+          <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
         </div>
       </div>
     </div>
@@ -878,6 +884,10 @@ const createPdfMarckup = function (data) {
       </div>
     </div>
   </div>
+  <div class="user-name-and-profession">
+  <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+  <p class="profession">${data.profession}</p>
+</div>
   <ul>
   <li>${data.receipient}</li>
   <li>${data.compenyname}</li>
@@ -904,7 +914,7 @@ const createPdfMarckup = function (data) {
   
   
   <div class="user-name-and-profession">
-    <h1 class="user-name">${data.fullName}</h1>
+    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
     <p class="profession">${data.profession}</p>
   </div>
   <div class="large-content">
@@ -980,7 +990,7 @@ const createPdfMarckup = function (data) {
     if (data.template.template === "resume1") {
       marckup = `<div id="${data._id}" class="template resume rl template1">
       <div class="user-name-and-profession">
-      <h1 class="user-name">${data.fullName}</h1>
+      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
          <p class="profession">${data.profession}</p>
        </div>
   
@@ -1306,7 +1316,7 @@ const createPdfMarckup = function (data) {
       marckup = `  <div id="${data._id}" class="template resume rl template2">
       
     <div class="user-name-and-profession">
-      <h1 class="user-name">${data.fullName}</h1>
+      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
       <p class="profession">${data.profession}</p>
     </div>
     <div class="tiny-content">
@@ -1642,7 +1652,7 @@ const createPdfMarckup = function (data) {
       </div>
       <div class="user-name-and-profession">
       <p class="profession">${data.profession}</p>
-         <h1 class="user-name">${data.fullName}</h1>
+         <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
        </div>
   
   
@@ -2043,7 +2053,7 @@ const createPdfMarckup = function (data) {
         </div>
   
         
-        <h1 class="user-name">${data.fullName}</h1>
+        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
         <p class="profession">${data.profession}</p>
       
       </div>
@@ -2468,7 +2478,7 @@ const createPdfMarckup = function (data) {
   
     <div class="large-content">
       <div class="user-name-and-profession">
-        <h1 class="user-name">${data.fullName}</h1>
+        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
         <p class="profession">${data.profession}</p>
       </div>
       ${
@@ -2581,7 +2591,7 @@ const createPdfMarckup = function (data) {
       marckup = `   <div id="${data._id}" class="template resume rl template6">
       
       <div class="user-name-and-profession">
-      <h1 class="user-name">${data.fullName}</h1>
+      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
       <p class="profession">${data.profession}</p>
     </div>
       <div class="large-content">

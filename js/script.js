@@ -7,6 +7,8 @@ const state = {
 
   searchResult: "",
   user: {
+    isAdmin:false,
+    accesstoken:'',
     initials: "",
     myTemplates: [],
     myResumes: [],
@@ -476,6 +478,7 @@ const generateMarckup = function (marckup) {
 };
 document.querySelector(".log-out").addEventListener("click", (e) => {
   e.preventDefault();
+  localStorage.clear();
   location.reload();
 });
 const deletUserAndResumes = async function (id) {
@@ -2962,6 +2965,75 @@ const getTheTemplates = function (data) {
     });
   });
 };
+const init=async function(){
+  let userData=JSON.parse(localStorage.getItem('user'));
+
+   if(!userData)return;
+
+state.user.accesstoken=userData.accesstoken;
+state.user.email=userData.email;
+state.user.siteUserName=userData.siteUserName;
+state.user.userid =userData.userid;
+
+
+  if(state.user.isAdmin){
+    document
+      .querySelector(".logAndRegisContainer")
+      .classList.add("hiddenClass");
+    document
+      .querySelector(".admin-dashboard")
+      .classList.remove("hiddenClass");
+    renderUserData();
+    return console.log("admin");
+  }
+
+
+ 
+  let id = state.user.userid
+  document.querySelector(".site-user-name").innerText =
+    state.user.siteUserName;
+
+  document
+    .querySelector(".logAndRegisContainer")
+    .classList.add("hiddenClass");
+
+  document.querySelector(".loaderContainer").classList.remove("hiddenClass");
+  const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
+
+  const templatesRes = await axios.post(
+    `https://app.cvstudio.io/resume/gettemplate/:${id}`
+  );
+  // console.log(resume, templatesRes);
+  userDashBoard.classList.remove("hiddenClass");
+  if (resume.data.cv) {
+    state.resumes.push(...resume.data.cv);
+    noResumeInfor.classList.add("hiddenClass");
+
+    state.resumes.forEach((resume) => {
+      state.user.myResumes.push(createPdfMarckup(resume));
+    });
+    document
+      .querySelector(".no-resume-infor-container")
+      .classList.add("hiddenClass");
+
+    state.user.myResumes.forEach((resume) =>
+      myResume.insertAdjacentHTML("beforeend", resume.toString())
+    );
+  }
+
+  if (templatesRes.data.templates.length !== 0) {
+    state.templates = templatesRes.data.templates;
+
+    getTheTemplates(state.templates);
+    noTemplateInor.classList.add("hiddenClass");
+  }
+
+  document.querySelector(".loaderContainer").classList.add("hiddenClass");
+
+
+
+}
+init();
 btnLogin.addEventListener("click", async function (e) {
   try {
     e.preventDefault();
@@ -2980,72 +3052,33 @@ btnLogin.addEventListener("click", async function (e) {
     const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
-
-    if (res.data.data === "1") {
-      document
-        .querySelector(".logAndRegisContainer")
-        .classList.add("hiddenClass");
-      document
-        .querySelector(".admin-dashboard")
-        .classList.remove("hiddenClass");
-      renderUserData();
-      return console.log("admin");
-    }
-
-    const accesstoken = (state.user.token = res.data.accesstoken);
-
-    if (!accesstoken)
-      return (document.querySelector(
-        ".message2"
-      ).textContent = `${res.data.msg}`);
-    if (!res.data.user.isVerified){
-
+    if (!res.data.user.isVerified&&res.data.data!=="1") {
       register(res.data.user);
       return (document.querySelector(
         ".message2"
       ).textContent = `Check your email for verification`);
-    } 
-    let id = (state.user.userid = res.data.user._id);
+    }
+    state.user.accesstoken= state.user.token = res.data.accesstoken;
+    
+    if (!state.user.accesstoken)
+    return (document.querySelector(
+      ".message2"
+    ).textContent = `${res.data.msg}`);
+
+    state.user.email=res.data.user.email;
     state.user.siteUserName = res.data.user.userName;
-    document.querySelector(".site-user-name").innerText =
-      state.user.siteUserName;
-
-    document
-      .querySelector(".logAndRegisContainer")
-      .classList.add("hiddenClass");
-
-    document.querySelector(".loaderContainer").classList.remove("hiddenClass");
-    const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
-
-    const templatesRes = await axios.post(
-      `https://app.cvstudio.io/resume/gettemplate/:${id}`
-    );
-    // console.log(resume, templatesRes);
-    userDashBoard.classList.remove("hiddenClass");
-    if (resume.data.cv) {
-      state.resumes.push(...resume.data.cv);
-      noResumeInfor.classList.add("hiddenClass");
-
-      state.resumes.forEach((resume) => {
-        state.user.myResumes.push(createPdfMarckup(resume));
-      });
-      document
-        .querySelector(".no-resume-infor-container")
-        .classList.add("hiddenClass");
-
-      state.user.myResumes.forEach((resume) =>
-        myResume.insertAdjacentHTML("beforeend", resume.toString())
-      );
+    state.user.userid = res.data.user._id;
+    if (res.data.data === "1") state.user.isAdmin=true;
+    const user={
+      email:state.user.email,
+      siteUserName:state.user.siteUserName,
+      userid:state.user.userid,
+      accesstoken:state.user.accesstoken
     }
+    localStorage.setItem('user', JSON.stringify(user))
 
-    if (templatesRes.data.templates.length !== 0) {
-      state.templates = templatesRes.data.templates;
+    init();
 
-      getTheTemplates(state.templates);
-      noTemplateInor.classList.add("hiddenClass");
-    }
-
-    document.querySelector(".loaderContainer").classList.add("hiddenClass");
   } catch (error) {
     console.log(error);
   }

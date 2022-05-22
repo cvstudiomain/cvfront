@@ -518,7 +518,7 @@ const useInitial = function (data) {
 function capitalizeFirstLetter(string) {
   const wordsInString = string.toLowerCase().split(' ')
   const fixedString= wordsInString.map(stringVal=>stringVal.charAt(0).toUpperCase()+stringVal.slice(1)).join(" ")
-  return console.log(fixedString);
+  return fixedString;
 }
 
 const createPdfMarckup = function (data) {

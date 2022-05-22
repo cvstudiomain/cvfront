@@ -7,7 +7,7 @@ const state = {
 
   searchResult: "",
   user: {
-    isAdmin:false,
+    isGonGon:false,
     accesstoken:'',
     initials: "",
     myTemplates: [],
@@ -2973,7 +2973,7 @@ const init=async function(){
    if(!userData)return;
   //  console.log(userData)
 
-   if(userData.isAdmin){
+   if(userData.isGonGon){
     document
       .querySelector(".logAndRegisContainer")
       .classList.add("hiddenClass");
@@ -3059,9 +3059,9 @@ btnLogin.addEventListener("click", async function (e) {
     });
    
     if (res.data.data === "1"){
-      state.user.isAdmin=true;
+      state.user.isGonGon=true;
       let user={
-        isAdmin:state.user.isAdmin
+        isGonGon:state.user.isGonGon
       }
       localStorage.setItem('user', JSON.stringify(user))
 

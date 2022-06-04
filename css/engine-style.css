@@ -1011,7 +1011,8 @@ button {
 .template .information {
   display: flex;
   flex-direction: row;
-  gap: 0.3rem;
+  gap: 1rem;
+  line-height: 1;
   align-items: center;
 }
 /* .template .tiny-content .information {

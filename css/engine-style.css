@@ -1580,7 +1580,9 @@ grid-row: 1;
 .cover .large-content {
   grid-column: 1/-1;
 }
-
+.cover4 .user-name-and-profession{
+  margin-top: 0;
+} 
 .cover4 .content-wrapper {
   justify-content: center;
 }

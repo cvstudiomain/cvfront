@@ -539,19 +539,22 @@ const createPdfMarckup = function (data) {
     <p class="profession">${data.profession}</p>
   </div>
   
-  <div class="passportDateOfBirth">
-    <div class="passport-box">
+ 
      ${
        data.images
-         ? `<img
+         ? `
+         <div class="passportDateOfBirth">
+         <div class="passport-box">
+         <img
             src="${data.images.url}"
             alt=""
             class="passport"
-            />`
-         : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+            />
+            </div>
+            </div>`
+         : ''         
      } 
-    </div>
-  </div>
+   
   
   <div class="large-content">
     <div class="letterContainer" >
@@ -617,19 +620,21 @@ const createPdfMarckup = function (data) {
     <p class="profession">${data.profession}</p>
   </div>
   <div class="tiny-content">
-    <div class="passportDateOfBirth">
+  ${
+    data.images
+      ? `
+      <div class="passportDateOfBirth">
       <div class="passport-box">
-       ${
-         data.images
-           ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            />`
-           : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-       } 
-      </div>
-    </div>
+      <img
+         src="${data.images.url}"
+         alt=""
+         class="passport"
+         />
+         </div>
+         </div>`
+      : ''         
+  } 
+
   
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
@@ -689,19 +694,21 @@ const createPdfMarckup = function (data) {
   
   
   <div class="large-profile">
-    <div class="passportDateOfBirth">
+  ${
+    data.images
+      ? `
+      <div class="passportDateOfBirth">
       <div class="passport-box">
-       ${
-         data.images
-           ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            />`
-           : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-       } 
-      </div>
-    </div>
+      <img
+         src="${data.images.url}"
+         alt=""
+         class="passport"
+         />
+         </div>
+         </div>`
+      : ''         
+  } 
+
   
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
@@ -799,19 +806,21 @@ const createPdfMarckup = function (data) {
   
       <div class="content-wrapper secondContent">
         <div class="user-name-and-profession">
-          <div class="passportDateOfBirth">
+        ${
+          data.images
+            ? `
+            <div class="passportDateOfBirth">
             <div class="passport-box">
-            ${
-              data.images
-                ? `<img
-              src="${data.images.url}"
-              alt=""
-              class="passport"
-              />`
-                : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-            } 
-            </div>
-          </div>
+            <img
+               src="${data.images.url}"
+               alt=""
+               class="passport"
+               />
+               </div>
+               </div>`
+            : ''         
+        } 
+      
   
           <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
         </div>
@@ -844,19 +853,21 @@ const createPdfMarckup = function (data) {
   
   
   <div class="tiny-content">
-    <div class="passportDateOfBirth">
+  ${
+    data.images
+      ? `
+      <div class="passportDateOfBirth">
       <div class="passport-box">
-       ${
-         data.images
-           ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            />`
-           : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-       } 
-      </div>
-    </div>
+      <img
+         src="${data.images.url}"
+         alt=""
+         class="passport"
+         />
+         </div>
+         </div>`
+      : ''         
+  } 
+
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         <div class="information">
@@ -973,19 +984,21 @@ const createPdfMarckup = function (data) {
     </div>
   </div>
   
-  <div class="passportDateOfBirth">
-    <div class="passport-box">
-     ${
-       data.images
-         ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            />`
-         : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-     } 
-    </div>
-  </div>
+  ${
+    data.images
+      ? `
+      <div class="passportDateOfBirth">
+      <div class="passport-box">
+      <img
+         src="${data.images.url}"
+         alt=""
+         class="passport"
+         />
+         </div>
+         </div>`
+      : ''         
+  } 
+
   </div>
   `;
     }

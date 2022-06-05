@@ -536,7 +536,12 @@ const createPdfMarckup = function (data) {
   
   <div class="user-name-and-profession">
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    <p class="profession">${data.profession}</p>
+    ${
+      data.profession?`
+      <p class="profession">${data.profession}</p>
+      `:''
+    }
+    
   </div>
   
  
@@ -617,7 +622,11 @@ const createPdfMarckup = function (data) {
   
   <div class="user-name-and-profession">
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    <p class="profession">${data.profession}</p>
+    ${
+      data.profession?`
+      <p class="profession">${data.profession}</p>
+      `:''
+    }
   </div>
   <div class="tiny-content">
   ${
@@ -744,7 +753,11 @@ const createPdfMarckup = function (data) {
   </div>
   
   <div class="user-name-and-profession">
+  ${
+    data.profession?`
     <p class="profession">${data.profession}</p>
+    `:''
+  }
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
   </div>
   
@@ -801,7 +814,11 @@ const createPdfMarckup = function (data) {
         /></p>
           <p class="inforVal">${data.address}</p>
         </div>
-        <p class="profession">${data.profession}</p>
+        ${
+          data.profession?`
+          <p class="profession">${data.profession}</p>
+          `:''
+        }
       </div>
   
       <div class="content-wrapper secondContent">
@@ -902,7 +919,11 @@ const createPdfMarckup = function (data) {
   </div>
   <div class="user-name-and-profession">
   <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-  <p class="profession">${data.profession}</p>
+  ${
+    data.profession?`
+    <p class="profession">${data.profession}</p>
+    `:''
+  }
 </div>
   <ul>
   <li>${data.receipient}</li>
@@ -931,7 +952,11 @@ const createPdfMarckup = function (data) {
   
   <div class="user-name-and-profession">
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    <p class="profession">${data.profession}</p>
+    ${
+      data.profession?`
+      <p class="profession">${data.profession}</p>
+      `:''
+    }
   </div>
   <div class="large-content">
     <div class="letterContainer" >

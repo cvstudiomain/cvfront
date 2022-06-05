@@ -1611,6 +1611,7 @@ grid-row: 1;
 }
 
 .cover3 .contact-information {
+  margin: 1.5rem;
   align-items: flex-end;
   width: 100%;
 }

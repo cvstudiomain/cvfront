@@ -564,10 +564,10 @@ const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        <li>${data.receipient}</li>
-        <li>${data.compenyname}</li>
-        <li>${data.streetaddress}</li>
-        <li>${data.city}, ${data.state}</li>
+        ${data.receipient?`<li>${data.receipient}</li>`:''}
+        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
+        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
+        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -582,7 +582,7 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
-        <div class="information">
+        ${data.email?`<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -590,8 +590,8 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>
-  
+        </div>`:''}
+      ${data.phoneNumber?`
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -599,9 +599,9 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>
+        </div>`:''}
        
-
+${data.address?`
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -609,7 +609,7 @@ const createPdfMarckup = function (data) {
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>
+        </div>`:''}
       </div>
     </div>
   </div>
@@ -648,7 +648,7 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
-        <div class="information">
+        ${data.email?`<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -656,8 +656,8 @@ const createPdfMarckup = function (data) {
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>
-  
+        </div>`:''}
+  ${data.phoneNumber?`
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -665,8 +665,8 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>
-  
+        </div>`:''}
+${data.address?`  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -674,7 +674,7 @@ const createPdfMarckup = function (data) {
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>
+        </div>`:''}
       </div>
     </div>
   </div>
@@ -682,10 +682,10 @@ const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        <li>${data.receipient}</li>
-        <li>${data.compenyname}</li>
-        <li>${data.streetaddress}</li>
-        <li>${data.city}, ${data.state}</li>
+        ${data.receipient?`<li>${data.receipient}</li>`:''}
+        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
+        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
+        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -721,7 +721,7 @@ const createPdfMarckup = function (data) {
   
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
-        <div class="information">
+        ${data.email?`<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -729,8 +729,8 @@ const createPdfMarckup = function (data) {
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>
-  
+        </div>`:''}
+  ${data.phoneNumber?`
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -738,8 +738,8 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>
-  
+        </div>`:''}
+${data.address?`  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -747,7 +747,7 @@ const createPdfMarckup = function (data) {
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>
+        </div>`:''}
       </div>
     </div>
   </div>
@@ -764,10 +764,10 @@ const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        <li>${data.receipient}</li>
-        <li>${data.compenyname}</li>
-        <li>${data.streetaddress}</li>
-        <li>${data.city}, ${data.state}</li>
+        ${data.receipient?`<li>${data.receipient}</li>`:''}
+        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
+        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
+        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -787,7 +787,7 @@ const createPdfMarckup = function (data) {
   <div class="contact-information informationContainer">
     <div class="contact-container">
       <div class="content-wrapper">
-        <div class="information">
+        ${data.email?`<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -795,8 +795,8 @@ const createPdfMarckup = function (data) {
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>
-  
+        </div>`:''}
+  ${data.phoneNumber?`
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -804,8 +804,8 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>
-  
+        </div>`:''}
+${data.address?`  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -813,7 +813,7 @@ const createPdfMarckup = function (data) {
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>
+        </div>`:''}
         ${
           data.profession?`
           <p class="profession">${data.profession}</p>
@@ -848,10 +848,10 @@ const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        <li>${data.receipient}</li>
-        <li>${data.compenyname}</li>
-        <li>${data.streetaddress}</li>
-        <li>${data.city}, ${data.state}</li>
+        ${data.receipient?`<li>${data.receipient}</li>`:''}
+        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
+        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
+        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -887,7 +887,7 @@ const createPdfMarckup = function (data) {
 
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
-        <div class="information">
+        ${data.email?`<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -895,8 +895,8 @@ const createPdfMarckup = function (data) {
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>
-  
+        </div>`:''}
+  ${data.phoneNumber?`
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -904,8 +904,8 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>
-  
+        </div>`:''}
+${data.address?`  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -913,7 +913,7 @@ const createPdfMarckup = function (data) {
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>
+        </div>`:''}
       </div>
     </div>
   </div>
@@ -926,10 +926,10 @@ const createPdfMarckup = function (data) {
   }
 </div>
   <ul>
-  <li>${data.receipient}</li>
-  <li>${data.compenyname}</li>
-  <li>${data.streetaddress}</li>
-  <li>${data.city}, ${data.state}</li>
+  ${data.receipient?`<li>${data.receipient}</li>`:''}
+  ${data.compenyname?`<li>${data.compenyname}</li>`:''}
+  ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
+  <li>${data.city?data.city+',':''} ${data.state?data.state:''}</li>
   <li>${new Date(data.date).toDateString()}</li>
   </ul>
   <div class="large-content">
@@ -961,10 +961,10 @@ const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        <li>${data.receipient}</li>
-        <li>${data.compenyname}</li>
-        <li>${data.streetaddress}</li>
-        <li>${data.city}, ${data.state}</li>
+        ${data.receipient?`<li>${data.receipient}</li>`:''}
+        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
+        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
+        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -978,7 +978,7 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
-        <div class="information">
+        ${data.email?`<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -986,8 +986,8 @@ const createPdfMarckup = function (data) {
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>
-  
+        </div>`:''}
+  ${data.phoneNumber?`
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -995,8 +995,8 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>
-  
+        </div>`:''}
+${data.address?`  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -1004,7 +1004,7 @@ const createPdfMarckup = function (data) {
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>
+        </div>`:''}
       </div>
     </div>
   </div>

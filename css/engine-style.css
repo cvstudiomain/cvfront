@@ -1583,6 +1583,7 @@ grid-row: 1;
 .cover .large-content {
   grid-column: 1/-1;
   padding: 0 3rem;
+  
 }
 .cover4 .user-name-and-profession{
   margin-top: 0;
@@ -1591,6 +1592,10 @@ grid-row: 1;
   justify-content: center;
 }
 .cover4 .profession{
+  background-color: #ffe7ef;
+    border-bottom-left-radius: 1px; 
+   border-top-right-radius: 1px;
+    color: black;
   margin-top: 1.5rem;
 }
 .cover5 {
@@ -1643,7 +1648,7 @@ grid-row: 1;
   box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
     4px 4px 5px 0px #0002;
 }
-
+.cover .large-content {color: black;}
 .no1 .related-infor {
   background-color: #2c3e50;
 }

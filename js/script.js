@@ -3147,7 +3147,7 @@ const register = async function (user) {
     ...user,
   });
 
-  if (!res.data.accesstoken) return (message2.textContent = `${res.data.msg}`);
+  if (!res.data.accesstoken) return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
   let mailSends=document.querySelector(".welcome-message");
   mailSends.style.opacity = "1";
     mailSends.style.left = "0";

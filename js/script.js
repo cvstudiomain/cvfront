@@ -3143,11 +3143,8 @@ document.querySelector('.goto-login').addEventListener('click',function(e){
     fromRegisterToLogin()
 })
 const register = async function (user) {
-  const res = await axios.post("https://app.cvstudio.io/user/register", {
-    ...user,
-  });
-
-  if (!res.data.accesstoken) return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
+  const res = await axios.post("https://app.cvstudio.io/user/register", {...user,});
+  if (!res.data.result.MessageId) return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
   let mailSends=document.querySelector(".welcome-message");
   mailSends.style.opacity = "1";
     mailSends.style.left = "0";

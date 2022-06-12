@@ -78,7 +78,8 @@ const formBtn = document.querySelector(".generateCv");
 const btnSaveLetter = document.querySelector(".btn-save-letter");
 const cvDataForm = document.querySelector(".cv-form");
 const cvFormContainer = document.querySelector(".cv-form-container");
-
+const loadOnLogBtn=document.querySelector(".loginBtnLodader")
+const loadOnSignUpBtn=document.querySelector(".signInBtnLodader")
 let userlist = document.querySelector(".user-list");
 const message2 = document.querySelector(".message1");
 let paginationBox = document.querySelector(".pagination");
@@ -3090,8 +3091,8 @@ btnLogin.addEventListener("click", async function (e) {
 
     state.user.email = email;
     state.user.password = password;
-
-    document.querySelector(".message2").textContent = `please wait...`;
+    loadOnLogBtn.classList.add("show-btn-loader")
+    document.querySelector(".message2").textContent = `Please Wait...`;
     const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
@@ -3107,10 +3108,12 @@ btnLogin.addEventListener("click", async function (e) {
     }   
     
     state.user.accesstoken= state.user.token = res.data.accesstoken;
-    if (!state.user.accesstoken)
-    return (document.querySelector(
-      ".message2"
-    ).textContent = "User or password incorrect");
+    if (!state.user.accesstoken){
+      document.querySelector(".message2"
+      ).textContent = "User or password incorrect";
+    loadOnLogBtn.classList.remove("show-btn-loader")
+    return console.log("settled")
+      }
      
     let user={
       email:res.data.user.email,
@@ -3122,9 +3125,12 @@ btnLogin.addEventListener("click", async function (e) {
 
     if (!res.data.user.isVerified) {
       register(res.data.user);
-      return (document.querySelector(
+      document.querySelector(
         ".message2"
-      ).textContent = `Check your email for verification`);
+        ).textContent = `Check your email for verification`;
+    loadOnLogBtn.classList.remove("show-btn-loader")
+
+        return console.log("settled")
     }
    
     localStorage.setItem('user', JSON.stringify(user))
@@ -3144,6 +3150,9 @@ document.querySelector('.goto-login').addEventListener('click',function(e){
 })
 const register = async function (user) {
   const res = await axios.post("https://app.cvstudio.io/user/register", {...user,});
+  loadOnLogBtn.classList.remove("show-btn-loader")
+  loadOnSignUpBtn.classList.remove("show-btn-loader")
+
   if (!res.data.result.MessageId) return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
   let mailSends=document.querySelector(".welcome-message");
   mailSends.style.opacity = "1";
@@ -3159,7 +3168,8 @@ btnSignup.addEventListener("click", async function (e) {
     const { password, confirmPassword } = formData;
     if (password !== confirmPassword)
       return (message2.innerText = "Password did not match");
-      message2.innerText = "Please wait...";
+      loadOnSignUpBtn.classList.add("show-btn-loader")
+      message2.innerText = "Please Wait...";
     state.user = formData;
     register(state.user);
   } catch (error) {

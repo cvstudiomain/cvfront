@@ -31,6 +31,7 @@ body {
 }
 
 .loader {
+
   width: 200px;
   aspect-ratio: 1;
   display: grid;
@@ -42,7 +43,7 @@ body {
   content: "";
   padding: 10%;
   --_g: no-repeat content-box radial-gradient(50% 50%, #000 95%, #0000);
-  background: var(--_g), var(--_g), var(--_g), var(--_g), #fff;
+  background: var(--_g), var(--_g), var(--_g), var(--_g), #ffe7ef;
   background-size: 20% 20%;
   filter: blur(5px) contrast(20);
   mix-blend-mode: lighten;
@@ -387,10 +388,7 @@ width: 800px;
   align-items: center;
   justify-content: center;
 }
-.loaderContainer{
-  background-color: #ffe7ef;
 
-}
 .logandregister {
   height: 546px;
 }
@@ -408,9 +406,9 @@ width: 800px;
 }
 .message1,
 .message2 {
-  margin-top: 16px;
-  color: #999;
-  font-size: 13px;
+  /* margin-top: 16px; */
+  color: #555;
+  /* font-size: 13px; */
   text-align: center;
 }
 
@@ -671,6 +669,48 @@ button {
   padding: 8px 16px;
   outline: none;
 }
+.login-signup-btn-container{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.load-on-btn{
+position: absolute;
+opacity: 0;
+visibility: none;
+transform: translateX(1000px);
+ width: 100%;
+ 
+background-color: #ff105f;
+
+}
+.show-btn-loader{
+  opacity: 1;
+visibility: visible;
+transform: translateX(0px);
+}
+.loder{ 
+  margin: auto;
+  background: #333;
+  border: 6px solid #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  animation: loding 1s linear infinite;
+  -webkit-animation: loding 1.0s linear infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes loding{
+  0%{
+    transform: scale(0);
+    
+  }
+  100%{
+    transform: scale(1);
+    opacity: 0
+
+  }
+}
 
 .txt-area-btn {
   color: #00bd00;
@@ -686,10 +726,10 @@ button {
 .btn-large {
   width: max-content;
   color: #fff;
-  background-color: #00bd00;
+  background-color: #ff105f;
 }
 .btn-large:hover {
-  background-color: #00d700;
+  background-color: #f0094a;
 }
 .use-this {
   font-weight: 500;

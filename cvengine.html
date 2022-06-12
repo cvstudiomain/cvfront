@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-   
-    src="https://unpkg.com/axios/dist/axios.min.js"
-  ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,14 +13,10 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
-    
-   
-    
-
 
     <link rel="icon" href="img/fav 180X180.png" />
     <link rel="apple-touch-icon" href="img/fav 64X64.png" />
-  
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
@@ -43,40 +36,51 @@
       defer
       src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
     ></script>
-    
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-   
-   
-    <title> Login/Register - CVStudio </title>
 
+    <title>Login/Register - CVStudio</title>
 
-<meta name="description" content="Start creating your dream resume and cover letter. CVStudio Login/Register">
+    <meta
+      name="description"
+      content="Start creating your dream resume and cover letter. CVStudio Login/Register"
+    />
 
+    <meta
+      name="keyword"
+      content="CVStudio Login, CVStudio Register, Free CVStudio Account, Resume builder account, Cover Letter Maker account, Free Online CV Creator Account"
+    />
+    <!-- Adsense ver> Adsense Code between -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238727259476219"
+      crossorigin="anonymous"
+    ></script>
 
-<meta name="keyword" content="CVStudio Login, CVStudio Register, Free CVStudio Account, Resume builder account, Cover Letter Maker account, Free Online CV Creator Account">
-<!-- Adsense ver> Adsense Code between -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238727259476219"
-     crossorigin="anonymous"></script>
+    <!-- Analytics Code -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BTF52L0SFX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-
-
-<!-- Analytics Code --> 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BTF52L0SFX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BTF52L0SFX');
-</script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-<script defer  src="js/script.js"></script>
+      gtag("config", "G-BTF52L0SFX");
+    </script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"
+    ></script>
+    <script defer src="js/script.js"></script>
   </head>
   <body>
-   
-<!-- <div class="updating-the-system "><h1>WE ARE UPDATING THE SYSTEM...</h1></div> -->
-    <div class="logAndRegisContainer ">
+    <!-- <div class="updating-the-system "><h1>WE ARE UPDATING THE SYSTEM...</h1></div> -->
+    <div class="logAndRegisContainer">
       <a href="index.html">
         <img
           class="cvengine-logo"
@@ -86,10 +90,9 @@
       </a>
 
       <div class="cv-form-log logandregister">
-        <div class="welcome-message ">
-     
-          <p >
-            Confirmation link was sent to your email, check your inbox or spam. 
+        <div class="welcome-message">
+          <p>
+            Confirmation link was sent to your email, check your inbox or spam.
             You can log in after confirmation is successful.
           </p>
           <button class="btn-large goto-login">Log in</button>
@@ -144,12 +147,18 @@
               required
             />
           </div>
+          <div class="login-signup-btn-container">
+            <div class="load-on-btn signInBtnLodader">
+              <div class="loder"></div>
+            </div>
+            
           <button class="btn-large btn-signup">sign up</button>
+          </div>
+          <p class="message message1"></p>
           <div>
             <p class="message">
               Already registered? <a href="#" class="to-login">Sign In</a>
             </p>
-            <p class="message message1"></p>
           </div>
         </form>
         <form class="form-style login login-section">
@@ -172,13 +181,19 @@
             placeholder="password"
             required
           />
-          <button class="btn-large btn-login">log in</button>
+          <div class="login-signup-btn-container">
+            <div class="load-on-btn loginBtnLodader">
+              <div class="loder"></div>
+            </div>
+            
+            <button class="btn-large btn-login">log in</button>
+          </div>
+          <p class="message message2"></p>
           <div>
             <p class="message">
               Not registered?
               <a href="#" class="to-register">Create an account</a>
             </p>
-            <p class="message message2"></p>
           </div>
         </form>
       </div>
@@ -187,10 +202,9 @@
     <div class="admin-dashboard hiddenClass">
       <div class="admin-side-bar">
         <header class="">
-         
           <h2>Dashboard</h2>
         </header>
-      
+
         <ul class="admin-nav-bar">
           <li class="admin-nav-element admin-visited" id="admin-user-table">
             Current users
@@ -203,8 +217,6 @@
         </ul>
       </div>
       <div class="users">
-       
-
         <div class="user-resources-container">
           <div class="users-resources-summary">
             <div class="number-of-registered">
@@ -231,12 +243,8 @@
             </div>
           </div>
           <div class="users-data-and-resource-container">
-            <div class="admin-user-resumes section-in-admin hideMe">
-             
-            </div>
-            <div class="admin-user-letters section-in-admin hideMe">
-              
-            </div>
+            <div class="admin-user-resumes section-in-admin hideMe"></div>
+            <div class="admin-user-letters section-in-admin hideMe"></div>
             <div
               class="users-table-and-pagination admin-user-table section-in-admin"
             >
@@ -256,13 +264,9 @@
       </div>
     </div>
 
-    
-    
-
     <div class="loaderContainer hiddenClass">
       <div class="loader"></div>
     </div>
-
 
     <form class="cover-letter-container">
       <button type="button" class="btnCloseView closeForm">
@@ -377,22 +381,21 @@
           </div> -->
           <div contenteditable="true" name="theletter" id="theletter">
             Dear [Ms.] [Miss] [Mr.] [Dr.] [Last Name],<br /><br />
-            I am writing today in application to the [Target Job Title]
-            position with [Target Company Name]. I am confident that my [Skill
-            1] and [Skill 2], as well as my experience in [Industry] make me
-            an excellent fit for this position.<br /><br />
-            As my attached resume outlines, I have [Number] years of
-            experience working in the [Industry] field. I have achieved
-            [accomplishment], with [describe results], and I am confident I
-            can achieve similar results for [Target Company Name]. I am
-            [Quality 1] and [Quality 2], attributes I know are important to
-            your organization. I am looking for an opportunity to [outline
-            goal], and develop [Skill 3] and [Skill 4], while offering
-            expertise in [Skill 5].<br /><br />
-            I greatly appreciate you taking the time to consider my
-            application. I look forward to the opportunity to speak with you
-            further regarding how I can contribute to the continued success of
-            [Target Company Name]. Thank you again.<br /><br />
+            I am writing today in application to the [Target Job Title] position
+            with [Target Company Name]. I am confident that my [Skill 1] and
+            [Skill 2], as well as my experience in [Industry] make me an
+            excellent fit for this position.<br /><br />
+            As my attached resume outlines, I have [Number] years of experience
+            working in the [Industry] field. I have achieved [accomplishment],
+            with [describe results], and I am confident I can achieve similar
+            results for [Target Company Name]. I am [Quality 1] and [Quality 2],
+            attributes I know are important to your organization. I am looking
+            for an opportunity to [outline goal], and develop [Skill 3] and
+            [Skill 4], while offering expertise in [Skill 5].<br /><br />
+            I greatly appreciate you taking the time to consider my application.
+            I look forward to the opportunity to speak with you further
+            regarding how I can contribute to the continued success of [Target
+            Company Name]. Thank you again.<br /><br />
             Regards, <br />
             [First Name] [Last Name] <br />
             [Phone Number]<br />
@@ -426,14 +429,8 @@
           </p>
           <div class="image-container">
             <div class="display_image2"></div>
-            <label id="image-input-label" for="image_inpu"
-              >Choose Image</label
-            >
-            <input
-              type="file"
-              id="image_input"
-              accept="image/png, image/jpg"
-            />
+            <label id="image-input-label" for="image_inpu">Choose Image</label>
+            <input type="file" id="image_input" accept="image/png, image/jpg" />
           </div>
           <div class="input-container">
             <input
@@ -463,7 +460,6 @@
               name="phoneNumber"
               placeholder="Enter phone number"
             />
-            
           </div>
           <div class="btn-box">
             <span class="btn-span" id="next1">next</span>
@@ -474,7 +470,6 @@
             <h2>Personal Data</h2>
           </div>
           <div class="input-container">
-        
             <input
               type="text"
               class="inputTypeText"
@@ -482,54 +477,49 @@
               value=""
               placeholder="Enter state"
             />
-                   
+
             <input
               type="text"
               class="inputTypeText"
               name="address"
               value=""
               placeholder="Enter address"
+            />
+            <div class="dateofbirth">
+              <label for="dateofbirth">Date of birth: </label>
+              <input
+                type="date"
+                class="dateofbirth"
+                name="dateofbirth"
+                value=""
+                placeholder="Date of birth"
               />
-              <div class="dateofbirth">
-                <label for="dateofbirth">Date of birth: </label>
-                <input
-                  type="date"
-                  class="dateofbirth"
-                  name="dateofbirth"
-                  value=""
-                  placeholder="Date of birth"
-                />
-              </div>
-              <div class="selectBox">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
-                
+            </div>
+            <div class="selectBox">
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender">
                 <option value="">Select</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
-               
-
-                
               </select>
             </div>
-              <div class="selectBox">
-                <label for="maritalstatus">Marital status:</label>
-                <select id="maritalstatus" name="maritalstatus">
-                
+            <div class="selectBox">
+              <label for="maritalstatus">Marital status:</label>
+              <select id="maritalstatus" name="maritalstatus">
                 <option value="">Select</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
                 <option value="Divorced">Divorced</option>
                 <option value="Widowed">Widowed</option>
-
-                
               </select>
             </div>
-              <div class="selectBox">
-                <label for="country">Country:</label>
-                <select id="country" name="country">
-                <option value="United States of America">United States of America</option>
+            <div class="selectBox">
+              <label for="country">Country:</label>
+              <select id="country" name="country">
+                <option value="United States of America">
+                  United States of America
+                </option>
                 <option value="Afganistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -613,9 +603,7 @@
                 <option value="France">France</option>
                 <option value="French Guiana">French Guiana</option>
                 <option value="French Polynesia">French Polynesia</option>
-                <option value="French Southern Ter">
-                  French Southern Ter
-                </option>
+                <option value="French Southern Ter">French Southern Ter</option>
                 <option value="Gabon">Gabon</option>
                 <option value="Gambia">Gambia</option>
                 <option value="Georgia">Georgia</option>
@@ -689,9 +677,7 @@
                 <option value="Nambia">Nambia</option>
                 <option value="Nauru">Nauru</option>
                 <option value="Nepal">Nepal</option>
-                <option value="Netherland Antilles">
-                  Netherland Antilles
-                </option>
+                <option value="Netherland Antilles">Netherland Antilles</option>
                 <option value="Netherlands">
                   Netherlands (Holland, Europe)
                 </option>
@@ -742,9 +728,7 @@
                 <option value="Samoa">Samoa</option>
                 <option value="Samoa American">Samoa American</option>
                 <option value="San Marino">San Marino</option>
-                <option value="Sao Tome & Principe">
-                  Sao Tome & Principe
-                </option>
+                <option value="Sao Tome & Principe">Sao Tome & Principe</option>
                 <option value="Saudi Arabia">Saudi Arabia</option>
                 <option value="Senegal">Senegal</option>
                 <option value="Seychelles">Seychelles</option>
@@ -1075,7 +1059,6 @@
       </div>
     </div>
     <div class="site-wrap userDashBoard hiddenClass header">
-   
       <nav class="site-nav">
         <div class="site-user-name">EL RUFAI</div>
         <ul class="site-menu">
@@ -1189,7 +1172,7 @@
                 alt="Resume Template"
               />
             </div>
-           
+
             <div class="resumeAndLetter rl resume resume6" id="resume6">
               <div class="s7">
                 <p>You have this in your list of templates</p>
@@ -1276,8 +1259,10 @@
               />
             </div>
           </div>
-          
-          <div class="myResumeInfor"><p>download by clicking on the template</p></div>
+
+          <div class="myResumeInfor">
+            <p>download by clicking on the template</p>
+          </div>
           <div class="myResume user-content-child">
             <div class="no-resume-infor-container">
               <p class="p16px no-resume-infor">
@@ -1298,7 +1283,10 @@
               <button class="get-one">Get one</button>
             </div>
 
-            <div class="resumeAndLetter resume resume1 hiddenClass" id="resume1">
+            <div
+              class="resumeAndLetter resume resume1 hiddenClass"
+              id="resume1"
+            >
               <button class="custom-btn btn-5">USE THIS</button>
 
               <img
@@ -1308,7 +1296,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter resume resume2 hiddenClass" id="resume2">
+            <div
+              class="resumeAndLetter resume resume2 hiddenClass"
+              id="resume2"
+            >
               <button class="custom-btn btn-5">Use this</button>
               <img
                 src="img/meals/template2.jpg"
@@ -1317,7 +1308,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter resume resume3 hiddenClass" id="resume3">
+            <div
+              class="resumeAndLetter resume resume3 hiddenClass"
+              id="resume3"
+            >
               <button class="custom-btn btn-5">Use this</button>
               <img
                 src="img/meals/template3.jpg"
@@ -1326,7 +1320,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter resume resume4 hiddenClass" id="resume4">
+            <div
+              class="resumeAndLetter resume resume4 hiddenClass"
+              id="resume4"
+            >
               <button class="custom-btn btn-5">Use this</button>
               <img
                 src="img/meals/template4.jpg"
@@ -1335,7 +1332,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter resume resume5 hiddenClass" id="resume5">
+            <div
+              class="resumeAndLetter resume resume5 hiddenClass"
+              id="resume5"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1345,7 +1345,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter resume resume6 hiddenClass" id="resume6">
+            <div
+              class="resumeAndLetter resume resume6 hiddenClass"
+              id="resume6"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1355,7 +1358,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter letter letter1 hiddenClass" id="letter1">
+            <div
+              class="resumeAndLetter letter letter1 hiddenClass"
+              id="letter1"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1365,7 +1371,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter letter letter2 hiddenClass" id="letter2">
+            <div
+              class="resumeAndLetter letter letter2 hiddenClass"
+              id="letter2"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1375,7 +1384,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter letter letter3 hiddenClass" id="letter3">
+            <div
+              class="resumeAndLetter letter letter3 hiddenClass"
+              id="letter3"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1385,7 +1397,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter letter letter4 hiddenClass" id="letter4">
+            <div
+              class="resumeAndLetter letter letter4 hiddenClass"
+              id="letter4"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1395,7 +1410,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter letter letter5 hiddenClass" id="letter5">
+            <div
+              class="resumeAndLetter letter letter5 hiddenClass"
+              id="letter5"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1405,7 +1423,10 @@
               />
             </div>
 
-            <div class="resumeAndLetter letter letter6 hiddenClass" id="letter6">
+            <div
+              class="resumeAndLetter letter letter6 hiddenClass"
+              id="letter6"
+            >
               <button class="custom-btn btn-5">use this</button>
 
               <img
@@ -1417,42 +1438,32 @@
           </div>
         </div>
       </main>
-     
     </div>
     <footer class="footer">
-     
-      
+      <div class="address-col">
+        <address class="contacts">
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="privacy-policy.html"
+                >Privacy policy
+              </a>
+            </li>
+            <li>
+              <a class="footer-link" href="terms-and-condition.html"
+                >Terms & Condition</a
+              >
+            </li>
+            <li>
+              <a class="footer-link" href="terms-of-use.html">Terms of use</a>
+            </li>
+          </ul>
+        </address>
+      </div>
 
-        <div class="address-col">
-
-          <address class="contacts">
-            <ul class="footer-nav">
-              <li>
-                <a class="footer-link" href="privacy-policy.html"
-                  >Privacy policy
-                </a>
-              </li>
-              <li>
-                <a class="footer-link" href="terms-and-condition.html"
-                  >Terms & Condition</a
-                >
-              </li>
-              <li>
-                <a class="footer-link" href="terms-of-use.html"
-                  >Terms of use</a
-                >
-              </li>
-            </ul>
-          </address>
-        </div>
-
-        <p class="copyright">
-          Copyright &copy; <span class="year">2022</span> by CvStudio, Inc. All
-          rights reserved.
-        </p>
-
-     
+      <p class="copyright">
+        Copyright &copy; <span class="year">2022</span> by CvStudio, Inc. All
+        rights reserved.
+      </p>
     </footer>
-    
   </body>
 </html>

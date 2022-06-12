@@ -27,7 +27,26 @@
   display: flex;
   align-items: center;
   gap: 4.8rem;
+  transition: 1s;
 }
+.template-nave-and-submenu{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.template-nave-and-submenu .main-nav-link-wrapper{
+display: flex;
+flex-direction: row;
+font-size: 1.8rem;
+font-weight: inherit;
+color: inherit;
+gap: 0.5rem;
+
+}
+
 
 .main-nav-link:link,
 .main-nav-link:visited {
@@ -38,7 +57,53 @@
   font-size: 1.8rem;
   transition: all 0.3s;
 }
+.sub-menu-content .main-nav-link:link,
+.sub-menu-content .main-nav-link:visited {
+  
+  font-weight: 500;
+  font-size: 1.5rem;
+  
+}
+.template-sub-menu {
+  top: 1.8rem;
+  
+  position: absolute;
+  padding-top: 1.2rem;
+  left: -2rem; 
+  transition: 1s;
+opacity: 0;
 
+/* 2) Make it unaccessible to mouse and keyboard */
+pointer-events: none;
+
+/* 3) Hide it from screen readers */
+visibility: hidden;
+}
+.sub-menu-content{
+  display: flex;
+  flex-direction: column;
+min-width: 24rem;
+gap: 2rem;
+padding: 2rem;
+  /* width: fit-content; */
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+
+}
+.sub-menu-show{
+  opacity: 1;
+
+  /* 2) Make it unaccessible to mouse and keyboard */
+  pointer-events: all;
+
+  /* 3) Hide it from screen readers */
+  visibility: visible;
+}
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #f0094a;
+}
 .main-nav-link:hover,
 .main-nav-link:active {
   color: #f0094a;
@@ -56,7 +121,6 @@
 .main-nav-link.nav-cta:active {
   background-color: #f0094a;
 }
-
 /* MOBILE */
 .btn-mobile-nav {
   border: none;
@@ -112,11 +176,42 @@
   gap: 9.6rem;
   align-items: center;
 }
+.templates-hero{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-.hero-description,.benefits,.steps-to-create p{
+.hero-description,.benefits,.templates-benefit-container,.steps-to-create p{
   font-size: 2rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
+}
+.templates-benefit-container {
+  border-radius: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3rem;
+  margin-bottom: 17rem;
+}
+.templates-benefit-container .template-benefit .information-header{
+  font-weight: 600;
+}
+.templates-benefit-container .template-benefit{
+  padding:3rem 2rem;
+  text-align: center;
+  display: flex;
+  border-radius: 2rem;
+  flex-direction: column;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  gap: 2rem;
+  width: 30rem;
+  background-color: #fff;
+}
+.templates-hero .hero-text-box {
+ 
+  text-align: center;
 }
 .logo-wrapper-splitter{
   width: 100%;
@@ -527,14 +622,23 @@
   /* background-color: #ff105f; */
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   border-radius: 11px;
+  background-image: linear-gradient(to right bottom,#ff105f,#eb984e);
 
-  background-image: linear-gradient(to right bottom, #eb984e, #ff105f);
   overflow: hidden;
 }
-
+.cta-second{
+  background-image: linear-gradient(to right bottom, #eb984e, #ff105f);
+}
+.template-cta-container .cta{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .cta-text-box {
   padding: 4.8rem 6.4rem 6.4rem 6.4rem;
   color: #45260a;
+text-align: center;
 }
 
 .cta .heading-secondary {
@@ -640,20 +744,21 @@ margin-bottom: 4rem;
 }
 
 
-button {
+.section-templates a {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1.5px;
   font-size: 16px;
-  
+  text-decoration: none;
   transition: 0.2s ease-out;
   cursor: pointer;
   border: none;
   padding: 8px 16px;
   outline: none;
 }
-.slide button {
+.slide a {
   font-weight: 500;
+  
   position: absolute;
   box-shadow: #ffff 0px 7px 29px 0px;
   color: #fff;

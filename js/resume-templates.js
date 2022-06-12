@@ -155,3 +155,13 @@ console.log(btnUseThis)
     
   });
 })
+const templateLink=document.querySelector(".template-link");
+const templateSupmenu=document.querySelector(".template-sub-menu")
+templateLink.addEventListener("mouseleave", function (e) {
+templateSupmenu.classList.remove("sub-menu-show")
+})
+
+templateLink.addEventListener("mouseenter", function (e) {
+
+templateSupmenu.classList.add("sub-menu-show")
+})

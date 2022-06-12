@@ -97,6 +97,14 @@ body {
   padding: 0 3.2rem;
   margin: 0 auto;
 }
+.template-cta-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  /* align-items: center; */
+  justify-content: center;
+  gap: 10rem;
+}
+
 .benefits-container{
   width: 100rem;
   text-align: center;

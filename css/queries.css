@@ -181,23 +181,62 @@
   .main-nav-link:visited {
     font-size: 3rem;
   }
+  .sub-menu-content .main-nav-link:link,
+  .sub-menu-content .main-nav-link:visited {
+    font-weight: 500;
+    font-size: 2.3rem;
+  }
+  .template-nave-and-submenu .main-nav-link-wrapper {
+    font-size: 3rem;
+  }
+  .template-nave-and-submenu {
+    
+    flex-direction: column;
+    text-align: center;
+  }
+ 
+  .template-sub-menu {
+    position: relative;
+    padding-top:1rem;
+    left: 0;
+
+    opacity: 1;
+
+    /* 2) Make it unaccessible to mouse and keyboard */
+    pointer-events: all;
+
+    /* 3) Hide it from screen readers */
+    visibility: visible;
+    display: none;
+  }
+  .sub-menu-show {
+    /* opacity: 1; */
+    display: flex;
+   
+  }
+ 
 }
-@media (max-width: 51.8em){
-  .benefits-container{
+@media (max-width: 51.8em) {
+  .templates-benefit-container {
+    width: fit-content;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .benefits-container {
     width: 100%;
-    padding:0 1.5rem;  }
-  .legal-main{
+    padding: 0 1.5rem;
+  }
+  .legal-main {
     width: 100%;
     margin: auto;
     overflow: hidden;
   }
-  .legal-section{
+  .legal-section {
     width: 100%;
   }
-  .legal-section .container{
+  .legal-section .container {
     width: 100%;
   }
-  .legal-body{
+  .legal-body {
     width: 100%;
     overflow: hidden;
   }
@@ -207,10 +246,16 @@
 /**************************/
 
 @media (max-width: 44em) {
-  .logo-wrapper{
+  .template-cta-container {
+    gap: 4rem;
+  }
+  .template-cta-container .cta .cta-text-box {
+    padding: 4rem;
+  }
+  .logo-wrapper {
     width: 14rem;
   }
-  .logo-wrapper img{
+  .logo-wrapper img {
     width: 7rem;
   }
   .grid--3-cols,
@@ -247,22 +292,35 @@
   }
 }
 
+@media (max-width: 36.375em) {
+  .template-cta-container .cta .cta-text-box {
+    padding: 3rem;
+  }
+}
 /**************************/
 /* BELOW 544px (Phones) */
 /**************************/
 
 @media (max-width: 34em) {
-  .logo-wrapper-splitter{
+  .template-cta-container {
+    grid-template-columns: 1fr;
+  }
+  .template-cta-container .cta .cta-text-box {
+    padding: 4.8rem 6.4rem 6.4rem;
+  }
+  .templates-benefit-container .template-benefit {
+    width: 100%;
+  }
+  .logo-wrapper-splitter {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
   }
- 
+
   .grid {
     row-gap: 4.8rem;
   }
-  .footer-logo img{
+  .footer-logo img {
     height: 2.2rem;
   }
   .grid--2-cols,
@@ -288,8 +346,6 @@
   .hero-img {
     width: 80%;
   }
-
-  
 
   .step-img-box:nth-child(2) {
     grid-row: 1;
@@ -325,7 +381,14 @@
     grid-row: 1;
   }
 }
-
+@media (max-width: 28.75em) {
+  .templates-benefit-container {
+    grid-template-columns: 1fr;
+  }
+  .templates-benefit-container .template-benefit {
+    width: 30rem;
+  }
+}
 /* 
 - Font sizes (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98

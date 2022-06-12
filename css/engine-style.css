@@ -21,12 +21,13 @@ body {
   font-weight: 400;
   color: #555;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: auto;
-  overflow-x: hidden;
+  /* overflow: auto; */
+  overflow: hidden;
   position: relative;
- 
+  background-color: #ffe7ef;
 }
 
 .loader {
@@ -35,6 +36,7 @@ body {
   display: grid;
   background: linear-gradient(135deg, #f0094a, #ff105f);
   clip-path: inset(10%);
+
 }
 .loader:before {
   content: "";
@@ -297,9 +299,10 @@ width: 800px;
 }
 
 .cv-form-log {
+ 
   width: 360px;
   height: 600px;
-  background: transparent;
+  background: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   font-size: 14px;
   position: relative;
@@ -383,6 +386,10 @@ width: 800px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.loaderContainer{
+  background-color: #ffe7ef;
+
 }
 .logandregister {
   height: 546px;
@@ -1675,6 +1682,47 @@ grid-row: 1;
 .no4 .template-header {
   border-bottom: 0.375rem solid #583e2e;
   border-top: 0.375rem solid #583e2e;
+}
+
+/* footer */
+.footer{
+  font-size: 14px;
+  width: 100%;
+  margin: 32px auto;
+ border-top: 0.5px solid #999;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  text-align: center;
+  justify-content: center;
+  gap: 16px;
+}
+.footer .address-col .footer-nav{
+display: flex;
+padding-top: 32px;
+flex-direction: row;
+gap: 16px;
+align-items: center;
+justify-content: center;
+list-style: none;
+}
+.footer-nav a:link{
+  color: inherit;
+
+}
+.footer-nav a:hover{
+  color: #999;
+
+}
+.cvengine-logo{
+  height: 32px;
+  margin-bottom: 32px;
+}
+
+.footer .copyright{
+  color: #999;
+
+font-size: 12px;
 }
 @media (max-width: 1130px) {
   #letterForm {

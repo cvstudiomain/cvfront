@@ -510,7 +510,9 @@ input[type="submit"] {
   margin: 8px;
   line-height: 1.6;
 }
-
+.welcome-message button{
+  border: 1px solid #ffe7ef;
+}
 .template .passport-box {
   text-align: center;
   display: flex;
@@ -1728,7 +1730,7 @@ grid-row: 1;
 .footer{
   font-size: 14px;
   width: 100%;
-  margin: 32px auto;
+  margin: 16px auto;
  border-top: 0.5px solid #999;
   display: flex;
   flex-direction: column;
@@ -1748,7 +1750,7 @@ list-style: none;
 }
 .footer-nav a:link{
   color: inherit;
-
+font-style: normal;
 }
 .footer-nav a:hover{
   color: #999;

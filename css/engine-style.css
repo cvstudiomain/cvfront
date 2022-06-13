@@ -1730,7 +1730,8 @@ grid-row: 1;
 .footer{
   font-size: 14px;
   width: 100%;
-  margin: 16px auto;
+  margin: auto;
+  margin-bottom: 16px;
  border-top: 0.5px solid #999;
   display: flex;
   flex-direction: column;

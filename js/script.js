@@ -158,13 +158,13 @@ resumesViewer.addEventListener("click", async function (e) {
   if (e.target.closest("button").classList.contains("btnCloseView")){
     userDashBoard.classList.remove('hiddenClass')
     userDashBoard.classList.remove('hiddenClass')
-    return resumesViewer.classList.remove("showIt");
+    return resumesViewer.classList.add("hiddenClass");
   }
   htmlParent.style.fontSize = "16px";
   let container = e.target.closest(".resumesViewer");
   let myCv = container.querySelector(".template");
 
-  resumesViewer.classList.remove("showIt");
+  resumesViewer.classList.add("hiddenClass");
   myResume.innerHTML = `<div class="loader"></div>`;
   userDashBoard.classList.remove('hiddenClass')
   var opt = {
@@ -184,7 +184,7 @@ resumesViewer.addEventListener("click", async function (e) {
     html2canvas: { scale: 2, useCORS: true },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
-  resumesViewer.classList.remove("showIt");
+  resumesViewer.classList.add("hiddenClass");
   await html2pdf().from(myCv).set(opt).save();
   htmlParent.style.fontSize = "6px";
   setTimeout(() => {
@@ -225,7 +225,7 @@ myResume.addEventListener("click", function (e) {
   <button type="button" class="btn downloadCv viewerBtn">Download</button>
  `
     );
-    resumesViewer.classList.add("showIt");
+    resumesViewer.classList.remove("hiddenClass");
 
     return;
   }
@@ -250,11 +250,11 @@ myResume.addEventListener("click", function (e) {
 
 document.querySelectorAll(".closeForm").forEach((btn) => {
   btn.addEventListener("click", function (e) {
-    cvFormContainer.classList.remove("showIt");
+    cvFormContainer.classList.add("hiddenClass");
     userDashBoard.classList.remove('hiddenClass')
     document
       .querySelector(".cover-letter-container")
-      .classList.remove("showIt");
+      .classList.add("hiddenClass");
   });
 });
 
@@ -383,8 +383,8 @@ const getCvOrLetter = async function (data) {
   state.resumes.forEach((resume) => {
     myResume.insertAdjacentHTML("afterbegin", createPdfMarckup(resume));
   });
-  cvFormContainer.classList.remove("showIt");
-  document.querySelector(".cover-letter-container").classList.remove("showIt");
+  cvFormContainer.classList.add("hiddenClass");
+  document.querySelector(".cover-letter-container").classList.add("hiddenClass");
 userDashBoard.classList.remove('hiddenClass')
 s6.style.left = "-450px";
   s1.style.left = "40px";
@@ -3320,12 +3320,12 @@ myTemplates.addEventListener("click", function (e) {
       // console.log(state.templateToUse);
       e.target.innerText="Use this..."
       if (state.templateToUse.type === "resume"){
-       cvFormContainer.classList.add("showIt");
+       cvFormContainer.classList.remove("hiddenClass");
          returnToTop(); 
 
       }
       if (state.templateToUse.type === "letter"){
-        document.querySelector(".cover-letter-container").classList.add("showIt");
+        document.querySelector(".cover-letter-container").classList.remove("hiddenClass");
          returnToTop()
 
 

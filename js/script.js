@@ -217,11 +217,12 @@ myResume.addEventListener("click", function (e) {
     resumesViewer.innerHTML = "";
     resumesViewer.insertAdjacentHTML(
       "afterbegin",
-      `${marckup}<button type="button" class="btnCloseView "> <i
+      `<button type="button" class="btnCloseView "> <i
     class="fa fa-times icon-mobile-nav viewerBtn"
     
     aria-hidden="true"
   ></i></button>
+  ${marckup}
   <button type="button" class="btn downloadCv viewerBtn">Download</button>
  `
     );
@@ -1147,7 +1148,7 @@ ${data.address?`
   
   
   ${
-    data.objective.length !== 0
+    data.objective.length
       ? `
   
   <div class="objective informationContainer">
@@ -2995,7 +2996,6 @@ const renderUserData = async function () {
 
   })
   state.allData.cvs.forEach(val=>{
-
     document.querySelector(".admin-user-resumes").insertAdjacentHTML('beforeend',createPdfMarckup(val))
   })
   document.querySelector(".current-letters").innerText = state.allData.letters.length;

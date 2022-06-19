@@ -346,17 +346,25 @@ const getCvOrLetter = async function (data) {
     let token = state.user.token;
     formData.append("file", state.user.file);
   
-    let res = await axios.post("https://app.cvstudio.io/upload/", formData, {
+    let res = await axios.post("https://app.cvstudio.io/upload/", {
       headers: {
-       
-        "Accept":"application/json, text/plain, /","Content-Type": "multipart/form-data",
-        Authorization: token,
+               "Accept":"application/json"
+        // Authorization: token,
       },
     });
-    return console.log(res)
+   let url=res.data.uploadUrl;
+    await fetch(url,{
+      "method":"PUT",
+      headers:{
+        "Content-Type":"multipart/form-data"
+      },
+      body:state.user.file
+    })
+   let imgUrl={url:url.split("?")[0]}
+    
     state.templateToUse.type === "resume"
-      ? (state.user.inputData.images = res.data)
-      : (state.user.coverLetter.images = res.data);
+      ? (state.user.inputData.images = imgUrl)
+      : (state.user.coverLetter.images = imgUrl);
   }
   const res = await axios.post("https://app.cvstudio.io/resume/create", {
     ...data,
@@ -3344,7 +3352,7 @@ const returnToTop=()=>{
 // })
 
 //  image_input2})
-[image_input].forEach(function (imageIn) {
+[image_input,image_input2].forEach(function (imageIn) {
   imageIn.addEventListener("change", async function (e) {
     e.preventDefault();
     try {

@@ -619,8 +619,8 @@ input[type="date"],
   position: absolute;
   line-height: 1.6;
   font-size: 12px;
-  /* color: #999; */
-  color: #f0094a;
+  color: #999;
+  /* color: #f0094a; */
 }
 #image-input-label {
   color: #00bd00;

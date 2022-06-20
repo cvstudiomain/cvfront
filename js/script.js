@@ -7,6 +7,7 @@ const state = {
 
   searchResult: "",
   user: {
+    trynow:'',
     isGonGon:false,
     accesstoken:'',
     initials: "",
@@ -181,7 +182,7 @@ resumesViewer.addEventListener("click", async function (e) {
 
     filename: "cv.pdf",
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: { scale: 2,useCORS: true},
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
   resumesViewer.classList.add("hiddenClass");
@@ -564,6 +565,8 @@ const createPdfMarckup = function (data) {
             src="${data.images.url}"
             alt=""
             class="passport"
+            
+            
             />
             </div>
             </div>`
@@ -648,6 +651,8 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         
+         
          />
          </div>
          </div>`
@@ -722,6 +727,8 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         
+         
          />
          </div>
          </div>`
@@ -842,6 +849,8 @@ ${data.address?`
                src="${data.images.url}"
                alt=""
                class="passport"
+               
+               
                />
                </div>
                </div>`
@@ -889,6 +898,8 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         
+         
          />
          </div>
          </div>`
@@ -1028,6 +1039,8 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         
+         
          />
          </div>
          </div>`
@@ -1055,6 +1068,8 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            
+            
             />`
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
@@ -1381,6 +1396,8 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            
+            
             />`
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
@@ -1680,6 +1697,8 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            
+            
             />`
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
@@ -2095,6 +2114,8 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            
+            
             />`
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
@@ -2332,6 +2353,8 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            
+            
             />`
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
@@ -2943,6 +2966,8 @@ ${data.address?`
           src="${data.images.url}"
           alt=""
           class="passport"
+          
+          
           />`
             : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
         } 
@@ -3363,12 +3388,13 @@ const returnToTop=()=>{
         file.type !== "image/jpg" &&
         file.type !== "image/png" &&
         file.type !== "image/jpeg"
-      )
+        )
         return alert("File type not supported");
-      state.user.file = file;
-
-      let reader = new FileReader();
-      reader.onloadend = function () {
+        
+        state.user.file = file;
+        let reader = new FileReader();
+        reader.onloadend = function () {
+       
         document
           .querySelectorAll(".display_image2")
           .forEach(

@@ -164,7 +164,7 @@ resumesViewer.addEventListener("click", async function (e) {
   htmlParent.style.fontSize = "16px";
   let container = e.target.closest(".resumesViewer");
   let myCv = container.querySelector(".template");
-
+      myCv.style.minHeight="100%"
   resumesViewer.classList.add("hiddenClass");
   myResume.innerHTML = `<div class="loader"></div>`;
   userDashBoard.classList.remove("hiddenClass");
@@ -187,6 +187,7 @@ resumesViewer.addEventListener("click", async function (e) {
   };
   resumesViewer.classList.add("hiddenClass");
   await html2pdf().from(myCv).set(opt).save();
+  myCv.style.minHeight="70.157rem"
   htmlParent.style.fontSize = "6px";
   setTimeout(() => {
     myResume.innerHTML = state.user.myResumes;

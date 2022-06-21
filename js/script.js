@@ -7,9 +7,9 @@ const state = {
 
   searchResult: "",
   user: {
-    trynow:'',
-    isGonGon:false,
-    accesstoken:'',
+    trynow: "",
+    isGonGon: false,
+    accesstoken: "",
     initials: "",
     myTemplates: [],
     myResumes: [],
@@ -79,8 +79,8 @@ const formBtn = document.querySelector(".generateCv");
 const btnSaveLetter = document.querySelector(".btn-save-letter");
 const cvDataForm = document.querySelector(".cv-form");
 const cvFormContainer = document.querySelector(".cv-form-container");
-const loadOnLogBtn=document.querySelector(".loginBtnLodader")
-const loadOnSignUpBtn=document.querySelector(".signInBtnLodader")
+const loadOnLogBtn = document.querySelector(".loginBtnLodader");
+const loadOnSignUpBtn = document.querySelector(".signInBtnLodader");
 let userlist = document.querySelector(".user-list");
 const message2 = document.querySelector(".message1");
 let paginationBox = document.querySelector(".pagination");
@@ -156,9 +156,9 @@ resumesViewer.addEventListener("click", async function (e) {
     behavior: "smooth",
   });
   // userDashBoard.classList.remove("hiddenClass");
-  if (e.target.closest("button").classList.contains("btnCloseView")){
-    userDashBoard.classList.remove('hiddenClass')
-    userDashBoard.classList.remove('hiddenClass')
+  if (e.target.closest("button").classList.contains("btnCloseView")) {
+    userDashBoard.classList.remove("hiddenClass");
+    userDashBoard.classList.remove("hiddenClass");
     return resumesViewer.classList.add("hiddenClass");
   }
   htmlParent.style.fontSize = "16px";
@@ -167,7 +167,7 @@ resumesViewer.addEventListener("click", async function (e) {
 
   resumesViewer.classList.add("hiddenClass");
   myResume.innerHTML = `<div class="loader"></div>`;
-  userDashBoard.classList.remove('hiddenClass')
+  userDashBoard.classList.remove("hiddenClass");
   var opt = {
     pagebreak: {
       avoid: [
@@ -182,7 +182,7 @@ resumesViewer.addEventListener("click", async function (e) {
 
     filename: "cv.pdf",
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2,useCORS: true},
+    html2canvas: { scale: 2, logging: true, letterRendering: 1, useCORS: true },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
   resumesViewer.classList.add("hiddenClass");
@@ -206,7 +206,7 @@ myResume.addEventListener("click", function (e) {
     behavior: "smooth",
   });
   if (e.target.closest(".template")) {
-    userDashBoard.classList.add('hiddenClass')
+    userDashBoard.classList.add("hiddenClass");
     let id = e.target.closest(".template").getAttribute("id");
     let marckupData = "";
     state.resumes.forEach((resume) =>
@@ -233,7 +233,7 @@ myResume.addEventListener("click", function (e) {
   }
 
   allUserContentChilds.forEach((child) => {
-    document.querySelector('.myResumeInfor').classList.add('hiddenClass')
+    document.querySelector(".myResumeInfor").classList.add("hiddenClass");
 
     if (!child.classList.contains("hiddenClass"))
       child.classList.add("hiddenClass");
@@ -253,7 +253,7 @@ myResume.addEventListener("click", function (e) {
 document.querySelectorAll(".closeForm").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     cvFormContainer.classList.add("hiddenClass");
-    userDashBoard.classList.remove('hiddenClass')
+    userDashBoard.classList.remove("hiddenClass");
     document
       .querySelector(".cover-letter-container")
       .classList.add("hiddenClass");
@@ -264,7 +264,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
-  document.querySelector('.myResumeInfor').classList.add('hiddenClass')
+  document.querySelector(".myResumeInfor").classList.add("hiddenClass");
 
   document
     .querySelector(".nav-tabs")
@@ -286,7 +286,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   });
   if (buttonId === "myResume") {
     state.section = "myResume";
-    document.querySelector('.myResumeInfor').classList.remove('hiddenClass')
+    document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
@@ -321,7 +321,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   }
 });
 btnSaveLetter.addEventListener("click", async function (e) {
-  this.innerText="please wait.."
+  this.innerText = "please wait..";
   let formData = Object.fromEntries(
     ...[new FormData(document.querySelector(".cover-letter-container"))]
   );
@@ -336,34 +336,32 @@ btnSaveLetter.addEventListener("click", async function (e) {
   state.user.coverLetter = coverLetter;
   // console.log(state.user.coverLetter)
   await getCvOrLetter(state.user.coverLetter);
-  this.innerText="Done"
+  this.innerText = "Done";
   state.templateToUse.type = "";
   state.templateToUse.template = "";
 });
 
 const getCvOrLetter = async function (data) {
-  // console.log(data.template);
   if (state.user.file) {
+    // console.log(state.user.file.type);
     let formData = new FormData();
     let token = state.user.token;
     formData.append("file", state.user.file);
-  
     let res = await axios.post("https://app.cvstudio.io/upload/", {
-      headers: {
-               "Accept":"application/json"
-        // Authorization: token,
-      },
+      imageType: state.user.file.type,
     });
-   let url=res.data.uploadUrl;
-    await fetch(url,{
-      "method":"PUT",
-      headers:{
-        "Content-Type":"multipart/form-data"
+    let url = res.data.uploadUrl;
+    await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "multipart/form-data",
       },
-      body:state.user.file
-    })
-   let imgUrl={url:url.split("?")[0]}
-    
+      body: state.user.file,
+    });
+    let imgUrl = { url: url.split("?")[0] };
+
+    // console.log(res.data.uploadUrl,url,imgUrl)
+
     state.templateToUse.type === "resume"
       ? (state.user.inputData.images = imgUrl)
       : (state.user.coverLetter.images = imgUrl);
@@ -386,21 +384,25 @@ const getCvOrLetter = async function (data) {
     myResume.insertAdjacentHTML("afterbegin", createPdfMarckup(resume));
   });
   cvFormContainer.classList.add("hiddenClass");
-  document.querySelector(".cover-letter-container").classList.add("hiddenClass");
-userDashBoard.classList.remove('hiddenClass')
-s6.style.left = "-450px";
+  document
+    .querySelector(".cover-letter-container")
+    .classList.add("hiddenClass");
+  userDashBoard.classList.remove("hiddenClass");
+  s6.style.left = "-450px";
   s1.style.left = "40px";
   progress.style.width = "60px";
   clearInput();
 };
-const clearInput=function(){
-  document.querySelectorAll('.inputTypeText').forEach(elem=>elem.value="")
-  document.querySelectorAll('textarea').forEach(elem=>elem.value="")
-}
+const clearInput = function () {
+  document
+    .querySelectorAll(".inputTypeText")
+    .forEach((elem) => (elem.value = ""));
+  document.querySelectorAll("textarea").forEach((elem) => (elem.value = ""));
+};
 formBtn.addEventListener("click", async function (e) {
   try {
     e.preventDefault();
-    this.innerText="Please wait..";
+    this.innerText = "Please wait..";
     [...new FormData(e.target.closest("form"))].filter(
       (val) => val[1] !== "" && state.user.summeryData.push(val)
     );
@@ -477,7 +479,7 @@ formBtn.addEventListener("click", async function (e) {
     };
 
     await getCvOrLetter(state.user.inputData);
-    this.innerText="Generate Cv"
+    this.innerText = "Generate Cv";
   } catch (error) {
     console.log(error);
   }
@@ -487,19 +489,18 @@ const generateMarckup = function (marckup) {
   myResume.innerHTML = "";
   myResume.insertAdjacentHTML("afterbegin", marckup);
 };
-document.querySelectorAll(".log-out").forEach(btn=>{
+document.querySelectorAll(".log-out").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.clear();
     location.reload();
   });
-})
+});
 const deletUserAndResumes = async function (id) {
   let confirmAction = confirm("Are you sure to execute this action?");
   if (!confirmAction) return;
   const res = await axios.delete(`https://app.cvstudio.io/user/delete/:${id}`);
   renderUserData();
-  
 };
 document.querySelector(".user-list").addEventListener("click", function (e) {
   const userInforRow = e.target.closest(".user-infor-row");
@@ -532,8 +533,10 @@ const useInitial = function (data) {
     .toUpperCase();
 };
 function capitalizeFirstLetter(string) {
-  const wordsInString = string.toLowerCase().split(' ')
-  const fixedString= wordsInString.map(stringVal=>stringVal.charAt(0).toUpperCase()+stringVal.slice(1)).join(" ")
+  const wordsInString = string.toLowerCase().split(" ");
+  const fixedString = wordsInString
+    .map((stringVal) => stringVal.charAt(0).toUpperCase() + stringVal.slice(1))
+    .join(" ");
   return fixedString;
 }
 
@@ -548,9 +551,11 @@ const createPdfMarckup = function (data) {
   <div class="user-name-and-profession">
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
     ${
-      data.profession?`
+      data.profession
+        ? `
       <p class="profession">${data.profession}</p>
-      `:''
+      `
+        : ""
     }
     
   </div>
@@ -565,22 +570,25 @@ const createPdfMarckup = function (data) {
             src="${data.images.url}"
             alt=""
             class="passport"
+            crossOrigin="anonymous" 
             
             
             />
             </div>
             </div>`
-         : ''         
+         : ""
      } 
    
   
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient?`<li>${data.receipient}</li>`:''}
-        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
-        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
-        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
+        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
+        <li>${data.city ? data.city + "," : ""} ${
+        data.state ? data.state : ""
+      }</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -595,7 +603,9 @@ const createPdfMarckup = function (data) {
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
-        ${data.email?`<div class="information">
+        ${
+          data.email
+            ? `<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -603,8 +613,12 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>`:''}
-      ${data.phoneNumber?`
+        </div>`
+            : ""
+        }
+      ${
+        data.phoneNumber
+          ? `
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -612,9 +626,13 @@ const createPdfMarckup = function (data) {
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>`:''}
+        </div>`
+          : ""
+      }
        
-${data.address?`
+${
+  data.address
+    ? `
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -622,7 +640,9 @@ ${data.address?`
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>`:''}
+        </div>`
+    : ""
+}
       </div>
     </div>
   </div>
@@ -636,9 +656,11 @@ ${data.address?`
   <div class="user-name-and-profession">
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
     ${
-      data.profession?`
+      data.profession
+        ? `
       <p class="profession">${data.profession}</p>
-      `:''
+      `
+        : ""
     }
   </div>
   <div class="tiny-content">
@@ -651,19 +673,22 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         crossOrigin="anonymous" 
          
          
          />
          </div>
          </div>`
-      : ''         
+      : ""
   } 
 
   
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
-        ${data.email?`<div class="information">
+        ${
+          data.email
+            ? `<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -671,8 +696,12 @@ ${data.address?`
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>`:''}
-  ${data.phoneNumber?`
+        </div>`
+            : ""
+        }
+  ${
+    data.phoneNumber
+      ? `
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -680,8 +709,12 @@ ${data.address?`
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>`:''}
-${data.address?`  
+        </div>`
+      : ""
+  }
+${
+  data.address
+    ? `  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -689,7 +722,9 @@ ${data.address?`
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>`:''}
+        </div>`
+    : ""
+}
       </div>
     </div>
   </div>
@@ -697,10 +732,12 @@ ${data.address?`
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient?`<li>${data.receipient}</li>`:''}
-        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
-        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
-        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
+        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
+        <li>${data.city ? data.city + "," : ""} ${
+        data.state ? data.state : ""
+      }</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -727,18 +764,21 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         crossOrigin="anonymous" 
          
          
          />
          </div>
          </div>`
-      : ''         
+      : ""
   } 
 
   
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
-        ${data.email?`<div class="information">
+        ${
+          data.email
+            ? `<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -746,8 +786,12 @@ ${data.address?`
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>`:''}
-  ${data.phoneNumber?`
+        </div>`
+            : ""
+        }
+  ${
+    data.phoneNumber
+      ? `
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -755,8 +799,12 @@ ${data.address?`
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>`:''}
-${data.address?`  
+        </div>`
+      : ""
+  }
+${
+  data.address
+    ? `  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -764,16 +812,20 @@ ${data.address?`
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>`:''}
+        </div>`
+    : ""
+}
       </div>
     </div>
   </div>
   
   <div class="user-name-and-profession">
   ${
-    data.profession?`
+    data.profession
+      ? `
     <p class="profession">${data.profession}</p>
-    `:''
+    `
+      : ""
   }
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
   </div>
@@ -781,10 +833,12 @@ ${data.address?`
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient?`<li>${data.receipient}</li>`:''}
-        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
-        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
-        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
+        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
+        <li>${data.city ? data.city + "," : ""} ${
+        data.state ? data.state : ""
+      }</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -804,7 +858,9 @@ ${data.address?`
   <div class="contact-information informationContainer">
     <div class="contact-container">
       <div class="content-wrapper">
-        ${data.email?`<div class="information">
+        ${
+          data.email
+            ? `<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -812,8 +868,12 @@ ${data.address?`
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>`:''}
-  ${data.phoneNumber?`
+        </div>`
+            : ""
+        }
+  ${
+    data.phoneNumber
+      ? `
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -821,8 +881,12 @@ ${data.address?`
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>`:''}
-${data.address?`  
+        </div>`
+      : ""
+  }
+${
+  data.address
+    ? `  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -830,11 +894,15 @@ ${data.address?`
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>`:''}
+        </div>`
+    : ""
+}
         ${
-          data.profession?`
+          data.profession
+            ? `
           <p class="profession">${data.profession}</p>
-          `:''
+          `
+            : ""
         }
       </div>
   
@@ -849,12 +917,13 @@ ${data.address?`
                src="${data.images.url}"
                alt=""
                class="passport"
+               crossOrigin="anonymous" 
                
                
                />
                </div>
                </div>`
-            : ''         
+            : ""
         } 
       
   
@@ -867,10 +936,12 @@ ${data.address?`
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient?`<li>${data.receipient}</li>`:''}
-        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
-        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
-        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
+        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
+        <li>${data.city ? data.city + "," : ""} ${
+        data.state ? data.state : ""
+      }</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -898,17 +969,20 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         crossOrigin="anonymous" 
          
          
          />
          </div>
          </div>`
-      : ''         
+      : ""
   } 
 
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
-        ${data.email?`<div class="information">
+        ${
+          data.email
+            ? `<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -916,8 +990,12 @@ ${data.address?`
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>`:''}
-  ${data.phoneNumber?`
+        </div>`
+            : ""
+        }
+  ${
+    data.phoneNumber
+      ? `
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -925,8 +1003,12 @@ ${data.address?`
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>`:''}
-${data.address?`  
+        </div>`
+      : ""
+  }
+${
+  data.address
+    ? `  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -934,23 +1016,27 @@ ${data.address?`
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>`:''}
+        </div>`
+    : ""
+}
       </div>
     </div>
   </div>
   <div class="user-name-and-profession">
   <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
   ${
-    data.profession?`
+    data.profession
+      ? `
     <p class="profession">${data.profession}</p>
-    `:''
+    `
+      : ""
   }
 </div>
   <ul>
-  ${data.receipient?`<li>${data.receipient}</li>`:''}
-  ${data.compenyname?`<li>${data.compenyname}</li>`:''}
-  ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
-  <li>${data.city?data.city+',':''} ${data.state?data.state:''}</li>
+  ${data.receipient ? `<li>${data.receipient}</li>` : ""}
+  ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
+  ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
+  <li>${data.city ? data.city + "," : ""} ${data.state ? data.state : ""}</li>
   <li>${new Date(data.date).toDateString()}</li>
   </ul>
   <div class="large-content">
@@ -974,18 +1060,22 @@ ${data.address?`
   <div class="user-name-and-profession">
     <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
     ${
-      data.profession?`
+      data.profession
+        ? `
       <p class="profession">${data.profession}</p>
-      `:''
+      `
+        : ""
     }
   </div>
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient?`<li>${data.receipient}</li>`:''}
-        ${data.compenyname?`<li>${data.compenyname}</li>`:''}
-        ${data.streetaddress?`<li>${data.streetaddress}</li>`:''}
-        <li>${data.city? data.city+',':''} ${data.state?data.state:''}</li>
+        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
+        <li>${data.city ? data.city + "," : ""} ${
+        data.state ? data.state : ""
+      }</li>
         <li>${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
@@ -999,7 +1089,9 @@ ${data.address?`
     <div class="contact-information informationContainer">
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
-        ${data.email?`<div class="information">
+        ${
+          data.email
+            ? `<div class="information">
           <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
       "
@@ -1007,8 +1099,12 @@ ${data.address?`
       class="email-logo"
       /></p>
           <p class="inforVal">${data.email}</p>
-        </div>`:''}
-  ${data.phoneNumber?`
+        </div>`
+            : ""
+        }
+  ${
+    data.phoneNumber
+      ? `
         <div class="information">
            <p class="inforLabel"><img
       src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
@@ -1016,8 +1112,12 @@ ${data.address?`
       class="logo"
       /></p>
           <p class="inforVal">${data.phoneNumber}</p>
-        </div>`:''}
-${data.address?`  
+        </div>`
+      : ""
+  }
+${
+  data.address
+    ? `  
         <div class="information">
            <p class="inforLabel"><img
         src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
@@ -1025,7 +1125,9 @@ ${data.address?`
         class="logo"
         /></p>
           <p class="inforVal">${data.address}</p>
-        </div>`:''}
+        </div>`
+    : ""
+}
       </div>
     </div>
   </div>
@@ -1039,12 +1141,13 @@ ${data.address?`
          src="${data.images.url}"
          alt=""
          class="passport"
+         crossOrigin="anonymous" 
          
          
          />
          </div>
          </div>`
-      : ''         
+      : ""
   } 
 
   </div>
@@ -1068,6 +1171,7 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            crossOrigin="anonymous" 
             
             
             />`
@@ -1098,8 +1202,8 @@ ${data.address?`
   
   
        ${
-        data.experiences.length !== 0
-          ? `
+         data.experiences.length !== 0
+           ? `
       <div class="recent-experience informationContainer">
       <h3 class="inforHeader">Experience</h3>${data.experiences
         .map((experience) => {
@@ -1107,23 +1211,34 @@ ${data.address?`
             Object.keys(experience).length !== 0
               ? `<div class="experience content-wrapper">
       <div class="start-and-end-date">
-      ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
-    
-    
-    }
+      ${
+        experience.experiencestarts
+          ? ` <p class="start">${experience.experiencestarts} to</p>`
+          : ""
+      }
        ${
-        experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+         experience.experienceends
+           ? ` <p class="end">${experience.experienceends}</p>`
+           : ""
        }  
          
         </div>
   
         ${
-          experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+          experience.jobTitle
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+            : ""
         }
        ${
-         experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+         experience.experience
+           ? ` <p class="experienceOptain">${experience.experience}</p>`
+           : ""
        }
-       ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+       ${
+         experience.orgAddress
+           ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+           : ""
+       }
        
       </div>`
               : ""
@@ -1131,8 +1246,8 @@ ${data.address?`
         })
         .join("")}      
       </div>`
-          : ""
-      }
+           : ""
+       }
      
   
   ${
@@ -1396,6 +1511,7 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            crossOrigin="anonymous" 
             
             
             />`
@@ -1608,8 +1724,8 @@ ${data.address?`
      }
   
      ${
-      data.experiences.length !== 0
-        ? `
+       data.experiences.length !== 0
+         ? `
     <div class="recent-experience informationContainer">
     <h3 class="inforHeader">Experience</h3>${data.experiences
       .map((experience) => {
@@ -1617,23 +1733,34 @@ ${data.address?`
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
-  
-  
-  }
+    ${
+      experience.experiencestarts
+        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        : ""
+    }
      ${
-      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+       experience.experienceends
+         ? ` <p class="end">${experience.experienceends}</p>`
+         : ""
      }  
        
       </div>
 
       ${
-        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+        experience.jobTitle
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          : ""
       }
      ${
-       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+       experience.experience
+         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         : ""
      }
-     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     ${
+       experience.orgAddress
+         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+         : ""
+     }
      
     </div>`
             : ""
@@ -1641,8 +1768,8 @@ ${data.address?`
       })
       .join("")}      
     </div>`
-        : ""
-    }
+         : ""
+     }
    
   
   ${
@@ -1697,6 +1824,7 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            crossOrigin="anonymous" 
             
             
             />`
@@ -1926,23 +2054,34 @@ ${data.address?`
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
-  
-  
-  }
+    ${
+      experience.experiencestarts
+        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        : ""
+    }
      ${
-      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+       experience.experienceends
+         ? ` <p class="end">${experience.experienceends}</p>`
+         : ""
      }  
        
       </div>
 
       ${
-        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+        experience.jobTitle
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          : ""
       }
      ${
-       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+       experience.experience
+         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         : ""
      }
-     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     ${
+       experience.orgAddress
+         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+         : ""
+     }
      
     </div>`
             : ""
@@ -2114,6 +2253,7 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            crossOrigin="anonymous" 
             
             
             />`
@@ -2267,23 +2407,34 @@ ${data.address?`
             Object.keys(experience).length !== 0
               ? `<div class="experience content-wrapper">
       <div class="start-and-end-date">
-      ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
-    
-    
-    }
+      ${
+        experience.experiencestarts
+          ? ` <p class="start">${experience.experiencestarts} to</p>`
+          : ""
+      }
        ${
-        experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+         experience.experienceends
+           ? ` <p class="end">${experience.experienceends}</p>`
+           : ""
        }  
          
         </div>
   
         ${
-          experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+          experience.jobTitle
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+            : ""
         }
        ${
-         experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+         experience.experience
+           ? ` <p class="experienceOptain">${experience.experience}</p>`
+           : ""
        }
-       ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+       ${
+         experience.orgAddress
+           ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+           : ""
+       }
        
       </div>`
               : ""
@@ -2353,6 +2504,7 @@ ${data.address?`
             src="${data.images.url}"
             alt=""
             class="passport"
+            crossOrigin="anonymous" 
             
             
             />`
@@ -2579,23 +2731,34 @@ ${data.address?`
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
-  
-  
-  }
+    ${
+      experience.experiencestarts
+        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        : ""
+    }
      ${
-      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+       experience.experienceends
+         ? ` <p class="end">${experience.experienceends}</p>`
+         : ""
      }  
        
       </div>
 
       ${
-        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+        experience.jobTitle
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          : ""
       }
      ${
-       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+       experience.experience
+         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         : ""
      }
-     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     ${
+       experience.orgAddress
+         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+         : ""
+     }
 
     </div>`
             : ""
@@ -2684,8 +2847,8 @@ ${data.address?`
       }
   
      ${
-      data.experiences.length !== 0
-        ? `
+       data.experiences.length !== 0
+         ? `
     <div class="recent-experience informationContainer">
     <h3 class="inforHeader">Experience</h3>${data.experiences
       .map((experience) => {
@@ -2693,23 +2856,34 @@ ${data.address?`
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
     <div class="start-and-end-date">
-    ${experience.experiencestarts? ` <p class="start">${experience.experiencestarts} to</p>`:''
-  
-  
-  }
+    ${
+      experience.experiencestarts
+        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        : ""
+    }
      ${
-      experience.experienceends? ` <p class="end">${experience.experienceends}</p>`:''
+       experience.experienceends
+         ? ` <p class="end">${experience.experienceends}</p>`
+         : ""
      }  
        
       </div>
 
       ${
-        experience.jobTitle?` <p class="jobtitle">${experience.jobTitle}</p>`:''
+        experience.jobTitle
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          : ""
       }
      ${
-       experience.experience?` <p class="experienceOptain">${experience.experience}</p>`:''
+       experience.experience
+         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         : ""
      }
-     ${experience.orgAddress?` <p class="organizationAndAddress">${experience.orgAddress}</p>`:''}
+     ${
+       experience.orgAddress
+         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+         : ""
+     }
      
     </div>`
             : ""
@@ -2717,8 +2891,8 @@ ${data.address?`
       })
       .join("")}      
     </div>`
-        : ""
-    }
+         : ""
+     }
    
   
     ${
@@ -2966,6 +3140,7 @@ ${data.address?`
           src="${data.images.url}"
           alt=""
           class="passport"
+          crossOrigin="anonymous" 
           
           
           />`
@@ -2988,9 +3163,11 @@ const getAndGenerateMarckup = function (listofuser) {
   const marckup = listofuser
     .map(
       (user) => `
-      <tr class="user-infor-row" id="${user._id}"><td ${user.isVerified?'class="verifiedTrue"':'class="verifiedFalse"'}>${
-        user.userName
-      }</td><td>${user.email}</td><td>${user.phone}</td><td>${new Date(
+      <tr class="user-infor-row" id="${user._id}"><td ${
+        user.isVerified ? 'class="verifiedTrue"' : 'class="verifiedFalse"'
+      }>${user.userName}</td><td>${user.email}</td><td>${
+        user.phone
+      }</td><td>${new Date(
         user.date
       ).toDateString()}</td><td><span class="btn-delete list-btn">delete</span><span class="list-btn btn-view">view</span></td></tr>`
     )
@@ -3002,29 +3179,34 @@ const getAndGenerateMarckup = function (listofuser) {
 const renderUserData = async function () {
   // console.log(state.user.email)
   const usersData = await axios.get("https://app.cvstudio.io/", {
-    ...state.user
+    ...state.user,
   });
-  console.log(usersData)
+  console.log(usersData);
   userlist.innerHTML = "";
   // userResums.innerHTML = "";
   // if (!userResums.classList.contains("hiddenClass"))
   //   userResums.classList.add("hiddenClass");
   state.page = 1;
   state.allData = usersData.data;
-// htmlParent.style.fontSize="3px"
+  // htmlParent.style.fontSize="3px"
   state.searchResult = getSearchResultPage(state.page);
 
   getAndGenerateMarckup(state.searchResult);
   generatePaginationMarkcup(state.allData.users);
-  state.allData.letters.forEach(val=>{
-    document.querySelector(".admin-user-letters").insertAdjacentHTML('beforeend',createPdfMarckup(val))
-
-  })
-  state.allData.cvs.forEach(val=>{
-    document.querySelector(".admin-user-resumes").insertAdjacentHTML('beforeend',createPdfMarckup(val))
-  })
-  document.querySelector(".current-letters").innerText = state.allData.letters.length;
-  document.querySelector(".current-users").innerText =    state.allData.users.length;
+  state.allData.letters.forEach((val) => {
+    document
+      .querySelector(".admin-user-letters")
+      .insertAdjacentHTML("beforeend", createPdfMarckup(val));
+  });
+  state.allData.cvs.forEach((val) => {
+    document
+      .querySelector(".admin-user-resumes")
+      .insertAdjacentHTML("beforeend", createPdfMarckup(val));
+  });
+  document.querySelector(".current-letters").innerText =
+    state.allData.letters.length;
+  document.querySelector(".current-users").innerText =
+    state.allData.users.length;
   document.querySelector(".current-cvs").innerText = state.allData.cvs.length;
 };
 const getTheTemplates = function (data) {
@@ -3039,39 +3221,30 @@ const getTheTemplates = function (data) {
     });
   });
 };
-const init=async function(){
-  let userData=JSON.parse(localStorage.getItem('user'));
+const init = async function () {
+  let userData = JSON.parse(localStorage.getItem("user"));
 
-   if(!userData)return;
+  if (!userData) return;
   //  console.log(userData)
 
-   if(userData.isGonGon){
+  if (userData.isGonGon) {
     document
       .querySelector(".logAndRegisContainer")
       .classList.add("hiddenClass");
-    document
-      .querySelector(".admin-dashboard")
-      .classList.remove("hiddenClass");
+    document.querySelector(".admin-dashboard").classList.remove("hiddenClass");
     renderUserData();
     return console.log("admin");
   }
 
+  state.user.accesstoken = userData.accesstoken;
+  state.user.email = userData.email;
+  state.user.siteUserName = userData.siteUserName;
+  state.user.userid = userData.userid;
 
-state.user.accesstoken=userData.accesstoken;
-state.user.email=userData.email;
-state.user.siteUserName=userData.siteUserName;
-state.user.userid =userData.userid;
+  let id = state.user.userid;
+  document.querySelector(".site-user-name").innerText = state.user.siteUserName;
 
-
- 
- 
-  let id = state.user.userid
-  document.querySelector(".site-user-name").innerText =
-    state.user.siteUserName;
-
-  document
-    .querySelector(".logAndRegisContainer")
-    .classList.add("hiddenClass");
+  document.querySelector(".logAndRegisContainer").classList.add("hiddenClass");
 
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");
   const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
@@ -3106,10 +3279,7 @@ state.user.userid =userData.userid;
   }
 
   document.querySelector(".loaderContainer").classList.add("hiddenClass");
-
-
-
-}
+};
 init();
 btnLogin.addEventListener("click", async function (e) {
   try {
@@ -3124,73 +3294,74 @@ btnLogin.addEventListener("click", async function (e) {
 
     state.user.email = email;
     state.user.password = password;
-    loadOnLogBtn.classList.add("show-btn-loader")
+    loadOnLogBtn.classList.add("show-btn-loader");
     document.querySelector(".message2").textContent = `Please Wait...`;
     const res = await axios.post("https://app.cvstudio.io/user/login", {
       ...state.user,
     });
-   
-    if (res.data.data === "1"){
-      state.user.isGonGon=true;
-      let user={
-        isGonGon:state.user.isGonGon
-      }
-      localStorage.setItem('user', JSON.stringify(user))
 
-     return init();
-    }   
-    
-    state.user.accesstoken= state.user.token = res.data.accesstoken;
-    if (!state.user.accesstoken){
-      document.querySelector(".message2"
-      ).textContent = "User or password incorrect";
-    loadOnLogBtn.classList.remove("show-btn-loader")
-    return console.log("settled")
-      }
-     
-    let user={
-      email:res.data.user.email,
-      siteUserName:res.data.user.userName,
-      userid:res.data.user._id,
-      accesstoken:state.user.accesstoken
+    if (res.data.data === "1") {
+      state.user.isGonGon = true;
+      let user = {
+        isGonGon: state.user.isGonGon,
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      return init();
     }
-   
+
+    state.user.accesstoken = state.user.token = res.data.accesstoken;
+    if (!state.user.accesstoken) {
+      document.querySelector(".message2").textContent =
+        "User or password incorrect";
+      loadOnLogBtn.classList.remove("show-btn-loader");
+      return console.log("settled");
+    }
+
+    let user = {
+      email: res.data.user.email,
+      siteUserName: res.data.user.userName,
+      userid: res.data.user._id,
+      accesstoken: state.user.accesstoken,
+    };
 
     if (!res.data.user.isVerified) {
       register(res.data.user);
       document.querySelector(
         ".message2"
-        ).textContent = `Check your email for verification`;
-    loadOnLogBtn.classList.remove("show-btn-loader")
+      ).textContent = `Check your email for verification`;
+      loadOnLogBtn.classList.remove("show-btn-loader");
 
-        return console.log("settled")
+      return console.log("settled");
     }
-   
-    localStorage.setItem('user', JSON.stringify(user))
+
+    localStorage.setItem("user", JSON.stringify(user));
 
     init();
-
   } catch (error) {
     console.log(error);
   }
 });
-document.querySelector('.goto-login').addEventListener('click',function(e){
-  let mailSends=document.querySelector(".welcome-message");
+document.querySelector(".goto-login").addEventListener("click", function (e) {
+  let mailSends = document.querySelector(".welcome-message");
   mailSends.style.opacity = "0";
-    mailSends.style.left = "1000px";
-    mailSends.style.zIndex = "999";
-    fromRegisterToLogin()
-})
+  mailSends.style.left = "1000px";
+  mailSends.style.zIndex = "999";
+  fromRegisterToLogin();
+});
 const register = async function (user) {
-  const res = await axios.post("https://app.cvstudio.io/user/register", {...user,});
-  loadOnLogBtn.classList.remove("show-btn-loader")
-  loadOnSignUpBtn.classList.remove("show-btn-loader")
-// return console.log(res)
-  if (!res.data.result.MessageId) return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
-  let mailSends=document.querySelector(".welcome-message");
+  const res = await axios.post("https://app.cvstudio.io/user/register", {
+    ...user,
+  });
+  loadOnLogBtn.classList.remove("show-btn-loader");
+  loadOnSignUpBtn.classList.remove("show-btn-loader");
+  // return console.log(res)
+  if (!res.data.result.MessageId)
+    return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
+  let mailSends = document.querySelector(".welcome-message");
   mailSends.style.opacity = "1";
-    mailSends.style.left = "0";
-    mailSends.style.zIndex = "999";
+  mailSends.style.left = "0";
+  mailSends.style.zIndex = "999";
 };
 btnSignup.addEventListener("click", async function (e) {
   e.preventDefault();
@@ -3201,8 +3372,8 @@ btnSignup.addEventListener("click", async function (e) {
     const { password, confirmPassword } = formData;
     if (password !== confirmPassword)
       return (message2.innerText = "Password did not match");
-      loadOnSignUpBtn.classList.add("show-btn-loader")
-      message2.innerText = "Please Wait...";
+    loadOnSignUpBtn.classList.add("show-btn-loader");
+    message2.innerText = "Please Wait...";
     state.user = formData;
     register(state.user);
   } catch (error) {
@@ -3224,10 +3395,10 @@ templates.addEventListener("click", async function (e) {
   let templateContainer = e.target.closest(".resumeAndLetter");
   state.user.template = templateContainer.getAttribute("id");
   // return console.log(state.user.template)
-  
-//   select this
-// Please wait...
-  e.target.innerText="Please wait..."
+
+  //   select this
+  // Please wait...
+  e.target.innerText = "Please wait...";
   const templateData = {
     userid: state.user.userid,
     template: state.user.template,
@@ -3236,7 +3407,7 @@ templates.addEventListener("click", async function (e) {
   const res = await axios.post("https://app.cvstudio.io/resume/savetemplate/", {
     templateData,
   });
-  e.target.innerText="Select this"
+  e.target.innerText = "Select this";
   if (res.data.msg) {
     let messageBox = templateContainer.querySelector(".s7");
     messageBox.style.opacity = "1";
@@ -3327,47 +3498,45 @@ myTemplates.addEventListener("click", function (e) {
   }
   if (e.target.closest(".resumeAndLetter")) {
     if (!e.target.closest(".rl")) return;
-    
-      
-    // console.log(templateBtn,'confirm')
-   if(e.target.classList.contains('custom-btn')) {
-     e.target.innerText="Please wait..."
-    document.querySelector('.myResumeInfor').classList.remove('hiddenClass')
 
-    
+    // console.log(templateBtn,'confirm')
+    if (e.target.classList.contains("custom-btn")) {
+      e.target.innerText = "Please wait...";
+      document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+
       state.templateToUse.type = "";
       state.templateToUse.template = "";
-      let thisTemplate= e.target.closest(".resumeAndLetter").getAttribute('id');
-      
-      state.templateToUse.template =thisTemplate
-      state.templateToUse.type =thisTemplate.slice(0,-1)
-       
+      let thisTemplate = e.target
+        .closest(".resumeAndLetter")
+        .getAttribute("id");
+
+      state.templateToUse.template = thisTemplate;
+      state.templateToUse.type = thisTemplate.slice(0, -1);
+
       // console.log(state.templateToUse);
-      e.target.innerText="Use this..."
-      if (state.templateToUse.type === "resume"){
-       cvFormContainer.classList.remove("hiddenClass");
-         returnToTop(); 
-
+      e.target.innerText = "Use this...";
+      if (state.templateToUse.type === "resume") {
+        cvFormContainer.classList.remove("hiddenClass");
+        returnToTop();
       }
-      if (state.templateToUse.type === "letter"){
-        document.querySelector(".cover-letter-container").classList.remove("hiddenClass");
-         returnToTop()
-
-
+      if (state.templateToUse.type === "letter") {
+        document
+          .querySelector(".cover-letter-container")
+          .classList.remove("hiddenClass");
+        returnToTop();
       }
     }
   }
 });
 
-
-const returnToTop=()=>{
-  userDashBoard.classList.add('hiddenClass')
+const returnToTop = () => {
+  userDashBoard.classList.add("hiddenClass");
 
   return window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
-}
+};
 // userTemplates = myTemplates.querySelectorAll(".template");
 // // userTemplatesButtons.forEach((btn) => console.log(btn));
 // userTemplates.forEach(ut=>{
@@ -3377,7 +3546,7 @@ const returnToTop=()=>{
 // })
 
 //  image_input2})
-[image_input,image_input2].forEach(function (imageIn) {
+[image_input, image_input2].forEach(function (imageIn) {
   imageIn.addEventListener("change", async function (e) {
     e.preventDefault();
     try {
@@ -3388,13 +3557,12 @@ const returnToTop=()=>{
         file.type !== "image/jpg" &&
         file.type !== "image/png" &&
         file.type !== "image/jpeg"
-        )
+      )
         return alert("File type not supported");
-        
-        state.user.file = file;
-        let reader = new FileReader();
-        reader.onloadend = function () {
-       
+
+      state.user.file = file;
+      let reader = new FileReader();
+      reader.onloadend = function () {
         document
           .querySelectorAll(".display_image2")
           .forEach(
@@ -3485,13 +3653,13 @@ toRegister.addEventListener("click", (e) => {
   document.querySelector(".register-section").style.left = "40px";
   document.querySelector(".login-section").style.left = "450px";
 });
-const fromRegisterToLogin=function(){
+const fromRegisterToLogin = function () {
   document.querySelector(".register-section").style.left = "450px";
   document.querySelector(".login-section").style.left = "40px";
-}
+};
 toLogin.addEventListener("click", (e) => {
   e.preventDefault();
- fromRegisterToLogin()
+  fromRegisterToLogin();
 });
 
 btnNext1.addEventListener("click", (e) => {

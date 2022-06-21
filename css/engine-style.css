@@ -986,7 +986,7 @@ transform: translateX(0px);
   align-items: start;
   gap: 1rem;
   min-height: 70.157rem;
-
+  
   background: white;
   transition: 1s;
   position: relative;
@@ -1072,6 +1072,7 @@ transform: translateX(0px);
   margin-bottom: 1.5rem;
 }
 .template ul {
+  text-align: justify;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -1108,6 +1109,7 @@ color: inherit;
   flex-direction: column;
   width: 100%;
   min-width: 100%;
+  text-align: justify;
   gap: 1rem;
   padding: 1rem;
 }

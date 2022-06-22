@@ -1279,7 +1279,7 @@ ${
   
   
   ${
-    data.objective.length
+    data.objective
       ? `
   
   <div class="objective informationContainer">

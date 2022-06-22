@@ -3193,13 +3193,13 @@ const renderUserData = async function () {
   state.searchResult = getSearchResultPage(state.page);
 
   getAndGenerateMarckup(state.searchResult);
-  generatePaginationMarkcup(state.allData.users);
-  state.allData.letters.forEach((val) => {
+  generatePaginationMarkcup(state.allData.users.reverse());
+  state.allData.letters.reverse().forEach((val) => {
     document
       .querySelector(".admin-user-letters")
       .insertAdjacentHTML("beforeend", createPdfMarckup(val));
   });
-  state.allData.cvs.forEach((val) => {
+  state.allData.cvs.reverse().forEach((val) => {
     document
       .querySelector(".admin-user-resumes")
       .insertAdjacentHTML("beforeend", createPdfMarckup(val));

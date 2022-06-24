@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -1059,32 +1057,63 @@
       </div>
     </div>
     <div class="site-wrap userDashBoard hiddenClass header">
+      <header class="site-wrap-header">
+        <a href="index.html">
+          <img
+            class="logo"
+            alt="cvstudio logo"
+            src="img/cvstudio logo 0001.png"
+          />
+        </a>
+
+       
+        <button class="btn-mobile-nav">
+          <i
+            class="fa fa-bars icon-mobile-nav"
+            name="menu-outline"
+            aria-hidden="true"
+          ></i>
+          <i
+            class="fa fa-times icon-mobile-nav"
+            name="close-outline"
+            aria-hidden="true"
+          ></i>
+        </button>
+        
+      </header>
+      <div class="user-body">
       <nav class="site-nav">
-        <div class="site-user-name">EL RUFAI</div>
+        <div class="site-user-name-container">
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <span class="site-user-name">EL RUFAI</span>
+        </div>
         <ul class="site-menu">
           <li id="myResume" class="user-site-button active">
-            <a href="#0">My resumes and letters</a>
+            <i class="fa fa-book" aria-hidden="true"></i> <a href="#0">My resumes and letters</a>
           </li>
           <li id="myTemplates" class="user-site-button">
-            <a href="#0">My templates</a>
+            <i class="fa fa-user-circle" aria-hidden="true"></i><a href="#0">My templates</a>
           </li>
           <li id="templates" class="user-site-button">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
             <a href="#0">Templates</a>
           </li>
           <li id="myProfile" class="user-site-button">
+            <i class="fa fa-user" aria-hidden="true"></i>
             <a href="#0">My profile</a>
           </li>
-          <li id="mySite" class="user-site-button"><a href="#0">My site</a></li>
-          <li class="log-out" id="logout"><a href="#0">Log out</a></li>
+          <li id="mySite" class="user-site-button">
+            <i class="fa fa-briefcase" aria-hidden="true"></i>
+            <a href="#0">My portfolios</a></li>
+            <!-- <li id="myGallary" class="user-site-button">
+              <i class="fa fa-file-image-o" aria-hidden="true"></i>
+              <a href="#0">My gallary</a></li> -->
+            <li id="notifications" class="user-site-button">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+              <a href="#0">Notifications</a></li>
+          <!-- <li class="log-out" id="logout"><a href="#0">Log out</a></li> -->
         </ul>
-        <div class="note">
-          <p>
-            A CV is a broad overview of your educational and career history. It
-            can list most or all of the relevant professional skills and
-            experience that apply to your current job search. The cover letter
-            should focus specifically on the job you are applying for....
-          </p>
-        </div>
+        
       </nav>
 
       <main class="user-main">
@@ -1096,20 +1125,10 @@
             <a href="#0" class="tab tab-resumes"> Resumes </a>
             <a href="#0" class="tab tab-cl"> Cover letters </a>
           </nav>
-          <button class="btn-mobile-nav">
-            <i
-              class="fa fa-bars icon-mobile-nav"
-              name="menu-outline"
-              aria-hidden="true"
-            ></i>
-            <i
-              class="fa fa-times icon-mobile-nav"
-              name="close-outline"
-              aria-hidden="true"
-            ></i>
-          </button>
+          
         </header>
-
+        <!-- <div class="user-add1"><p>Ads</p> </div> -->
+        <div class="content-columns-container">
         <div class="content-columns">
           <div class="templates hiddenClass user-content-child">
             <div class="resumeAndLetter rl resume resume1" id="resume1">
@@ -1260,9 +1279,7 @@
             </div>
           </div>
 
-          <div class="myResumeInfor">
-            <p>download by clicking on the template</p>
-          </div>
+ 
           <div class="myResume user-content-child">
             <div class="no-resume-infor-container">
               <p class="p16px no-resume-infor">
@@ -1437,7 +1454,14 @@
             </div>
           </div>
         </div>
+        <!-- <div class="ads-container">
+        <div class="user-add1"><p>Ads</p> </div>
+        <div class="user-add1"><p>Ads</p> </div>
+
+        </div> -->
+      </div>
       </main>
+    </div>
     </div>
     <footer class="footer">
       <div class="address-col">

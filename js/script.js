@@ -159,6 +159,7 @@ resumesViewer.addEventListener("click", async function (e) {
   if (e.target.closest("button").classList.contains("btnCloseView")) {
     userDashBoard.classList.remove("hiddenClass");
     userDashBoard.classList.remove("hiddenClass");
+    htmlParent.style.fontSize="2px"
     return resumesViewer.classList.add("hiddenClass");
   }
   htmlParent.style.fontSize = "16px";
@@ -188,7 +189,7 @@ resumesViewer.addEventListener("click", async function (e) {
   resumesViewer.classList.add("hiddenClass");
   await html2pdf().from(myCv).set(opt).save();
   myCv.style.minHeight="70.157rem"
-  htmlParent.style.fontSize = "6px";
+  htmlParent.style.fontSize = "2px";
   setTimeout(() => {
     myResume.innerHTML = state.user.myResumes;
   }, 3000);
@@ -215,7 +216,7 @@ myResume.addEventListener("click", function (e) {
     );
 
     let marckup = createPdfMarckup(marckupData);
-
+      htmlParent.style.fontSize="6px"
     resumesViewer.innerHTML = "";
     resumesViewer.insertAdjacentHTML(
       "afterbegin",
@@ -265,7 +266,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
-  document.querySelector(".myResumeInfor").classList.add("hiddenClass");
+  // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
 
   document
     .querySelector(".nav-tabs")
@@ -287,14 +288,14 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   });
   if (buttonId === "myResume") {
     state.section = "myResume";
-    document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+    // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
-    if (state.resumes.length !== 0) {
-      let marckup = state.resumes.map((resume) => createPdfMarckup(resume));
-      generateMarckup(marckup);
-    }
+    // if (state.resumes.length !== 0) {
+    //   let marckup = state.resumes.map((resume) => createPdfMarckup(resume));
+    //   generateMarckup(marckup);
+    // }
     templates.classList.add("hiddenClass");
   }
 
@@ -316,6 +317,11 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "mySite") {
+    targetElement.classList.add("active");
+    sectionName.innerText = sectionText;
+    document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
+  }
+  if (buttonId === "notifications") {
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");

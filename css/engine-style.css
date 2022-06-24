@@ -1088,11 +1088,10 @@ grid-template-columns: 1fr 1fr 1fr;
 }
 .resumeAndLetter,
 .template {
-  overflow:hidden;
-  
-  max-width: 70.157rem;
-  min-width: 70.157rem;
-  height: 100rem;
+  overflow: visible;
+  overflow-x: hidden;
+  max-width: 49.6rem;
+  min-width: 49.6rem;
   line-height: 1.6;
   display: grid;
   font-size: 1rem;
@@ -1100,7 +1099,8 @@ grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
   gap: 1rem;
   min-height: 70.157rem;
-  
+  height: auto;
+
   background: white;
   transition: 1s;
   position: relative;

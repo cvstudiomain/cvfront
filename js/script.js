@@ -165,7 +165,8 @@ resumesViewer.addEventListener("click", async function (e) {
   htmlParent.style.fontSize = "16px";
   let container = e.target.closest(".resumesViewer");
   let myCv = container.querySelector(".template");
-      myCv.style.minHeight="100%"
+      // myCv.style.minHeight="100%";
+      // myCv.style.width="100%";
   resumesViewer.classList.add("hiddenClass");
   myResume.innerHTML = `<div class="loader"></div>`;
   userDashBoard.classList.remove("hiddenClass");
@@ -216,7 +217,7 @@ myResume.addEventListener("click", function (e) {
     );
 
     let marckup = createPdfMarckup(marckupData);
-      htmlParent.style.fontSize="6px"
+      htmlParent.style.fontSize="5px"
     resumesViewer.innerHTML = "";
     resumesViewer.insertAdjacentHTML(
       "afterbegin",

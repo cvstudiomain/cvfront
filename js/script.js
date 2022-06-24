@@ -236,7 +236,7 @@ myResume.addEventListener("click", function (e) {
   }
 
   allUserContentChilds.forEach((child) => {
-    document.querySelector(".myResumeInfor").classList.add("hiddenClass");
+    // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
 
     if (!child.classList.contains("hiddenClass"))
       child.classList.add("hiddenClass");
@@ -3510,7 +3510,7 @@ myTemplates.addEventListener("click", function (e) {
     // console.log(templateBtn,'confirm')
     if (e.target.classList.contains("custom-btn")) {
       e.target.innerText = "Please wait...";
-      document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+      // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
 
       state.templateToUse.type = "";
       state.templateToUse.template = "";

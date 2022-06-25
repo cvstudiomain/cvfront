@@ -321,7 +321,7 @@ padding: 2rem;
   line-height: 1.8;
 }
 
-.step-img-box,.how-it-work-ads {
+.step-img-box{
   position: relative;
 
   display: flex;

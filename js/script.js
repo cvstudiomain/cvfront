@@ -1,4 +1,5 @@
 const state = {
+  fontSize:"",
   templateToUse: { type: "", template: "" },
   section: "myResume",
   templates: [],
@@ -155,13 +156,18 @@ resumesViewer.addEventListener("click", async function (e) {
     top: 0,
     behavior: "smooth",
   });
+
+
   // userDashBoard.classList.remove("hiddenClass");
   if (e.target.closest("button").classList.contains("btnCloseView")) {
     userDashBoard.classList.remove("hiddenClass");
     userDashBoard.classList.remove("hiddenClass");
-    htmlParent.style.fontSize="2px"
+  
+    htmlParent.style.fontSize = state.fontSize;
     return resumesViewer.classList.add("hiddenClass");
   }
+ 
+
   htmlParent.style.fontSize = "16px";
   let container = e.target.closest(".resumesViewer");
   let myCv = container.querySelector(".template");
@@ -190,8 +196,10 @@ resumesViewer.addEventListener("click", async function (e) {
   resumesViewer.classList.add("hiddenClass");
   await html2pdf().from(myCv).set(opt).save();
   myCv.style.minHeight="70.157rem"
-  htmlParent.style.fontSize = "2px";
+  htmlParent.style.fontSize = state.fontSize
+
   setTimeout(() => {
+    
     myResume.innerHTML = state.user.myResumes;
   }, 3000);
 });
@@ -217,6 +225,9 @@ myResume.addEventListener("click", function (e) {
     );
 
     let marckup = createPdfMarckup(marckupData);
+    let style = window.getComputedStyle(htmlParent, null).getPropertyValue('font-size');
+let fontSize = parseFloat(style); 
+    state.fontSize=fontSize+"px"
       htmlParent.style.fontSize="5px"
     resumesViewer.innerHTML = "";
     resumesViewer.insertAdjacentHTML(

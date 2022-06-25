@@ -6,7 +6,7 @@
 
 html {
   
-  font-size: 2.6px;
+  font-size: 4.3px;
   overflow-x: hidden;
 
  
@@ -763,7 +763,7 @@ background-color:  #F7F6FB;
   width: 100%;
   position: -webkit-sticky; /* Safari */
   position: fixed;
-  z-index: 1;
+  z-index: 4;
   top: 0;
   height: 80px;
   display: flex;
@@ -881,7 +881,7 @@ background-color:  #F7F6FB;
   
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
 
   
   list-style: none;
@@ -1871,10 +1871,10 @@ font-style: normal;
 
 font-size: 12px;
 }
-@media (max-width: 1300px){
-  .user-content-child{
+@media (max-width: 1270px){
+  /* .user-content-child{
     grid-template-columns:repeat(2,1fr);
-  }
+  } */
   html{
     font-size: 3.6px;
   }
@@ -1907,7 +1907,7 @@ font-size: 12px;
   }
 }
 @media (max-width: 1090px) {
- .content-columns-container{
+ /* .content-columns-container{
    flex-direction: column;
  }
  .user-content-child{
@@ -1915,9 +1915,12 @@ font-size: 12px;
 }
 .ads-container{
   flex-direction: row;
-}
+} */
 }
 @media (max-width: 1026px) {
+  html{
+    font-size: 4px;
+  }
   /* .templates {
     max-width: 500px;
   }
@@ -1974,7 +1977,7 @@ font-size: 12px;
     font-weight: 500;
     justify-content: center;
     transition: all 0.5s ease-in;
-
+   
     opacity: 0;
 
     pointer-events: none;
@@ -1983,6 +1986,7 @@ font-size: 12px;
   }
 
   .nav-open .site-nav {
+    width: max-content;
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
@@ -2002,35 +2006,37 @@ font-size: 12px;
     font-size: 3rem;
   }
 }
-@media(max-width:1000px){
+
+@media(max-width:930px){
   html{
-    font-size: 2.5px;
+    font-size: 3.6px;
   }
 }
-@media(max-width:900px){
+@media(max-width:840px){
   html{
-    font-size: 2.3px;
+    font-size: 4.6px;
   }
-}
-@media(max-width:850px){
- .user-content-child{
+  .user-content-child{
     grid-template-columns: repeat(2,1fr);
-  }
-  html{
-    font-size: 3px;
   }
 }
 @media(max-width:760px){
   html{
-    font-size: 2.5px;
+    font-size: 3.5px;
   }
 }
-@media(max-width:670px){
+@media(max-width:644px){
   html{
-    font-size: 2px;
+    font-size: 3px;
   }
 }
 @media(max-width:600px){
+  html{
+    font-size: 4.5px;
+  }
+  .content-columns{
+    width: 100%;
+  }
   .content-columns-container{
     flex-direction: column;
     align-items: center;
@@ -2039,14 +2045,12 @@ font-size: 12px;
   .ads-container{
     flex-direction: row;
   }
-  html{
-    font-size: 3px;
-  }
+ 
 }
 @media (max-width: 550px) {
-  html{
+  /* html{
     font-size: 2.5px;
-  }
+  } */
   .cover-letter-user-employer {
     flex-direction: column;
    
@@ -2064,7 +2068,9 @@ font-size: 12px;
   }
 }
 @media (max-width: 530px) {
-  
+  html{
+    font-size: 4px;
+  }
   .cv-form-h2 {
     font-size: 18px;
   }
@@ -2082,9 +2088,9 @@ font-size: 12px;
     transform: scale(1);
   }
 }
-@media(max-width:445px){
+@media(max-width:486px){
   html{
-    font-size: 2px;
+    font-size: 3.5px;
   }
 }
 @media (max-width: 440px) {
@@ -2100,8 +2106,20 @@ font-size: 12px;
     padding-bottom: 0;
   }
 }
-@media (max-width: 408px) {
-  
+@media (max-width: 430px) {
+  html{
+    font-size: 3.2px;
+  }
+}
+@media (max-width: 400px) {
+  html{
+    font-size: 3px;
+  }
+}
+@media (max-width: 380px) {
+  html{
+    font-size: 2.8px;
+  }
 }
 @media (max-width: 371px) {
   .icon-mobile-nav {
@@ -2115,6 +2133,9 @@ font-size: 12px;
   }
 }
 @media (max-width: 360px) {
+  html{
+    font-size: 2.5px;
+  }
   .s1 p {
     left: -14px;
   }
@@ -2137,3 +2158,8 @@ font-size: 12px;
 .hiddenClass {
   display: none;
 }
+
+@media (max-width: 360px) {
+  html{
+    font-size: 2px;
+  }}

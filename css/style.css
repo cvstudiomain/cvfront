@@ -321,14 +321,16 @@ padding: 2rem;
   line-height: 1.8;
 }
 
-.step-img-box {
+.step-img-box,.how-it-work-ads {
   position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.how-it-work-ads{
+  grid-column: 1/-1;
+}
 .step-img-box::before,
 .step-img-box::after {
   content: "";

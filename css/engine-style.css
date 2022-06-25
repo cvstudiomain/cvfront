@@ -817,8 +817,8 @@ background-color:  #F7F6FB;
   position: relative;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
  margin-right: 16px; 
-  background-color: #ffe7ef;
- 
+  /* background-color: #ffe7ef; */
+ background-color: #f7f6fb;
   /* border-top-left-radius: 32px; */
   display: flex;
   flex-direction: column;
@@ -942,14 +942,14 @@ background-color:  #F7F6FB;
 .nav-tabs a:hover,
 .site-nav a:focus,
 .nav-tabs a:focus {
-  color: #4371c5;
+  color: #660626;
 }
 .active {
-  background: #F7F6FB;
+  background: #ffe7ef;
   border-left: 3px solid  #660626;
 }
 .active1 {
-  border-bottom: 3px solid #4371c5;
+  border-bottom: 3px solid #660626;
 }
 .note {
   width: calc(100% - 48px);
@@ -1054,7 +1054,7 @@ width: max-content;
 }
 
 .nav-tabs a .active {
-  color: #101620;
+  color:  #1A3E27;
   font-weight: 600;
 }
 

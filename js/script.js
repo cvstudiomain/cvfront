@@ -62,7 +62,7 @@ const s3 = document.querySelector(".s3");
 const s4 = document.querySelector(".s4");
 const s5 = document.querySelector(".s5");
 const s6 = document.querySelector(".s6");
-const noResumeInfor = document.querySelector(".no-resume-infor");
+
 let sectionName = document.querySelector(".user-section-name");
 const progress = document.querySelector("#progress");
 const templates = document.querySelector(".templates");
@@ -70,8 +70,13 @@ const htmlParent = document.querySelector("html");
 const btnLogin = document.querySelector(".btn-login");
 const myResume = document.querySelector(".myResume");
 const resumesViewer = document.querySelector(".resumesViewer");
+const resumeInforContainer=document.querySelector(".resume-infor-container")
+const noResumeInfor = document.querySelector(".no-resume-infor");
+const noTemplateInfor = document.querySelector(".no-template-infor");
+
 const myTemplates = document.querySelector(".myTemplates");
-const noTemplateInor = document.querySelector(".no-template-infor-container");
+const templatesInfor=document.querySelector(".templatesInfor")
+const templateInorContainer = document.querySelector(".template-infor-container");
 const toRegister = document.querySelector(".to-register");
 const toLogin = document.querySelector(".to-login");
 const btnSignup = document.querySelector(".btn-signup");
@@ -197,20 +202,17 @@ resumesViewer.addEventListener("click", async function (e) {
   await html2pdf().from(myCv).set(opt).save();
   myCv.style.minHeight="70.157rem"
   htmlParent.style.fontSize = state.fontSize
-
-  setTimeout(() => {
+  
+location.reload();
+  // setTimeout(() => {
     
-    myResume.innerHTML = state.user.myResumes;
-  }, 3000);
+  //   myResume.innerHTML = state.user.myResumes;
+  // }, 3000);
 });
 myResume.addEventListener("click", function (e) {
   // console.log(e.target.closest('.template'))
 
-  if (
-    !e.target.classList.contains("create-new") &&
-    !e.target.closest(".template")
-  )
-    return;
+  if (!e.target.closest(".template"))return;
 
   window.scrollTo({
     top: 0,
@@ -245,12 +247,17 @@ let fontSize = parseFloat(style);
 
     return;
   }
+ 
+});
+
+document.querySelector(".create-new").addEventListener("click",function(){
+
 
   allUserContentChilds.forEach((child) => {
     // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
-
+    
     if (!child.classList.contains("hiddenClass"))
-      child.classList.add("hiddenClass");
+    child.classList.add("hiddenClass");
   });
   allUserSiteButtons.forEach((btn) => {
     if (btn.classList.contains("active")) btn.classList.remove("active");
@@ -258,12 +265,19 @@ let fontSize = parseFloat(style);
   state.section = "myTemplates";
   sectionName.innerText = "My Templates";
   myTemplates.classList.remove("hiddenClass");
-
-  document
-    .querySelector(`#${myTemplates.classList[0]}`)
-    .classList.add("active");
-});
-
+  
+  document.querySelector(`#${myTemplates.classList[0]}`).classList.add("active");
+  outOfMyResumes()
+  
+})
+  function outOfMyTemplates(){
+    templateInorContainer.classList.add("hiddenClass")
+  resumeInforContainer.classList.remove("hiddenClass")
+  }
+  function outOfMyResumes(){
+    templateInorContainer.classList.remove("hiddenClass")
+  resumeInforContainer.classList.add("hiddenClass")
+  }
 document.querySelectorAll(".closeForm").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     cvFormContainer.classList.add("hiddenClass");
@@ -279,7 +293,9 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
   // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
-
+templateInorContainer.classList.add("hiddenClass")
+resumeInforContainer.classList.add("hiddenClass")
+templatesInfor.classList.add("hiddenClass")
   document
     .querySelector(".nav-tabs")
     .querySelectorAll("a")
@@ -300,6 +316,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   });
   if (buttonId === "myResume") {
     state.section = "myResume";
+   resumeInforContainer.classList.remove("hiddenClass")
     // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
@@ -318,12 +335,15 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   }
   if (buttonId === "myTemplates") {
     state.section = "myTemplates";
+    templateInorContainer.classList.remove("hiddenClass")
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "templates") {
     state.section = "templates";
+  templatesInfor.classList.remove("hiddenClass")
+
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
@@ -499,6 +519,7 @@ formBtn.addEventListener("click", async function (e) {
 
     await getCvOrLetter(state.user.inputData);
     this.innerText = "Generate Cv";
+    location.reload()
   } catch (error) {
     console.log(error);
   }
@@ -3252,7 +3273,7 @@ const init = async function () {
       .classList.add("hiddenClass");
     document.querySelector(".admin-dashboard").classList.remove("hiddenClass");
     renderUserData();
-    return console.log("admin");
+    return console.log("1");
   }
 
   state.user.accesstoken = userData.accesstoken;
@@ -3266,6 +3287,7 @@ const init = async function () {
   document.querySelector(".logAndRegisContainer").classList.add("hiddenClass");
 
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");
+  templateInorContainer.classList.add("hiddenClass")
   const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
 
   const templatesRes = await axios.post(
@@ -3276,14 +3298,13 @@ const init = async function () {
   if (resume.data.cv) {
     state.resumes.push(...resume.data.cv);
     noResumeInfor.classList.add("hiddenClass");
-
+    resumeInforContainer.querySelector(".anouncement").classList.remove("hiddenClass")
+    
     state.resumes.forEach((resume) => {
       // console.log(resume)
       state.user.myResumes.push(createPdfMarckup(resume));
     });
-    document
-      .querySelector(".no-resume-infor-container")
-      .classList.add("hiddenClass");
+    
 
     state.user.myResumes.forEach((resume) =>
       myResume.insertAdjacentHTML("beforeend", resume.toString())
@@ -3292,9 +3313,9 @@ const init = async function () {
 
   if (templatesRes.data.templates.length !== 0) {
     state.templates = templatesRes.data.templates;
-
+    templateInorContainer.querySelector(".anouncement").classList.remove("hiddenClass")
     getTheTemplates(state.templates);
-    noTemplateInor.classList.add("hiddenClass");
+    noTemplateInfor.classList.add("hiddenClass");
   }
 
   document.querySelector(".loaderContainer").classList.add("hiddenClass");
@@ -3495,26 +3516,28 @@ allMyTemplates.forEach((tmf) => {
     btnUseThis.style.pointerEvents = "auto";
   });
 });
+document.querySelector(".get-one").addEventListener("click",function() {
+  state.section = "templates";
+  allUserContentChilds.forEach((child) => {
+    if (!child.classList.contains("hiddenClass"))
+      child.classList.add("hiddenClass");
+  });
+  allUserSiteButtons.forEach((btn) => {
+    if (btn.classList.contains("active")) btn.classList.remove("active");
+  });
+  templatesInfor.classList.remove("hiddenClass")
+  templateInorContainer.classList.add("hiddenClass")
+  templates.classList.remove("hiddenClass");
 
+  document
+    .querySelector(`#${templates.classList[0]}`)
+    .classList.add("active");
+
+  return;
+})
 myTemplates.addEventListener("click", function (e) {
   // console.log(e.target)
-  if (e.target.classList.contains("get-one")) {
-    state.section = "templates";
-    allUserContentChilds.forEach((child) => {
-      if (!child.classList.contains("hiddenClass"))
-        child.classList.add("hiddenClass");
-    });
-    allUserSiteButtons.forEach((btn) => {
-      if (btn.classList.contains("active")) btn.classList.remove("active");
-    });
-    templates.classList.remove("hiddenClass");
-
-    document
-      .querySelector(`#${templates.classList[0]}`)
-      .classList.add("active");
-
-    return;
-  }
+  
   if (e.target.closest(".resumeAndLetter")) {
     if (!e.target.closest(".rl")) return;
 

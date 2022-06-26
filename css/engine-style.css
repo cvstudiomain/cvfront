@@ -998,7 +998,7 @@ background-color:  #F7F6FB;
   color: #fff;
   background-color: #00bd00;
 }
-.no-resume-infor {
+.no-resume-infor,.no-template-infor {
   font-size: 16px;
 }
 
@@ -1015,7 +1015,7 @@ background-color:  #F7F6FB;
   position: relative;
 }
 
-.main-header {
+.main-header ,.anouncements-box{
   background:  #fff;
   margin:0;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -1024,6 +1024,32 @@ background-color:  #F7F6FB;
   font-size: 12px;
   padding: 32px;
   border-radius: 16px;
+}
+.template-infor-container,
+.resume-infor-container {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+ 
+  gap: 16px;
+}
+.anouncement{
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  background-color: #ccc;
+  color: #000;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.anouncement i{
+  font-size: 20px;
 }
 .content-columns-container{
   width: 100%;
@@ -1049,7 +1075,7 @@ width: max-content;
   display: inline-block;
   padding: 16px 0 16px 0;
   font-size: 18px;
-  color: #8c939e;
+  color: #1A3E27;
   position: relative;
 }
 
@@ -1111,8 +1137,10 @@ grid-template-columns: 1fr 1fr 1fr;
   height: 250px;
   overflow: hidden;
 }
-.resumeAndLetter {
+.resumeAndLetter,.myResume .rl {
+  height: 320px;
   overflow-y: hidden;
+
 }
 .template{
   grid-template-rows: max-content max-content;
@@ -1309,17 +1337,7 @@ color: inherit;
   border: none;
 }
 
-.no-resume-infor-container {
-  text-align: center;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
 
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  gap: 16px;
-}
 .no-template-infor-container {
   display: flex;
   flex-direction: column;

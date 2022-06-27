@@ -750,7 +750,8 @@ transform: translateX(0px);
 background-color:  #F7F6FB;
 
  /* align-self: flex-start; */
-  height: auto;
+  height: 100%;
+  min-height: 100vh;
   /* display: grid; */
   position: relative;
   /* display: flex;
@@ -1846,7 +1847,7 @@ grid-row: 1;
   width: 100%;
   margin: auto;
   padding-bottom: 8px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
  
   display: flex;
   flex-direction: column;

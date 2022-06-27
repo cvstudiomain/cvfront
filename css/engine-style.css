@@ -779,16 +779,12 @@ background-color:  #F7F6FB;
   height: 32px;
 }
 .user-add1{
-  width: auto;
-  height: 120px;
-  font-size: 16px;
+  width: fit-content;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  columns: #000;
-  text-align: center;
-  background-color: #ccc;
+
 }
 .ads-container{
   width: 100%;
@@ -798,10 +794,10 @@ background-color:  #F7F6FB;
   flex-direction: column;
   gap: 32px;
 }
-.ads-container .user-add1{
+/* .ads-container .user-add1{
   width: auto;
   height: 100%;
-}
+} */
 .site-wrap .user-body{
   width: 100%;
  /* align-self: flex-start; */
@@ -993,11 +989,7 @@ background-color:  #F7F6FB;
 
 }
 
-.create-new:hover,
-.get-one:hover {
-  color: #fff;
-  background-color: #00bd00;
-}
+
 .no-resume-infor,.no-template-infor {
   font-size: 16px;
 }

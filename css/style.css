@@ -328,9 +328,7 @@ padding: 2rem;
   align-items: center;
   justify-content: center;
 }
-.how-it-work-ads{
-  grid-column: 1/-1;
-}
+
 .step-img-box::before,
 .step-img-box::after {
   content: "";

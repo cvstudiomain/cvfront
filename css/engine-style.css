@@ -781,9 +781,10 @@ background-color:  #F7F6FB;
 .user-add1{
   width: fit-content;
   height: fit-content;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  margin: auto;
 
 }
 .ads-container{
@@ -1976,7 +1977,9 @@ font-size: 12px;
     backdrop-filter: blur(10px);
     position: absolute;
     font-size: 16px;
+    top: 0;
     left: 0;
+
     overflow: hidden;
     
     height: fit-content;

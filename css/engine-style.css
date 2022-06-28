@@ -804,10 +804,12 @@ background-color:  #F7F6FB;
   width: 100%;
  /* align-self: flex-start; */
  margin-top:80px;
-  height: auto;
-  display: grid;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  
   position: relative;
-  grid-template-columns: 300px 1fr;
+  
 
 
 }
@@ -1963,10 +1965,10 @@ font-size: 12px;
     margin-right: -8px;
     width: 100%;
   } */
-  .site-wrap .user-body{
+  /* .site-wrap .user-body{
     width: 100%;
     grid-template-columns: 1fr;
-  }
+  } */
   .content-columns-container{
     flex-direction: row;
   }

@@ -193,7 +193,7 @@ padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 3rem;
-  margin-bottom: 17rem;
+  margin-bottom: 0;
 }
 .templates-benefit-container .template-benefit .information-header{
   font-weight: 600;

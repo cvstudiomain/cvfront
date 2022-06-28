@@ -20,10 +20,10 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   /* overflow: auto; */
   overflow: hidden;
   position: relative;

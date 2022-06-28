@@ -3283,7 +3283,7 @@ const init = async function () {
 
   let id = state.user.userid;
   document.querySelector(".site-user-name").innerText = state.user.siteUserName;
-
+  document.querySelector(".site-wrap-header").classList.remove("hiddenClass")
   document.querySelector(".logAndRegisContainer").classList.add("hiddenClass");
 
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");

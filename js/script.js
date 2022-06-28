@@ -96,7 +96,7 @@ let image_input2 = document.querySelector("#image_input2");
 let image_input = document.querySelector("#image_input");
 let uploaded_image = "";
 const btnNavEl = document.querySelector(".btn-mobile-nav");
-const headerEl = document.querySelector(".header");
+const headerEl = document.querySelector(".master-body");
 document.querySelector(".nav-tabs").addEventListener("click", function (e) {
   if (!e.target.classList.contains("tab")) return;
 
@@ -3283,7 +3283,7 @@ const init = async function () {
 
   let id = state.user.userid;
   document.querySelector(".site-user-name").innerText = state.user.siteUserName;
-
+  document.querySelector(".site-wrap-header").classList.remove("hiddenClass")
   document.querySelector(".logAndRegisContainer").classList.add("hiddenClass");
 
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");

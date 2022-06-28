@@ -76,7 +76,31 @@
     ></script>
     <script defer src="js/script.js"></script>
   </head>
-  <body>
+  <body class="master-body">
+    <header class="site-wrap-header hiddenClass">
+      <a href="index.html">
+        <img
+          class="logo"
+          alt="cvstudio logo"
+          src="img/cvstudio logo 0001.png"
+        />
+      </a>
+
+     
+      <button class="btn-mobile-nav">
+        <i
+          class="fa fa-bars icon-mobile-nav"
+          name="menu-outline"
+          aria-hidden="true"
+        ></i>
+        <i
+          class="fa fa-times icon-mobile-nav"
+          name="close-outline"
+          aria-hidden="true"
+        ></i>
+      </button>
+      
+    </header>
     <!-- <div class="updating-the-system "><h1>WE ARE UPDATING THE SYSTEM...</h1></div> -->
     <div class="logAndRegisContainer">
       <a href="index.html">
@@ -1056,33 +1080,11 @@
         </div>
       </div>
     </div>
-    <div class="site-wrap userDashBoard hiddenClass header">
-      <header class="site-wrap-header">
-        <a href="index.html">
-          <img
-            class="logo"
-            alt="cvstudio logo"
-            src="img/cvstudio logo 0001.png"
-          />
-        </a>
-
-       
-        <button class="btn-mobile-nav">
-          <i
-            class="fa fa-bars icon-mobile-nav"
-            name="menu-outline"
-            aria-hidden="true"
-          ></i>
-          <i
-            class="fa fa-times icon-mobile-nav"
-            name="close-outline"
-            aria-hidden="true"
-          ></i>
-        </button>
-        
-      </header>
-      <div class="user-body">
-      <nav class="site-nav">
+    <main class="site-wrap userDashBoard hiddenClass">
+    
+      
+     
+      <aside class="site-nav">
         <div class="site-user-name-container">
           <i class="fa fa-check-circle" aria-hidden="true"></i>
           <span class="site-user-name">EL RUFAI</span>
@@ -1114,10 +1116,10 @@
           <!-- <li class="log-out" id="logout"><a href="#0">Log out</a></li> -->
         </ul>
         
-      </nav>
+      </aside>
 
-      <main class="user-main">
-        <header class="main-header">
+      <section class="user-main">
+        <div class="main-header">
           <h1 class="user-section-name">My resumes and letters</h1>
 
           <nav class="nav-tabs" id="nav-tabs">
@@ -1126,7 +1128,7 @@
             <a href="#0" class="tab tab-cl"> Cover letters </a>
           </nav>
           
-        </header>
+        </div>
        <section>
 
          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238727259476219"
@@ -1523,9 +1525,9 @@
 
     
       </div>
-      </main>
-    </div>
-    </div>
+      </section>
+    
+    </main>
     
     <footer class="footer">
       <div class="address-col">

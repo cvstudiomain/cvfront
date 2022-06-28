@@ -819,6 +819,7 @@ background-color:  #F7F6FB;
  background-color: #f7f6fb;
   /* border-top-left-radius: 32px; */
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   gap: 48px;
 }

@@ -1133,7 +1133,7 @@ grid-template-columns: 1fr 1fr 1fr;
   overflow: hidden;
 }
 .resumeAndLetter,.myResume .rl {
-  height: 320px;
+  height: 92rem;
   overflow-y: hidden;
 
 }
@@ -2148,9 +2148,7 @@ font-size: 12px;
   }
 }
 @media (max-width: 360px) {
-  html{
-    font-size: 2.5px;
-  }
+ 
   .s1 p {
     left: -14px;
   }
@@ -2174,7 +2172,3 @@ font-size: 12px;
   display: none;
 }
 
-@media (max-width: 360px) {
-  html{
-    font-size: 2px;
-  }}

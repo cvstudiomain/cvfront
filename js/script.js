@@ -3205,8 +3205,8 @@ const init = async function () {
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");
 
   let userData = JSON.parse(localStorage.getItem("user"));
- 
-  if (!userData) return;
+      console.log(userData)
+  if (!userData) window.location="index.html";
   //  console.log(userData)
 
   if (userData.isGonGon) {

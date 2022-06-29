@@ -817,7 +817,7 @@ background-color:  #F7F6FB;
 }
 .site-nav {
   /* width: 100%; */
-  position: relative;
+  position: fixed;
   grid-column: 1/2;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
  margin-right: 16px; 
@@ -1008,6 +1008,7 @@ background-color:  #F7F6FB;
 
 .user-main {
   width: auto;
+  grid-column: 2;
   margin: 32px;
   margin-left: 16px;
   display: flex;

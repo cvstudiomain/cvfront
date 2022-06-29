@@ -1,47 +1,4 @@
-const state = {
-  fontSize:"",
-  templateToUse: { type: "", template: "" },
-  section: "myResume",
-  templates: [],
-  resumes: [],
-  templateToBeDownload: [],
-
-  searchResult: "",
-  user: {
-    trynow: "",
-    isGonGon: false,
-    accesstoken: "",
-    initials: "",
-    myTemplates: [],
-    myResumes: [],
-    siteUserName: "",
-    images: {},
-    inputData: [],
-    coverLetter: {},
-    persData1: "",
-    persData2: "",
-    socLinks: "",
-    eduData: [],
-    expeData: [],
-    summeryData: [],
-    educations: [],
-    certifications: [],
-    experiences: [],
-    skills: [],
-    hobies: [],
-    reffrences: [],
-    template: "",
-    file: "",
-    token: "",
-    email: "",
-    password: "",
-    userid: "",
-  },
-  allData: "",
-  page: 1,
-  resume: {},
-  cloud_image: {},
-};
+import state from "./state.js";
 
 const btnNext1 = document.querySelector("#next1");
 const btnNext2 = document.querySelector("#next2");
@@ -67,7 +24,6 @@ let sectionName = document.querySelector(".user-section-name");
 const progress = document.querySelector("#progress");
 const templates = document.querySelector(".templates");
 const htmlParent = document.querySelector("html");
-const btnLogin = document.querySelector(".btn-login");
 const myResume = document.querySelector(".myResume");
 const resumesViewer = document.querySelector(".resumesViewer");
 const resumeInforContainer=document.querySelector(".resume-infor-container")
@@ -77,18 +33,13 @@ const noTemplateInfor = document.querySelector(".no-template-infor");
 const myTemplates = document.querySelector(".myTemplates");
 const templatesInfor=document.querySelector(".templatesInfor")
 const templateInorContainer = document.querySelector(".template-infor-container");
-const toRegister = document.querySelector(".to-register");
-const toLogin = document.querySelector(".to-login");
-const btnSignup = document.querySelector(".btn-signup");
+
 const userDashBoard = document.querySelector(".userDashBoard");
 const formBtn = document.querySelector(".generateCv");
 const btnSaveLetter = document.querySelector(".btn-save-letter");
 const cvDataForm = document.querySelector(".cv-form");
 const cvFormContainer = document.querySelector(".cv-form-container");
-const loadOnLogBtn = document.querySelector(".loginBtnLodader");
-const loadOnSignUpBtn = document.querySelector(".signInBtnLodader");
 let userlist = document.querySelector(".user-list");
-const message2 = document.querySelector(".message1");
 let paginationBox = document.querySelector(".pagination");
 let userResums = document.querySelector(".user-res-cl-container");
 let templateHeader = document.querySelector(".template-header");
@@ -133,22 +84,7 @@ btnNavEl.addEventListener("click", function () {
   console.log("ok");
   headerEl.classList.toggle("nav-open");
 });
-function checkFlexGap() {
-  var flex = document.createElement("div");
-  flex.style.display = "flex";
-  flex.style.flexDirection = "column";
-  flex.style.rowGap = "1px";
 
-  flex.appendChild(document.createElement("div"));
-  flex.appendChild(document.createElement("div"));
-
-  document.body.appendChild(flex);
-  var isSupported = flex.scrollHeight === 1;
-  flex.parentNode.removeChild(flex);
-
-  if (!isSupported) document.body.classList.add("no-flexbox-gap");
-}
-checkFlexGap();
 const objectOutOfArray = function (data) {
   return Object.fromEntries(...[data]);
 };
@@ -240,7 +176,10 @@ let fontSize = parseFloat(style);
     aria-hidden="true"
   ></i></button>
   ${marckup}
+  <div class="download-btn-container">
+  <i class="fa fa-file-pdf-o"></i>
   <button type="button" class="btn downloadCv viewerBtn">Download</button>
+  </div>
  `
     );
     resumesViewer.classList.remove("hiddenClass");
@@ -3262,20 +3201,21 @@ const getTheTemplates = function (data) {
   });
 };
 const init = async function () {
-  let userData = JSON.parse(localStorage.getItem("user"));
 
+  document.querySelector(".loaderContainer").classList.remove("hiddenClass");
+
+  let userData = JSON.parse(localStorage.getItem("user"));
+ 
   if (!userData) return;
   //  console.log(userData)
 
   if (userData.isGonGon) {
-    document
-      .querySelector(".logAndRegisContainer")
-      .classList.add("hiddenClass");
+   
     document.querySelector(".admin-dashboard").classList.remove("hiddenClass");
     renderUserData();
     return console.log("1");
   }
-
+  
   state.user.accesstoken = userData.accesstoken;
   state.user.email = userData.email;
   state.user.siteUserName = userData.siteUserName;
@@ -3283,9 +3223,8 @@ const init = async function () {
 
   let id = state.user.userid;
   document.querySelector(".site-user-name").innerText = state.user.siteUserName;
-  document.querySelector(".site-wrap-header").classList.remove("hiddenClass")
-  document.querySelector(".logAndRegisContainer").classList.add("hiddenClass");
 
+ 
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");
   templateInorContainer.classList.add("hiddenClass")
   const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
@@ -3294,7 +3233,7 @@ const init = async function () {
     `https://app.cvstudio.io/resume/gettemplate/:${id}`
   );
   // console.log(resume, templatesRes);
-  userDashBoard.classList.remove("hiddenClass");
+  
   if (resume.data.cv) {
     state.resumes.push(...resume.data.cv);
     noResumeInfor.classList.add("hiddenClass");
@@ -3321,105 +3260,7 @@ const init = async function () {
   document.querySelector(".loaderContainer").classList.add("hiddenClass");
 };
 init();
-btnLogin.addEventListener("click", async function (e) {
-  try {
-    e.preventDefault();
-    const formData = Object.fromEntries([
-      ...new FormData(this.closest("form")),
-    ]);
-    const { password, email } = formData;
-    if (!email)
-      return (document.querySelector(".message2").textContent =
-        "Can not supmit without email");
 
-    state.user.email = email;
-    state.user.password = password;
-    loadOnLogBtn.classList.add("show-btn-loader");
-    document.querySelector(".message2").textContent = `Please Wait...`;
-    const res = await axios.post("https://app.cvstudio.io/user/login", {
-      ...state.user,
-    });
-
-    if (res.data.data === "1") {
-      state.user.isGonGon = true;
-      let user = {
-        isGonGon: state.user.isGonGon,
-      };
-      localStorage.setItem("user", JSON.stringify(user));
-
-      return init();
-    }
-
-    state.user.accesstoken = state.user.token = res.data.accesstoken;
-    if (!state.user.accesstoken) {
-      document.querySelector(".message2").textContent =
-        "User or password incorrect";
-      loadOnLogBtn.classList.remove("show-btn-loader");
-      return console.log("settled");
-    }
-
-    let user = {
-      email: res.data.user.email,
-      siteUserName: res.data.user.userName,
-      userid: res.data.user._id,
-      accesstoken: state.user.accesstoken,
-    };
-
-    if (!res.data.user.isVerified) {
-      register(res.data.user);
-      document.querySelector(
-        ".message2"
-      ).textContent = `Check your email for verification`;
-      loadOnLogBtn.classList.remove("show-btn-loader");
-
-      return console.log("settled");
-    }
-
-    localStorage.setItem("user", JSON.stringify(user));
-
-    init();
-  } catch (error) {
-    console.log(error);
-  }
-});
-document.querySelector(".goto-login").addEventListener("click", function (e) {
-  let mailSends = document.querySelector(".welcome-message");
-  mailSends.style.opacity = "0";
-  mailSends.style.left = "1000px";
-  mailSends.style.zIndex = "999";
-  fromRegisterToLogin();
-});
-const register = async function (user) {
-  const res = await axios.post("https://app.cvstudio.io/user/register", {
-    ...user,
-  });
-  loadOnLogBtn.classList.remove("show-btn-loader");
-  loadOnSignUpBtn.classList.remove("show-btn-loader");
-  // return console.log(res)
-  if (!res.data.result.MessageId)
-    return (message2.textContent = `We are having problem verifying your account. We will notify you anytime the problem is fixed!`);
-  let mailSends = document.querySelector(".welcome-message");
-  mailSends.style.opacity = "1";
-  mailSends.style.left = "0";
-  mailSends.style.zIndex = "999";
-};
-btnSignup.addEventListener("click", async function (e) {
-  e.preventDefault();
-  try {
-    const formData = Object.fromEntries([
-      ...new FormData(this.closest("form")),
-    ]);
-    const { password, confirmPassword } = formData;
-    if (password !== confirmPassword)
-      return (message2.innerText = "Password did not match");
-    loadOnSignUpBtn.classList.add("show-btn-loader");
-    message2.innerText = "Please Wait...";
-    state.user = formData;
-    register(state.user);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
 // templates.addEventListener("click", function (e) {
 //   e.preventDefault();
@@ -3690,20 +3531,6 @@ cvDataForm.addEventListener("click", async function (e) {
     messageBox.style.left = "1000px";
   }, 1500);
 });
-toRegister.addEventListener("click", (e) => {
-  e.preventDefault();
-  document.querySelector(".register-section").style.left = "40px";
-  document.querySelector(".login-section").style.left = "450px";
-});
-const fromRegisterToLogin = function () {
-  document.querySelector(".register-section").style.left = "450px";
-  document.querySelector(".login-section").style.left = "40px";
-};
-toLogin.addEventListener("click", (e) => {
-  e.preventDefault();
-  fromRegisterToLogin();
-});
-
 btnNext1.addEventListener("click", (e) => {
   e.preventDefault();
   state.user.persData1 = [...new FormData(e.target.closest("form"))];

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <link rel="icon" href="img/fav 180X180.png" />
+    <link rel="apple-touch-icon" href="img/fav 64X64.png" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/engine-style.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <title>Login/Register - CVStudio</title>
+
+    <meta
+      name="description"
+      content="Start creating your dream resume and cover letter. CVStudio Login/Register"
+    />
+
+    <meta
+      name="keyword"
+      content="CVStudio Login, CVStudio Register, Free CVStudio Account, Resume builder account, Cover Letter Maker account, Free Online CV Creator Account"
+    />
+    <!-- Adsense ver> Adsense Code between -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1238727259476219"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Analytics Code -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BTF52L0SFX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-BTF52L0SFX");
+    </script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"
+    ></script>
+    <script defer type="module" src="js/login.js"></script>
+  </head>
+  <body class="login-body">
+    <!-- <div class="updating-the-system "><h1>WE ARE UPDATING THE SYSTEM...</h1></div> -->
+    <div class="logAndRegisContainer">
+      <a href="index.html">
+        <img
+          class="cvengine-logo"
+          alt="cvstudio logo"
+          src="img/cvstudio logo 0001.png"
+        />
+      </a>
+
+      <div class="cv-form-log logandregister">
+        <div class="welcome-message">
+          <p>
+            Confirmation link was sent to your email, check your inbox or spam.
+            You can log in after confirmation is successful.
+          </p>
+          <button class="btn-large goto-login">Log in</button>
+        </div>
+        <form class="form-style register register-section">
+          <h2>Register</h2>
+          <div class="input-container">
+            <input
+              type="text"
+              class="inputTypeText"
+              class="user-name"
+              name="userName"
+              value=""
+              placeholder="full name"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="tel"
+              class="suser-tel inputTypeText"
+              name="phone"
+              value=""
+              placeholder="phone number"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="email"
+              class="sign-up-email inputTypeText"
+              name="email"
+              value=""
+              placeholder="email address"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="password"
+              class="sign-up-password inputTypeText"
+              name="password"
+              value=""
+              placeholder="password"
+              autocomplete="off"
+              required
+            />
+            <input
+              type="password"
+              class="confirm-sign-up-password inputTypeText"
+              name="confirmPassword"
+              value=""
+              placeholder="confirm password"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="login-signup-btn-container">
+            <div class="load-on-btn signInBtnLodader">
+              <div class="loder"></div>
+            </div>
+            
+          <button class="btn-large btn-signup">sign up</button>
+          </div>
+          <p class="message message1"></p>
+          <div>
+            <p class="message">
+              Already registered? <a href="#" class="to-login">Sign In</a>
+            </p>
+          </div>
+        </form>
+        <form class="form-style login login-section">
+          <h2>Log in</h2>
+          <input
+            type="email"
+            class="login-email inputTypeText"
+            name="email"
+            value=""
+            autocomplete="off"
+            placeholder="email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            class="login-password inputTypeText"
+            value=""
+            autocomplete="off"
+            placeholder="password"
+            required
+          />
+          <div class="login-signup-btn-container">
+            <div class="load-on-btn loginBtnLodader">
+              <div class="loder"></div>
+            </div>
+            
+            <button class="btn-large btn-login">log in</button>
+          </div>
+          <p class="message message2"></p>
+          <div>
+            <p class="message">
+              Not registered?
+              <a href="#" class="to-register">Create an account</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+   
+
+   
+  
+   
+    
+    <footer class="footer">
+      <div class="address-col">
+        <address class="contacts">
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="privacy-policy.html"
+                >Privacy policy
+              </a>
+            </li>
+            <li>
+              <a class="footer-link" href="terms-and-condition.html"
+                >Terms & Condition</a
+              >
+            </li>
+            <li>
+              <a class="footer-link" href="terms-of-use.html">Terms of use</a>
+            </li>
+          </ul>
+        </address>
+      </div>
+
+      <p class="copyright">
+        Copyright &copy; <span class="year">2022</span> by CvStudio, Inc. All
+        rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

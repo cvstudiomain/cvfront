@@ -50,6 +50,7 @@ btnLogin.addEventListener("click", async function (e) {
       localStorage.setItem("user", JSON.stringify(user));
 
       window.location="cvengine.html";
+      return 1
     }
 
     state.user.accesstoken = state.user.token = res.data.accesstoken;
@@ -95,6 +96,8 @@ const register = async function (user) {
   const res = await axios.post("https://app.cvstudio.io/user/register", {
     ...user,
   });
+  if(res.data.msg)  message2.textContent=res.data.msg;
+  // console.log(res)
   loadOnLogBtn.classList.remove("show-btn-loader");
   loadOnSignUpBtn.classList.remove("show-btn-loader");
   // return console.log(res)

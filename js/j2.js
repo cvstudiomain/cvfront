@@ -25,7 +25,7 @@ allLinks.forEach(function (link) {
       const sectionEl = document.querySelector(href);
       sectionEl.scrollIntoView({ behavior: "smooth" });
     }
-    // if(href==="/cvengine.html")return window.location=href
+   
     // if(href==="/templates.html")return window.location=href
     // Close mobile naviagtion
     if (link.classList.contains("main-nav-link"))

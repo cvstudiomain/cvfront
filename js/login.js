@@ -7,7 +7,14 @@ const toRegister = document.querySelector(".to-register");
 const toLogin = document.querySelector(".to-login");
 const btnSignup = document.querySelector(".btn-signup");
 
-
+const loginAlready=function(){
+ 
+    let userData = JSON.parse(localStorage.getItem("user"));
+   
+if (userData) window.location="cvengine.html";
+  
+}
+loginAlready()
 toRegister.addEventListener("click", (e) => {
   e.preventDefault();
   document.querySelector(".register-section").style.left = "40px";

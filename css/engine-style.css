@@ -796,12 +796,14 @@ background-color:  #F7F6FB;
 .content-columns{
   grid-column: 2;
   grid-row: 2;
+  margin-bottom: 16px;
 }
 .section-side-ads{
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   width: auto;
+  gap: 16px;
   /* max-width: 300px; */
   grid-column: 3;
   grid-row: 2/-1;

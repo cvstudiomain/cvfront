@@ -799,6 +799,7 @@ background-color:  #F7F6FB;
 }
 .section-side-ads{
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   width: auto;
   /* max-width: 300px; */

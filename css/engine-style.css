@@ -847,7 +847,9 @@ background-color:  #F7F6FB;
  background-color: #f7f6fb;
   /* border-top-left-radius: 32px; */
   display: flex;
-  min-height: 100vh;
+  height:calc( 100vh - 80px);
+  overflow-y: scroll;
+  
   flex-direction: column;
   gap: 48px;
 }
@@ -911,11 +913,11 @@ background-color:  #F7F6FB;
   
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 
   
   list-style: none;
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
 }
 .site-nav ul li{
   display: flex;
@@ -933,7 +935,14 @@ background-color:  #F7F6FB;
   padding: 5px;
   border-radius: 50%;
 }
+.site-nav ul .log-out a{
+color: #fff;
+}
+.log-out{
+  height: 80px;
+  background-color: #660626;
 
+}
 .btn-mobile-nav {
   position: absolute;
   z-index: 2;
@@ -997,6 +1006,7 @@ background-color:  #F7F6FB;
   width: 100%;
   color: #1A3E27;
   display: flex;
+  padding:20px 0;
   flex-direction: row;
   gap: 16px;
   align-items: center;

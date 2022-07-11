@@ -1,4 +1,4 @@
-import state from "./state.js";
+import * as model from "./model.js";
 
 const btnNext1 = document.querySelector("#next1");
 const btnNext2 = document.querySelector("#next2");
@@ -29,7 +29,6 @@ const resumesViewer = document.querySelector(".resumesViewer");
 const resumeInforContainer=document.querySelector(".resume-infor-container")
 const noResumeInfor = document.querySelector(".no-resume-infor");
 const noTemplateInfor = document.querySelector(".no-template-infor");
-
 const myTemplates = document.querySelector(".myTemplates");
 const templatesInfor=document.querySelector(".templatesInfor")
 const templateInorContainer = document.querySelector(".template-infor-container");
@@ -39,10 +38,6 @@ const formBtn = document.querySelector(".generateCv");
 const btnSaveLetter = document.querySelector(".btn-save-letter");
 const cvDataForm = document.querySelector(".cv-form");
 const cvFormContainer = document.querySelector(".cv-form-container");
-let userlist = document.querySelector(".user-list");
-let paginationBox = document.querySelector(".pagination");
-let userResums = document.querySelector(".user-res-cl-container");
-let templateHeader = document.querySelector(".template-header");
 let image_input2 = document.querySelector("#image_input2");
 let image_input = document.querySelector("#image_input");
 let uploaded_image = "";
@@ -53,10 +48,10 @@ document.querySelector(".nav-tabs").addEventListener("click", function (e) {
 
   this.querySelectorAll(".tab").forEach((t) => t.classList.remove("active1"));
   e.target.classList.add("active1");
-  // return console.log(document.querySelector(`.${state.section}`));
+  // return console.log(document.querySelector(`.${model.state.section}`));
 
   let alltemp = document
-    .querySelector(`.${state.section}`)
+    .querySelector(`.${model.state.section}`)
     .querySelectorAll(".rl");
   alltemp.forEach((tem) => tem.classList.remove("hiddenClass"));
   if (e.target.classList.contains("tab-all")) {
@@ -104,7 +99,7 @@ resumesViewer.addEventListener("click", async function (e) {
     userDashBoard.classList.remove("hiddenClass");
     userDashBoard.classList.remove("hiddenClass");
   
-    htmlParent.style.fontSize = state.fontSize;
+    htmlParent.style.fontSize = model.state.fontSize;
     return resumesViewer.classList.add("hiddenClass");
   }
  
@@ -137,12 +132,12 @@ resumesViewer.addEventListener("click", async function (e) {
   resumesViewer.classList.add("hiddenClass");
   await html2pdf().from(myCv).set(opt).save();
   myCv.style.minHeight="70.157rem"
-  htmlParent.style.fontSize = state.fontSize
+  htmlParent.style.fontSize = model.state.fontSize
   
 location.reload();
   // setTimeout(() => {
     
-  //   myResume.innerHTML = state.user.myResumes;
+  //   myResume.innerHTML = model.state.user.myResumes;
   // }, 3000);
 });
 myResume.addEventListener("click", function (e) {
@@ -158,14 +153,14 @@ myResume.addEventListener("click", function (e) {
     userDashBoard.classList.add("hiddenClass");
     let id = e.target.closest(".template").getAttribute("id");
     let marckupData = "";
-    state.resumes.forEach((resume) =>
+    model.state.resumes.forEach((resume) =>
       resume._id === id ? (marckupData = resume) : ""
     );
 
     let marckup = createPdfMarckup(marckupData);
     let style = window.getComputedStyle(htmlParent, null).getPropertyValue('font-size');
 let fontSize = parseFloat(style); 
-    state.fontSize=fontSize+"px"
+    model.state.fontSize=fontSize+"px"
       htmlParent.style.fontSize="5px"
     resumesViewer.innerHTML = "";
     resumesViewer.insertAdjacentHTML(
@@ -201,7 +196,7 @@ document.querySelector(".create-new").addEventListener("click",function(){
   allUserSiteButtons.forEach((btn) => {
     if (btn.classList.contains("active")) btn.classList.remove("active");
   });
-  state.section = "myTemplates";
+  model.state.section = "myTemplates";
   sectionName.innerText = "My Templates";
   myTemplates.classList.remove("hiddenClass");
   
@@ -280,14 +275,14 @@ templatesInfor.classList.add("hiddenClass")
     if (btn.classList.contains("active")) btn.classList.remove("active");
   });
   if (buttonId === "myResume") {
-    state.section = "myResume";
+    model.state.section = "myResume";
    resumeInforContainer.classList.remove("hiddenClass")
     // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
-    // if (state.resumes.length !== 0) {
-    //   let marckup = state.resumes.map((resume) => createPdfMarckup(resume));
+    // if (model.state.resumes.length !== 0) {
+    //   let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
     //   generateMarckup(marckup);
     // }
     templates.classList.add("hiddenClass");
@@ -299,14 +294,14 @@ templatesInfor.classList.add("hiddenClass")
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "myTemplates") {
-    state.section = "myTemplates";
+    model.state.section = "myTemplates";
     templateInorContainer.classList.remove("hiddenClass")
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "templates") {
-    state.section = "templates";
+    model.state.section = "templates";
   templatesInfor.classList.remove("hiddenClass")
 
     targetElement.classList.add("active");
@@ -323,6 +318,11 @@ templatesInfor.classList.add("hiddenClass")
     sectionName.innerText = sectionText;
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
+  if (buttonId === "logout") {
+    localStorage.clear()
+    window.location="index.html"
+
+  }
 });
 btnSaveLetter.addEventListener("click", async function (e) {
   this.innerText = "please wait..";
@@ -333,26 +333,26 @@ btnSaveLetter.addEventListener("click", async function (e) {
   let coverLetter = {
     ...formData,
     theletter: theletter,
-    template: state.templateToUse,
+    template: model.state.templateToUse,
     images: {},
-    userid: state.user.userid,
+    userid: model.state.user.userid,
   };
-  state.user.coverLetter = coverLetter;
-  // console.log(state.user.coverLetter)
-  await getCvOrLetter(state.user.coverLetter);
+  model.state.user.coverLetter = coverLetter;
+  // console.log(model.state.user.coverLetter)
+  await getCvOrLetter(model.state.user.coverLetter);
   this.innerText = "Done";
-  state.templateToUse.type = "";
-  state.templateToUse.template = "";
+  model.state.templateToUse.type = "";
+  model.state.templateToUse.template = "";
 });
 
 const getCvOrLetter = async function (data) {
-  if (state.user.file) {
-    // console.log(state.user.file.type);
+  if (model.state.user.file) {
+    // console.log(model.state.user.file.type);
     let formData = new FormData();
-    let token = state.user.token;
-    formData.append("file", state.user.file);
+    let token = model.state.user.token;
+    formData.append("file", model.state.user.file);
     let res = await axios.post("https://app.cvstudio.io/upload/", {
-      imageType: state.user.file.type,
+      imageType: model.state.user.file.type,
     });
     let url = res.data.uploadUrl;
     await fetch(url, {
@@ -360,23 +360,23 @@ const getCvOrLetter = async function (data) {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-      body: state.user.file,
+      body: model.state.user.file,
     });
     let imgUrl = { url: url.split("?")[0] };
 
     // console.log(res.data.uploadUrl,url,imgUrl)
 
-    state.templateToUse.type === "resume"
-      ? (state.user.inputData.images = imgUrl)
-      : (state.user.coverLetter.images = imgUrl);
+    model.state.templateToUse.type === "resume"
+      ? (model.state.user.inputData.images = imgUrl)
+      : (model.state.user.coverLetter.images = imgUrl);
   }
   const res = await axios.post("https://app.cvstudio.io/resume/create", {
     ...data,
   });
 
-  state.resume = res.data.data;
-  state.resumes.push(state.resume);
-  state.user.myResumes.push(createPdfMarckup(state.resume));
+  model.state.resume = res.data.data;
+  model.state.resumes.push(model.state.resume);
+  model.state.user.myResumes.push(createPdfMarckup(model.state.resume));
   noResumeInfor.classList.add("hiddenClass");
   myTemplates.classList.add("hiddenClass");
   document.querySelector("#myTemplates").classList.remove("active");
@@ -384,7 +384,7 @@ const getCvOrLetter = async function (data) {
   myResume.classList.remove("hiddenClass");
   document.querySelector("#myResume").classList.add("active");
   myResume.innerHTML = "";
-  state.resumes.forEach((resume) => {
+  model.state.resumes.forEach((resume) => {
     myResume.insertAdjacentHTML("afterbegin", createPdfMarckup(resume));
   });
   cvFormContainer.classList.add("hiddenClass");
@@ -408,37 +408,37 @@ formBtn.addEventListener("click", async function (e) {
     e.preventDefault();
     this.innerText = "Please wait..";
     [...new FormData(e.target.closest("form"))].filter(
-      (val) => val[1] !== "" && state.user.summeryData.push(val)
+      (val) => val[1] !== "" && model.state.user.summeryData.push(val)
     );
 
     let eduCol = [];
-    state.user.eduData &&
-      state.user.eduData.forEach(
+    model.state.user.eduData &&
+      model.state.user.eduData.forEach(
         (val) => val[0] !== "certification" && val[1] !== "" && eduCol.push(val)
       );
-    eduCol.length !== 0 && state.user.educations.push(eduCol);
+    eduCol.length !== 0 && model.state.user.educations.push(eduCol);
     let expCol = [];
-    state.user.expeData &&
-      state.user.expeData.forEach((val) => val[1] !== "" && expCol.push(val));
-    expCol.length !== 0 && state.user.experiences.push(expCol);
-    state.eduData &&
-      state.user.eduData.forEach((val) => {
+    model.state.user.expeData &&
+      model.state.user.expeData.forEach((val) => val[1] !== "" && expCol.push(val));
+    expCol.length !== 0 && model.state.user.experiences.push(expCol);
+    model.state.eduData &&
+      model.state.user.eduData.forEach((val) => {
         if (val[0] === "certification" && val[1] !== "")
-          state.user.certifications.push(val);
+          model.state.user.certifications.push(val);
       });
-    state.user.summeryData &&
-      state.user.summeryData.forEach((val) => {
+    model.state.user.summeryData &&
+      model.state.user.summeryData.forEach((val) => {
         if (val[0] === "skill" && val[1] !== "" && val.length !== 0)
-          state.user.skills.push(val);
+          model.state.user.skills.push(val);
       });
-    state.user.summeryData &&
-      state.user.summeryData.forEach((val) => {
+    model.state.user.summeryData &&
+      model.state.user.summeryData.forEach((val) => {
         if (val[0] === "interest" && val[1] !== "" && val.length !== 0)
-          state.user.hobies.push(val);
+          model.state.user.hobies.push(val);
       });
     let refCol = [];
-    state.user.summeryData &&
-      state.user.summeryData.forEach(
+    model.state.user.summeryData &&
+      model.state.user.summeryData.forEach(
         (val) =>
           val[0] !== "interest" &&
           val[0] !== "skill" &&
@@ -446,43 +446,43 @@ formBtn.addEventListener("click", async function (e) {
           val[1] !== "" &&
           refCol.push(val)
       );
-    refCol.length !== 0 && state.user.reffrences.push(refCol);
+    refCol.length !== 0 && model.state.user.reffrences.push(refCol);
 
-    state.user.inputData = {
-      userid: state.user.userid,
-      template: state.templateToUse,
-      ...objectOutOfArray(state.user.persData1),
-      ...objectOutOfArray(state.user.persData2),
-      ...objectOutOfArray(state.user.socLinks),
+    model.state.user.inputData = {
+      userid: model.state.user.userid,
+      template: model.state.templateToUse,
+      ...objectOutOfArray(model.state.user.persData1),
+      ...objectOutOfArray(model.state.user.persData2),
+      ...objectOutOfArray(model.state.user.socLinks),
       skills: [
-        ...state.user.skills
+        ...model.state.user.skills
           .filter((val) => val[1] !== "")
           .map((val) => val[1]),
       ],
       certifications: [
-        ...state.user.certifications
+        ...model.state.user.certifications
           .filter((val) => val[1] !== "")
           .map((val) => val[1]),
       ],
       interest: [
-        ...state.user.hobies
+        ...model.state.user.hobies
           .filter((val) => val[1] !== "")
           .map((val) => val[1]),
       ],
       profile:
-        state.user.summeryData &&
-        state.user.summeryData
+        model.state.user.summeryData &&
+        model.state.user.summeryData
           .filter((val) => val[0] === "profile")
           .map((val) => val[1])
           .toString(),
 
-      educations: state.user.educations.map((val) => objectOutOfArray(val)),
-      experiences: state.user.experiences.map((val) => objectOutOfArray(val)),
-      reffrences: state.user.reffrences.map((val) => objectOutOfArray(val)),
+      educations: model.state.user.educations.map((val) => objectOutOfArray(val)),
+      experiences: model.state.user.experiences.map((val) => objectOutOfArray(val)),
+      reffrences: model.state.user.reffrences.map((val) => objectOutOfArray(val)),
       images: {},
     };
 
-    await getCvOrLetter(state.user.inputData);
+    await getCvOrLetter(model.state.user.inputData);
     this.innerText = "Generate Cv";
     location.reload()
   } catch (error) {
@@ -490,45 +490,6 @@ formBtn.addEventListener("click", async function (e) {
   }
 });
 
-const generateMarckup = function (marckup) {
-  myResume.innerHTML = "";
-  myResume.insertAdjacentHTML("afterbegin", marckup);
-};
-document.querySelectorAll(".log-out").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.clear();
-    location.reload();
-  });
-});
-const deletUserAndResumes = async function (id) {
-  let confirmAction = confirm("Are you sure to execute this action?");
-  if (!confirmAction) return;
-  const res = await axios.delete(`https://app.cvstudio.io/user/delete/:${id}`);
-  renderUserData();
-};
-document.querySelector(".user-list").addEventListener("click", function (e) {
-  const userInforRow = e.target.closest(".user-infor-row");
-
-  if (!userInforRow) return;
-  const id = userInforRow.getAttribute("id");
-
-  if (e.target.classList.contains("btn-delete")) return deletUserAndResumes(id);
-});
-document
-  .querySelector(".admin-nav-bar")
-  .addEventListener("click", function (e) {
-    if (!e.target.classList.contains("admin-nav-element")) return;
-
-    let allSectionsInAdmin = document.querySelectorAll(".section-in-admin");
-    allSectionsInAdmin.forEach((section) => {
-      if (!section.classList.contains("hideMe"))
-        section.classList.add("hideMe");
-      document
-        .querySelector(`.${e.target.getAttribute("id")}`)
-        .classList.remove("hideMe");
-    });
-  });
 const useInitial = function (data) {
   return data
     .split(" ")
@@ -3181,39 +3142,7 @@ const getAndGenerateMarckup = function (listofuser) {
     .querySelector(".user-list")
     .insertAdjacentHTML("afterbegin", marckup);
 };
-const renderUserData = async function () {
-  // console.log(state.user.email)
-  const usersData = await axios.get("https://app.cvstudio.io/", {
-    ...state.user,
-  });
-  console.log(usersData);
-  userlist.innerHTML = "";
-  // userResums.innerHTML = "";
-  // if (!userResums.classList.contains("hiddenClass"))
-  //   userResums.classList.add("hiddenClass");
-  state.page = 1;
-  state.allData = usersData.data;
-  // htmlParent.style.fontSize="3px"
-  state.searchResult = getSearchResultPage(state.page);
 
-  getAndGenerateMarckup(state.searchResult);
-  generatePaginationMarkcup(state.allData.users.reverse());
-  state.allData.letters.reverse().forEach((val) => {
-    document
-      .querySelector(".admin-user-letters")
-      .insertAdjacentHTML("beforeend", createPdfMarckup(val));
-  });
-  state.allData.cvs.reverse().forEach((val) => {
-    document
-      .querySelector(".admin-user-resumes")
-      .insertAdjacentHTML("beforeend", createPdfMarckup(val));
-  });
-  document.querySelector(".current-letters").innerText =
-    state.allData.letters.length;
-  document.querySelector(".current-users").innerText =
-    state.allData.users.length;
-  document.querySelector(".current-cvs").innerText = state.allData.cvs.length;
-};
 const getTheTemplates = function (data) {
   let alluserTemplates = myTemplates.querySelectorAll(".resumeAndLetter");
   data.forEach((template) => {
@@ -3231,24 +3160,24 @@ const init = async function () {
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");
 
   let userData = JSON.parse(localStorage.getItem("user"));
-      console.log(userData)
+      // console.log(userData)
   if (!userData) window.location="index.html";
   //  console.log(userData)
 
   if (userData.isGonGon) {
    
-    document.querySelector(".admin-dashboard").classList.remove("hiddenClass");
-    renderUserData();
+    window.location="gongong.html"
+    
     return console.log("1");
   }
   
-  state.user.accesstoken = userData.accesstoken;
-  state.user.email = userData.email;
-  state.user.siteUserName = userData.siteUserName;
-  state.user.userid = userData.userid;
+  model.state.user.accesstoken = userData.accesstoken;
+  model.state.user.email = userData.email;
+  model.state.user.siteUserName = userData.siteUserName;
+  model.state.user.userid = userData.userid;
 
-  let id = state.user.userid;
-  document.querySelector(".site-user-name").innerText = state.user.siteUserName;
+  let id = model.state.user.userid;
+  document.querySelector(".site-user-name").innerText = model.state.user.siteUserName;
 
  
   document.querySelector(".loaderContainer").classList.remove("hiddenClass");
@@ -3261,25 +3190,25 @@ const init = async function () {
   // console.log(resume, templatesRes);
   
   if (resume.data.cv) {
-    state.resumes.push(...resume.data.cv);
+    model.state.resumes.push(...resume.data.cv);
     noResumeInfor.classList.add("hiddenClass");
     resumeInforContainer.querySelector(".anouncement").classList.remove("hiddenClass")
     
-    state.resumes.forEach((resume) => {
+    model.state.resumes.forEach((resume) => {
       // console.log(resume)
-      state.user.myResumes.push(createPdfMarckup(resume));
+      model.state.user.myResumes.push(createPdfMarckup(resume));
     });
     
 
-    state.user.myResumes.forEach((resume) =>
+    model.state.user.myResumes.forEach((resume) =>
       myResume.insertAdjacentHTML("beforeend", resume.toString())
     );
   }
 
   if (templatesRes.data.templates.length !== 0) {
-    state.templates = templatesRes.data.templates;
+    model.state.templates = templatesRes.data.templates;
     templateInorContainer.querySelector(".anouncement").classList.remove("hiddenClass")
-    getTheTemplates(state.templates);
+    getTheTemplates(model.state.templates);
     noTemplateInfor.classList.add("hiddenClass");
   }
 
@@ -3300,15 +3229,15 @@ init();
 templates.addEventListener("click", async function (e) {
   if (!e.target.classList.contains("custom-btn")) return;
   let templateContainer = e.target.closest(".resumeAndLetter");
-  state.user.template = templateContainer.getAttribute("id");
-  // return console.log(state.user.template)
+  model.state.user.template = templateContainer.getAttribute("id");
+  // return console.log(model.state.user.template)
 
   //   select this
   // Please wait...
   e.target.innerText = "Please wait...";
   const templateData = {
-    userid: state.user.userid,
-    template: state.user.template,
+    userid: model.state.user.userid,
+    template: model.state.user.template,
   };
   // templates.classList.add("hiddenClass");
   const res = await axios.post("https://app.cvstudio.io/resume/savetemplate/", {
@@ -3328,13 +3257,13 @@ templates.addEventListener("click", async function (e) {
     }, 2000);
     return console.log(res.data.msg);
   }
-  state.templates.push(res.data.result);
-  state.user.myTemplates = [];
-  state.section = "myTemplates";
+  model.state.templates.push(res.data.result);
+  model.state.user.myTemplates = [];
+  model.state.section = "myTemplates";
   myTemplates.classList.remove("hiddenClass");
-  getTheTemplates(state.templates);
+  getTheTemplates(model.state.templates);
 
-  noTemplateInor.classList.add("hiddenClass");
+  noTemplateInfor.classList.add("hiddenClass");
   templates.classList.add("hiddenClass");
   sectionName.innerText = "My Templates";
   document.querySelector("#templates").classList.remove("active");
@@ -3384,7 +3313,7 @@ allMyTemplates.forEach((tmf) => {
   });
 });
 document.querySelector(".get-one").addEventListener("click",function() {
-  state.section = "templates";
+  model.state.section = "templates";
   allUserContentChilds.forEach((child) => {
     if (!child.classList.contains("hiddenClass"))
       child.classList.add("hiddenClass");
@@ -3413,22 +3342,22 @@ myTemplates.addEventListener("click", function (e) {
       e.target.innerText = "Please wait...";
       // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
 
-      state.templateToUse.type = "";
-      state.templateToUse.template = "";
+      model.state.templateToUse.type = "";
+      model.state.templateToUse.template = "";
       let thisTemplate = e.target
         .closest(".resumeAndLetter")
         .getAttribute("id");
 
-      state.templateToUse.template = thisTemplate;
-      state.templateToUse.type = thisTemplate.slice(0, -1);
+      model.state.templateToUse.template = thisTemplate;
+      model.state.templateToUse.type = thisTemplate.slice(0, -1);
 
-      // console.log(state.templateToUse);
+      // console.log(model.state.templateToUse);
       e.target.innerText = "Use this...";
-      if (state.templateToUse.type === "resume") {
+      if (model.state.templateToUse.type === "resume") {
         cvFormContainer.classList.remove("hiddenClass");
         returnToTop();
       }
-      if (state.templateToUse.type === "letter") {
+      if (model.state.templateToUse.type === "letter") {
         document
           .querySelector(".cover-letter-container")
           .classList.remove("hiddenClass");
@@ -3469,7 +3398,7 @@ const returnToTop = () => {
       )
         return alert("File type not supported");
 
-      state.user.file = file;
+      model.state.user.file = file;
       let reader = new FileReader();
       reader.onloadend = function () {
         document
@@ -3509,12 +3438,12 @@ cvDataForm.addEventListener("click", async function (e) {
         (data) =>
           data[0] !== "certification" && data[1] !== "" && eduCol.push(data)
       );
-      eduCol.length !== 0 && state.user.educations.push(eduCol);
+      eduCol.length !== 0 && model.state.user.educations.push(eduCol);
     }
     if (btn.classList.contains("btnAddCertification")) {
       document.querySelector(".certInput").value = "";
 
-      state.user.certifications.push(
+      model.state.user.certifications.push(
         ...newData.filter((data) => data[0] === "certification")
       );
     }
@@ -3523,17 +3452,17 @@ cvDataForm.addEventListener("click", async function (e) {
 
       newData.length !== 0 &&
         newData.some((val) => val[1] !== "") &&
-        state.user.experiences.push(newData);
+        model.state.user.experiences.push(newData);
     }
     if (btn.classList.contains("addskill")) {
       document.querySelector(".skillInput").value = "";
 
-      state.user.skills.push(...newData.filter((val) => val[0] === "skill"));
+      model.state.user.skills.push(...newData.filter((val) => val[0] === "skill"));
     }
     if (btn.classList.contains("addinterest")) {
       document.querySelector(".intInput").value = "";
 
-      state.user.hobies.push(...newData.filter((val) => val[0] === "interest"));
+      model.state.user.hobies.push(...newData.filter((val) => val[0] === "interest"));
     }
     if (btn.classList.contains("addrefrence")) {
       document
@@ -3548,7 +3477,7 @@ cvDataForm.addEventListener("click", async function (e) {
           val[1] !== "" &&
           refCol.push(val)
       );
-      refCol.length !== 0 && state.user.reffrences.push(refCol);
+      refCol.length !== 0 && model.state.user.reffrences.push(refCol);
     }
   }
   newData = "";
@@ -3559,7 +3488,7 @@ cvDataForm.addEventListener("click", async function (e) {
 });
 btnNext1.addEventListener("click", (e) => {
   e.preventDefault();
-  state.user.persData1 = [...new FormData(e.target.closest("form"))];
+  model.state.user.persData1 = [...new FormData(e.target.closest("form"))];
 
   s1.querySelector(".fullName").style.borderBottom = "1px solid #999;";
 
@@ -3576,7 +3505,7 @@ btnback1.addEventListener("click", (e) => {
 });
 btnNext2.addEventListener("click", (e) => {
   e.preventDefault();
-  state.user.persData2 = [...new FormData(e.target.closest("form"))];
+  model.state.user.persData2 = [...new FormData(e.target.closest("form"))];
 
   s2.style.left = "-450px";
   s3.style.left = "40px";
@@ -3592,7 +3521,7 @@ btnNext3.addEventListener("click", (e) => {
   e.preventDefault();
 
   [...new FormData(e.target.closest("form"))].forEach(
-    (val) => val[1] !== "" && state.user.eduData.push(val)
+    (val) => val[1] !== "" && model.state.user.eduData.push(val)
   );
   s3.style.left = "-450px";
   s4.style.left = "40px";
@@ -3607,7 +3536,7 @@ btnback3.addEventListener("click", (e) => {
 btnNext4.addEventListener("click", (e) => {
   e.preventDefault();
   [...new FormData(e.target.closest("form"))].filter(
-    (val) => val[1] !== "" && state.user.expeData.push(val)
+    (val) => val[1] !== "" && model.state.user.expeData.push(val)
   );
   s4.style.left = "-450px";
   s5.style.left = "40px";
@@ -3621,7 +3550,7 @@ btnback4.addEventListener("click", (e) => {
 });
 btnNext5.addEventListener("click", (e) => {
   e.preventDefault();
-  state.user.socLinks = [...new FormData(e.target.closest("form"))];
+  model.state.user.socLinks = [...new FormData(e.target.closest("form"))];
   s5.style.left = "-450px";
   s6.style.left = "40px";
   progress.style.width = "100%";
@@ -3643,53 +3572,6 @@ const addTextArea = (e, placeholder, name) => {
 const iterableData = function (itrData) {
   return itrData.map((valData) => `<li>${valData}</li>`).join("");
 };
-
-const getSearchResultPage = function (page) {
-  state.page = page;
-  let start = (page - 1) * 8;
-  let end = page * 8;
-  //returning a certain page to be rendered
-  return state.allData.users.slice(start, end);
-};
-//pagination
-const paginationMarckup = function (searchResult) {
-  let curPage = state.page;
-  let numberOfUsers = 8;
-  const numPages = Math.ceil(searchResult.length / numberOfUsers);
-
-  // if(this._data.page===1 && numPages>1) return '1 and other pages';
-  // if(this._data.page===numPages && numPages>1) return 'last page';
-  // if(this._data<numPages)return "other page"
-  // if(this._data===numPages && numPages===1)return 'only one page'
-  const preMarckup = `<button class="btn--inline pagination__btn--prev" data-goto="${
-    curPage - 1
-  }">< Page ${curPage - 1}</button>`;
-  const nextMarckup = `<button class="btn--inline pagination__btn--next" data-goto="${
-    curPage + 1
-  }">Page ${curPage + 1} ></button> `;
-  if (curPage === 1 && numPages > 1) return nextMarckup;
-  if (curPage === numPages && numPages > 1) return preMarckup;
-  if (curPage < numPages)
-    return `${preMarckup}${nextMarckup}
-  `;
-  return "";
-};
-const generatePaginationMarkcup = function (val) {
-  paginationBox.innerHTML = "";
-  paginationBox.insertAdjacentHTML("afterbegin", paginationMarckup(val));
-};
-document.querySelector(".pagination").addEventListener("click", function (e) {
-  const btn = e.target.closest(".btn--inline");
-  if (!btn) return;
-  //console.log(document.querySelector('.user-list'))
-  this.innerHTML = "";
-  let userlist = document.querySelector(".user-list");
-  userlist.innerHTML = "";
-  const gotoPage = Number(btn.dataset.goto);
-  state.searchResult = getSearchResultPage(gotoPage);
-  getAndGenerateMarckup(state.searchResult);
-  generatePaginationMarkcup(state.allData.users);
-});
 
 // const btnNavEl = document.querySelector(".btn-mobile-nav");
 // const headerEl = document.querySelector(".header");

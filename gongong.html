@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+
+  <link rel="icon" href="img/fav 180X180.png" />
+  <link rel="apple-touch-icon" href="img/fav 64X64.png" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/engine-style.css">
+  <script defer type="module" src="js/gongong.js"></script>
+
+</head>
+<body>
+  <div class="admin-dashboard">
+    <div class="admin-side-bar">
+      <header class="">
+        <h2>Dashboard</h2>
+      </header>
+
+      <ul class="admin-nav-bar">
+        <li class="admin-nav-element admin-visited" id="admin-user-table">
+          Current users
+        </li>
+        <li class="admin-nav-element" id="admin-user-resumes">Resumes</li>
+        <li class="admin-nav-element" id="admin-user-letters">
+          Cover letters
+        </li>
+        <li class="log-out admin-nav-element" id="logout">Log out</li>
+      </ul>
+    </div>
+    <div class="users">
+      <div class="user-resources-container">
+        <div class="users-resources-summary">
+          <div class="number-of-registered">
+            <div class="icon-and-number">
+              <i class="fa fa-users"></i>
+              <p class="icon-number current-users">67</p>
+            </div>
+            <span class="icon-and-number-pointer">Current users</span>
+          </div>
+
+          <div class="number-of-resumes">
+            <div class="icon-and-number">
+              <i class="fa fa-save"></i>
+              <p class="icon-number current-cvs">67</p>
+            </div>
+            <span class="icon-and-number-pointer">user's resumes</span>
+          </div>
+          <div class="number-of-letters">
+            <div class="icon-and-number">
+              <i class="fa fa-tasks"></i>
+              <p class="icon-number current-letters">0</p>
+            </div>
+            <span class="icon-and-number-pointer">user's letters</span>
+          </div>
+        </div>
+        <div class="users-data-and-resource-container">
+          <div class="admin-user-resumes section-in-admin hideMe"></div>
+          <div class="admin-user-letters section-in-admin hideMe"></div>
+          <div
+            class="users-table-and-pagination admin-user-table section-in-admin"
+          >
+            <table class="list">
+              <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Date</th>
+              </tr>
+              <tbody class="user-list"></tbody>
+            </table>
+            <div class="pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

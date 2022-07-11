@@ -1,4 +1,4 @@
-import state from "./state.js";
+import * as model from "./model.js";
 const loadOnSignUpBtn = document.querySelector(".signInBtnLodader");
 const loadOnLogBtn = document.querySelector(".loginBtnLodader");
 const message2 = document.querySelector(".message1");
@@ -41,18 +41,18 @@ btnLogin.addEventListener("click", async function (e) {
       return (document.querySelector(".message2").textContent =
         "Can not supmit without email");
 
-    state.user.email = email;
-    state.user.password = password;
+    model.state.user.email = email;
+    model.state.user.password = password;
     loadOnLogBtn.classList.add("show-btn-loader");
     document.querySelector(".message2").textContent = `Please Wait...`;
     const res = await axios.post("https://app.cvstudio.io/user/login", {
-      ...state.user,
+      ...model.state.user,
     });
 
     if (res.data.data === "1") {
-      state.user.isGonGon = true;
+      model.state.user.isGonGon = true;
       let user = {
-        isGonGon: state.user.isGonGon,
+        isGonGon: model.state.user.isGonGon,
       };
       localStorage.setItem("user", JSON.stringify(user));
 
@@ -60,8 +60,8 @@ btnLogin.addEventListener("click", async function (e) {
       return 1
     }
 
-    state.user.accesstoken = state.user.token = res.data.accesstoken;
-    if (!state.user.accesstoken) {
+    model.state.user.accesstoken = model.state.user.token = res.data.accesstoken;
+    if (!model.state.user.accesstoken) {
       document.querySelector(".message2").textContent =
         "User or password incorrect";
       loadOnLogBtn.classList.remove("show-btn-loader");
@@ -72,7 +72,7 @@ btnLogin.addEventListener("click", async function (e) {
       email: res.data.user.email,
       siteUserName: res.data.user.userName,
       userid: res.data.user._id,
-      accesstoken: state.user.accesstoken,
+      accesstoken: model.state.user.accesstoken,
     };
 
     if (!res.data.user.isVerified) {
@@ -126,8 +126,8 @@ btnSignup.addEventListener("click", async function (e) {
       return (message2.innerText = "Password did not match");
     loadOnSignUpBtn.classList.add("show-btn-loader");
     message2.innerText = "Please Wait...";
-    state.user = formData;
-    register(state.user);
+    model.state.user = formData;
+    register(model.state.user);
   } catch (error) {
     console.log(error);
   }

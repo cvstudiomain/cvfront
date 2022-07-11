@@ -837,7 +837,7 @@ background-color:  #F7F6FB;
 }
 
 .site-nav {
-  /* width: 100%; */
+  width: 280px;
   position: fixed;
   grid-column: 1/2;
   grid-column: 1/-1;
@@ -848,7 +848,6 @@ background-color:  #F7F6FB;
   /* border-top-left-radius: 32px; */
   display: flex;
   height:calc( 100vh - 80px);
-  overflow-y: scroll;
   
   flex-direction: column;
   gap: 48px;
@@ -914,6 +913,7 @@ background-color:  #F7F6FB;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  overflow-y: scroll;
 
   
   list-style: none;
@@ -1017,6 +1017,7 @@ color: #fff;
 .site-user-name-container i{
  font-size: 48px;
  color: #fff;
+ 
  background-color: #1A3E27;
  border-radius: 50%;
 }
@@ -1024,7 +1025,7 @@ color: #fff;
   /* font-family: 'Signika Negative', sans-serif; */
   font-size: 20.8px;
   font-weight: 500;
-  
+  word-wrap: break-word;
   text-transform: uppercase;
   color: #999;
   /* font-weight: 500; */

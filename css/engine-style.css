@@ -2135,6 +2135,11 @@ font-size: 12px;
   
 }
 @media(max-width:830px){
+
+.resumesViewer-content-binder{
+  flex-direction: column;
+ margin: auto;
+}
   .cv-form{
     width: 400px;
   }

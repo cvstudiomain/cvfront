@@ -51,6 +51,7 @@ const formBtn = document.querySelector(".generateCv");
 const btnSaveLetter = document.querySelector(".btn-save-letter");
 const cvDataForm = document.querySelector(".cv-form");
 const cvFormContainer = document.querySelector(".cv-form-container");
+const coverLetterContainer=document.querySelector(".cover-letter-container")
 let image_input2 = document.querySelector("#image_input2");
 let image_input = document.querySelector("#image_input");
 let uploaded_image = "";
@@ -305,7 +306,10 @@ myResume.addEventListener("click", function (e) {
     return;
   }
 });
-const closeResumesViewer=()=>{
+const closeViewer=()=>{
+  [cvFormContainer,coverLetterContainer].forEach(box=>!box.classList.contains("hiddenClass")? box.classList.add("hiddenClass"):""
+   
+    )
   if(!resumesViewer.classList.contains("hiddenClass")){
     // console.log("true")
     htmlParent.style.fontSize = model.state.fontSize;
@@ -314,7 +318,7 @@ const closeResumesViewer=()=>{
 }
 document.querySelector(".create-new").addEventListener("click", function () {
   
-  closeResumesViewer()
+  closeViewer()
   allUserContentChilds.forEach((child) => {
 
     if (!child.classList.contains("hiddenClass"))
@@ -347,9 +351,7 @@ document.querySelectorAll(".closeForm").forEach((btn) => {
     cvFormContainer.classList.add("hiddenClass");
     myTemplates.classList.remove("hiddenClass");
     hidePaginations(pbox3)
-    document
-      .querySelector(".cover-letter-container")
-      .classList.add("hiddenClass");
+    coverLetterContainer.classList.add("hiddenClass");
   });
 });
 const allLinks = document.querySelectorAll(".smoothmove");
@@ -388,7 +390,7 @@ const hidePaginations = function (box) {
 };
 document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
-  closeResumesViewer()
+  closeViewer()
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
 
@@ -472,7 +474,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
 btnSaveLetter.addEventListener("click", async function (e) {
   this.innerText = "please wait..";
   let formData = Object.fromEntries(
-    ...[new FormData(document.querySelector(".cover-letter-container"))]
+    ...[new FormData(coverLetterContainer)]
   );
   let theletter = document.querySelector("#theletter").innerText;
   let coverLetter = {
@@ -538,9 +540,7 @@ const getCvOrLetter = async function (data) {
     );
   });
   cvFormContainer.classList.add("hiddenClass");
-  document
-    .querySelector(".cover-letter-container")
-    .classList.add("hiddenClass");
+  coverLetterContainer.classList.add("hiddenClass");
   userDashBoard.classList.remove("hiddenClass");
   s6.style.left = "-1000px";
   s1.style.left = "16px";
@@ -843,6 +843,7 @@ templates.addEventListener("click", async (e) => {
   document.querySelector("#myTemplates").classList.add("active");
 });
 document.querySelector(".get-one").addEventListener("click", function () {
+closeViewer()
   hidePaginations(pbox2);
 
   model.state.section = "templates";
@@ -890,9 +891,7 @@ myTemplates.addEventListener("click", function (e) {
        
       }
       if (model.state.templateToUse.type === "letter") {
-        document
-          .querySelector(".cover-letter-container")
-          .classList.remove("hiddenClass");
+       coverLetterContainer.classList.remove("hiddenClass");
         
       }
     }

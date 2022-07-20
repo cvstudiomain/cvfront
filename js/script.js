@@ -305,10 +305,17 @@ myResume.addEventListener("click", function (e) {
     return;
   }
 });
-
+const closeResumesViewer=()=>{
+  if(!resumesViewer.classList.contains("hiddenClass")){
+    // console.log("true")
+    htmlParent.style.fontSize = model.state.fontSize;
+    resumesViewer.classList.add("hiddenClass");
+  }
+}
 document.querySelector(".create-new").addEventListener("click", function () {
+  
+  closeResumesViewer()
   allUserContentChilds.forEach((child) => {
-    // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
 
     if (!child.classList.contains("hiddenClass"))
       child.classList.add("hiddenClass");
@@ -381,6 +388,7 @@ const hidePaginations = function (box) {
 };
 document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
+  closeResumesViewer()
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
 
@@ -430,7 +438,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   if (buttonId === "myTemplates") {
     hidePaginations(pbox3);
     model.state.section = "myTemplates";
-    console.log(model.state.user.userTotalTemplates);
+    // console.log(model.state.user.userTotalTemplates);
     templateInorContainer.classList.remove("hiddenClass");
 
     targetElement.classList.add("active");

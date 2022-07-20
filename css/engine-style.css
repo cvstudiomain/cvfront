@@ -29,7 +29,10 @@ body {
   position: relative;
   background-color: #ffe7ef;
 }
-
+.body-on-load{
+  height: 100vh;
+  overflow: hidden;
+}
 .loader {
 
   width: 200px;
@@ -95,6 +98,13 @@ body {
   align-items: center;
   gap: 16px;
 }
+.paginationBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 16px;
+}
 .admin-dashboard {
   height: 100%;
   min-height: 100vh;
@@ -103,7 +113,7 @@ body {
   color: #555;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 200px 1fr;
   padding: 16px;
   justify-content: center;
   gap: 16px;
@@ -221,13 +231,7 @@ body {
  overflow-x: scroll;
 width: 800px;
 }
-.hideMe {
-  position: absolute;
-  transform: translateX(1000px);
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
+
 .icon-and-number {
   width: 100%;
   display: flex;
@@ -278,10 +282,7 @@ width: 800px;
 .user-infor-row .btn-delete:hover {
   background-color: #ff105f;
 }
-.btn--inline {
-  color: #00bd00;
-  background-color: inherit;
-}
+
 .user-infor-row:hover {
   color: #fff;
   background-color: #999;
@@ -310,6 +311,9 @@ width: 800px;
   overflow-x: hidden;
   overflow-y: auto;
 }
+.cv-form{
+  width: 600px;
+}
 .register-section,
 .login-section,
 .form-style{
@@ -317,7 +321,7 @@ width: 800px;
   font-weight: 500;
   position: absolute;
   top: 50%;
-  left: 40px;
+  left: 16px;
   transition: 0.5s;
   transform: translateY(-50%);
   display: flex;
@@ -327,10 +331,13 @@ width: 800px;
   row-gap: 32px;
   transition: 0.5s;
 }
+.login-section{
+  left: 40px;
+}
 
 #letterForm {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 64px;
 }
 
@@ -366,6 +373,7 @@ width: 800px;
   flex-direction: column;
   gap: 32px;
 }
+
 #theletter {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -388,7 +396,18 @@ width: 800px;
   align-items: center;
   justify-content: center;
 }
-
+.loaderContainer{
+  background-color: #fff;
+  position: absolute;
+  z-index: 999;
+}
+.hideMe {
+  position: absolute;
+  transform: translateX(1000px);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
 .logandregister {
   height: 546px;
 }
@@ -437,6 +456,7 @@ textarea {
 ::placeholder {
   color: #bbb;
 }
+
 .btn-box {
   width: 100%;
   display: flex;
@@ -479,8 +499,10 @@ input[type="submit"] {
 .s2,
 .s3,
 .s6 {
-  left: 450px;
+  left: 1000px;
+ 
 }
+
 .s7,.welcome-message, .updating-the-system{
   background-color: #ff105f;
   color: #ffe7ef;
@@ -504,6 +526,9 @@ input[type="submit"] {
   left: 1000px;
   opacity: 0;
   width: 100%;
+}
+.form-style{
+  width: 567px;
 }
 .welcome-message p{
   text-align: center;
@@ -671,16 +696,33 @@ button {
   padding: 8px 16px;
   outline: none;
 }
-/* .download-btn-container{
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
+.pagination-btn {
+    
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #660626;
+  border: none;
+ text-align: center;
+  font-family: inherit;
+  color: #fff;
+  
+  
+  font-size: 16px;
+  cursor: pointer;
  
 }
+.pagination-btn:hover{
+  box-shadow: inset 0 0 0 3px rgba(255, 157, 157, 0.7);
+}
+
+/*
 .download-btn-container .fa{
   color: red;
   font-size: 30px;
 } */
+
 .login-signup-btn-container{
   width: fit-content;
   height: fit-content;
@@ -696,6 +738,7 @@ transform: translateX(1000px);
 background-color: #ff105f;
 
 }
+
 .show-btn-loader{
   opacity: 1;
 visibility: visible;
@@ -856,7 +899,7 @@ background-color:  #F7F6FB;
 .resumesViewer,
 .cv-form-container,
 .cover-letter-container {
-  margin: 90px auto;
+ 
 
   
   font-size: 16px;
@@ -865,7 +908,7 @@ background-color:  #F7F6FB;
 
   height: auto;
   
-  z-index: 4;
+  /* z-index: 4; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -898,9 +941,27 @@ background-color:  #F7F6FB;
 .btnCloseView .fa:hover {
   font-size: 26px;
 }
-.downloadCv{
+.download-btn-container{
+  display: flex;
+  flex-direction:column;
+  gap: 16px;
+ 
+}
+.resumesViewer-content-binder{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 0 32px;
+}
+.download-btn-container .btn{
+background-color:  rgba(255, 157, 157, 0.7);
+
+color: #fff;
+}
+.download-btn-container .downloadCv{
   background-color: #ff105f;
-  color: #fff;
 }
 .downloadCv:hover {
   background-color: #f0094a;
@@ -1854,6 +1915,10 @@ grid-row: 1;
   box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
     4px 4px 5px 0px #0002;
 }
+.showUsedBtn{
+  opacity: 1;
+  pointer-events: all;
+}
 .cover .large-content {color: black;}
 .no1 .related-infor {
   background-color: #2c3e50;
@@ -1924,6 +1989,13 @@ font-style: normal;
   color: #999;
 
 font-size: 12px;
+}
+@media (max-width: 1330px){
+  
+  html{
+    font-size: 4px;
+  }
+  
 }
 @media (max-width: 1270px){
   
@@ -2034,13 +2106,68 @@ font-size: 12px;
   .user-content-child{
     grid-template-columns: repeat(2,1fr);
   }
+  .cv-form{
+    width: 500px;
+  }
+  .form-style{
+    width: 466px;
+  }
 }
 @media(max-width:930px){
   html{
     font-size: 3.6px;
   }
+  .cover-letter-user-employer{
+    gap: 20px;
+  }
+  .cover-letter-user-employer,
+#theletter {
+  width: 400px;
 }
+}
+@media(max-width:900px) {
+  .cv-form{
+    width: 430px;
+  }
+  .form-style{
+    width: 396px;
+  }
+  
+}
+@media(max-width:830px){
+  .cv-form{
+    width: 400px;
+  }
+  .form-style{
+    width: 366px;
+  }
+}
+@media(max-width:800px){
+  .cv-form{
+    width: 390px;
+  }
+  .form-style{
+    width: 357px;
+  }
+  .cover-letter-user-employer {
+    flex-direction: column;
+   
+   
+  }.cover-employer-information,
+  .cover-personal-information {
+    width: 100%;
+  }
+  .letterContainer {
+    width: 350px;
+  }
+  
+  .cover-letter-user-employer,
+  #theletter {
+    
 
+    width: 100%;
+}
+}
 @media(max-width:750px){
   html{
     font-size: 3.5px;
@@ -2105,21 +2232,8 @@ width: auto;
   .sectionforadd{
     max-width: 450px;
   }
-  .cover-letter-user-employer {
-    flex-direction: column;
-   
-    width: 400px;
-  }
-  .cover-employer-information,
-  .cover-personal-information {
-    width: 100%;
-  }
-  .letterContainer {
-    width: 400px;
-  }
-  #theletter {
-    width: 100%;
-  }
+  
+  
 }
 @media (max-width: 530px) {
   
@@ -2138,6 +2252,13 @@ width: auto;
     margin: 0 auto;
 
     transform: scale(1);
+  }
+  .cv-form{
+    width: 315px;
+  }
+  .form-style{
+    width: 280px;
+    
   }
 }
 @media(max-width:500px){
@@ -2176,8 +2297,10 @@ width: auto;
   html{
     font-size: 3.2px;
   }
+  
 }
 @media (max-width: 400px) {
+ 
   .sectionforadd{
     max-width: 300px;
   }
@@ -2189,6 +2312,14 @@ width: auto;
   html{
     font-size: 2.8px;
   }
+  .cv-form{
+    width: 290px;
+  }
+  .form-style{
+    width: 260px;
+    
+  }
+  
 }
 @media (max-width: 371px) {
   .icon-mobile-nav {

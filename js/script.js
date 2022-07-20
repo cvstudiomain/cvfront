@@ -1,11 +1,18 @@
 import * as model from "./model.js";
-
+import * as temMarckup from "./rAndcGenerator.js";
+import * as pagination from "./pagination.js";
+// all resumes and cover letter templates
+import * as arct from "./alltemplates.js";
+// console.log(arct)
+const containerBody=document.querySelector("body")
+const loaderContainer=document.querySelector(".loaderContainer")
 const btnNext1 = document.querySelector("#next1");
 const btnNext2 = document.querySelector("#next2");
 const btnNext3 = document.querySelector("#next3");
 const btnNext4 = document.querySelector("#next4");
 const btnNext5 = document.querySelector("#next5");
-const btnNext6 = document.querySelector("#next6");
+const userAreaContents = document.querySelector(".content-columns");
+const paginationBox = document.querySelectorAll(".paginationBox");
 
 const btnback1 = document.querySelector("#back1");
 const btnback2 = document.querySelector("#back2");
@@ -26,12 +33,18 @@ const templates = document.querySelector(".templates");
 const htmlParent = document.querySelector("html");
 const myResume = document.querySelector(".myResume");
 const resumesViewer = document.querySelector(".resumesViewer");
-const resumeInforContainer=document.querySelector(".resume-infor-container")
+const resumeInforContainer = document.querySelector(".resume-infor-container");
 const noResumeInfor = document.querySelector(".no-resume-infor");
 const noTemplateInfor = document.querySelector(".no-template-infor");
 const myTemplates = document.querySelector(".myTemplates");
-const templatesInfor=document.querySelector(".templatesInfor")
-const templateInorContainer = document.querySelector(".template-infor-container");
+const templatesInfor = document.querySelector(".templatesInfor");
+const templateInorContainer = document.querySelector(
+  ".template-infor-container"
+);
+
+const pbox1 = document.querySelector(".myResumes-p-btns");
+const pbox2 = document.querySelector(".myTemplates-p-btns");
+const pbox3 = document.querySelector(".templates-p-btns");
 
 const userDashBoard = document.querySelector(".userDashBoard");
 const formBtn = document.querySelector(".generateCv");
@@ -43,6 +56,15 @@ let image_input = document.querySelector("#image_input");
 let uploaded_image = "";
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".master-body");
+const preLoade=function(start=true){
+  if(start){
+    containerBody.classList.add("body-on-load")
+   loaderContainer.classList.remove("hideMe")
+    return true
+  }
+  containerBody.classList.remove("body-on-load")
+  loaderContainer.classList.add("hideMe")
+}
 document.querySelector(".nav-tabs").addEventListener("click", function (e) {
   if (!e.target.classList.contains("tab")) return;
 
@@ -87,81 +109,175 @@ const objectOutOfArray = function (data) {
 const allUserSiteButtons = document.querySelectorAll(".user-site-button");
 const allUserContentChilds = document.querySelectorAll(".user-content-child");
 resumesViewer.addEventListener("click", async function (e) {
-  if (!e.target.classList.contains("viewerBtn")) return;
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-
+//   type of clicks
+//   downloadCv
+// editCv
+// deleteCv
+let btn=e.target
+  if (!btn.classList.contains("viewerBtn")) return;
+  
 
   // userDashBoard.classList.remove("hiddenClass");
-  if (e.target.closest("button").classList.contains("btnCloseView")) {
-    userDashBoard.classList.remove("hiddenClass");
-    userDashBoard.classList.remove("hiddenClass");
-  
+  if (btn.closest("button").classList.contains("btnCloseView")) {
+   
+    myResume.classList.remove("hiddenClass")
+    hidePaginations(pbox1)
     htmlParent.style.fontSize = model.state.fontSize;
     return resumesViewer.classList.add("hiddenClass");
   }
- 
+  // return console.log(btn)
+  if(btn.classList.contains("downloadCv")){
 
-  htmlParent.style.fontSize = "16px";
-  let container = e.target.closest(".resumesViewer");
-  let myCv = container.querySelector(".template");
-      // myCv.style.minHeight="100%";
-      // myCv.style.width="100%";
-  resumesViewer.classList.add("hiddenClass");
-  myResume.innerHTML = `<div class="loader"></div>`;
-  userDashBoard.classList.remove("hiddenClass");
-  var opt = {
-    pagebreak: {
-      avoid: [
-        ".objective",
-        ".content-wrapper",
-        ".school-and-address",
-        "h3",
-        "p",
-        "li",
-      ],
-    },
-
-    filename: "cv.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2, logging: true, letterRendering: 1, useCORS: true },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-  };
-  resumesViewer.classList.add("hiddenClass");
-  await html2pdf().from(myCv).set(opt).save();
-  myCv.style.minHeight="70.157rem"
-  htmlParent.style.fontSize = model.state.fontSize
-  
-location.reload();
-  // setTimeout(() => {
+    htmlParent.style.fontSize = "16px";
+    let container = e.target.closest(".resumesViewer");
+    let myCv = container.querySelector(".template");
+    let name=myCv.classList.contains("letter")?"letter.pdf":"cv.pdf";
+   
+    // myCv.style.minHeight="100%";
+    // myCv.style.width="100%";
+    resumesViewer.classList.add("hiddenClass");
+    myResume.innerHTML = `<div class="loader"></div>`;
+    myResume.classList.remove("hiddenClass");
+    var opt = {
+      pagebreak: {
+        avoid: [
+          ".objective",
+          ".content-wrapper",
+          ".school-and-address",
+          "h3",
+          "p",
+          "li",
+        ],
+      },
+      
+      filename: name,
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, logging: true, letterRendering: 1, useCORS: true },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    };
+    resumesViewer.classList.add("hiddenClass");
+    await html2pdf().from(myCv).set(opt).save();
+    myCv.style.minHeight = "70.157rem";
+    htmlParent.style.fontSize = model.state.fontSize;
     
-  //   myResume.innerHTML = model.state.user.myResumes;
-  // }, 3000);
+    return location.reload();
+  }
+
+  alert("This feature is not ready now")
+    // setTimeout(() => {
+      
+      //   myResume.innerHTML = model.state.user.myResumes;
+      // }, 3000);
+    });
+pbox1.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn--inline");
+  if (!btn) return;
+  const gotoPage = Number(btn.dataset.goto);
+  myResume.innerHTML = "";
+  pbox1.innerHTML = "";
+  model.state.searchResult = pagination.getSearchResultPage(
+    gotoPage,
+    model.state.user.myResumes,
+    true
+  );
+  model.state.searchResult.forEach((result) => {
+    myResume.insertAdjacentHTML("afterbegin", result.toString());
+  });
+
+  pbox1.insertAdjacentHTML(
+    "beforeend",
+    pagination.paginationMarckup(model.state.user.myResumes, true)
+  );
 });
+pbox3.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn--inline");
+  if (!btn) return;
+  const gotoPage = Number(btn.dataset.goto);
+  myTemplates.innerHTML = "";
+  pbox3.innerHTML = "";
+  model.state.searchResult = pagination.getSearchResultPage(
+    gotoPage,
+    model.state.user.userTotalTemplates,
+    true
+  );
+  model.state.searchResult.forEach((result) => {
+    myTemplates.insertAdjacentHTML("afterbegin", result.toString());
+  });
+
+  pbox3.insertAdjacentHTML(
+    "beforeend",
+    pagination.paginationMarckup(model.state.user.userTotalTemplates, true)
+  );
+});
+
+pbox2.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn--inline");
+  if (!btn) return;
+  const gotoPage = Number(btn.dataset.goto);
+  templates.innerHTML = "";
+  pbox2.innerHTML = "";
+  model.state.searchResult = pagination.getSearchResultPage(
+    gotoPage,
+    arct.allTemplates,
+    true
+  );
+  model.state.searchResult.forEach((result) => {
+    templates.insertAdjacentHTML("afterbegin", result.toString());
+  });
+
+  pbox2.insertAdjacentHTML(
+    "beforeend",
+    pagination.paginationMarckup(arct.allTemplates, true)
+  );
+});
+// paginationBox.forEach(function(btnBox){
+
+//  btnBox.addEventListener("click", function(e){
+//   let boxClass=""
+//   let content=[];
+//   let container
+//  if (btnBox.classList.contains("myResumes-p-btns")){
+//    content=;
+//    boxClass="myResumes-p-btns";
+//    container=myResume;
+//  }
+//  if (btnBox.classList.contains("myTemplates-p-btns")) {
+//    content=model.state.userTotalTemplates;
+//    boxClass="myTemplates-p-btns";
+//    container=myTemplates
+//   }
+//  if (btnBox.classList.contains("templates-p-btns")){
+//  content=arct.allTemplates;
+//    boxClass="templates-p-btns";
+//    container=templates
+//  }
+//  let btnContainer=btn.closest(`.${boxClass}`)
+
+//   });
+
+// })
+
 myResume.addEventListener("click", function (e) {
   // console.log(e.target.closest('.template'))
 
-  if (!e.target.closest(".template"))return;
+  if (!e.target.closest(".template")) return;
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+ 
   if (e.target.closest(".template")) {
-    userDashBoard.classList.add("hiddenClass");
+   myResume.classList.add("hiddenClass");
     let id = e.target.closest(".template").getAttribute("id");
     let marckupData = "";
     model.state.resumes.forEach((resume) =>
       resume._id === id ? (marckupData = resume) : ""
     );
-
-    let marckup = createPdfMarckup(marckupData);
-    let style = window.getComputedStyle(htmlParent, null).getPropertyValue('font-size');
-let fontSize = parseFloat(style); 
-    model.state.fontSize=fontSize+"px"
-      htmlParent.style.fontSize="5px"
+    hidePaginations(null)
+    let marckup = temMarckup.createPdfMarckup(marckupData);
+    let style = window
+      .getComputedStyle(htmlParent, null)
+      .getPropertyValue("font-size");
+    let fontSize = parseFloat(style);
+    model.state.fontSize = fontSize + "px";
+    htmlParent.style.fontSize = "5px";
     resumesViewer.innerHTML = "";
     resumesViewer.insertAdjacentHTML(
       "afterbegin",
@@ -170,10 +286,17 @@ let fontSize = parseFloat(style);
     
     aria-hidden="true"
   ></i></button>
+  <div class="resumesViewer-content-binder">
   ${marckup}
   <div class="download-btn-container">
-  <i class="fa fa-file-pdf-o"></i>
+  
   <button type="button" class="btn downloadCv viewerBtn">Download</button>
+  
+  
+  <button type="button" class="btn editCv viewerBtn">Edit</button>
+  
+  <button type="button" class="btn deleteCv viewerBtn">Delete</button>
+  </div>
   </div>
  `
     );
@@ -181,41 +304,42 @@ let fontSize = parseFloat(style);
 
     return;
   }
- 
 });
 
-document.querySelector(".create-new").addEventListener("click",function(){
-
-
+document.querySelector(".create-new").addEventListener("click", function () {
   allUserContentChilds.forEach((child) => {
     // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
-    
+
     if (!child.classList.contains("hiddenClass"))
-    child.classList.add("hiddenClass");
+      child.classList.add("hiddenClass");
   });
   allUserSiteButtons.forEach((btn) => {
     if (btn.classList.contains("active")) btn.classList.remove("active");
   });
+  hidePaginations(pbox3);
+
   model.state.section = "myTemplates";
   sectionName.innerText = "My Templates";
   myTemplates.classList.remove("hiddenClass");
-  
-  document.querySelector(`#${myTemplates.classList[0]}`).classList.add("active");
-  outOfMyResumes()
-  
-})
-  function outOfMyTemplates(){
-    templateInorContainer.classList.add("hiddenClass")
-  resumeInforContainer.classList.remove("hiddenClass")
-  }
-  function outOfMyResumes(){
-    templateInorContainer.classList.remove("hiddenClass")
-  resumeInforContainer.classList.add("hiddenClass")
-  }
+
+  document
+    .querySelector(`#${myTemplates.classList[0]}`)
+    .classList.add("active");
+  outOfMyResumes();
+});
+function outOfMyTemplates() {
+  templateInorContainer.classList.add("hiddenClass");
+  resumeInforContainer.classList.remove("hiddenClass");
+}
+function outOfMyResumes() {
+  templateInorContainer.classList.remove("hiddenClass");
+  resumeInforContainer.classList.add("hiddenClass");
+}
 document.querySelectorAll(".closeForm").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     cvFormContainer.classList.add("hiddenClass");
-    userDashBoard.classList.remove("hiddenClass");
+    myTemplates.classList.remove("hiddenClass");
+    hidePaginations(pbox3)
     document
       .querySelector(".cover-letter-container")
       .classList.add("hiddenClass");
@@ -247,15 +371,24 @@ allLinks.forEach(function (link) {
       headerEl.classList.toggle("nav-open");
   });
 });
-
+const hidePaginations = function (box) {
+  paginationBox.forEach((btnbox) =>
+    btnbox.classList.contains("hiddenClass")
+      ? ""
+      : btnbox.classList.add("hiddenClass")
+  );
+  box?.classList.remove("hiddenClass");
+};
 document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
+
+  // console.log(paginationBox)
   // document.querySelector(".myResumeInfor").classList.add("hiddenClass");
-templateInorContainer.classList.add("hiddenClass")
-resumeInforContainer.classList.add("hiddenClass")
-templatesInfor.classList.add("hiddenClass")
+  templateInorContainer.classList.add("hiddenClass");
+  resumeInforContainer.classList.add("hiddenClass");
+  templatesInfor.classList.add("hiddenClass");
   document
     .querySelector(".nav-tabs")
     .querySelectorAll("a")
@@ -275,8 +408,9 @@ templatesInfor.classList.add("hiddenClass")
     if (btn.classList.contains("active")) btn.classList.remove("active");
   });
   if (buttonId === "myResume") {
+    hidePaginations(pbox1);
     model.state.section = "myResume";
-   resumeInforContainer.classList.remove("hiddenClass")
+    resumeInforContainer.classList.remove("hiddenClass");
     // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
@@ -294,15 +428,19 @@ templatesInfor.classList.add("hiddenClass")
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "myTemplates") {
+    hidePaginations(pbox3);
     model.state.section = "myTemplates";
-    templateInorContainer.classList.remove("hiddenClass")
+    console.log(model.state.user.userTotalTemplates);
+    templateInorContainer.classList.remove("hiddenClass");
+
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "templates") {
     model.state.section = "templates";
-  templatesInfor.classList.remove("hiddenClass")
+    hidePaginations(pbox2);
+    templatesInfor.classList.remove("hiddenClass");
 
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
@@ -319,9 +457,8 @@ templatesInfor.classList.add("hiddenClass")
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
   }
   if (buttonId === "logout") {
-    localStorage.clear()
-    window.location="index.html"
-
+    localStorage.clear();
+    window.location = "index.html";
   }
 });
 btnSaveLetter.addEventListener("click", async function (e) {
@@ -376,7 +513,9 @@ const getCvOrLetter = async function (data) {
 
   model.state.resume = res.data.data;
   model.state.resumes.push(model.state.resume);
-  model.state.user.myResumes.push(createPdfMarckup(model.state.resume));
+  model.state.user.myResumes.push(
+    temMarckup.createPdfMarckup(model.state.resume)
+  );
   noResumeInfor.classList.add("hiddenClass");
   myTemplates.classList.add("hiddenClass");
   document.querySelector("#myTemplates").classList.remove("active");
@@ -385,15 +524,18 @@ const getCvOrLetter = async function (data) {
   document.querySelector("#myResume").classList.add("active");
   myResume.innerHTML = "";
   model.state.resumes.forEach((resume) => {
-    myResume.insertAdjacentHTML("afterbegin", createPdfMarckup(resume));
+    myResume.insertAdjacentHTML(
+      "afterbegin",
+      temMarckup.createPdfMarckup(resume)
+    );
   });
   cvFormContainer.classList.add("hiddenClass");
   document
     .querySelector(".cover-letter-container")
     .classList.add("hiddenClass");
   userDashBoard.classList.remove("hiddenClass");
-  s6.style.left = "-450px";
-  s1.style.left = "40px";
+  s6.style.left = "-1000px";
+  s1.style.left = "16px";
   progress.style.width = "60px";
   clearInput();
 };
@@ -419,7 +561,9 @@ formBtn.addEventListener("click", async function (e) {
     eduCol.length !== 0 && model.state.user.educations.push(eduCol);
     let expCol = [];
     model.state.user.expeData &&
-      model.state.user.expeData.forEach((val) => val[1] !== "" && expCol.push(val));
+      model.state.user.expeData.forEach(
+        (val) => val[1] !== "" && expCol.push(val)
+      );
     expCol.length !== 0 && model.state.user.experiences.push(expCol);
     model.state.eduData &&
       model.state.user.eduData.forEach((val) => {
@@ -476,2765 +620,181 @@ formBtn.addEventListener("click", async function (e) {
           .map((val) => val[1])
           .toString(),
 
-      educations: model.state.user.educations.map((val) => objectOutOfArray(val)),
-      experiences: model.state.user.experiences.map((val) => objectOutOfArray(val)),
-      reffrences: model.state.user.reffrences.map((val) => objectOutOfArray(val)),
+      educations: model.state.user.educations.map((val) =>
+        objectOutOfArray(val)
+      ),
+      experiences: model.state.user.experiences.map((val) =>
+        objectOutOfArray(val)
+      ),
+      reffrences: model.state.user.reffrences.map((val) =>
+        objectOutOfArray(val)
+      ),
       images: {},
     };
 
     await getCvOrLetter(model.state.user.inputData);
     this.innerText = "Generate Cv";
-    location.reload()
+    location.reload();
   } catch (error) {
     console.log(error);
   }
 });
 
-const useInitial = function (data) {
-  return data
-    .split(" ")
-    .map((val) => val[0])
-    .join("")
-    .toString()
-    .toUpperCase();
-};
-function capitalizeFirstLetter(string) {
-  const wordsInString = string.toLowerCase().split(" ");
-  const fixedString = wordsInString
-    .map((stringVal) => stringVal.charAt(0).toUpperCase() + stringVal.slice(1))
-    .join(" ");
-  return fixedString;
-}
-
-const createPdfMarckup = function (data) {
-  let marckup = "";
-
-  if (data.template.type === "letter") {
-    if (data.template.template === "letter1") {
-      marckup = `
-     <div class="template rl template1 letter cover cover1" id="${data._id}">
-  
-  <div class="user-name-and-profession">
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    ${
-      data.profession
-        ? `
-      <p class="profession">${data.profession}</p>
-      `
-        : ""
-    }
-    
-  </div>
-  
- 
-     ${
-       data.images
-         ? `
-         <div class="passportDateOfBirth">
-         <div class="passport-box">
-         <img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            crossOrigin="anonymous" 
-            
-            
-            />
-            </div>
-            </div>`
-         : ""
-     } 
-   
-  
-  <div class="large-content">
-    <div class="letterContainer" >
-      <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
-        data.state ? data.state : ""
-      }</li>
-        <li>${new Date(data.date).toDateString()}</li>
-      </ul>
-      <br />
-      <div contenteditable="false" id="letter">
-        ${data.theletter.replaceAll("\n", "<br />")}
-      </div>
-    </div>
-  </div>
- 
-  
-  <div class="tiny-content">
-    <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
-      <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>`
-            : ""
-        }
-      ${
-        data.phoneNumber
-          ? `
-        <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-          : ""
-      }
-       
-${
-  data.address
-    ? `
-        <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>`
-    : ""
-}
-      </div>
-    </div>
-  </div>
-  </div>
-  `;
-    }
-    if (data.template.template === "letter2") {
-      marckup = `
-  <div class="template rl template2 letter cover cover2" id="${data._id}">
-  
-  <div class="user-name-and-profession">
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    ${
-      data.profession
-        ? `
-      <p class="profession">${data.profession}</p>
-      `
-        : ""
-    }
-  </div>
-  <div class="tiny-content">
-  ${
-    data.images
-      ? `
-      <div class="passportDateOfBirth">
-      <div class="passport-box">
-      <img
-         src="${data.images.url}"
-         alt=""
-         class="passport"
-         crossOrigin="anonymous" 
-         
-         
-         />
-         </div>
-         </div>`
-      : ""
-  } 
-
-  
-    <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
-      <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>`
-            : ""
-        }
-  ${
-    data.phoneNumber
-      ? `
-        <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-      : ""
-  }
-${
-  data.address
-    ? `  
-        <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>`
-    : ""
-}
-      </div>
-    </div>
-  </div>
-  
-  <div class="large-content">
-    <div class="letterContainer" >
-      <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
-        data.state ? data.state : ""
-      }</li>
-        <li>${new Date(data.date).toDateString()}</li>
-      </ul>
-      <br />
-      <div contenteditable="false" id="letter">
-        ${data.theletter.replaceAll("\n", "<br />")}
-      </div>
-    </div>
-  </div>
-  </div>`;
-    }
-    if (data.template.template === "letter3") {
-      marckup = `<div class="template rl template3 letter cover cover3" id="${
-        data._id
-      }">
-  
-  
-  <div class="large-profile">
-  ${
-    data.images
-      ? `
-      <div class="passportDateOfBirth">
-      <div class="passport-box">
-      <img
-         src="${data.images.url}"
-         alt=""
-         class="passport"
-         crossOrigin="anonymous" 
-         
-         
-         />
-         </div>
-         </div>`
-      : ""
-  } 
-
-  
-    <div class="contact-information informationContainer">
-      <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>`
-            : ""
-        }
-  ${
-    data.phoneNumber
-      ? `
-        <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-      : ""
-  }
-${
-  data.address
-    ? `  
-        <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>`
-    : ""
-}
-      </div>
-    </div>
-  </div>
-  
-  <div class="user-name-and-profession">
-  ${
-    data.profession
-      ? `
-    <p class="profession">${data.profession}</p>
-    `
-      : ""
-  }
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-  </div>
-  
-  <div class="large-content">
-    <div class="letterContainer" >
-      <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
-        data.state ? data.state : ""
-      }</li>
-        <li>${new Date(data.date).toDateString()}</li>
-      </ul>
-      <br />
-      <div contenteditable="false" id="letter">
-        ${data.theletter.replaceAll("\n", "<br />")}
-      </div>
-    </div>
-  </div>
-  </div>
-  `;
-    }
-    if (data.template.template === "letter4") {
-      marckup = `<div class="template rl template4 letter cover cover4" id="${
-        data._id
-      }">
-  
-  <div class="contact-information informationContainer">
-    <div class="contact-container">
-      <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>`
-            : ""
-        }
-  ${
-    data.phoneNumber
-      ? `
-        <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-      : ""
-  }
-${
-  data.address
-    ? `  
-        <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>`
-    : ""
-}
-        ${
-          data.profession
-            ? `
-          <p class="profession">${data.profession}</p>
-          `
-            : ""
-        }
-      </div>
-  
-      <div class="content-wrapper secondContent">
-        <div class="user-name-and-profession">
-        ${
-          data.images
-            ? `
-            <div class="passportDateOfBirth">
-            <div class="passport-box">
-            <img
-               src="${data.images.url}"
-               alt=""
-               class="passport"
-               crossOrigin="anonymous" 
-               
-               
-               />
-               </div>
-               </div>`
-            : ""
-        } 
-      
-  
-          <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="large-content">
-    <div class="letterContainer" >
-      <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
-        data.state ? data.state : ""
-      }</li>
-        <li>${new Date(data.date).toDateString()}</li>
-      </ul>
-      <br />
-      <div contenteditable="false" id="letter">
-        ${data.theletter.replaceAll("\n", "<br />")}
-      </div>
-    </div>
-  </div>
-  </div>
-  `;
-    }
-    if (data.template.template === "letter5") {
-      marckup = `<div class="template rl template5 letter cover cover5" id="${
-        data._id
-      }">
-  
-  
-  <div class="tiny-content">
-  ${
-    data.images
-      ? `
-      <div class="passportDateOfBirth">
-      <div class="passport-box">
-      <img
-         src="${data.images.url}"
-         alt=""
-         class="passport"
-         crossOrigin="anonymous" 
-         
-         
-         />
-         </div>
-         </div>`
-      : ""
-  } 
-
-    <div class="contact-information informationContainer">
-      <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>`
-            : ""
-        }
-  ${
-    data.phoneNumber
-      ? `
-        <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-      : ""
-  }
-${
-  data.address
-    ? `  
-        <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>`
-    : ""
-}
-      </div>
-    </div>
-  </div>
-  <div class="user-name-and-profession">
-  <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-  ${
-    data.profession
-      ? `
-    <p class="profession">${data.profession}</p>
-    `
-      : ""
-  }
-</div>
-  <ul>
-  ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-  ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-  ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-  <li>${data.city ? data.city + "," : ""} ${data.state ? data.state : ""}</li>
-  <li>${new Date(data.date).toDateString()}</li>
-  </ul>
-  <div class="large-content">
-    <div class="letterContainer" >
-      <div contenteditable="false" id="letter">
-        ${data.theletter.replaceAll("\n", "<br />")}
-      </div>
-    </div>
-  </div>
-  </div>
-  
-  `;
-    }
-    if (data.template.template === "letter6") {
-      marckup = `
-  
-  
-  <div class="template rl template6 letter cover cover6" id="${data._id}">
-  
-  
-  <div class="user-name-and-profession">
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    ${
-      data.profession
-        ? `
-      <p class="profession">${data.profession}</p>
-      `
-        : ""
-    }
-  </div>
-  <div class="large-content">
-    <div class="letterContainer" >
-      <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
-        data.state ? data.state : ""
-      }</li>
-        <li>${new Date(data.date).toDateString()}</li>
-      </ul>
-      <br />
-      <div contenteditable="false" id="letter">
-        ${data.theletter.replaceAll("\n", "<br />")}
-      </div>
-    </div>
-  </div>
-  
-  <div class="tiny-content">
-    <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
-      <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>`
-            : ""
-        }
-  ${
-    data.phoneNumber
-      ? `
-        <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-      : ""
-  }
-${
-  data.address
-    ? `  
-        <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>`
-    : ""
-}
-      </div>
-    </div>
-  </div>
-  
-  ${
-    data.images
-      ? `
-      <div class="passportDateOfBirth">
-      <div class="passport-box">
-      <img
-         src="${data.images.url}"
-         alt=""
-         class="passport"
-         crossOrigin="anonymous" 
-         
-         
-         />
-         </div>
-         </div>`
-      : ""
-  } 
-
-  </div>
-  `;
-    }
-  }
-
-  if (data.template.type === "resume") {
-    if (data.template.template === "resume1") {
-      marckup = `<div id="${data._id}" class="template resume rl template1">
-      <div class="user-name-and-profession">
-      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-         <p class="profession">${data.profession}</p>
-       </div>
-  
-         <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            crossOrigin="anonymous" 
-            
-            
-            />`
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
-          </div>
-  
-          <div class="date-of-birth">
-            <p class="dateOfBirth">date of birth:</p>
-            <p>${data.dateofbirth}</p>
-          </div>
-  
-        </div>
-  
-       <div class="large-content">
-       
-       ${
-         data.profile
-           ? ` <div class="profile informationContainer">
-           <h3 class="inforHeader">Profile</h3>
-           <p>
-           ${data.profile}  
-           </p>
-         </div>`
-           : ""
-       }
-  
-  
-  
-       ${
-         data.experiences.length !== 0
-           ? `
-      <div class="recent-experience informationContainer">
-      <h3 class="inforHeader">Experience</h3>${data.experiences
-        .map((experience) => {
-          return `${
-            Object.keys(experience).length !== 0
-              ? `<div class="experience content-wrapper">
-      <div class="start-and-end-date">
-      ${
-        experience.experiencestarts
-          ? ` <p class="start">${experience.experiencestarts} to</p>`
-          : ""
-      }
-       ${
-         experience.experienceends
-           ? ` <p class="end">${experience.experienceends}</p>`
-           : ""
-       }  
-         
-        </div>
-  
-        ${
-          experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
-            : ""
-        }
-       ${
-         experience.experience
-           ? ` <p class="experienceOptain">${experience.experience}</p>`
-           : ""
-       }
-       ${
-         experience.orgAddress
-           ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-           : ""
-       }
-       
-      </div>`
-              : ""
-          }`;
-        })
-        .join("")}      
-      </div>`
-           : ""
-       }
-     
-  
-  ${
-    data.educations.length !== 0
-      ? `
-  <div class="educational-background informationContainer">
-  <h3 class="inforHeader">Education</h3>
-  ${data.educations
-    .map((edu) => {
-      return `<div class="education content-wrapper">
-    <div class="start-and-end-date">
-      <p class="start">${edu.educationstarts} to</p>
-      <p class="end">${edu.educationends}</p>
-    </div>
-    <p class="qualification">${edu.qualification}</p>
-    <p class="school-and-address">
-    ${edu.eduAndAddress}
-    </p>
-    </div>
-    `;
-    })
-    .join("")}
-    
-    </div>
-    `
-      : ""
-  }
-  
-  
-  ${
-    data.objective
-      ? `
-  
-  <div class="objective informationContainer">
-  <h3 class="inforHeader">Objective</h3>
-  <p>
-    ${data.objective}
-    </p>
-    </div>
-    
-  `
-      : ""
-  }
-  
-  ${
-    data.certifications.length !== 0
-      ? `
-      <div class="certification informationContainer">
-    <h3 class="inforHeader">Certification</h3>
-    <ul class="content-wrapper">
-    ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
-    </ul>
-    </div>
-    `
-      : ""
-  }
-  </div>
-  
-  <div class="tiny-content">
-  
-  <div class="contact-information informationContainer">
-  <h3 class="inforHeader">Contact information</h3>
-  <div class="content-wrapper">
-  ${
-    data.email
-      ? `<div class="information">
-      <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-      <p class="inforVal">${data.email}</p>
-    </div>
-    `
-      : ""
-  } 
-    ${
-      data.phoneNumber
-        ? ` <div class="information">
-       <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-      <p class="inforVal">${data.phoneNumber}</p>
-    </div>`
-        : ""
-    }
-     ${
-       data.country
-         ? `
-      <div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.country}</p>
-    </div>`
-         : ""
-     }
-
-     ${
-       data.state
-         ? `
-      <div class="information">
-           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.state}</p>
-    </div>`
-         : ""
-     }
-
-     ${
-       data.gender
-         ? `<div class="information">
-           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.gender}</p>
-    </div>`
-         : ""
-     }
-    ${
-      data.address
-        ? `<div class="information">
-       <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-      <p class="inforVal">${data.address}</p>
-    </div>
-      `
-        : ""
-    }
-    ${
-      data.maritalstatus
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.maritalstatus}</p>
-    </div>
-      `
-        : ""
-    }
-      </div>
-  
-        </div>
-  
-  
-         ${
-           data.twitter || data.instagram || data.facebook || data.linkedin
-             ? `
-    <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
-    <div class="content-wrapper">
-    ${
-      data.facebook
-        ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.facebook}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.instagram
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.instagram}</p>
-      </div>`
-        : ""
-    }
-    
-    ${
-      data.twitter
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.twitter}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.linkedin
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.linkedin}</p>
-      </div>`
-        : ""
-    }
-    </div>
-    </div>
-    `
-             : ""
-         }
-  
-  ${
-    data.skills.length !== 0
-      ? `   <div class="skills informationContainer">
-    <h3 class="inforHeader">Skills</h3>
-    <ul class="content-wrapper">
-    ${data.skills
-      .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
-      .join("")}
-      </ul>
-      </div>
-      `
-      : ""
-  }
-         ${
-           data.reffrences.length !== 0
-             ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            <p class="refName">${ref.refrenceName}</p>
-            <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
-  `;
-          })
-          .join("")}
-  
-          </div>
-          `
-             : ""
-         }
-        
-        ${
-          data.interest.length !== 0
-            ? `   <div class="interest informationContainer">
-          <h3 class="inforHeader">Interest</h3>
-          <ul class="content-wrapper">
-          ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
-          </ul></div>`
-            : ""
-        }
-        </div>
-          
-        </div>
-        `;
-    }
-    if (data.template.template === "resume2") {
-      marckup = `  <div id="${data._id}" class="template resume rl template2">
-      
-    <div class="user-name-and-profession">
-      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-      <p class="profession">${data.profession}</p>
-    </div>
-    <div class="tiny-content">
-         <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            crossOrigin="anonymous" 
-            
-            
-            />`
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
-          </div>
-          <div class="date-of-birth">
-            <p class="dateOfBirth">date of birth:</p>
-            <p>${data.dateofbirth}</p>
-          </div>
-        </div>
-  
-  
-        <div class="contact-information informationContainer">
-        <h3 class="inforHeader">Contact information</h3>
-        <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
-          `
-            : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
-           ${
-             data.country
-               ? `
-            <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.country}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.state
-               ? `
-            <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.state}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.gender
-               ? `<div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.gender}</p>
-          </div>`
-               : ""
-           }
-          ${
-            data.address
-              ? `<div class="information">
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-            <p class="inforVal">${data.address}</p>
-          </div>
-            `
-              : ""
-          }
-          ${
-            data.maritalstatus
-              ? `<div class="information">
-                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.maritalstatus}</p>
-          </div>
-            `
-              : ""
-          }
-         
-        </div>
-      </div>
-  
-  
-  
-        ${
-          data.twitter || data.instagram || data.facebook || data.linkedin
-            ? `
-    <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
-    <div class="content-wrapper">
-    ${
-      data.facebook
-        ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.facebook}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.instagram
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.instagram}</p>
-      </div>`
-        : ""
-    }
-    
-    ${
-      data.twitter
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.twitter}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.linkedin
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.linkedin}</p>
-      </div>`
-        : ""
-    }
-    </div>
-    </div>
-  `
-            : ""
-        }
-  
-     ${
-       data.skills.length !== 0
-         ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
-      <ul class="content-wrapper">
-      ${data.skills.map((skill) => `<li>${skill}</li>`).join("")}
-      </ul></div>`
-         : ""
-     }
-  
-     ${
-       data.reffrences.length !== 0
-         ? `
-     <div class="references informationContainer">
-     <h3 class="inforHeader">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-         : ""
-     }
-        ${
-          data.interest.length !== 0
-            ? `   <div class="interest informationContainer">
-          <h3 class="inforHeader">Interest</h3>
-          <ul class="content-wrapper">
-          ${data.interest
-            .map((intr) => {
-              return `<li>${intr}</li>`;
-            })
-            .join("")}
-        </ul></div>`
-            : ""
-        }
-      </div>
-      
-  
-      <div class="large-content">
-     ${
-       data.profile
-         ? `<div class="profile informationContainer">
-           <h3 class="inforHeader">Profile</h3>
-           <p>
-           ${data.profile}  
-           </p>
-         </div>
-      `
-         : ""
-     }
-  
-     ${
-       data.experiences.length !== 0
-         ? `
-    <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
-      .map((experience) => {
-        return `${
-          Object.keys(experience).length !== 0
-            ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
-    ${
-      experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
-        : ""
-    }
-     ${
-       experience.experienceends
-         ? ` <p class="end">${experience.experienceends}</p>`
-         : ""
-     }  
-       
-      </div>
-
-      ${
-        experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
-          : ""
-      }
-     ${
-       experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
-         : ""
-     }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-     
-    </div>`
-            : ""
-        }`;
-      })
-      .join("")}      
-    </div>`
-         : ""
-     }
-   
-  
-  ${
-    data.educations.length !== 0
-      ? `
-  <div class="educational-background informationContainer">
-  <h3 class="inforHeader">Education</h3>
-  ${data.educations
-    .map((edu) => {
-      return `<div class="education content-wrapper">
-  <div class="start-and-end-date">
-    <p class="start">${edu.educationstarts} to</p>
-    <p class="end">${edu.educationends}</p>
-  </div>
-  <p class="qualification">${edu.qualification}</p>
-  <p class="school-and-address">
-  ${edu.eduAndAddress}
-  </p>
-  </div>
-  `;
-    })
-    .join("")}
-  
-  </div>
-  `
-      : ""
-  }
-  ${
-    data.certifications.length !== 0
-      ? `
-  <div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
-      <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
-      </ul>
-      </div>
-      `
-      : ""
-  }
-      </div>
-      </div>`;
-    }
-    if (data.template.template === "resume3") {
-      marckup = ` <div id="${data._id}" class="template resume rl template3"> 
-      
-      <div class="large-profile">
-        <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            crossOrigin="anonymous" 
-            
-            
-            />`
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
-          </div>
-          <div class="date-of-birth">
-            <p class="dateOfBirth">date of birth:</p>
-            <p>${data.dateofbirth}</p>
-          </div>
-        </div>
-  
-      ${
-        data.profile
-          ? `
-        <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
-      <p>
-      ${data.profile}  
-      </p>
-      </div>`
-          : ""
-      }
-      
-      </div>
-      <div class="user-name-and-profession">
-      <p class="profession">${data.profession}</p>
-         <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-       </div>
-  
-  
-      <div class="tiny-content">
-  
-        <div class="contact-information informationContainer">
-        <h3 class="inforHeader">Contact information</h3>
-        <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
-          `
-            : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
-           ${
-             data.country
-               ? `
-            <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.country}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.state
-               ? `
-            <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.state}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.gender
-               ? `<div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.gender}</p>
-          </div>`
-               : ""
-           }
-          ${
-            data.address
-              ? `<div class="information">
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-            <p class="inforVal">${data.address}</p>
-          </div>
-            `
-              : ""
-          }
-          ${
-            data.maritalstatus
-              ? `<div class="information">
-                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.maritalstatus}</p>
-          </div>
-            `
-              : ""
-          }
-         
-        </div>
-      </div>
-  
-  
-  
-        ${
-          data.twitter || data.instagram || data.facebook || data.linkedin
-            ? `
-    <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
-    <div class="content-wrapper">
-    ${
-      data.facebook
-        ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.facebook}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.instagram
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.instagram}</p>
-      </div>`
-        : ""
-    }
-    
-    ${
-      data.twitter
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.twitter}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.linkedin
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.linkedin}</p>
-      </div>`
-        : ""
-    }
-  
-    </div>
-    </div>
-  `
-            : ""
-        }
-  
-     ${
-       data.skills.length !== 0
-         ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
-      <ul class="content-wrapper">
-      ${data.skills
-        .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
-        .join("")}
-      </ul>
-      </div>
-      `
-         : ""
-     }
-  
-         ${
-           data.reffrences.length !== 0
-             ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
-        ${data.reffrences
-          .filter((val) => val !== {})
-          .map((ref) => {
-            return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-             : ""
-         }
-  
-      ${
-        data.interest.length !== 0
-          ? `   <div class="interest informationContainer">
-        <h3 class="inforHeader">Interest</h3>
-        <ul class="content-wrapper">
-        ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
-      </ul></div>`
-          : ""
-      }
-    </div>
-    <div class="large-content">
-    ${
-      data.experiences.length !== 0
-        ? `
-    <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
-      .map((experience) => {
-        return `${
-          Object.keys(experience).length !== 0
-            ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
-    ${
-      experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
-        : ""
-    }
-     ${
-       experience.experienceends
-         ? ` <p class="end">${experience.experienceends}</p>`
-         : ""
-     }  
-       
-      </div>
-
-      ${
-        experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
-          : ""
-      }
-     ${
-       experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
-         : ""
-     }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-     
-    </div>`
-            : ""
-        }`;
-      })
-      .join("")}      
-    </div>`
-        : ""
-    }
-   
-  
-  ${
-    data.educations.length !== 0
-      ? `
-  <div class="educational-background informationContainer">
-  <h3 class="inforHeader">Education</h3>
-  ${data.educations
-    .filter((val) => val !== {})
-    .map((edu) => {
-      return `<div class="education content-wrapper">
-  <div class="start-and-end-date">
-  <p class="start">${edu.educationstarts} to</p>
-  <p class="end">${edu.educationends}</p>
-  </div>
-  <p class="qualification">${edu.qualification}</p>
-  <p class="school-and-address">
-  ${edu.eduAndAddress}
-  </p>
-  </div>
-  `;
-    })
-    .join("")}
-  
-  </div>
-  `
-      : ""
-  }
-        ${
-          data.objective
-            ? `
-  
-  <div class="objective informationContainer">
-  <h3 class="inforHeader">Objective</h3>
-  <p>
-    ${data.objective}
-  </p>
-  </div>
-  
-  `
-            : ""
-        }
-  
-         ${
-           data.certifications.length !== 0
-             ? `<div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
-      <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
-      </ul>
-      </div>
-      `
-             : ""
-         }
-      </div>
-    </div>`;
-    }
-    if (data.template.template === "resume4") {
-      marckup = ` <div id="${data._id}" class="template resume rl template4">
-      
-      <div class="contact-information informationContainer">
-  
-        <div class="contact-container">
-        <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
-          `
-            : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
-           ${
-             data.country
-               ? `
-            <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.country}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.state
-               ? `
-            <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.state}</p>
-          </div>`
-               : ""
-           }
-           </div>
-          
-           <div class="content-wrapper secondContent">
-           ${
-             data.gender
-               ? `<div class="information">
-               <p class="inforVal">${data.gender}</p>
-               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-          </div>`
-               : ""
-           }
-          ${
-            data.address
-              ? `<div class="information">
-              <p class="inforVal">${data.address}</p>
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          </div>
-            `
-              : ""
-          }
-
-          ${
-            data.maritalstatus
-              ? `<div class="information">
-              <p class="inforVal">${data.maritalstatus}</p>
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-          </div>
-            `
-              : ""
-          }
-         
-          </div>
-        </div>
-      </div>
-     
-  
-      <div class="user-name-and-profession">
-     
-        <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            crossOrigin="anonymous" 
-            
-            
-            />`
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
-          </div>
-          <div class="date-of-birth">
-            <p class="dateOfBirth">date of birth:</p>
-            <p>${data.dateofbirth}</p>
-          </div>
-        </div>
-  
-        
-        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-        <p class="profession">${data.profession}</p>
-      
-      </div>
-  
-      <div class="tiny-content">
-      ${
-        data.objective
-          ? `
-    
-      <div class="objective informationContainer">
-      <h3 class="inforHeader">Objective</h3>
-      <p>
-        ${data.objective}
-      </p>
-      </div>
-      
-      `
-          : ""
-      }
-  
-        ${
-          data.twitter || data.instagram || data.facebook || data.linkedin
-            ? `
-    <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
-    <div class="content-wrapper">
-    ${
-      data.facebook
-        ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.facebook}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.instagram
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.instagram}</p>
-      </div>`
-        : ""
-    }
-    
-    ${
-      data.twitter
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.twitter}</p>
-      </div>`
-        : ""
-    }
-    ${
-      data.linkedin
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.linkedin}</p>
-      </div>`
-        : ""
-    }
-    </div>
-    </div>
-  `
-            : ""
-        }
-  
-     ${
-       data.skills.length !== 0
-         ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
-      <ul class="content-wrapper">
-      ${data.skills
-        .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
-        .join("")}
-      </ul>
-      </div>
-      `
-         : ""
-     }
-  
-         ${
-           data.reffrences.length !== 0
-             ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-             : ""
-         }
-         ${
-           data.interest.length !== 0
-             ? `   <div class="interest informationContainer">
-          <h3 class="inforHeader">Interest</h3>
-          <ul class="content-wrapper">
-          ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
-        </ul></div>`
-             : ""
-         }
-      </div>
-  
-      <div class="large-content">
-      ${
-        data.profile
-          ? `
-        <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
-      <p>
-      ${data.profile}  
-      </p>
-      </div>`
-          : ""
-      }
-  
-      ${
-        data.experiences.length !== 0
-          ? `
-      <div class="recent-experience informationContainer">
-      <h3 class="inforHeader">Experience</h3>${data.experiences
-        .map((experience) => {
-          return `${
-            Object.keys(experience).length !== 0
-              ? `<div class="experience content-wrapper">
-      <div class="start-and-end-date">
-      ${
-        experience.experiencestarts
-          ? ` <p class="start">${experience.experiencestarts} to</p>`
-          : ""
-      }
-       ${
-         experience.experienceends
-           ? ` <p class="end">${experience.experienceends}</p>`
-           : ""
-       }  
-         
-        </div>
-  
-        ${
-          experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
-            : ""
-        }
-       ${
-         experience.experience
-           ? ` <p class="experienceOptain">${experience.experience}</p>`
-           : ""
-       }
-       ${
-         experience.orgAddress
-           ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-           : ""
-       }
-       
-      </div>`
-              : ""
-          }`;
-        })
-        .join("")}      
-      </div>`
-          : ""
-      }
-     
-     
-    
-      ${
-        data.educations.length !== 0
-          ? `
-    
-      <div class="educational-background informationContainer">
-      <h3 class="inforHeader">Education</h3>
-      ${data.educations
-        .map((edu) => {
-          return `<div class="education content-wrapper">
-        <div class="start-and-end-date">
-          <p class="start">${edu.educationstarts} to</p>
-          <p class="end">${edu.educationends}</p>
-        </div>
-        <p class="qualification">${edu.qualification}</p>
-        <p class="school-and-address">
-        ${edu.eduAndAddress}
-        </p>
-      </div>
-      `;
-        })
-        .join("")}
-    </div>
-      `
-          : ""
-      }
-      
-    
-      
-      ${
-        data.certifications.length !== 0
-          ? `<div class="certification informationContainer">
-        <h3 class="inforHeader">Certification</h3>
-        <ul class="content-wrapper">
-        ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
-        </ul>
-        </div>
-        `
-          : ""
-      }
-      </div>
-    </div>
-  `;
-    }
-    if (data.template.template === "resume5") {
-      marckup = `
-      
-      <div id="${data._id}" class="template resume rl template5">
-        <div class="tiny-content">     
-  
-          <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
-            src="${data.images.url}"
-            alt=""
-            class="passport"
-            crossOrigin="anonymous" 
-            
-            
-            />`
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
-          </div>
-          <div class="date-of-birth">
-            <p class="dateOfBirth">date of birth:</p>
-            <p>${data.dateofbirth}</p>
-          </div>
-        </div>
-   
-        <div class="contact-information informationContainer">
-        <h3 class="inforHeader">Contact information</h3>
-        <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
-          `
-            : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
-           ${
-             data.country
-               ? `
-            <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.country}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.state
-               ? `
-            <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.state}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.gender
-               ? `<div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.gender}</p>
-          </div>`
-               : ""
-           }
-          ${
-            data.address
-              ? `<div class="information">
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-            <p class="inforVal">${data.address}</p>
-          </div>
-            `
-              : ""
-          }
-          ${
-            data.maritalstatus
-              ? `<div class="information">
-                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.maritalstatus}</p>
-          </div>
-            `
-              : ""
-          }
-         
-        </div>
-      </div>
-
-  
-  ${
-    data.twitter || data.instagram || data.facebook || data.linkedin
-      ? `
-    <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
-    <div class="content-wrapper">
-    ${
-      data.facebook
-        ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.facebook}</p>
-      </div>`
-        : ""
-    }
-
-    ${
-      data.instagram
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.instagram}</p>
-      </div>`
-        : ""
-    }
-    
-    ${
-      data.twitter
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.twitter}</p>
-      </div>`
-        : ""
-    }
-
-    ${
-      data.linkedin
-        ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
-
-      <p class="inforVal">${data.linkedin}</p>
-      </div>`
-        : ""
-    }
-  
-    </div>
-    </div>
-  `
-      : ""
-  }
-    ${
-      data.skills.length !== 0
-        ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
-      <ul class="content-wrapper">
-      ${data.skills
-        .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
-        .join("")}
-      </ul>
-      </div>
-      `
-        : ""
-    }
-    
-  
-      ${
-        data.reffrences.length !== 0
-          ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-          : ""
-      }
-      ${
-        data.interest.length !== 0
-          ? `   <div class="interest informationContainer">
-        <h3 class="inforHeader">Interest</h3>
-        <ul class="content-wrapper">
-        ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
-        </ul>
-      </div>
-        `
-          : ""
-      }
-        </div>
-  
-    <div class="large-content">
-      <div class="user-name-and-profession">
-        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-        <p class="profession">${data.profession}</p>
-      </div>
-      ${
-        data.profile
-          ? `
-        <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
-      <p>
-      ${data.profile}  
-      </p>
-    </div>`
-          : ""
-      }
-  
-    ${
-      data.experiences.length !== 0
-        ? `
-    <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
-      .map((experience) => {
-        return `${
-          Object.keys(experience).length !== 0
-            ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
-    ${
-      experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
-        : ""
-    }
-     ${
-       experience.experienceends
-         ? ` <p class="end">${experience.experienceends}</p>`
-         : ""
-     }  
-       
-      </div>
-
-      ${
-        experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
-          : ""
-      }
-     ${
-       experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
-         : ""
-     }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-
-    </div>`
-            : ""
-        }`;
-      })
-      .join("")}      
-    </div>`
-        : ""
-    }
-   
-  
-    ${
-      data.educations.length !== 0
-        ? `
-  
-    <div class="educational-background informationContainer">
-    <h3 class="inforHeader">Education</h3>
-    ${data.educations
-      .map((edu) => {
-        return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
-        <p class="start">${edu.educationstarts} to</p>
-        <p class="end">${edu.educationends}</p>
-      </div>
-      <p class="qualification">${edu.qualification}</p>
-      <p class="school-and-address">
-      ${edu.eduAndAddress}
-      </p>
-    </div>
-    `;
-      })
-      .join("")}
-  </div>
-    `
-        : ""
-    }
-    
-  
-    ${
-      data.objective
-        ? `
-  
-    <div class="objective informationContainer">
-    <h3 class="inforHeader">Objective</h3>
-    <p>
-      ${data.objective}
-    </p>
-    </div>
-    
-    `
-        : ""
-    }
-    ${
-      data.certifications.length !== 0
-        ? `<div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
-      <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
-      </ul>
-      </div>
-      `
-        : ""
-    }
-        </div>
-      </div>
-  `;
-    }
-    if (data.template.template === "resume6") {
-      marckup = `   <div id="${data._id}" class="template resume rl template6">
-      
-      <div class="user-name-and-profession">
-      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-      <p class="profession">${data.profession}</p>
-    </div>
-      <div class="large-content">
-      ${
-        data.profile
-          ? `
-        <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
-      <p>
-      ${data.profile}  
-      </p>
-    </div>`
-          : ""
-      }
-  
-     ${
-       data.experiences.length !== 0
-         ? `
-    <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
-      .map((experience) => {
-        return `${
-          Object.keys(experience).length !== 0
-            ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
-    ${
-      experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
-        : ""
-    }
-     ${
-       experience.experienceends
-         ? ` <p class="end">${experience.experienceends}</p>`
-         : ""
-     }  
-       
-      </div>
-
-      ${
-        experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
-          : ""
-      }
-     ${
-       experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
-         : ""
-     }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-     
-    </div>`
-            : ""
-        }`;
-      })
-      .join("")}      
-    </div>`
-         : ""
-     }
-   
-  
-    ${
-      data.educations.length !== 0
-        ? `
-  
-    <div class="educational-background informationContainer">
-    <h3 class="inforHeader">Education</h3>
-    ${data.educations
-      .map((edu) => {
-        return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
-        <p class="start">${edu.educationstarts} to</p>
-        <p class="end">${edu.educationends}</p>
-      </div>
-      <p class="qualification">${edu.qualification}</p>
-      <p class="school-and-address">
-      ${edu.eduAndAddress}
-      </p>
-    </div>
-    `;
-      })
-      .join("")}
-  </div>
-    `
-        : ""
-    }
-    
-  
-    ${
-      data.objective
-        ? `
-  
-    <div class="objective informationContainer">
-    <h3 class="inforHeader">Objective</h3>
-    <p>
-      ${data.objective}
-    </p>
-    </div>
-    
-    `
-        : ""
-    }
-    ${
-      data.certifications.length !== 0
-        ? `<div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
-      <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
-      </ul>
-      </div>
-      `
-        : ""
-    }
-      </div>
-  
-      <div class="tiny-content">
-      <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
-      <div class="content-wrapper">
-      ${
-        data.email
-          ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>
-        `
-          : ""
-      }  
-        ${
-          data.phoneNumber
-            ? ` <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-            : ""
-        }
-         ${
-           data.country
-             ? `
-          <div class="information">
-            <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-          <p class="inforVal">${data.country}</p>
-        </div>`
-             : ""
-         }
-         ${
-           data.state
-             ? `
-          <div class="information">
-               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-          <p class="inforVal">${data.state}</p>
-        </div>`
-             : ""
-         }
-         ${
-           data.gender
-             ? `<div class="information">
-               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-          <p class="inforVal">${data.gender}</p>
-        </div>`
-             : ""
-         }
-        ${
-          data.address
-            ? `<div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>
-          `
-            : ""
-        }
-        ${
-          data.maritalstatus
-            ? `<div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-          <p class="inforVal">${data.maritalstatus}</p>
-        </div>
-          `
-            : ""
-        }
-    
-      </div>
-    </div>
-  
-  ${
-    data.twitter || data.instagram || data.facebook || data.linkedin
-      ? `
-  <div class="social-media-links informationContainer">
-  <h3 class="inforHeader">Social media links</h3>
-  <div class="content-wrapper">
-  ${
-    data.facebook
-      ? `<div class="information">
-      <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
-
-    <p class="inforVal">${data.facebook}</p>
-    </div>`
-      : ""
-  }
-  ${
-    data.instagram
-      ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
-
-    <p class="inforVal">${data.instagram}</p>
-    </div>`
-      : ""
-  }
-  
-  ${
-    data.twitter
-      ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
-
-    <p class="inforVal">${data.twitter}</p>
-    </div>`
-      : ""
-  }
-  ${
-    data.linkedin
-      ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
-
-    <p class="inforVal">${data.linkedin}</p>
-    </div>`
-      : ""
-  }
-  </div>
-  </div>
-  `
-      : ""
-  }
-  ${
-    data.skills.length !== 0
-      ? `   <div class="skills informationContainer">
-    <h3 class="inforHeader">Skills</h3>
-    <ul class="content-wrapper">
-    ${data.skills
-      .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
-      .join("")}
-    </ul>
-    </div>
-    `
-      : ""
-  }
-  
-  
-    ${
-      data.reffrences.length !== 0
-        ? `<div class="references informationContainer">
-      <h3 class="inforHeader">Refrence</h3>
-      ${data.reffrences
-        .map((ref) => {
-          return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
-  `;
-        })
-        .join("")}
-  
-  </div>
-  `
-        : ""
-    }
-    ${
-      data.interest.length !== 0
-        ? `   <div class="interest informationContainer">
-      <h3 class="inforHeader">Interest</h3>
-      <ul class="content-wrapper">
-      ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
-      </ul>
-    </div>
-      `
-        : ""
-    }
-        
-        <div class="passportDateOfBirth">
-        <div class="passport-box">
-        ${
-          data.images
-            ? `<img
-          src="${data.images.url}"
-          alt=""
-          class="passport"
-          crossOrigin="anonymous" 
-          
-          
-          />`
-            : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-        } 
-        </div>
-        <div class="date-of-birth">
-          <p class="dateOfBirth">date of birth:</p>
-          <p>${data.dateofbirth}</p>
-        </div>
-      </div>
-  
-      </div>
-    </div>`;
-    }
-  }
-  return marckup;
-};
-const getAndGenerateMarckup = function (listofuser) {
-  const marckup = listofuser
-    .map(
-      (user) => `
-      <tr class="user-infor-row" id="${user._id}"><td ${
-        user.isVerified ? 'class="verifiedTrue"' : 'class="verifiedFalse"'
-      }>${user.userName}</td><td>${user.email}</td><td>${
-        user.phone
-      }</td><td>${new Date(
-        user.date
-      ).toDateString()}</td><td><span class="btn-delete list-btn">delete</span><span class="list-btn btn-view">view</span></td></tr>`
-    )
-    .join("");
-  document
-    .querySelector(".user-list")
-    .insertAdjacentHTML("afterbegin", marckup);
-};
-
 const getTheTemplates = function (data) {
-  let alluserTemplates = myTemplates.querySelectorAll(".resumeAndLetter");
-  data.forEach((template) => {
-    // console.log(template,template.template)
-    alluserTemplates.forEach((tem) => {
-      if (tem.classList.contains(`${template.template}`)) {
-        tem.classList.remove("hiddenClass");
-        tem.classList.add("rl");
+  let alluserTemplates = arct.allTemplates;
+  // console.log(data)
+
+  let userTotalTemplates = [];
+
+  alluserTemplates.forEach((tem) => {
+    let doc = new DOMParser().parseFromString(tem, "text/xml");
+    data.forEach((template) => {
+      if (doc.firstChild.classList.contains(template.template)) {
+        // tem.classList.add("rl")
+
+        userTotalTemplates.push(tem);
       }
     });
   });
+  return userTotalTemplates;
 };
 const init = async function () {
-
-  document.querySelector(".loaderContainer").classList.remove("hiddenClass");
+  try {
+    
+ 
+ preLoade(true)
 
   let userData = JSON.parse(localStorage.getItem("user"));
-      // console.log(userData)
-  if (!userData) window.location="index.html";
+  // console.log(userData)
+  if (!userData) window.location = "index.html";
   //  console.log(userData)
 
   if (userData.isGonGon) {
-   
-    window.location="gongong.html"
-    
+    window.location = "admin-area.html";
+
     return console.log("1");
   }
-  
+// console.log(userData)
   model.state.user.accesstoken = userData.accesstoken;
   model.state.user.email = userData.email;
   model.state.user.siteUserName = userData.siteUserName;
   model.state.user.userid = userData.userid;
 
   let id = model.state.user.userid;
-  document.querySelector(".site-user-name").innerText = model.state.user.siteUserName;
+  document.querySelector(".site-user-name").innerText =
+    model.state.user.siteUserName;
 
- 
-  document.querySelector(".loaderContainer").classList.remove("hiddenClass");
-  templateInorContainer.classList.add("hiddenClass")
+  templateInorContainer.classList.add("hiddenClass");
   const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
 
   const templatesRes = await axios.post(
     `https://app.cvstudio.io/resume/gettemplate/:${id}`
   );
   // console.log(resume, templatesRes);
-  
+
   if (resume.data.cv) {
     model.state.resumes.push(...resume.data.cv);
-    noResumeInfor.classList.add("hiddenClass");
-    resumeInforContainer.querySelector(".anouncement").classList.remove("hiddenClass")
-    
     model.state.resumes.forEach((resume) => {
       // console.log(resume)
-      model.state.user.myResumes.push(createPdfMarckup(resume));
-    });
-    
 
-    model.state.user.myResumes.forEach((resume) =>
-      myResume.insertAdjacentHTML("beforeend", resume.toString())
-    );
+      model.state.user.myResumes.push(temMarckup.createPdfMarckup(resume));
+    });
+
+    noResumeInfor.classList.add("hiddenClass");
+    resumeInforContainer
+      .querySelector(".anouncement")
+      .classList.remove("hiddenClass");
+      
   }
+  //content -  model.state.user.myResumes
+  //box - myResume
+  identifyBox(myResume, model.state.user.myResumes, pbox1);
+  // resetPaginationButton(myResume,model.state.user.myResumes,myResumesPbtns)
+  //content -  arct.allTemplates
+  //box - templates
+  identifyBox(templates, arct.allTemplates, pbox2);
+  // resetPaginationButton(templates, arct.allTemplates,templatesPbtns);
 
   if (templatesRes.data.templates.length !== 0) {
     model.state.templates = templatesRes.data.templates;
-    templateInorContainer.querySelector(".anouncement").classList.remove("hiddenClass")
-    getTheTemplates(model.state.templates);
+    templateInorContainer
+      .querySelector(".anouncement")
+      .classList.remove("hiddenClass");
+    model.state.user.userTotalTemplates = getTheTemplates(
+      model.state.templates
+    );
+    identifyBox(myTemplates, model.state.user.userTotalTemplates, pbox3);
+    // resetPaginationButton(myTemplates, model.state.user.userTotalTemplates,myTemplatesPbtns);
+
     noTemplateInfor.classList.add("hiddenClass");
   }
 
-  document.querySelector(".loaderContainer").classList.add("hiddenClass");
+ preLoade(false)
+} catch (error) {
+    if(error) preLoade(true)
+}
 };
+const identifyBox = function (box, content, pBox) {
+  model.state.page = 1;
+  model.state.searchResult = pagination.getSearchResultPage(
+    model.state.page,
+    content,
+    true
+  );
+  // zzconsole.log(box,model.state.searchResult)
+  model.state.searchResult.map((result) => {
+    box.insertAdjacentHTML("afterbegin", result.toString());
+  });
+  pBox.insertAdjacentHTML(
+    "beforeend",
+    pagination.paginationMarckup(content, true)
+  );
+};
+
 init();
 
+const hideTemplateBtns = function (contaner, btnToUse) {
+  let templts = contaner.querySelectorAll(".resumeAndLetter");
+  templts.forEach((tmplt) => {
+    let btnUseThis = tmplt.querySelector(".custom-btn");
 
-// templates.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   htmlParent.style.fontSize = "16px";
-//   userDashBoard.style.display = "none";
-//   document.querySelector("#cv-form").classList.remove("hiddenClass");
-//   let myDivObj = e.target.closest(".template-form").querySelector(".firstPart");
-//   templateColor = window.getComputedStyle(myDivObj).backgroundColor;
-// });
+    btnUseThis.classList.contains("showUsedBtn")
+      ? btnUseThis.classList.remove("showUsedBtn")
+      : "";
+    // btnUseThis.style.opacity = "0";
+    // btnUseThis.style.pointerEvents = "auto";
+  });
+  if(contaner.classList.contains("templates")&&btnToUse) btnToUse.innerText="Select this";
+  btnToUse?.classList.add("showUsedBtn");
+};
 
-templates.addEventListener("click", async function (e) {
+let mandt = [templates, myTemplates];
+mandt.forEach(function (box) {
+  box.addEventListener("mouseover", function (e) {
+    let templateContainer = e.target.closest(".resumeAndLetter");
+    if (!templateContainer) return;
+    // console.log(templateContainer);
+    hideTemplateBtns(this, templateContainer.querySelector(".custom-btn"));
+  });
+});
+mandt.forEach((box) => {
+  box.addEventListener("mouseout", function (e) {
+    let templateContainer = e.target.closest(".resumeAndLetter");
+    if (!templateContainer) return;
+    hideTemplateBtns(this, null);
+  });
+});
+
+templates.addEventListener("click", async (e) => {
   if (!e.target.classList.contains("custom-btn")) return;
-  let templateContainer = e.target.closest(".resumeAndLetter");
+  let btn = e.target;
+  let templateContainer = btn.closest(".resumeAndLetter");
+  // return console.log(btn);
   model.state.user.template = templateContainer.getAttribute("id");
-  // return console.log(model.state.user.template)
 
   //   select this
   // Please wait...
-  e.target.innerText = "Please wait...";
+  btn.innerText = "Please wait...";
   const templateData = {
     userid: model.state.user.userid,
     template: model.state.user.template,
@@ -3243,7 +803,7 @@ templates.addEventListener("click", async function (e) {
   const res = await axios.post("https://app.cvstudio.io/resume/savetemplate/", {
     templateData,
   });
-  e.target.innerText = "Select this";
+  btn.innerText = "Select this";
   if (res.data.msg) {
     let messageBox = templateContainer.querySelector(".s7");
     messageBox.style.opacity = "1";
@@ -3261,58 +821,22 @@ templates.addEventListener("click", async function (e) {
   model.state.user.myTemplates = [];
   model.state.section = "myTemplates";
   myTemplates.classList.remove("hiddenClass");
-  getTheTemplates(model.state.templates);
-
+  hidePaginations(pbox3);
+  // getTheTemplates(model.state.templates);
+  myTemplates.innerHTML=""
+  model.state.user.userTotalTemplates = getTheTemplates(
+    model.state.templates
+  );
+  identifyBox(myTemplates, model.state.user.userTotalTemplates, pbox3);
   noTemplateInfor.classList.add("hiddenClass");
   templates.classList.add("hiddenClass");
   sectionName.innerText = "My Templates";
   document.querySelector("#templates").classList.remove("active");
   document.querySelector("#myTemplates").classList.add("active");
 });
+document.querySelector(".get-one").addEventListener("click", function () {
+  hidePaginations(pbox2);
 
-const allTemplates = templates.querySelectorAll(".resumeAndLetter");
-allTemplates.forEach((tmf) => {
-  tmf.addEventListener("mouseleave", function (e) {
-    let btnUseThis = e.target
-      .closest(".resumeAndLetter")
-      .querySelector(".custom-btn");
-
-    if (!btnUseThis) return;
-    btnUseThis.style.opacity = "0";
-    btnUseThis.style.pointerEvents = "auto";
-  });
-  tmf.addEventListener("mouseenter", function (e) {
-    let btnUseThis = e.target
-      .closest(".resumeAndLetter")
-      .querySelector(".custom-btn");
-
-    if (!btnUseThis) return;
-    btnUseThis.style.opacity = "1";
-    btnUseThis.style.pointerEvents = "auto";
-  });
-});
-const allMyTemplates = myTemplates.querySelectorAll(".resumeAndLetter");
-allMyTemplates.forEach((tmf) => {
-  tmf.addEventListener("mouseleave", function (e) {
-    let btnUseThis = e.target
-      .closest(".resumeAndLetter")
-      .querySelector(".custom-btn");
-
-    if (!btnUseThis) return;
-    btnUseThis.style.opacity = "0";
-    btnUseThis.style.pointerEvents = "auto";
-  });
-  tmf.addEventListener("mouseenter", function (e) {
-    let btnUseThis = e.target
-      .closest(".resumeAndLetter")
-      .querySelector(".custom-btn");
-
-    if (!btnUseThis) return;
-    btnUseThis.style.opacity = "1";
-    btnUseThis.style.pointerEvents = "auto";
-  });
-});
-document.querySelector(".get-one").addEventListener("click",function() {
   model.state.section = "templates";
   allUserContentChilds.forEach((child) => {
     if (!child.classList.contains("hiddenClass"))
@@ -3321,25 +845,23 @@ document.querySelector(".get-one").addEventListener("click",function() {
   allUserSiteButtons.forEach((btn) => {
     if (btn.classList.contains("active")) btn.classList.remove("active");
   });
-  templatesInfor.classList.remove("hiddenClass")
-  templateInorContainer.classList.add("hiddenClass")
+  templatesInfor.classList.remove("hiddenClass");
+  templateInorContainer.classList.add("hiddenClass");
   templates.classList.remove("hiddenClass");
 
-  document
-    .querySelector(`#${templates.classList[0]}`)
-    .classList.add("active");
+  document.querySelector(`#${templates.classList[0]}`).classList.add("active");
 
   return;
-})
+});
 myTemplates.addEventListener("click", function (e) {
   // console.log(e.target)
-  
+
   if (e.target.closest(".resumeAndLetter")) {
-    if (!e.target.closest(".rl")) return;
+    // if (!e.target.closest(".rl")) return;
 
     // console.log(templateBtn,'confirm')
     if (e.target.classList.contains("custom-btn")) {
-      e.target.innerText = "Please wait...";
+      // e.target.innerText = "Please wait...";
       // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
 
       model.state.templateToUse.type = "";
@@ -3352,38 +874,32 @@ myTemplates.addEventListener("click", function (e) {
       model.state.templateToUse.type = thisTemplate.slice(0, -1);
 
       // console.log(model.state.templateToUse);
-      e.target.innerText = "Use this...";
+      // e.target.innerText = "Use this";
+      myTemplates.classList.add("hiddenClass")
+      hidePaginations(null)
       if (model.state.templateToUse.type === "resume") {
         cvFormContainer.classList.remove("hiddenClass");
-        returnToTop();
+       
       }
       if (model.state.templateToUse.type === "letter") {
         document
           .querySelector(".cover-letter-container")
           .classList.remove("hiddenClass");
-        returnToTop();
+        
       }
     }
   }
 });
 
 const returnToTop = () => {
-  userDashBoard.classList.add("hiddenClass");
+  // userDashBoard.classList.add("hiddenClass");
 
   return window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 };
-// userTemplates = myTemplates.querySelectorAll(".template");
-// // userTemplatesButtons.forEach((btn) => console.log(btn));
-// userTemplates.forEach(ut=>{
 
-//   ut.addEventListener('click', function(e){
-//     console.log(e.target)
-// })
-
-//  image_input2})
 [image_input, image_input2].forEach(function (imageIn) {
   imageIn.addEventListener("change", async function (e) {
     e.preventDefault();
@@ -3457,12 +973,16 @@ cvDataForm.addEventListener("click", async function (e) {
     if (btn.classList.contains("addskill")) {
       document.querySelector(".skillInput").value = "";
 
-      model.state.user.skills.push(...newData.filter((val) => val[0] === "skill"));
+      model.state.user.skills.push(
+        ...newData.filter((val) => val[0] === "skill")
+      );
     }
     if (btn.classList.contains("addinterest")) {
       document.querySelector(".intInput").value = "";
 
-      model.state.user.hobies.push(...newData.filter((val) => val[0] === "interest"));
+      model.state.user.hobies.push(
+        ...newData.filter((val) => val[0] === "interest")
+      );
     }
     if (btn.classList.contains("addrefrence")) {
       document
@@ -3492,29 +1012,29 @@ btnNext1.addEventListener("click", (e) => {
 
   s1.querySelector(".fullName").style.borderBottom = "1px solid #999;";
 
-  s1.style.left = "-450px";
-  s2.style.left = "40px";
+  s1.style.left = "-1000px";
+  s2.style.left = "16px";
   progress.style.width = "120px";
 });
 btnback1.addEventListener("click", (e) => {
   e.preventDefault();
 
-  s2.style.left = "450px";
-  s1.style.left = "40px";
+  s2.style.left = "1000px";
+  s1.style.left = "16px";
   progress.style.width = "60px";
 });
 btnNext2.addEventListener("click", (e) => {
   e.preventDefault();
   model.state.user.persData2 = [...new FormData(e.target.closest("form"))];
 
-  s2.style.left = "-450px";
-  s3.style.left = "40px";
+  s2.style.left = "-1000px";
+  s3.style.left = "16px";
   progress.style.width = "180px";
 });
 btnback2.addEventListener("click", (e) => {
   e.preventDefault();
-  s3.style.left = "450px";
-  s2.style.left = "40px";
+  s3.style.left = "1000px";
+  s2.style.left = "16px";
   progress.style.width = "120px";
 });
 btnNext3.addEventListener("click", (e) => {
@@ -3523,14 +1043,14 @@ btnNext3.addEventListener("click", (e) => {
   [...new FormData(e.target.closest("form"))].forEach(
     (val) => val[1] !== "" && model.state.user.eduData.push(val)
   );
-  s3.style.left = "-450px";
-  s4.style.left = "40px";
-  progress.style.width = "240px";
+  s3.style.left = "-1000px";
+  s4.style.left = "16px";
+  progress.style.width = "216px";
 });
 btnback3.addEventListener("click", (e) => {
   e.preventDefault();
-  s4.style.left = "450px";
-  s3.style.left = "40px";
+  s4.style.left = "1000px";
+  s3.style.left = "16px";
   progress.style.width = "180px";
 });
 btnNext4.addEventListener("click", (e) => {
@@ -3538,26 +1058,26 @@ btnNext4.addEventListener("click", (e) => {
   [...new FormData(e.target.closest("form"))].filter(
     (val) => val[1] !== "" && model.state.user.expeData.push(val)
   );
-  s4.style.left = "-450px";
-  s5.style.left = "40px";
+  s4.style.left = "-1000px";
+  s5.style.left = "16px";
   progress.style.width = "300px";
 });
 btnback4.addEventListener("click", (e) => {
   e.preventDefault();
-  s5.style.left = "450px";
-  s4.style.left = "40px";
-  progress.style.width = "240px";
+  s5.style.left = "1000px";
+  s4.style.left = "16px";
+  progress.style.width = "216px";
 });
 btnNext5.addEventListener("click", (e) => {
   e.preventDefault();
   model.state.user.socLinks = [...new FormData(e.target.closest("form"))];
-  s5.style.left = "-450px";
-  s6.style.left = "40px";
+  s5.style.left = "-1000px";
+  s6.style.left = "16px";
   progress.style.width = "100%";
 });
 btnback5.addEventListener("click", (e) => {
-  s6.style.left = "450px";
-  s5.style.left = "40px";
+  s6.style.left = "1000px";
+  s5.style.left = "16px";
   progress.style.width = "300px";
 });
 const addTextArea = (e, placeholder, name) => {

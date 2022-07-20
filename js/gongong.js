@@ -1,27 +1,60 @@
 // import axios from "axios";
 import * as model from "./model.js";
+import { createPdfMarckup } from "./rAndcGenerator.js";
+import * as pagination from "./pagination.js"
+
+
 let userlist = document.querySelector(".user-list");
 let paginationBox = document.querySelector(".pagination");
 let userResums = document.querySelector(".user-res-cl-container");
 let templateHeader = document.querySelector(".template-header");
 
+const getAndGenerateMarckup = function (listofuser) {
+  const marckup = listofuser
+    .map(
+      (user) => `
+      <tr class="user-infor-row" id="${user._id}"><td ${
+        user.isVerified ? 'class="verifiedTrue"' : 'class="verifiedFalse"'
+      }>${user.userName}</td><td>${user.email}</td><td>${
+        user.phone
+      }</td><td>${new Date(
+        user.date
+      ).toDateString()}</td><td><span class="btn-delete list-btn">delete</span><span class="list-btn btn-view">view</span></td></tr>`
+    )
+    .join("");
+  document
+    .querySelector(".user-list")
+    .insertAdjacentHTML("afterbegin", marckup);
+};
 const renderUserData = async function () {
-  
-  const usersData = await axios.get("https://app.cvstudio.io/", {
+  const users = await axios.get("https://app.cvstudio.io/", {
     ...model.state.user,
   });
+  const cvs = await axios.get("https://app.cvstudio.io/allcvs", {
+    ...model.state.user,
+  });
+  const letters = await axios.get("https://app.cvstudio.io/allletters", {
+    ...model.state.user,
+  });
+  
+  let usersData={
+    users:users.data.users,
+    cvs:cvs.data.cvs,
+    letters:letters.data.letters
+  };
+
   console.log(usersData)
-  // state.searchResult = model.getSearchResultPage(state.page);
+  // state.searchResult = pagination.getSearchResultPage(state.page);
  
   userlist.innerHTML = "";
   
   model.state.page = 1;
-  model.state.allData = usersData.data;
+  model.state.allData = usersData;
   // htmlParent.style.fontSize="3px"
-  model.state.searchResult = getSearchResultPage(model.state.page);
+  model.state.searchResult = pagination.getSearchResultPage(model.state.page,model.state.allData.users,false);
 
   getAndGenerateMarckup(model.state.searchResult);
-  generatePaginationMarkcup(model.state.allData.users.reverse());
+  generatePaginationMarkcup(model.state.allData.users.reverse(),false);
   model.state.allData.letters.reverse().forEach((val) => {
     document
       .querySelector(".admin-user-letters")
@@ -42,7 +75,7 @@ const renderUserData = async function () {
 renderUserData();
 const generatePaginationMarkcup = function (val) {
   paginationBox.innerHTML = "";
-  paginationBox.insertAdjacentHTML("afterbegin", paginationMarckup(val));
+  paginationBox.insertAdjacentHTML("afterbegin", pagination.paginationMarckup(val));
 };
 document.querySelector(".pagination").addEventListener("click", function (e) {
   const btn = e.target.closest(".btn--inline");
@@ -52,7 +85,8 @@ document.querySelector(".pagination").addEventListener("click", function (e) {
   let userlist = document.querySelector(".user-list");
   userlist.innerHTML = "";
   const gotoPage = Number(btn.dataset.goto);
-  model.state.searchResult = getSearchResultPage(gotoPage);
+ console.log(gotoPage)
+  model.state.searchResult = pagination.getSearchResultPage(gotoPage,model.state.allData.users,false);
   getAndGenerateMarckup(model.state.searchResult);
   generatePaginationMarkcup(model.state.allData.users);
 });

@@ -59,12 +59,8 @@ const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".master-body");
 const preLoade=function(start=true){
   if(start){
-    containerBody.classList.add("body-on-load")
-    setTimeout(() => {
-      
-      loaderContainer.classList.remove("hideMe")
-    }, 2000);
-    return true
+   containerBody.classList.add("body-on-load")
+   return loaderContainer.classList.remove("hideMe")
   }
   containerBody.classList.remove("body-on-load")
   loaderContainer.classList.add("hideMe")

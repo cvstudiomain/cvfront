@@ -60,7 +60,10 @@ const headerEl = document.querySelector(".master-body");
 const preLoade=function(start=true){
   if(start){
     containerBody.classList.add("body-on-load")
-   loaderContainer.classList.remove("hideMe")
+    setTimeout(() => {
+      
+      loaderContainer.classList.remove("hideMe")
+    }, 2000);
     return true
   }
   containerBody.classList.remove("body-on-load")

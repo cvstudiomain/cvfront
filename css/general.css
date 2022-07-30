@@ -210,7 +210,42 @@ body {
   background-color: #ff105f;
   color: #fff;
 }
+.btn-type{
 
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.fa-cloud-download{
+  font-size: inherit;
+  margin-right: 1rem;
+}
+.section-hero .btn-type{
+  flex-direction: row;
+}
+.btn-type .btn-5{
+  background-color: #45260a;
+  width: max-content;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.btn-type .btn-5:hover{
+  background-color: #fff;
+  color: #45260a;
+  box-shadow: inset 0 0 0 3px #45260a;
+
+}
+.btn-type .btn-2{
+  background-color: #ff105f;
+}
+.btn-type .btn-2:hover{
+  background-color: #fff;
+  color: #ff105f;
+  box-shadow: inset 0 0 0 3px #ff105f;
+
+}
 .btn--full:hover,
 .btn--full:active {
   background-color: #f0094a;
@@ -243,6 +278,7 @@ body {
   background-color: #fff;
   color: #555;
 }
+
 
 .link:link,
 .link:visited {

@@ -1,7 +1,8 @@
 export const state = {
-  content1:[],
-  content2:[],
-  content3:[],
+  slider1:0,
+  slider2:0,
+  slider3:0,
+  slider4:0,
   fontSize:"",
   templateToUse: { type: "", template: "" },
   section: "myResume",

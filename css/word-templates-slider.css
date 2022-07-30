@@ -1,0 +1,116 @@
+.slider-next-section .btn-5{
+  color: #fff;
+  background-color: #45260a;
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.slider-next-section .btn-5:hover{
+  background-color: #f0094a;
+  transition: 1s;
+
+}
+.slide a {
+  font-weight: 500;
+  
+  position: absolute;
+  box-shadow: #ffff 0px 7px 29px 0px;
+  color: #fff;
+  background-color: #ff105f;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  font-size: 18px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  /* 2) Make it unaccessible to mouse and keyboard */
+  pointer-events: none;
+
+  /* 3) Hide it from screen readers */
+  /* visibility: hidden; */
+}
+
+.slider-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
+.slider {
+  
+  width: 34rem;
+  height: 50rem;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  /* IN THE END */
+  overflow: hidden;
+}
+
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 34rem;
+  /* height: 40rem; */
+  /* overflow: hidden; */
+padding: 2rem 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* overflow: hidden; */
+  transition: all 0.4s;
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+
+.slide > img {
+  
+  /* margin-top: 1rem; */
+  
+ width: 100%;
+
+  /* box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075); */
+  
+  transition: all 0.4s;
+ 
+  transition: transform 1s;
+}
+.slide > img:hover {
+  transform: scale(1.02);
+  /* box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); */
+}
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  border: none;
+  
+  font-family: inherit;
+  color: #333;
+background-color: transparent;  
+  /* height: 5.5rem;
+  width: 5.5rem; */
+  font-size: 3.25rem;
+  cursor: pointer;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}

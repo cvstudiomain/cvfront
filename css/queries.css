@@ -67,7 +67,9 @@
     /* 8px / 16px = 0.5 = 50% */
     font-size: 50%;
   }
-
+  .section-hero .heading-tertiary{
+    font-size: 3.2rem;
+  }
   .hero {
     grid-template-columns: 1fr;
     padding: 0 8rem;
@@ -137,7 +139,7 @@
     width: 100%;
     height: 100vh;
     transform: translateX(100%);
-
+z-index: 99;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,6 +222,9 @@
  
 }
 @media (max-width: 51.8em) {
+  .slider-container {
+    gap: 6rem;
+  }
   .templates-benefit-container {
     width: fit-content;
     grid-template-columns: repeat(2, 1fr);
@@ -233,7 +238,7 @@
     margin: auto;
     overflow: hidden;
   }
-  .legal-section {
+  .templates-hero,.legal-section {
     width: 100%;
   }
   .legal-section .container {
@@ -243,12 +248,17 @@
     width: 100%;
     overflow: hidden;
   }
+  .text-container {
+    width: 48rem;
+    
+}
 }
 /**************************/
 /* BELOW 704px (Smaller tablets) */
 /**************************/
 
 @media (max-width: 44em) {
+ 
   .template-cta-container {
     gap: 4rem;
   }
@@ -305,6 +315,19 @@
 /**************************/
 
 @media (max-width: 34em) {
+  .section-hero .btn-type{
+    flex-direction: column;
+  }
+  .btn-type .btn{
+    width: 100%;
+  }
+  .slider-container {
+    flex-direction: column;
+  }
+  .text-container{
+    width: 100%;
+    padding: 0 4rem;
+  }
   .template-cta-container {
     grid-template-columns: 1fr;
   }

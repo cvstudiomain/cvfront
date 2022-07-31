@@ -219,6 +219,12 @@ z-index: 99;
     display: flex;
    
   }
+  .section-hero .btn-type {
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+   
+  }
  
 }
 @media (max-width: 51.8em) {
@@ -318,9 +324,10 @@ z-index: 99;
   .section-hero .btn-type{
     flex-direction: column;
   }
-  .btn-type .btn{
+  .btn-type .btn,.section-hero .btn-type .btn-5{
     width: 100%;
   }
+ 
   .slider-container {
     flex-direction: column;
   }

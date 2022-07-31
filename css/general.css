@@ -225,6 +225,7 @@ body {
 }
 .section-hero .btn-type{
   flex-direction: row;
+ 
 }
 .btn-type .btn-5{
   background-color: #45260a;
@@ -232,6 +233,9 @@ body {
   width: 100%;
   color: #fff;
   /* font-size: 1.5rem; */
+}
+.section-hero .btn-type .btn-5{
+  width: max-content;
 }
 .btn-type .btn-5:hover{
   background-color: #fff;

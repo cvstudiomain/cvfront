@@ -229,7 +229,7 @@ body {
   background-color: #45260a;
   width: max-content;
   color: #fff;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 .btn-type .btn-5:hover{
   background-color: #fff;

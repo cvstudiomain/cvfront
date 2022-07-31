@@ -7,14 +7,13 @@ general.slider()
 // general.slider("slider2")
 // general.slider("slider3")
 // general.slider("slider4")
-general.activateSubMenu()
+// general.activateSubMenu()
 
 
 general.naviagtionState();
 general.smoothScroll("smoothmove")
 general.obs.observe(sectionHeroEl)
 general.checkFlexGap();
-
 general.activateSubMenu()
 document.querySelector(".word-resume-next").addEventListener("click",e=>{
  if(!e.target.classList.contains("btn-5")) return

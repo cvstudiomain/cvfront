@@ -342,6 +342,10 @@ body {
   margin-top: 4.8rem !important;
 
 }
+.fix-margin-top-bottom-sm{
+  margin: 4.8rem auto !important;
+
+}
 
 .center-text {
   text-align: center;

@@ -217,6 +217,7 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
+  width: max-content;
 }
 .fa-cloud-download{
   font-size: inherit;
@@ -227,7 +228,8 @@ body {
 }
 .btn-type .btn-5{
   background-color: #45260a;
-  width: max-content;
+  
+  width: 100%;
   color: #fff;
   /* font-size: 1.5rem; */
 }

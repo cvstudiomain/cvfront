@@ -327,7 +327,9 @@ z-index: 99;
   .btn-type .btn,.section-hero .btn-type .btn-5{
     width: 100%;
   }
- 
+ .btn-type{
+   width: 100%;
+ }
   .slider-container {
     flex-direction: column;
   }

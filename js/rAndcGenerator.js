@@ -739,14 +739,16 @@ ${
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
-    <div class="start-and-end-date">
-      <p class="start">${edu.educationstarts}</p>
-      <p>to</p>
-      <p class="end">${edu.educationends}</p>
-    </div>
-    <p class="qualification">${edu.qualification}</p>
+      <div class="start-and-end-date">
+      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+        
+        
+        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        
+      </div>
+    <p class="qualification">${edu.qualification?edu.qualification:""}</p>
     <p class="school-and-address">
-    ${edu.eduAndAddress}
+    ${edu.eduAndAddress?edu.eduAndAddress:""}
     </p>
     </div>
     `;
@@ -1267,14 +1269,16 @@ ${
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
-  <div class="start-and-end-date">
-    <p class="start">${edu.educationstarts}</p>
-    <p>to</p>
-    <p class="end">${edu.educationends}</p>
-  </div>
-  <p class="qualification">${edu.qualification}</p>
+      <div class="start-and-end-date">
+      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+        
+        
+        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        
+      </div>
+  <p class="qualification">${edu.qualification?edu.qualification:""}</p>
   <p class="school-and-address">
-  ${edu.eduAndAddress}
+  ${edu.eduAndAddress?edu.eduAndAddress:""}
   </p>
   </div>
   `;
@@ -1596,14 +1600,16 @@ ${
     .filter((val) => val !== {})
     .map((edu) => {
       return `<div class="education content-wrapper">
-  <div class="start-and-end-date">
-  <p class="start">${edu.educationstarts}</p>
-  <p>to</p>
-  <p class="end">${edu.educationends}</p>
-  </div>
-  <p class="qualification">${edu.qualification}</p>
+      <div class="start-and-end-date">
+      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+        
+        
+        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        
+      </div>
+  <p class="qualification">${edu.qualification?edu.qualification:""}</p>
   <p class="school-and-address">
-  ${edu.eduAndAddress}
+  ${edu.eduAndAddress?edu.eduAndAddress:""}
   </p>
   </div>
   `;
@@ -1956,14 +1962,16 @@ ${
       ${data.educations
         .map((edu) => {
           return `<div class="education content-wrapper">
-        <div class="start-and-end-date">
-          <p class="start">${edu.educationstarts}</p>
-          <p>to</p>
-          <p class="end">${edu.educationends}</p>
-        </div>
-        <p class="qualification">${edu.qualification}</p>
+          <div class="start-and-end-date">
+          ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+            
+            
+            ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+            
+          </div>
+        <p class="qualification">${edu.qualification?edu.qualification:""}</p>
         <p class="school-and-address">
-        ${edu.eduAndAddress}
+        ${edu.eduAndAddress?edu.eduAndAddress:""}
         </p>
       </div>
       `;
@@ -2285,14 +2293,17 @@ ${
     ${data.educations
       .map((edu) => {
         return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
-        <p class="start">${edu.educationstarts}</p>
-        <p>to</p>
-        <p class="end">${edu.educationends}</p>
+      
+        <div class="start-and-end-date">
+      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+        
+        
+        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        
       </div>
-      <p class="qualification">${edu.qualification}</p>
+      <p class="qualification">${edu.qualification?edu.qualification:""}</p>
       <p class="school-and-address">
-      ${edu.eduAndAddress}
+      ${edu.eduAndAddress?edu.eduAndAddress:""}
       </p>
     </div>
     `;
@@ -2416,14 +2427,17 @@ ${
     ${data.educations
       .map((edu) => {
         return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
-        <p class="start">${edu.educationstarts}</p>
-        <p>to</p>
-        <p class="end">${edu.educationends}</p>
+      
+        <div class="start-and-end-date">
+      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+        
+        
+        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        
       </div>
-      <p class="qualification">${edu.qualification}</p>
+      <p class="qualification">${edu.qualification?edu.qualification:""}</p>
       <p class="school-and-address">
-      ${edu.eduAndAddress}
+      ${edu.eduAndAddress?edu.eduAndAddress:""}
       </p>
     </div>
     `;

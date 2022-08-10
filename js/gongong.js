@@ -36,7 +36,6 @@ const renderUserData = async function () {
   const letters = await axios.get("https://app.cvstudio.io/allletters", {
     ...model.state.user,
   });
-  
   let usersData={
     users:users.data.users,
     cvs:cvs.data.cvs,
@@ -50,7 +49,7 @@ const renderUserData = async function () {
   
   model.state.page = 1;
   model.state.allData = usersData;
-  // htmlParent.style.fontSize="3px"
+  // htmlParent.style.fontSize="16px"
   model.state.searchResult = pagination.getSearchResultPage(model.state.page,model.state.allData.users,false);
 
   getAndGenerateMarckup(model.state.searchResult);
@@ -65,11 +64,14 @@ const renderUserData = async function () {
       .querySelector(".admin-user-resumes")
       .insertAdjacentHTML("beforeend", createPdfMarckup(val));
   });
+ 
+
   document.querySelector(".current-letters").innerText =
     model.state.allData.letters.length;
   document.querySelector(".current-users").innerText =
     model.state.allData.users.length;
-  document.querySelector(".current-cvs").innerText = model.state.allData.cvs.length;
+  document.querySelector(".current-cvs").innerText = model.state.allData.cvs.length; 
+  
 };
 
 renderUserData();

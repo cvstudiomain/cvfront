@@ -687,9 +687,16 @@ ${
       <div class="start-and-end-date">
       ${
         experience.experiencestarts
-          ? ` <p class="start">${experience.experiencestarts} to</p>`
+          ? ` <p class="start">${experience.experiencestarts}</p>`
           : ""
       }
+
+      ${
+        experience.experienceends
+          ? ` <p class="end">to</p>`
+          : ""
+      }  
+
        ${
          experience.experienceends
            ? ` <p class="end">${experience.experienceends}</p>`
@@ -733,7 +740,8 @@ ${
     .map((edu) => {
       return `<div class="education content-wrapper">
     <div class="start-and-end-date">
-      <p class="start">${edu.educationstarts} to</p>
+      <p class="start">${edu.educationstarts}</p>
+      <p>to</p>
       <p class="end">${edu.educationends}</p>
     </div>
     <p class="qualification">${edu.qualification}</p>
@@ -1209,9 +1217,14 @@ ${
     <div class="start-and-end-date">
     ${
       experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
+    ${
+      experience.experienceends
+        ? ` <p class="end">to</p>`
+        : ""
+    }  
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -1255,7 +1268,8 @@ ${
     .map((edu) => {
       return `<div class="education content-wrapper">
   <div class="start-and-end-date">
-    <p class="start">${edu.educationstarts} to</p>
+    <p class="start">${edu.educationstarts}</p>
+    <p>to</p>
     <p class="end">${edu.educationends}</p>
   </div>
   <p class="qualification">${edu.qualification}</p>
@@ -1530,9 +1544,15 @@ ${
     <div class="start-and-end-date">
     ${
       experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
+    ${
+      experience.experienceends
+        ? ` <p class="end">to</p>`
+        : ""
+    }  
+
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -1577,7 +1597,8 @@ ${
     .map((edu) => {
       return `<div class="education content-wrapper">
   <div class="start-and-end-date">
-  <p class="start">${edu.educationstarts} to</p>
+  <p class="start">${edu.educationstarts}</p>
+  <p>to</p>
   <p class="end">${edu.educationends}</p>
   </div>
   <p class="qualification">${edu.qualification}</p>
@@ -1883,9 +1904,14 @@ ${
       <div class="start-and-end-date">
       ${
         experience.experiencestarts
-          ? ` <p class="start">${experience.experiencestarts} to</p>`
+          ? ` <p class="start">${experience.experiencestarts}</p>`
           : ""
       }
+      ${
+        experience.experienceends
+          ? ` <p class="end">to</p>`
+          : ""
+      }  
        ${
          experience.experienceends
            ? ` <p class="end">${experience.experienceends}</p>`
@@ -1931,7 +1957,8 @@ ${
         .map((edu) => {
           return `<div class="education content-wrapper">
         <div class="start-and-end-date">
-          <p class="start">${edu.educationstarts} to</p>
+          <p class="start">${edu.educationstarts}</p>
+          <p>to</p>
           <p class="end">${edu.educationends}</p>
         </div>
         <p class="qualification">${edu.qualification}</p>
@@ -2207,9 +2234,14 @@ ${
     <div class="start-and-end-date">
     ${
       experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
+    ${
+      experience.experienceends
+        ? ` <p class="end">to</p>`
+        : ""
+    }  
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -2254,7 +2286,8 @@ ${
       .map((edu) => {
         return `<div class="education content-wrapper">
       <div class="start-and-end-date">
-        <p class="start">${edu.educationstarts} to</p>
+        <p class="start">${edu.educationstarts}</p>
+        <p>to</p>
         <p class="end">${edu.educationends}</p>
       </div>
       <p class="qualification">${edu.qualification}</p>
@@ -2332,9 +2365,14 @@ ${
     <div class="start-and-end-date">
     ${
       experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts} to</p>`
+        ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
+    ${
+      experience.experienceends
+        ? ` <p class="end">to</p>`
+        : ""
+    }  
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -2379,7 +2417,8 @@ ${
       .map((edu) => {
         return `<div class="education content-wrapper">
       <div class="start-and-end-date">
-        <p class="start">${edu.educationstarts} to</p>
+        <p class="start">${edu.educationstarts}</p>
+        <p>to</p>
         <p class="end">${edu.educationends}</p>
       </div>
       <p class="qualification">${edu.qualification}</p>

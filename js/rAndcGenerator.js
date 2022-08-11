@@ -16,7 +16,7 @@ const useInitial = function (data) {
 
 export const createPdfMarckup = function (data) {
   let marckup = "";
-
+// console.log(data.educations)
   if (data.template.type === "letter") {
     if (data.template.template === "letter1") {
       marckup = `
@@ -655,7 +655,8 @@ ${
   
   ${
     data.educations.length !== 0
-      ? `
+
+      ? `$
   <div class="educational-background informationContainer">
   <h3 class="inforHeader">Education</h3>
   ${data.educations
@@ -665,7 +666,7 @@ ${
       ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
         
         
-        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
         
       </div>
     <p class="qualification">${edu.qualification?edu.qualification:""}</p>
@@ -1176,7 +1177,7 @@ ${
       ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
         
         
-        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
         
       </div>
   <p class="qualification">${edu.qualification?edu.qualification:""}</p>
@@ -1499,7 +1500,7 @@ ${
       ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
         
         
-        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
         
       </div>
   <p class="qualification">${edu.qualification?edu.qualification:""}</p>
@@ -1856,7 +1857,7 @@ ${
           ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
             
             
-            ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+            ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
             
           </div>
         <p class="qualification">${edu.qualification?edu.qualification:""}</p>
@@ -2180,7 +2181,7 @@ ${
       ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
         
         
-        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
         
       </div>
       <p class="qualification">${edu.qualification?edu.qualification:""}</p>
@@ -2314,7 +2315,7 @@ ${
       ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
         
         
-        ${edu.educationsends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
         
       </div>
       <p class="qualification">${edu.qualification?edu.qualification:""}</p>

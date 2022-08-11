@@ -801,7 +801,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -810,7 +810,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -820,7 +820,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -829,7 +829,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1008,7 +1008,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -1017,7 +1017,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -1027,7 +1027,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -1036,7 +1036,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1341,7 +1341,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -1350,7 +1350,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -1360,7 +1360,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -1369,7 +1369,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1583,6 +1583,7 @@ ${
           
       <div class="tiny-content">
       <div class="contact-information informationContainer">
+  <h3 class="inforHeader">Contact information</h3>
   
         <div class="contact-container">
         <div class="content-wrapper">
@@ -1670,7 +1671,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -1679,7 +1680,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -1689,7 +1690,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -1698,7 +1699,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -2002,7 +2003,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/fb-white-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -2012,7 +2013,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/ig-white-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -2022,7 +2023,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/twitter-white-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -2032,7 +2033,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-white-icon.png" alt="logo"/></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -2443,7 +2444,7 @@ ${
   ${
     data.facebook
       ? `<div class="information">
-      <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+      <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
 
     <p class="inforVal">${data.facebook}</p>
     </div>`
@@ -2452,7 +2453,7 @@ ${
   ${
     data.instagram
       ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
 
     <p class="inforVal">${data.instagram}</p>
     </div>`
@@ -2462,7 +2463,7 @@ ${
   ${
     data.twitter
       ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
 
     <p class="inforVal">${data.twitter}</p>
     </div>`
@@ -2471,7 +2472,7 @@ ${
   ${
     data.linkedin
       ? `<div class="information">
-        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
 
     <p class="inforVal">${data.linkedin}</p>
     </div>`

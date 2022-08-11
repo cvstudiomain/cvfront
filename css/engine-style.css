@@ -1221,7 +1221,7 @@ grid-template-columns: 1fr 1fr 1fr;
   font-size: 1rem;
   justify-content: center;
   align-items: start;
-  gap: 1rem;
+  /* gap: 1rem; */
   min-height: 70.157rem;
   height: auto;
   color: #000;
@@ -1274,7 +1274,7 @@ grid-template-columns: 1fr 1fr 1fr;
 
 }
 .template5 .initials{
-  font-size: 7rem;
+  font-size: 4rem;
 }
 .template6 .initials{
   font-size: 6rem;
@@ -1285,6 +1285,9 @@ grid-template-columns: 1fr 1fr 1fr;
   flex-direction: column;
 
   gap: 1rem;
+}
+.template .content-wrapper .qualification{
+  font-weight: 700;
 }
 
 .template .information {
@@ -1305,7 +1308,8 @@ grid-template-columns: 1fr 1fr 1fr;
   word-wrap: break-word;
 }
 .template .inforHeader {
-  font-size: 1.1rem;
+  font-size: 1.13rem;
+  font-weight: 700;
   text-transform: uppercase;
 }
 .template .informationContainer {
@@ -1333,17 +1337,27 @@ grid-template-columns: 1fr 1fr 1fr;
 
 } */
 .tiny-content .inforLabel{
-  width: 2.2rem;
-  height: 1.9rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
   align-items: center;
   justify-content: center;
+  /* text-align: center; */
 }
-.tiny-content .inforLabel .infor-logo{
+.tiny-content .inforVal{
+  max-width: 13rem;
+}
+.tiny-content .social-media-links .inforLabel .infor-logo{
 
-font-size: 1.8rem;
-/* height: 1.8rem; */
-/* width: 1.8rem; */
+/* font-size: 1.4rem; */
+height: 100%;
+width: 100%;
 }
+.tiny-content .contact-information .inforLabel .infor-logo{
+
+  font-size: 1.7rem;
+  
+  }
 .template .date-of-birth {
   display: flex;
   flex-direction: row;
@@ -1369,6 +1383,7 @@ font-size: 1.8rem;
   display: flex;
   flex-direction: row;
   font-size: 0.7rem;
+  font-weight: 700;
  
   gap: 0.5rem;
   /* color: #ff105f; */
@@ -1456,6 +1471,7 @@ font-size: 1.8rem;
 }
 .inforVal {
   word-break: break-all;
+  
 }
 .template1 .inforVal {
   /* color: #8a786d; */
@@ -1515,10 +1531,10 @@ font-size: 1.8rem;
   font-size: 4rem;
 }
 .template2 .tiny-content {
-  margin-top: -2rem;
-  margin-left: 1rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  /* margin-top: -2rem; */
+  /* margin-left: 1rem; */
+  /* border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem; */
   background-color: #d9e3f3;
   grid-column: 1/2;
 }
@@ -1724,7 +1740,7 @@ font-size: 1.8rem;
     margin-top: 2rem;
 }
 .template5 .user-name {
-  font-size: 2.7rem;
+  font-size: 2.4rem;
   /* background-color: #ccf2cc; */
   /* padding: 0.6rem 2rem; */
   margin: 0 1rem;
@@ -1732,13 +1748,13 @@ font-size: 1.8rem;
   /* border-bottom-right-radius: 5rem; */
 }
 .template5 .profession {
-  background-color: #001300;
-  color: #fff;
+  /* background-color: #001300;
+  color: #fff; */
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
+  /* padding: 0.5rem 1rem;
   margin-top: -0.5rem;
   border-bottom-left-radius: 5rem;
-  border-bottom-right-radius: 5rem;
+  border-bottom-right-radius: 5rem; */
 }
 .template5 .passportDateOfBirth {
   display: flex;

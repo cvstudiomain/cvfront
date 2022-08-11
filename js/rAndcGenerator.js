@@ -80,12 +80,7 @@ export const createPdfMarckup = function (data) {
         ${
           data.email
             ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="logo"
-      /></p>
+          <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.email}</p>
         </div>`
             : ""
@@ -94,11 +89,7 @@ export const createPdfMarckup = function (data) {
         data.phoneNumber
           ? `
         <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
           : ""
@@ -108,11 +99,7 @@ ${
   data.address
     ? `
         <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.address}</p>
         </div>`
     : ""
@@ -163,12 +150,7 @@ ${
         ${
           data.email
             ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
+          <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.email}</p>
         </div>`
             : ""
@@ -177,11 +159,7 @@ ${
     data.phoneNumber
       ? `
         <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
       : ""
@@ -190,11 +168,7 @@ ${
   data.address
     ? `  
         <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.address}</p>
         </div>`
     : ""
@@ -253,12 +227,7 @@ ${
         ${
           data.email
             ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
+          <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.email}</p>
         </div>`
             : ""
@@ -267,11 +236,7 @@ ${
     data.phoneNumber
       ? `
         <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
       : ""
@@ -280,11 +245,7 @@ ${
   data.address
     ? `  
         <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.address}</p>
         </div>`
     : ""
@@ -335,12 +296,7 @@ ${
         ${
           data.email
             ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
+          <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.email}</p>
         </div>`
             : ""
@@ -349,11 +305,7 @@ ${
     data.phoneNumber
       ? `
         <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
       : ""
@@ -362,11 +314,7 @@ ${
   data.address
     ? `  
         <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.address}</p>
         </div>`
     : ""
@@ -457,12 +405,7 @@ ${
         ${
           data.email
             ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
+          <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.email}</p>
         </div>`
             : ""
@@ -471,11 +414,7 @@ ${
     data.phoneNumber
       ? `
         <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
       : ""
@@ -484,11 +423,7 @@ ${
   data.address
     ? `  
         <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.address}</p>
         </div>`
     : ""
@@ -566,12 +501,7 @@ ${
         ${
           data.email
             ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
+          <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.email}</p>
         </div>`
             : ""
@@ -580,11 +510,7 @@ ${
     data.phoneNumber
       ? `
         <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.phoneNumber}</p>
         </div>`
       : ""
@@ -593,11 +519,7 @@ ${
   data.address
     ? `  
         <div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
           <p class="inforVal">${data.address}</p>
         </div>`
     : ""
@@ -796,36 +718,21 @@ ${
   <h3 class="inforHeader">Contact information</h3>
   <div class="content-wrapper">
   ${
-    data.email
+    data.address
       ? `<div class="information">
-      <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-      <p class="inforVal">${data.email}</p>
-    </div>
+     <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+    <p class="inforVal">${data.address}</p>
+  </div>
     `
       : ""
-  } 
-    ${
-      data.phoneNumber
-        ? ` <div class="information">
-       <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-      <p class="inforVal">${data.phoneNumber}</p>
-    </div>`
-        : ""
-    }
+  }
+  
+    
      ${
        data.country
          ? `
       <div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.country}</p>
     </div>`
@@ -836,7 +743,7 @@ ${
        data.state
          ? `
       <div class="information">
-           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
+           <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.state}</p>
     </div>`
@@ -846,35 +753,40 @@ ${
      ${
        data.gender
          ? `<div class="information">
-           <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
+           <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.gender}</p>
     </div>`
          : ""
      }
-    ${
-      data.address
-        ? `<div class="information">
-       <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-      <p class="inforVal">${data.address}</p>
-    </div>
-      `
-        : ""
-    }
+    
     ${
       data.maritalstatus
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.maritalstatus}</p>
     </div>
       `
         : ""
     }
+    ${
+      data.phoneNumber
+        ? ` <div class="information">
+       <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+      <p class="inforVal">${data.phoneNumber}</p>
+    </div>`
+        : ""
+    }
+    ${
+      data.email
+        ? `<div class="information">
+        <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+        <p class="inforVal">${data.email}</p>
+      </div>
+      `
+        : ""
+    } 
       </div>
   
         </div>
@@ -889,7 +801,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -898,7 +810,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -908,7 +820,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -917,7 +829,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1013,84 +925,75 @@ ${
         <h3 class="inforHeader">Contact information</h3>
         <div class="content-wrapper">
         ${
-          data.email
+          data.address
             ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+          <p class="inforVal">${data.address}</p>
+        </div>
           `
             : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
+        }
+        
+          
            ${
              data.country
                ? `
             <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
+              <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
            }
+      
            ${
              data.state
                ? `
             <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
+                 <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
            }
+      
            ${
              data.gender
                ? `<div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
+                 <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
            }
-          ${
-            data.address
-              ? `<div class="information">
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-            <p class="inforVal">${data.address}</p>
-          </div>
-            `
-              : ""
-          }
+          
           ${
             data.maritalstatus
               ? `<div class="information">
-                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
+                <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.maritalstatus}</p>
           </div>
             `
               : ""
           }
-         
+          ${
+            data.phoneNumber
+              ? ` <div class="information">
+             <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+            <p class="inforVal">${data.phoneNumber}</p>
+          </div>`
+              : ""
+          }
+          ${
+            data.email
+              ? `<div class="information">
+              <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+              <p class="inforVal">${data.email}</p>
+            </div>
+            `
+              : ""
+          }
         </div>
       </div>
   
@@ -1105,7 +1008,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -1114,7 +1017,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -1124,7 +1027,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -1133,7 +1036,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1354,80 +1257,72 @@ ${
         <h3 class="inforHeader">Contact information</h3>
         <div class="content-wrapper">
         ${
-          data.email
+          data.address
             ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+          <p class="inforVal">${data.address}</p>
+        </div>
           `
             : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
+        }
+        
+          
            ${
              data.country
                ? `
             <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
+              <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
            }
+      
            ${
              data.state
                ? `
             <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
+                 <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
            }
+      
            ${
              data.gender
                ? `<div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
+                 <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
            }
+          
           ${
-            data.address
+            data.maritalstatus
               ? `<div class="information">
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-            <p class="inforVal">${data.address}</p>
+                <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
+      
+            <p class="inforVal">${data.maritalstatus}</p>
           </div>
             `
               : ""
           }
           ${
-            data.maritalstatus
+            data.phoneNumber
+              ? ` <div class="information">
+             <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+            <p class="inforVal">${data.phoneNumber}</p>
+          </div>`
+              : ""
+          }
+          ${
+            data.email
               ? `<div class="information">
-                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.maritalstatus}</p>
-          </div>
+              <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+              <p class="inforVal">${data.email}</p>
+            </div>
             `
               : ""
           }
@@ -1446,7 +1341,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -1455,7 +1350,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -1465,7 +1360,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -1474,7 +1369,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1652,105 +1547,14 @@ ${
     if (data.template.template === "resume4") {
       marckup = ` <div id="${data._id}" class="template resume rl template4">
       
-      <div class="contact-information informationContainer">
-  
-        <div class="contact-container">
-        <div class="content-wrapper">
-        ${
-          data.email
-            ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
-          `
-            : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
-           ${
-             data.country
-               ? `
-            <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.country}</p>
-          </div>`
-               : ""
-           }
-           ${
-             data.state
-               ? `
-            <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.state}</p>
-          </div>`
-               : ""
-           }
-           </div>
-          
-           <div class="content-wrapper secondContent">
-           ${
-             data.gender
-               ? `<div class="information">
-               <p class="inforVal">${data.gender}</p>
-               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
-          </div>`
-               : ""
-           }
-          ${
-            data.address
-              ? `<div class="information">
-              <p class="inforVal">${data.address}</p>
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          </div>
-            `
-              : ""
-          }
-
-          ${
-            data.maritalstatus
-              ? `<div class="information">
-              <p class="inforVal">${data.maritalstatus}</p>
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-          </div>
-            `
-              : ""
-          }
-         
-          </div>
-        </div>
-      </div>
+      
      
-  
-      <div class="user-name-and-profession">
-     
-        <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
+  <div class="template4-header">
+  <div class="passportDateOfBirth">
+  <div class="passport-box">
+  ${
+    data.images
+    ? `<img
             src="${data.images.url}"
             alt=""
             class="passport"
@@ -1758,37 +1562,105 @@ ${
             
             
             />`
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+            : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
           </div>
           <div class="date-of-birth">
-            <p class="dateOfBirth">date of birth:</p>
-            <p>${data.dateofbirth}</p>
+          <p class="dateOfBirth">date of birth:</p>
+          <p>${data.dateofbirth}</p>
+          </div>
+          </div>
+  
+  <div class="user-name-and-profession">
+  
+          
+          
+          <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+          <p class="profession">${data.profession}</p>
+      
+          </div>
+          </div>
+          
+      <div class="tiny-content">
+      <div class="contact-information informationContainer">
+  
+        <div class="contact-container">
+        <div class="content-wrapper">
+        ${
+          data.address
+            ? `<div class="information">
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+          <p class="inforVal">${data.address}</p>
+        </div>
+          `
+            : ""
+        }
+        
+          
+           ${
+             data.country
+               ? `
+            <div class="information">
+              <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
+      
+            <p class="inforVal">${data.country}</p>
+          </div>`
+               : ""
+           }
+      
+           ${
+             data.state
+               ? `
+            <div class="information">
+                 <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
+      
+            <p class="inforVal">${data.state}</p>
+          </div>`
+               : ""
+           }
+      
+           ${
+             data.gender
+               ? `<div class="information">
+                 <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+      
+            <p class="inforVal">${data.gender}</p>
+          </div>`
+               : ""
+           }
+          
+          ${
+            data.maritalstatus
+              ? `<div class="information">
+                <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
+      
+            <p class="inforVal">${data.maritalstatus}</p>
+          </div>
+            `
+              : ""
+          }
+          ${
+            data.phoneNumber
+              ? ` <div class="information">
+             <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+            <p class="inforVal">${data.phoneNumber}</p>
+          </div>`
+              : ""
+          }
+          ${
+            data.email
+              ? `<div class="information">
+              <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+              <p class="inforVal">${data.email}</p>
+            </div>
+            `
+              : ""
+          }
+         
           </div>
         </div>
-  
-        
-        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-        <p class="profession">${data.profession}</p>
-      
-      </div>
-  
-      <div class="tiny-content">
-      ${
-        data.objective
-          ? `
-    
-      <div class="objective informationContainer">
-      <h3 class="inforHeader">Objective</h3>
-      <p>
-        ${data.objective}
-      </p>
       </div>
       
-      `
-          : ""
-      }
-  
         ${
           data.twitter || data.instagram || data.facebook || data.linkedin
             ? `
@@ -1798,7 +1670,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -1807,7 +1679,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -1817,7 +1689,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -1826,7 +1698,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -1886,6 +1758,23 @@ ${
       </div>
   
       <div class="large-content">
+ 
+      ${
+        data.objective
+          ? `
+    
+      <div class="objective informationContainer">
+      <h3 class="inforHeader">Objective</h3>
+      <p>
+        ${data.objective}
+      </p>
+      </div>
+      
+      `
+          : ""
+      }
+  
+ 
       ${
         data.profile
           ? `
@@ -2030,80 +1919,72 @@ ${
         <h3 class="inforHeader">Contact information</h3>
         <div class="content-wrapper">
         ${
-          data.email
+          data.address
             ? `<div class="information">
-            <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-            <p class="inforVal">${data.email}</p>
-          </div>
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+          <p class="inforVal">${data.address}</p>
+        </div>
           `
             : ""
-        }  
-          ${
-            data.phoneNumber
-              ? ` <div class="information">
-             <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-            <p class="inforVal">${data.phoneNumber}</p>
-          </div>`
-              : ""
-          }
+        }
+        
+          
            ${
              data.country
                ? `
             <div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
+              <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.country}</p>
           </div>`
                : ""
            }
+      
            ${
              data.state
                ? `
             <div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
+                 <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.state}</p>
           </div>`
                : ""
            }
+      
            ${
              data.gender
                ? `<div class="information">
-                 <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
+                 <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+      
             <p class="inforVal">${data.gender}</p>
           </div>`
                : ""
            }
+          
           ${
-            data.address
+            data.maritalstatus
               ? `<div class="information">
-             <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-            <p class="inforVal">${data.address}</p>
+                <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
+      
+            <p class="inforVal">${data.maritalstatus}</p>
           </div>
             `
               : ""
           }
           ${
-            data.maritalstatus
+            data.phoneNumber
+              ? ` <div class="information">
+             <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+            <p class="inforVal">${data.phoneNumber}</p>
+          </div>`
+              : ""
+          }
+          ${
+            data.email
               ? `<div class="information">
-                <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
-            <p class="inforVal">${data.maritalstatus}</p>
-          </div>
+              <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+              <p class="inforVal">${data.email}</p>
+            </div>
             `
               : ""
           }
@@ -2121,7 +2002,7 @@ ${
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.facebook}</p>
       </div>`
@@ -2131,7 +2012,7 @@ ${
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.instagram}</p>
       </div>`
@@ -2141,7 +2022,7 @@ ${
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.twitter}</p>
       </div>`
@@ -2151,7 +2032,7 @@ ${
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+          <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
@@ -2481,84 +2362,75 @@ ${
       <h3 class="inforHeader">Contact information</h3>
       <div class="content-wrapper">
       ${
-        data.email
+        data.address
           ? `<div class="information">
-          <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653195634/erutubs/mail-outline_agcm2p.png
-      "
-      alt=""
-      class="email-logo"
-      /></p>
-          <p class="inforVal">${data.email}</p>
-        </div>
+         <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+        <p class="inforVal">${data.address}</p>
+      </div>
         `
           : ""
-      }  
-        ${
-          data.phoneNumber
-            ? ` <div class="information">
-           <p class="inforLabel"><img
-      src="https://res.cloudinary.com/erutubs/image/upload/v1653196785/erutubs/call-outline_mhtw25.png"
-      alt=""
-      class="logo"
-      /></p>
-          <p class="inforVal">${data.phoneNumber}</p>
-        </div>`
-            : ""
-        }
+      }
+      
+        
          ${
            data.country
              ? `
           <div class="information">
-            <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197226/erutubs/flag-outline_weqn13.png" alt="" class="logo" /></p> 
-
+            <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
+    
           <p class="inforVal">${data.country}</p>
         </div>`
              : ""
          }
+    
          ${
            data.state
              ? `
           <div class="information">
-               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197743/erutubs/home-outline_vek3pk.png" alt="" class="logo" /></p> 
-
+               <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
+    
           <p class="inforVal">${data.state}</p>
         </div>`
              : ""
          }
+    
          ${
            data.gender
              ? `<div class="information">
-               <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653197894/erutubs/person-circle-outline_kaaj5i.png" alt="" class="logo" /></p> 
-
+               <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+    
           <p class="inforVal">${data.gender}</p>
         </div>`
              : ""
          }
-        ${
-          data.address
-            ? `<div class="information">
-           <p class="inforLabel"><img
-        src="https://res.cloudinary.com/erutubs/image/upload/v1653197040/erutubs/location-outline_udc7ib.png"
-        alt=""
-        class="logo"
-        /></p>
-          <p class="inforVal">${data.address}</p>
-        </div>
-          `
-            : ""
-        }
+        
         ${
           data.maritalstatus
             ? `<div class="information">
-              <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198037/erutubs/people-outline_peg7gy.png" alt="" class="logo" /></p> 
-
+              <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
+    
           <p class="inforVal">${data.maritalstatus}</p>
         </div>
           `
             : ""
         }
-    
+        ${
+          data.phoneNumber
+            ? ` <div class="information">
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+          <p class="inforVal">${data.phoneNumber}</p>
+        </div>`
+            : ""
+        }
+        ${
+          data.email
+            ? `<div class="information">
+            <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+            <p class="inforVal">${data.email}</p>
+          </div>
+          `
+            : ""
+        }
       </div>
     </div>
   
@@ -2571,7 +2443,7 @@ ${
   ${
     data.facebook
       ? `<div class="information">
-      <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198193/erutubs/logo-facebook_a82wc9.png" alt="" class="logo" /></p> 
+      <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
     <p class="inforVal">${data.facebook}</p>
     </div>`
@@ -2580,7 +2452,7 @@ ${
   ${
     data.instagram
       ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198415/erutubs/logo-instagram_jeo4pu.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
     <p class="inforVal">${data.instagram}</p>
     </div>`
@@ -2590,7 +2462,7 @@ ${
   ${
     data.twitter
       ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198454/erutubs/logo-twitter_qx4nej.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
     <p class="inforVal">${data.twitter}</p>
     </div>`
@@ -2599,7 +2471,7 @@ ${
   ${
     data.linkedin
       ? `<div class="information">
-        <p class="inforLabel"><img src="https://res.cloudinary.com/erutubs/image/upload/v1653198416/erutubs/logo-linkedin_upve1j.png" alt="" class="logo" /></p> 
+        <p class="inforLabel"><i class="fa fa-circle infor-logo" aria-hidden="true"></i></p> 
 
     <p class="inforVal">${data.linkedin}</p>
     </div>`

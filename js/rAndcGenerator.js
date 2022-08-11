@@ -656,7 +656,7 @@ ${
   ${
     data.educations.length !== 0
 
-      ? `$
+      ? `
   <div class="educational-background informationContainer">
   <h3 class="inforHeader">Education</h3>
   

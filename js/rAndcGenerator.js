@@ -659,6 +659,7 @@ ${
       ? `$
   <div class="educational-background informationContainer">
   <h3 class="inforHeader">Education</h3>
+  
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
@@ -863,12 +864,10 @@ ${
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
-            <p class="refName">${ref.refrenceName}</p>
-            <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
+            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
+            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
+            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+             </div>
   `;
           })
           .join("")}
@@ -1067,13 +1066,11 @@ ${
         ${data.reffrences
           .map((ref) => {
             return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
+            <div class="reference content-wrapper">
+            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
+            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
+            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+             </div>
   `;
           })
           .join("")}
@@ -1405,13 +1402,11 @@ ${
           .filter((val) => val !== {})
           .map((ref) => {
             return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
+            <div class="reference content-wrapper">
+            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
+            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
+            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+             </div>
   `;
           })
           .join("")}
@@ -1733,13 +1728,11 @@ ${
         ${data.reffrences
           .map((ref) => {
             return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
+            <div class="reference content-wrapper">
+            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
+            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
+            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+             </div>
   `;
           })
           .join("")}
@@ -2068,13 +2061,11 @@ ${
         ${data.reffrences
           .map((ref) => {
             return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
+            <div class="reference content-wrapper">
+            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
+            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
+            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+             </div>
   `;
           })
           .join("")}
@@ -2506,13 +2497,11 @@ ${
       ${data.reffrences
         .map((ref) => {
           return `
-  <div class="reference content-wrapper">
-  <p class="refName">${ref.refrenceName}</p>
-  <p class="titleandorg">
-  ${ref.referenceTitleAndOrg}
-  </p>
-  <p class="email">${ref.refrenceEmail}</p>
-  </div>
+          <div class="reference content-wrapper">
+          ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
+          ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
+          ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+           </div>
   `;
         })
         .join("")}

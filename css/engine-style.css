@@ -1320,7 +1320,8 @@ grid-template-columns: 1fr 1fr 1fr;
 }
 .template ul {
   text-align: justify;
-  list-style: none;
+  /* list-style: none; */
+  margin-left: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1337,8 +1338,8 @@ grid-template-columns: 1fr 1fr 1fr;
 
 } */
 .tiny-content .inforLabel{
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1355,7 +1356,7 @@ width: 100%;
 }
 .tiny-content .contact-information .inforLabel .infor-logo{
 
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   
   }
 .template .date-of-birth {

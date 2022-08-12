@@ -313,6 +313,7 @@ width: 800px;
 }
 .cv-form{
   width: 600px;
+  position: relative;
   height: auto;
   display: flex;
     flex-direction: column;
@@ -500,6 +501,17 @@ input[type="submit"] {
 }
 
 
+.form-style{
+  width: 567px;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 32px;
+  transition: 0.5s;
+}
 .s7,.welcome-message, .updating-the-system{
   background-color: #ff105f;
   color: #ffe7ef;
@@ -516,7 +528,7 @@ input[type="submit"] {
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: 1s;
-  z-index: 99;
+  z-index: 999;
   text-align: center;
   font-weight: 600;
   left: 0;
@@ -524,17 +536,10 @@ input[type="submit"] {
   opacity: 0;
   width: 100%;
 }
-.form-style{
-  width: 567px;
-  position: relative;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  row-gap: 32px;
-  transition: 0.5s;
+.s7{
+  z-index: 2;
 }
+
 .welcome-message p{
   text-align: center;
   margin: 8px;
@@ -1336,6 +1341,29 @@ grid-template-columns: 1fr 1fr 1fr;
   gap: 1.3rem;
   margin-bottom: 1.5rem;
 }
+
+.template .reference, .template .education{
+  border-left: #fff solid 0.13rem;
+  padding-left: 1rem;
+  position: relative;
+}
+.template .education{
+  border-left: #000 solid 0.13rem;
+
+}
+.template .reference span,.template .education span{
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  left: -0.5rem;
+  top: 50%;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateY(-50%);
+}
+.template .education span{
+  background-color: #000;
+}
 .template ul {
   text-align: justify;
   /* list-style: none; */
@@ -1808,21 +1836,6 @@ width: 100%;
   
   font-size: 0.8rem;
   border-bottom: 0.2rem solid black;
-}
-.template5 .reference{
-  border-left: #fff solid 0.13rem;
-  padding-left: 1rem;
-  position: relative;
-}
-.template5 .reference span{
-  position: absolute;
-  width: 0.8rem;
-  height: 0.8rem;
-  left: -0.5rem;
-  top: 50%;
-  border-radius: 50%;
-  background-color: #fff;
-  transform: translateY(-50%);
 }
 .template5 .start-and-end-date {
   margin: 0;

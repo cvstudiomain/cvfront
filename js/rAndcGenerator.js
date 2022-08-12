@@ -658,6 +658,7 @@ ${
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
+      <span></span>
       <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
@@ -1178,6 +1179,7 @@ ${
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
+      <span></span>
       <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
@@ -1513,6 +1515,7 @@ ${
     .filter((val) => val !== {})
     .map((edu) => {
       return `<div class="education content-wrapper">
+      <span></span>
       <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
@@ -1853,6 +1856,7 @@ ${
       ${data.educations
         .map((edu) => {
           return `<div class="education content-wrapper">
+          <span></span>
           <div class="start-and-end-date shouldNotBreak">
           ${
             edu.educationstarts
@@ -2237,6 +2241,7 @@ ${
     ${data.educations
       .map((edu) => {
         return `<div class="education content-wrapper">
+        <span></span>
       
         <div class="start-and-end-date shouldNotBreak">
       ${
@@ -2360,6 +2365,7 @@ ${
     ${data.educations
       .map((edu) => {
         return `<div class="education content-wrapper">
+        <span></span>
       
         <div class="start-and-end-date shouldNotBreak">
       ${

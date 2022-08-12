@@ -2166,7 +2166,7 @@ ${
        <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>/ `
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
           : ""
       }
       ${
@@ -2177,7 +2177,7 @@ ${
       <div class="box-for-org-city-and-org">
       ${
         experience.orgState
-          ? ` <p class="sorgState">${experience.orgState}</p>`
+          ? ` <p class="sorgState">${experience.orgState}</p>/`
           : ""
       }
       ${

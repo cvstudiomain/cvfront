@@ -57,13 +57,13 @@ export const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
+        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
-        <li>${new Date(data.date).toDateString()}</li>
+        <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
       <div contenteditable="false" id="letter">
@@ -75,7 +75,7 @@ export const createPdfMarckup = function (data) {
   
   <div class="tiny-content">
     <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
+      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
       <div class="content-wrapper">
         ${
           data.email
@@ -145,7 +145,7 @@ ${
 
   
     <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
+      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
       <div class="content-wrapper">
         ${
           data.email
@@ -180,13 +180,13 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
+        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
-        <li>${new Date(data.date).toDateString()}</li>
+        <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
       <div contenteditable="false" id="letter">
@@ -268,13 +268,13 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
+        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
-        <li>${new Date(data.date).toDateString()}</li>
+        <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
       <div contenteditable="false" id="letter">
@@ -358,13 +358,13 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
+        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
-        <li>${new Date(data.date).toDateString()}</li>
+        <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
       <div contenteditable="false" id="letter">
@@ -442,11 +442,11 @@ ${
   }
 </div>
   <ul>
-  ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-  ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-  ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-  <li>${data.city ? data.city + "," : ""} ${data.state ? data.state : ""}</li>
-  <li>${new Date(data.date).toDateString()}</li>
+  ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
+  ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
+  ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+  <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${data.state ? data.state : ""}</li>
+  <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
   </ul>
   <div class="large-content">
     <div class="letterContainer" >
@@ -479,13 +479,13 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li>${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li>${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li>${data.streetaddress}</li>` : ""}
-        <li>${data.city ? data.city + "," : ""} ${
+        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
+        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
+        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
-        <li>${new Date(data.date).toDateString()}</li>
+        <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
       </ul>
       <br />
       <div contenteditable="false" id="letter">
@@ -496,7 +496,7 @@ ${
   
   <div class="tiny-content">
     <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
+      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
       <div class="content-wrapper">
         ${
           data.email
@@ -587,7 +587,7 @@ ${
        ${
          data.profile
            ? ` <div class="profile informationContainer">
-           <h3 class="inforHeader">Profile</h3>
+           <h3 class="inforHeader shouldNotBreak">Profile</h3>
            <p>
            ${data.profile}  
            </p>
@@ -601,12 +601,12 @@ ${
          data.experiences.length !== 0
            ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader">Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
               ? `<div class="experience content-wrapper">
-      <div class="start-and-end-date">
+      <div class="start-and-end-date shouldNotBreak">
       ${
         experience.experiencestarts
           ? ` <p class="start">${experience.experiencestarts}</p>`
@@ -630,7 +630,7 @@ ${
         }
        ${
          experience.experience
-           ? ` <p class="experienceOptain">${experience.experience}</p>`
+           ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
            : ""
        }
        ${
@@ -653,12 +653,12 @@ ${
     data.educations.length !== 0
       ? `
   <div class="educational-background informationContainer">
-  <h3 class="inforHeader">Education</h3>
+  <h3 class="inforHeader shouldNotBreak">Education</h3>
   
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
+      <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
       }
@@ -671,8 +671,8 @@ ${
         }
         
       </div>
-    <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
-    <p class="school-and-address">
+    <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+    <p class="school-and-address shouldNotBreak">
     ${edu.eduAndAddress ? edu.eduAndAddress : ""}
     </p>
     </div>
@@ -692,9 +692,9 @@ ${
     data.certifications.length !== 0
       ? `
       <div class="certification informationContainer">
-    <h3 class="inforHeader">Certification</h3>
+    <h3 class="inforHeader shouldNotBreak">Certification</h3>
     <ul class="content-wrapper">
-    ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
+    ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
     </ul>
     </div>
     `
@@ -705,7 +705,7 @@ ${
   <div class="tiny-content">
   
   <div class="contact-information informationContainer">
-  <h3 class="inforHeader">Contact information</h3>
+  <h3 class="inforHeader shouldNotBreak">Contact information</h3>
   <div class="content-wrapper">
   ${
     data.address
@@ -786,7 +786,7 @@ ${
            data.twitter || data.instagram || data.facebook || data.linkedin
              ? `
     <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
+    <h3 class="inforHeader shouldNotBreak">Social media links</h3>
     <div class="content-wrapper">
     ${
       data.facebook
@@ -834,10 +834,10 @@ ${
   ${
     data.skills.length !== 0
       ? `   <div class="skills informationContainer">
-    <h3 class="inforHeader">Skills</h3>
+    <h3 class="inforHeader shouldNotBreak">Skills</h3>
     <ul class="content-wrapper">
     ${data.skills
-      .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
+      .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
       .join("")}
       </ul>
       </div>
@@ -847,24 +847,24 @@ ${
          ${
            data.reffrences.length !== 0
              ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
+        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
         ${data.reffrences
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
             ${
               ref.refrenceName
-                ? `<p class="refName">${ref.refrenceName}</p>`
+                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
                 : ""
             }
             ${
               ref.referenceTitleAndOrg
-                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
                 : ""
             }
             ${
               ref.refrenceEmail
-                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
                 : ""
             }
              </div>
@@ -880,9 +880,9 @@ ${
         ${
           data.interest.length !== 0
             ? `   <div class="interest informationContainer">
-          <h3 class="inforHeader">Interest</h3>
+          <h3 class="inforHeader shouldNotBreak">Interest</h3>
           <ul class="content-wrapper">
-          ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
+          ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
           </ul></div>`
             : ""
         }
@@ -922,7 +922,7 @@ ${
   
   
         <div class="contact-information informationContainer">
-        <h3 class="inforHeader">Contact information</h3>
+        <h3 class="inforHeader shouldNotBreak">Contact information</h3>
         <div class="content-wrapper">
         ${
           data.address
@@ -1003,7 +1003,7 @@ ${
           data.twitter || data.instagram || data.facebook || data.linkedin
             ? `
     <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
+    <h3 class="inforHeader shouldNotBreak">Social media links</h3>
     <div class="content-wrapper">
     ${
       data.facebook
@@ -1051,9 +1051,9 @@ ${
      ${
        data.skills.length !== 0
          ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
+      <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
-      ${data.skills.map((skill) => `<li>${skill}</li>`).join("")}
+      ${data.skills.map((skill) => `<li class="shouldNotBreak">${skill}</li>`).join("")}
       </ul></div>`
          : ""
      }
@@ -1062,24 +1062,24 @@ ${
        data.reffrences.length !== 0
          ? `
      <div class="references informationContainer">
-     <h3 class="inforHeader">Refrence</h3>
+     <h3 class="inforHeader shouldNotBreak">Refrence</h3>
         ${data.reffrences
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
             ${
               ref.refrenceName
-                ? `<p class="refName">${ref.refrenceName}</p>`
+                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
                 : ""
             }
             ${
               ref.referenceTitleAndOrg
-                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
                 : ""
             }
             ${
               ref.refrenceEmail
-                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
                 : ""
             }
              </div>
@@ -1094,11 +1094,11 @@ ${
         ${
           data.interest.length !== 0
             ? `   <div class="interest informationContainer">
-          <h3 class="inforHeader">Interest</h3>
+          <h3 class="inforHeader shouldNotBreak">Interest</h3>
           <ul class="content-wrapper">
           ${data.interest
             .map((intr) => {
-              return `<li>${intr}</li>`;
+              return `<li class="shouldNotBreak">${intr}</li>`;
             })
             .join("")}
         </ul></div>`
@@ -1111,7 +1111,7 @@ ${
      ${
        data.profile
          ? `<div class="profile informationContainer">
-           <h3 class="inforHeader">Profile</h3>
+           <h3 class="inforHeader shouldNotBreak">Profile</h3>
            <p>
            ${data.profile}  
            </p>
@@ -1124,12 +1124,12 @@ ${
        data.experiences.length !== 0
          ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
+    <div class="start-and-end-date shouldNotBreak">
     ${
       experience.experiencestarts
         ? ` <p class="start">${experience.experiencestarts}</p>`
@@ -1151,7 +1151,7 @@ ${
       }
      ${
        experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
          : ""
      }
      ${
@@ -1174,11 +1174,11 @@ ${
     data.educations.length !== 0
       ? `
   <div class="educational-background informationContainer">
-  <h3 class="inforHeader">Education</h3>
+  <h3 class="inforHeader shouldNotBreak">Education</h3>
   ${data.educations
     .map((edu) => {
       return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
+      <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
       }
@@ -1191,8 +1191,8 @@ ${
         }
         
       </div>
-  <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
-  <p class="school-and-address">
+  <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+  <p class="school-and-address shouldNotBreak">
   ${edu.eduAndAddress ? edu.eduAndAddress : ""}
   </p>
   </div>
@@ -1208,9 +1208,9 @@ ${
     data.certifications.length !== 0
       ? `
   <div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
+      <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
+      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
       </ul>
       </div>
       `
@@ -1248,7 +1248,7 @@ ${
         data.profile
           ? `
         <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
+      <h3 class="inforHeader shouldNotBreak">Profile</h3>
       <p>
       ${data.profile}  
       </p>
@@ -1266,7 +1266,7 @@ ${
       <div class="tiny-content">
   
         <div class="contact-information informationContainer">
-        <h3 class="inforHeader">Contact information</h3>
+        <h3 class="inforHeader shouldNotBreak">Contact information</h3>
         <div class="content-wrapper">
         ${
           data.address
@@ -1348,7 +1348,7 @@ ${
           data.twitter || data.instagram || data.facebook || data.linkedin
             ? `
     <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
+    <h3 class="inforHeader shouldNotBreak">Social media links</h3>
     <div class="content-wrapper">
     ${
       data.facebook
@@ -1397,10 +1397,10 @@ ${
      ${
        data.skills.length !== 0
          ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
+      <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
       ${data.skills
-        .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
+        .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
         .join("")}
       </ul>
       </div>
@@ -1411,7 +1411,7 @@ ${
          ${
            data.reffrences.length !== 0
              ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
+        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
         ${data.reffrences
           .filter((val) => val !== {})
           .map((ref) => {
@@ -1419,17 +1419,17 @@ ${
             <div class="reference content-wrapper">
             ${
               ref.refrenceName
-                ? `<p class="refName">${ref.refrenceName}</p>`
+                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
                 : ""
             }
             ${
               ref.referenceTitleAndOrg
-                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
                 : ""
             }
             ${
               ref.refrenceEmail
-                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
                 : ""
             }
              </div>
@@ -1445,9 +1445,9 @@ ${
       ${
         data.interest.length !== 0
           ? `   <div class="interest informationContainer">
-        <h3 class="inforHeader">Interest</h3>
+        <h3 class="inforHeader shouldNotBreak">Interest</h3>
         <ul class="content-wrapper">
-        ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
+        ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
       </ul></div>`
           : ""
       }
@@ -1457,12 +1457,12 @@ ${
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
+    <div class="start-and-end-date shouldNotBreak">
     ${
       experience.experiencestarts
         ? ` <p class="start">${experience.experiencestarts}</p>`
@@ -1485,7 +1485,7 @@ ${
       }
      ${
        experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
          : ""
      }
      ${
@@ -1508,12 +1508,12 @@ ${
     data.educations.length !== 0
       ? `
   <div class="educational-background informationContainer">
-  <h3 class="inforHeader">Education</h3>
+  <h3 class="inforHeader shouldNotBreak">Education</h3>
   ${data.educations
     .filter((val) => val !== {})
     .map((edu) => {
       return `<div class="education content-wrapper">
-      <div class="start-and-end-date">
+      <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
       }
@@ -1526,8 +1526,8 @@ ${
         }
         
       </div>
-  <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
-  <p class="school-and-address">
+  <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+  <p class="school-and-address shouldNotBreak">
   ${edu.eduAndAddress ? edu.eduAndAddress : ""}
   </p>
   </div>
@@ -1543,9 +1543,9 @@ ${
          ${
            data.certifications.length !== 0
              ? `<div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
+      <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
+      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
       </ul>
       </div>
       `
@@ -1593,7 +1593,7 @@ ${
           
       <div class="tiny-content">
       <div class="contact-information informationContainer">
-  <h3 class="inforHeader">Contact information</h3>
+  <h3 class="inforHeader shouldNotBreak">Contact information</h3>
   
         <div class="contact-container">
         <div class="content-wrapper">
@@ -1676,7 +1676,7 @@ ${
           data.twitter || data.instagram || data.facebook || data.linkedin
             ? `
     <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
+    <h3 class="inforHeader shouldNotBreak">Social media links</h3>
     <div class="content-wrapper">
     ${
       data.facebook
@@ -1724,10 +1724,10 @@ ${
      ${
        data.skills.length !== 0
          ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
+      <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
       ${data.skills
-        .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
+        .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
         .join("")}
       </ul>
       </div>
@@ -1738,24 +1738,24 @@ ${
          ${
            data.reffrences.length !== 0
              ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
+        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
         ${data.reffrences
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
             ${
               ref.refrenceName
-                ? `<p class="refName">${ref.refrenceName}</p>`
+                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
                 : ""
             }
             ${
               ref.referenceTitleAndOrg
-                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
                 : ""
             }
             ${
               ref.refrenceEmail
-                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
                 : ""
             }
              </div>
@@ -1770,9 +1770,9 @@ ${
          ${
            data.interest.length !== 0
              ? `   <div class="interest informationContainer">
-          <h3 class="inforHeader">Interest</h3>
+          <h3 class="inforHeader shouldNotBreak">Interest</h3>
           <ul class="content-wrapper">
-          ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
+          ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
         </ul></div>`
              : ""
          }
@@ -1785,7 +1785,7 @@ ${
         data.profile
           ? `
         <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
+      <h3 class="inforHeader shouldNotBreak">Profile</h3>
       <p>
       ${data.profile}  
       </p>
@@ -1797,12 +1797,12 @@ ${
         data.experiences.length !== 0
           ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader">Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
               ? `<div class="experience content-wrapper">
-      <div class="start-and-end-date">
+      <div class="start-and-end-date shouldNotBreak">
       ${
         experience.experiencestarts
           ? ` <p class="start">${experience.experiencestarts}</p>`
@@ -1824,7 +1824,7 @@ ${
         }
        ${
          experience.experience
-           ? ` <p class="experienceOptain">${experience.experience}</p>`
+           ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
            : ""
        }
        ${
@@ -1849,11 +1849,11 @@ ${
           ? `
     
       <div class="educational-background informationContainer">
-      <h3 class="inforHeader">Education</h3>
+      <h3 class="inforHeader shouldNotBreak">Education</h3>
       ${data.educations
         .map((edu) => {
           return `<div class="education content-wrapper">
-          <div class="start-and-end-date">
+          <div class="start-and-end-date shouldNotBreak">
           ${
             edu.educationstarts
               ? `<p class="start">${edu.educationstarts}</p>`
@@ -1868,10 +1868,10 @@ ${
             }
             
           </div>
-        <p class="qualification">${
+        <p class="qualification shouldNotBreak">${
           edu.qualification ? edu.qualification : ""
         }</p>
-        <p class="school-and-address">
+        <p class="school-and-address shouldNotBreak">
         ${edu.eduAndAddress ? edu.eduAndAddress : ""}
         </p>
       </div>
@@ -1888,9 +1888,9 @@ ${
       ${
         data.certifications.length !== 0
           ? `<div class="certification informationContainer">
-        <h3 class="inforHeader">Certification</h3>
+        <h3 class="inforHeader shouldNotBreak">Certification</h3>
         <ul class="content-wrapper">
-        ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
+        ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
         </ul>
         </div>
         `
@@ -1928,7 +1928,7 @@ ${
         </div>
    
         <div class="contact-information informationContainer">
-        <h3 class="inforHeader">Contact information</h3>
+        <h3 class="inforHeader shouldNotBreak">Contact information</h3>
         <div class="content-wrapper">
         ${
           data.address
@@ -2009,7 +2009,7 @@ ${
     data.twitter || data.instagram || data.facebook || data.linkedin
       ? `
     <div class="social-media-links informationContainer">
-    <h3 class="inforHeader">Social media links</h3>
+    <h3 class="inforHeader shouldNotBreak">Social media links</h3>
     <div class="content-wrapper">
     ${
       data.facebook
@@ -2059,10 +2059,10 @@ ${
     ${
       data.skills.length !== 0
         ? `   <div class="skills informationContainer">
-      <h3 class="inforHeader">Skills</h3>
+      <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
       ${data.skills
-        .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
+        .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
         .join("")}
       </ul>
       </div>
@@ -2074,9 +2074,9 @@ ${
       ${
         data.interest.length !== 0
           ? `   <div class="interest informationContainer">
-        <h3 class="inforHeader">Interest</h3>
+        <h3 class="inforHeader shouldNotBreak">Interest</h3>
         <ul class="content-wrapper">
-        ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
+        ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
         </ul>
       </div>
         `
@@ -2086,7 +2086,7 @@ ${
       ${
         data.reffrences.length !== 0
           ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
+        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
         ${data.reffrences
           .map((ref) => {
             return `
@@ -2094,17 +2094,17 @@ ${
             <span></span>
             ${
               ref.refrenceName
-                ? `<p class="refName">${ref.refrenceName}</p>`
+                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
                 : ""
             }
             ${
               ref.referenceTitleAndOrg
-                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
                 : ""
             }
             ${
               ref.refrenceEmail
-                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
                 : ""
             }
              </div>
@@ -2128,7 +2128,7 @@ ${
         data.profile
           ? `
         <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
+      <h3 class="inforHeader shouldNotBreak">Profile</h3>
       <p>
       ${data.profile}  
       </p>
@@ -2140,12 +2140,12 @@ ${
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
+    <div class="start-and-end-date shouldNotBreak">
     ${
       experience.experiencestarts
         ? ` <p class="start">${experience.experiencestarts}</p>`
@@ -2159,7 +2159,7 @@ ${
      }  
        
       </div>
-       <div class="box-for-title-and-org">
+       <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
           ? ` <p class="jobtitle">${experience.jobTitle}</p>/ `
@@ -2197,7 +2197,7 @@ ${
           ${experience.experience
             .map(
               (item) =>
-                `<li class="experienceOptain">${experience.experience}</li>`
+                `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
             )
             .join("")}
           </ul>
@@ -2207,7 +2207,7 @@ ${
           }
           
           `
-             : ` <p class="experienceOptain">${experience.experience}</p>`
+             : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
          }
          
         `
@@ -2233,12 +2233,12 @@ ${
         ? `
   
     <div class="educational-background informationContainer">
-    <h3 class="inforHeader">Education</h3>
+    <h3 class="inforHeader shouldNotBreak">Education</h3>
     ${data.educations
       .map((edu) => {
         return `<div class="education content-wrapper">
       
-        <div class="start-and-end-date">
+        <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
       }
@@ -2251,8 +2251,8 @@ ${
         }
         
       </div>
-      <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
-      <p class="school-and-address">
+      <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+      <p class="school-and-address shouldNotBreak">
       ${edu.eduAndAddress ? edu.eduAndAddress : ""}
       </p>
     </div>
@@ -2269,9 +2269,9 @@ ${
     ${
       data.certifications.length !== 0
         ? `<div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
+      <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
+      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
       </ul>
       </div>
       `
@@ -2293,7 +2293,7 @@ ${
         data.profile
           ? `
         <div class="profile informationContainer">
-      <h3 class="inforHeader">Profile</h3>
+      <h3 class="inforHeader shouldNotBreak">Profile</h3>
       <p>
       ${data.profile}  
       </p>
@@ -2305,12 +2305,12 @@ ${
        data.experiences.length !== 0
          ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
             ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date">
+    <div class="start-and-end-date shouldNotBreak">
     ${
       experience.experiencestarts
         ? ` <p class="start">${experience.experiencestarts}</p>`
@@ -2332,7 +2332,7 @@ ${
       }
      ${
        experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
          : ""
      }
      ${
@@ -2356,12 +2356,12 @@ ${
         ? `
   
     <div class="educational-background informationContainer">
-    <h3 class="inforHeader">Education</h3>
+    <h3 class="inforHeader shouldNotBreak">Education</h3>
     ${data.educations
       .map((edu) => {
         return `<div class="education content-wrapper">
       
-        <div class="start-and-end-date">
+        <div class="start-and-end-date shouldNotBreak">
       ${
         edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
       }
@@ -2374,8 +2374,8 @@ ${
         }
         
       </div>
-      <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
-      <p class="school-and-address">
+      <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+      <p class="school-and-address shouldNotBreak">
       ${edu.eduAndAddress ? edu.eduAndAddress : ""}
       </p>
     </div>
@@ -2392,9 +2392,9 @@ ${
     ${
       data.certifications.length !== 0
         ? `<div class="certification informationContainer">
-      <h3 class="inforHeader">Certification</h3>
+      <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li>${cert}</li>`).join("")}
+      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
       </ul>
       </div>
       `
@@ -2404,7 +2404,7 @@ ${
   
       <div class="tiny-content">
       <div class="contact-information informationContainer">
-      <h3 class="inforHeader">Contact information</h3>
+      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
       <div class="content-wrapper">
       ${
         data.address
@@ -2483,7 +2483,7 @@ ${
     data.twitter || data.instagram || data.facebook || data.linkedin
       ? `
   <div class="social-media-links informationContainer">
-  <h3 class="inforHeader">Social media links</h3>
+  <h3 class="inforHeader shouldNotBreak">Social media links</h3>
   <div class="content-wrapper">
   ${
     data.facebook
@@ -2530,10 +2530,10 @@ ${
   ${
     data.skills.length !== 0
       ? `   <div class="skills informationContainer">
-    <h3 class="inforHeader">Skills</h3>
+    <h3 class="inforHeader shouldNotBreak">Skills</h3>
     <ul class="content-wrapper">
     ${data.skills
-      .map((skill) => `${skill ? `<li>${skill}</li>` : ""}`)
+      .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
       .join("")}
     </ul>
     </div>
@@ -2545,22 +2545,22 @@ ${
     ${
       data.reffrences.length !== 0
         ? `<div class="references informationContainer">
-      <h3 class="inforHeader">Refrence</h3>
+      <h3 class="inforHeader shouldNotBreak">Refrence</h3>
       ${data.reffrences
         .map((ref) => {
           return `
           <div class="reference content-wrapper">
           ${
-            ref.refrenceName ? `<p class="refName">${ref.refrenceName}</p>` : ""
+            ref.refrenceName ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>` : ""
           }
           ${
             ref.referenceTitleAndOrg
-              ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+              ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
               : ""
           }
           ${
             ref.refrenceEmail
-              ? ` <p class="email">${ref.refrenceEmail}</p>`
+              ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
               : ""
           }
            </div>
@@ -2575,9 +2575,9 @@ ${
     ${
       data.interest.length !== 0
         ? `   <div class="interest informationContainer">
-      <h3 class="inforHeader">Interest</h3>
+      <h3 class="inforHeader shouldNotBreak">Interest</h3>
       <ul class="content-wrapper">
-      ${data.interest.map((intr) => `<li>${intr}</li>`).join("")}
+      ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
       </ul>
     </div>
       `

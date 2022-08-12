@@ -139,18 +139,21 @@ let btn=e.target
    
     // myCv.style.minHeight="100%";
     // myCv.style.width="100%";
+    // ".objective",
+    // ".content-wrapper",
+    // ".school-and-address",
+    
     resumesViewer.classList.add("hiddenClass");
     myResume.innerHTML = `<div class="loader"></div>`;
     myResume.classList.remove("hiddenClass");
     var opt = {
       pagebreak: {
         avoid: [
-          ".objective",
-          ".content-wrapper",
-          ".school-and-address",
+          "shouldNotBreak",
           "h3",
-          "p",
-          "li",
+    "p",
+    "li",
+         
         ],
       },
       

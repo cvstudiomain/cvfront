@@ -3,29 +3,33 @@ import * as temMarckup from "./rAndcGenerator.js";
 import * as pagination from "./pagination.js";
 // all resumes and cover letter templates
 import * as arct from "./alltemplates.js";
+import * as general from "./general.js"
+general.smoothScroll("smoothmove")
+
 // console.log(arct)
 const containerBody=document.querySelector("body")
 const loaderContainer=document.querySelector(".loaderContainer")
+
+const userAreaContents = document.querySelector(".content-columns");
+const paginationBox = document.querySelectorAll(".paginationBox");
+const duty=document.querySelector(".duty-box");
 const btnNext1 = document.querySelector("#next1");
 const btnNext2 = document.querySelector("#next2");
 const btnNext3 = document.querySelector("#next3");
 const btnNext4 = document.querySelector("#next4");
 const btnNext5 = document.querySelector("#next5");
-const userAreaContents = document.querySelector(".content-columns");
-const paginationBox = document.querySelectorAll(".paginationBox");
-
 const btnback1 = document.querySelector("#back1");
 const btnback2 = document.querySelector("#back2");
 const btnback3 = document.querySelector("#back3");
 const btnback4 = document.querySelector("#back4");
 const btnback5 = document.querySelector("#back5");
 
-const s1 = document.querySelector(".s1");
-const s2 = document.querySelector(".s2");
-const s3 = document.querySelector(".s3");
-const s4 = document.querySelector(".s4");
-const s5 = document.querySelector(".s5");
-const s6 = document.querySelector(".s6");
+const s1 = document.querySelector("#s1");
+const s2 = document.querySelector("#s2");
+const s3 = document.querySelector("#s3");
+const s4 = document.querySelector("#s4");
+const s5 = document.querySelector("#s5");
+const s6 = document.querySelector("#s6");
 
 let sectionName = document.querySelector(".user-section-name");
 const progress = document.querySelector("#progress");
@@ -541,7 +545,7 @@ const getCvOrLetter = async function (data) {
   cvFormContainer.classList.add("hiddenClass");
   coverLetterContainer.classList.add("hiddenClass");
   userDashBoard.classList.remove("hiddenClass");
-  s6.style.left = "-1000px";
+  s6.classList.add("hiddenClass")
   s1.style.left = "16px";
   progress.style.width = "60px";
   clearInput();
@@ -566,12 +570,9 @@ formBtn.addEventListener("click", async function (e) {
         (val) => val[0] !== "certification" && val[1] !== "" && eduCol.push(val)
       );
     eduCol.length !== 0 && model.state.user.educations.push(eduCol);
-    let expCol = [];
-    model.state.user.expeData &&
-      model.state.user.expeData.forEach(
-        (val) => val[1] !== "" && expCol.push(val)
-      );
-    expCol.length !== 0 && model.state.user.experiences.push(expCol);
+   
+   
+   
     model.state.eduData &&
       model.state.user.eduData.forEach((val) => {
         if (val[0] === "certification" && val[1] !== "")
@@ -630,15 +631,13 @@ formBtn.addEventListener("click", async function (e) {
       educations: model.state.user.educations.map((val) =>
         objectOutOfArray(val)
       ),
-      experiences: model.state.user.experiences.map((val) =>
-        objectOutOfArray(val)
-      ),
+      experiences: model.state.user.experiences,
       reffrences: model.state.user.reffrences.map((val) =>
         objectOutOfArray(val)
       ),
       images: {},
     };
-
+//  return console.log(model.state.user.inputData)
     await getCvOrLetter(model.state.user.inputData);
     this.innerText = "Generate Cv";
     location.reload();
@@ -909,6 +908,7 @@ const returnToTop = () => {
 [image_input, image_input2].forEach(function (imageIn) {
   imageIn.addEventListener("change", async function (e) {
     e.preventDefault();
+    
     try {
       const file = e.target.files[0];
       if (!file) return alert("File not exist.");
@@ -940,16 +940,17 @@ const returnToTop = () => {
 });
 
 cvDataForm.addEventListener("click", async function (e) {
+ 
   let btn = e.target;
   let newData = "";
   const messageBox = document.querySelector(".s7");
   if (btn.type === "button") {
     newData = [...new FormData(e.target.closest("form"))].filter(
       (val) => val[1] !== "" && val !== {}
-    );
-    if (newData.length === 0) return; //console.log("not added");
-
-    messageBox.style.opacity = "1";
+      );
+      if (newData.length === 0) return; //console.log("not added");
+      
+      messageBox.style.opacity = "1";
     messageBox.style.left = "0";
     if (btn.classList.contains("btnAddEducation")) {
       document
@@ -958,10 +959,10 @@ cvDataForm.addEventListener("click", async function (e) {
       let eduCol = [];
       newData.forEach(
         (data) =>
-          data[0] !== "certification" && data[1] !== "" && eduCol.push(data)
-      );
-      eduCol.length !== 0 && model.state.user.educations.push(eduCol);
-    }
+        data[0] !== "certification" && data[1] !== "" && eduCol.push(data)
+        );
+        eduCol.length !== 0 && model.state.user.educations.push(eduCol);
+      }
     if (btn.classList.contains("btnAddCertification")) {
       document.querySelector(".certInput").value = "";
 
@@ -969,13 +970,16 @@ cvDataForm.addEventListener("click", async function (e) {
         ...newData.filter((data) => data[0] === "certification")
       );
     }
-    if (btn.classList.contains("btnWorkExperience")) {
-      document.querySelectorAll(".exInput").forEach((val) => (val.value = ""));
-
-      newData.length !== 0 &&
-        newData.some((val) => val[1] !== "") &&
-        model.state.user.experiences.push(newData);
+    if (btn.classList.contains("btnDuty")) {
+      model.state.user.jobDuty.push(duty.value)
+      duty.value=""
+      duty.focus();
+      // console.log(model.state.user.jobDuty)
+      model.state.user.jobDutyAdded=true;
     }
+    if (btn.classList.contains("btnWorkExperience")) {
+      updateExperience(newData);
+  } 
     if (btn.classList.contains("addskill")) {
       document.querySelector(".skillInput").value = "";
 
@@ -1012,35 +1016,59 @@ cvDataForm.addEventListener("click", async function (e) {
     messageBox.style.left = "1000px";
   }, 1500);
 });
+const updateExperience=function(data){
+  data=data.filter(val=>val[1]!=="");
+  
+  
+  if(duty.value){
+    // return console.log(true)
+    model.state.user.jobDuty.push(duty.value)
+    model.state.user.jobDutyAdded=true}
+  let experienceInputs=document.querySelectorAll(".exInput")
+  experienceInputs.forEach((val) => (val.value = ""));
+  experienceInputs[0].focus()
+ 
+if (data.length !== 0){
+ let expObject=Object.fromEntries(data)
+expObject.experience=model.state.user.jobDuty;
+
+model.state.user.experiences.push(expObject)
+
+
+}
+
+model.state.user.jobDuty=[];
+model.state.user.jobDutyAdded=false;
+}
 btnNext1.addEventListener("click", (e) => {
   e.preventDefault();
   model.state.user.persData1 = [...new FormData(e.target.closest("form"))];
 
-  s1.querySelector(".fullName").style.borderBottom = "1px solid #999;";
+  // s1.querySelector(".fullName").style.borderBottom = "1px solid #999;";
 
-  s1.style.left = "-1000px";
-  s2.style.left = "16px";
+  s1.classList.add("hiddenClass")
+  s2.classList.remove("hiddenClass")
   progress.style.width = "120px";
 });
 btnback1.addEventListener("click", (e) => {
   e.preventDefault();
 
-  s2.style.left = "1000px";
-  s1.style.left = "16px";
+  s2.classList.add("hiddenClass")
+  s1.classList.remove("hiddenClass")
   progress.style.width = "60px";
 });
 btnNext2.addEventListener("click", (e) => {
   e.preventDefault();
   model.state.user.persData2 = [...new FormData(e.target.closest("form"))];
 
-  s2.style.left = "-1000px";
-  s3.style.left = "16px";
+  s2.classList.add("hiddenClass")
+  s3.classList.remove("hiddenClass")
   progress.style.width = "180px";
 });
 btnback2.addEventListener("click", (e) => {
   e.preventDefault();
-  s3.style.left = "1000px";
-  s2.style.left = "16px";
+  s3.classList.add("hiddenClass")
+  s2.classList.remove("hiddenClass")
   progress.style.width = "120px";
 });
 btnNext3.addEventListener("click", (e) => {
@@ -1049,41 +1077,42 @@ btnNext3.addEventListener("click", (e) => {
   [...new FormData(e.target.closest("form"))].forEach(
     (val) => val[1] !== "" && model.state.user.eduData.push(val)
   );
-  s3.style.left = "-1000px";
-  s4.style.left = "16px";
+  s3.classList.add("hiddenClass")
+  s4.classList.remove("hiddenClass")
   progress.style.width = "216px";
 });
 btnback3.addEventListener("click", (e) => {
   e.preventDefault();
-  s4.style.left = "1000px";
-  s3.style.left = "16px";
+  s4.classList.add("hiddenClass")
+  s3.classList.remove("hiddenClass")
   progress.style.width = "180px";
 });
 btnNext4.addEventListener("click", (e) => {
   e.preventDefault();
-  [...new FormData(e.target.closest("form"))].filter(
-    (val) => val[1] !== "" && model.state.user.expeData.push(val)
-  );
-  s4.style.left = "-1000px";
-  s5.style.left = "16px";
+  updateExperience([...new FormData(e.target.closest("form"))])
+  // [...new FormData(e.target.closest("form"))].filter(
+  //   (val) => val[1] !== "" && model.state.user.expeData.push(val)
+  // );
+  s4.classList.add("hiddenClass")
+  s5.classList.remove("hiddenClass")
   progress.style.width = "300px";
 });
 btnback4.addEventListener("click", (e) => {
   e.preventDefault();
-  s5.style.left = "1000px";
-  s4.style.left = "16px";
+  s5.classList.add("hiddenClass")
+  s4.classList.remove("hiddenClass")
   progress.style.width = "216px";
 });
 btnNext5.addEventListener("click", (e) => {
   e.preventDefault();
   model.state.user.socLinks = [...new FormData(e.target.closest("form"))];
-  s5.style.left = "-1000px";
-  s6.style.left = "16px";
+  s5.classList.add("hiddenClass")
+  s6.classList.remove("hiddenClass")
   progress.style.width = "100%";
 });
 btnback5.addEventListener("click", (e) => {
-  s6.style.left = "1000px";
-  s5.style.left = "16px";
+  s6.classList.add("hiddenClass")
+  s5.classList.remove("hiddenClass")
   progress.style.width = "300px";
 });
 const addTextArea = (e, placeholder, name) => {

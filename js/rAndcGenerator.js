@@ -1,22 +1,22 @@
 function capitalizeFirstLetter(string) {
   const wordsInString = string?.toLowerCase().split(" ");
-  const fixedString = wordsInString?.map((stringVal) => stringVal.charAt(0).toUpperCase() + stringVal.slice(1))
+  const fixedString = wordsInString
+    ?.map((stringVal) => stringVal.charAt(0).toUpperCase() + stringVal.slice(1))
     .join(" ");
   return fixedString;
 }
 const useInitial = function (data) {
-  
-  return data?.split(" ")
+  return data
+    ?.split(" ")
     .map((val) => val[0])
     .join("")
     .toString()
     .toUpperCase();
 };
 
-
 export const createPdfMarckup = function (data) {
   let marckup = "";
-// console.log(data.educations)
+  // console.log(data.experience)
   if (data.template.type === "letter") {
     if (data.template.template === "letter1") {
       marckup = `
@@ -613,11 +613,7 @@ ${
           : ""
       }
 
-      ${
-        experience.experienceends
-          ? ` <p class="end">to</p>`
-          : ""
-      }  
+      ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
 
        ${
          experience.experienceends
@@ -655,7 +651,6 @@ ${
   
   ${
     data.educations.length !== 0
-
       ? `
   <div class="educational-background informationContainer">
   <h3 class="inforHeader">Education</h3>
@@ -664,15 +659,21 @@ ${
     .map((edu) => {
       return `<div class="education content-wrapper">
       <div class="start-and-end-date">
-      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+      ${
+        edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
+      }
         
         
-        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${
+          edu.educationends
+            ? `<p>to</p><p class="end">${edu.educationends}</p>`
+            : ""
+        }
         
       </div>
-    <p class="qualification">${edu.qualification?edu.qualification:""}</p>
+    <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
     <p class="school-and-address">
-    ${edu.eduAndAddress?edu.eduAndAddress:""}
+    ${edu.eduAndAddress ? edu.eduAndAddress : ""}
     </p>
     </div>
     `;
@@ -685,20 +686,7 @@ ${
   }
   
   
-  ${
-    data.objective
-      ? `
   
-  <div class="objective informationContainer">
-  <h3 class="inforHeader">Objective</h3>
-  <p>
-    ${data.objective}
-    </p>
-    </div>
-    
-  `
-      : ""
-  }
   
   ${
     data.certifications.length !== 0
@@ -864,9 +852,21 @@ ${
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
-            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
-            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
-            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+            ${
+              ref.refrenceName
+                ? `<p class="refName">${ref.refrenceName}</p>`
+                : ""
+            }
+            ${
+              ref.referenceTitleAndOrg
+                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                : ""
+            }
+            ${
+              ref.refrenceEmail
+                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                : ""
+            }
              </div>
   `;
           })
@@ -1067,9 +1067,21 @@ ${
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
-            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
-            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
-            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+            ${
+              ref.refrenceName
+                ? `<p class="refName">${ref.refrenceName}</p>`
+                : ""
+            }
+            ${
+              ref.referenceTitleAndOrg
+                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                : ""
+            }
+            ${
+              ref.refrenceEmail
+                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                : ""
+            }
              </div>
   `;
           })
@@ -1123,11 +1135,7 @@ ${
         ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
-    ${
-      experience.experienceends
-        ? ` <p class="end">to</p>`
-        : ""
-    }  
+    ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -1171,15 +1179,21 @@ ${
     .map((edu) => {
       return `<div class="education content-wrapper">
       <div class="start-and-end-date">
-      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+      ${
+        edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
+      }
         
         
-        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${
+          edu.educationends
+            ? `<p>to</p><p class="end">${edu.educationends}</p>`
+            : ""
+        }
         
       </div>
-  <p class="qualification">${edu.qualification?edu.qualification:""}</p>
+  <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
   <p class="school-and-address">
-  ${edu.eduAndAddress?edu.eduAndAddress:""}
+  ${edu.eduAndAddress ? edu.eduAndAddress : ""}
   </p>
   </div>
   `;
@@ -1403,9 +1417,21 @@ ${
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
-            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
-            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
-            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+            ${
+              ref.refrenceName
+                ? `<p class="refName">${ref.refrenceName}</p>`
+                : ""
+            }
+            ${
+              ref.referenceTitleAndOrg
+                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                : ""
+            }
+            ${
+              ref.refrenceEmail
+                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                : ""
+            }
              </div>
   `;
           })
@@ -1442,11 +1468,7 @@ ${
         ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
-    ${
-      experience.experienceends
-        ? ` <p class="end">to</p>`
-        : ""
-    }  
+    ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
 
      ${
        experience.experienceends
@@ -1492,15 +1514,21 @@ ${
     .map((edu) => {
       return `<div class="education content-wrapper">
       <div class="start-and-end-date">
-      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+      ${
+        edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
+      }
         
         
-        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${
+          edu.educationends
+            ? `<p>to</p><p class="end">${edu.educationends}</p>`
+            : ""
+        }
         
       </div>
-  <p class="qualification">${edu.qualification?edu.qualification:""}</p>
+  <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
   <p class="school-and-address">
-  ${edu.eduAndAddress?edu.eduAndAddress:""}
+  ${edu.eduAndAddress ? edu.eduAndAddress : ""}
   </p>
   </div>
   `;
@@ -1511,21 +1539,7 @@ ${
   `
       : ""
   }
-        ${
-          data.objective
-            ? `
-  
-  <div class="objective informationContainer">
-  <h3 class="inforHeader">Objective</h3>
-  <p>
-    ${data.objective}
-  </p>
-  </div>
-  
-  `
-            : ""
-        }
-  
+       
          ${
            data.certifications.length !== 0
              ? `<div class="certification informationContainer">
@@ -1550,7 +1564,7 @@ ${
   <div class="passport-box">
   ${
     data.images
-    ? `<img
+      ? `<img
             src="${data.images.url}"
             alt=""
             class="passport"
@@ -1558,8 +1572,8 @@ ${
             
             
             />`
-            : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
+      : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+  } 
           </div>
           <div class="date-of-birth">
           <p class="dateOfBirth">date of birth:</p>
@@ -1729,9 +1743,21 @@ ${
           .map((ref) => {
             return `
             <div class="reference content-wrapper">
-            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
-            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
-            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+            ${
+              ref.refrenceName
+                ? `<p class="refName">${ref.refrenceName}</p>`
+                : ""
+            }
+            ${
+              ref.referenceTitleAndOrg
+                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                : ""
+            }
+            ${
+              ref.refrenceEmail
+                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                : ""
+            }
              </div>
   `;
           })
@@ -1754,22 +1780,7 @@ ${
   
       <div class="large-content">
  
-      ${
-        data.objective
-          ? `
-    
-      <div class="objective informationContainer">
-      <h3 class="inforHeader">Objective</h3>
-      <p>
-        ${data.objective}
-      </p>
-      </div>
-      
-      `
-          : ""
-      }
-  
- 
+     
       ${
         data.profile
           ? `
@@ -1797,11 +1808,7 @@ ${
           ? ` <p class="start">${experience.experiencestarts}</p>`
           : ""
       }
-      ${
-        experience.experienceends
-          ? ` <p class="end">to</p>`
-          : ""
-      }  
+      ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
        ${
          experience.experienceends
            ? ` <p class="end">${experience.experienceends}</p>`
@@ -1847,15 +1854,25 @@ ${
         .map((edu) => {
           return `<div class="education content-wrapper">
           <div class="start-and-end-date">
-          ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+          ${
+            edu.educationstarts
+              ? `<p class="start">${edu.educationstarts}</p>`
+              : ""
+          }
             
             
-            ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+            ${
+              edu.educationends
+                ? `<p>to</p><p class="end">${edu.educationends}</p>`
+                : ""
+            }
             
           </div>
-        <p class="qualification">${edu.qualification?edu.qualification:""}</p>
+        <p class="qualification">${
+          edu.qualification ? edu.qualification : ""
+        }</p>
         <p class="school-and-address">
-        ${edu.eduAndAddress?edu.eduAndAddress:""}
+        ${edu.eduAndAddress ? edu.eduAndAddress : ""}
         </p>
       </div>
       `;
@@ -2055,26 +2072,6 @@ ${
     
   
       ${
-        data.reffrences.length !== 0
-          ? `<div class="references informationContainer">
-        <h3 class="inforHeader">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
-            ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
-            ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
-             </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-          : ""
-      }
-      ${
         data.interest.length !== 0
           ? `   <div class="interest informationContainer">
         <h3 class="inforHeader">Interest</h3>
@@ -2085,6 +2082,41 @@ ${
         `
           : ""
       }
+
+      ${
+        data.reffrences.length !== 0
+          ? `<div class="references informationContainer">
+        <h3 class="inforHeader">Refrence</h3>
+        ${data.reffrences
+          .map((ref) => {
+            return `
+            <div class="reference content-wrapper">
+            <span></span>
+            ${
+              ref.refrenceName
+                ? `<p class="refName">${ref.refrenceName}</p>`
+                : ""
+            }
+            ${
+              ref.referenceTitleAndOrg
+                ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+                : ""
+            }
+            ${
+              ref.refrenceEmail
+                ? ` <p class="email">${ref.refrenceEmail}</p>`
+                : ""
+            }
+             </div>
+  `;
+          })
+          .join("")}
+  
+  </div>
+  `
+          : ""
+      }
+  
         </div>
   
     <div class="large-content">
@@ -2119,11 +2151,7 @@ ${
         ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
-    ${
-      experience.experienceends
-        ? ` <p class="end">to</p>`
-        : ""
-    }  
+    ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -2131,28 +2159,70 @@ ${
      }  
        
       </div>
-
+       <div class="box-for-title-and-org">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>/ `
           : ""
       }
+      ${
+        experience.orgAddress
+          ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+          : ""
+      }
+      <div class="box-for-org-city-and-org">
+      ${
+        experience.orgState
+          ? ` <p class="sorgState">${experience.orgState}</p>`
+          : ""
+      }
+      ${
+        experience.orgCity
+          ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+          : ""
+      }</div>   
+
+      
+      </div>
      ${
        experience.experience
-         ? ` <p class="experienceOptain">${experience.experience}</p>`
+         ? ` 
+         ${
+           Array.isArray(experience.experience)
+             ? `
+          ${
+            experience.experience.length !== 0
+              ? `
+          <ul>
+          ${experience.experience
+            .map(
+              (item) =>
+                `<li class="experienceOptain">${experience.experience}</li>`
+            )
+            .join("")}
+          </ul>
+          
+          `
+              : ""
+          }
+          
+          `
+             : ` <p class="experienceOptain">${experience.experience}</p>`
+         }
+         
+        `
          : ""
      }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
+    
 
     </div>`
             : ""
         }`;
       })
-      .join("")}      
+      .join("")}
+
+      
+         
     </div>`
         : ""
     }
@@ -2169,15 +2239,21 @@ ${
         return `<div class="education content-wrapper">
       
         <div class="start-and-end-date">
-      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+      ${
+        edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
+      }
         
         
-        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${
+          edu.educationends
+            ? `<p>to</p><p class="end">${edu.educationends}</p>`
+            : ""
+        }
         
       </div>
-      <p class="qualification">${edu.qualification?edu.qualification:""}</p>
+      <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
       <p class="school-and-address">
-      ${edu.eduAndAddress?edu.eduAndAddress:""}
+      ${edu.eduAndAddress ? edu.eduAndAddress : ""}
       </p>
     </div>
     `;
@@ -2189,20 +2265,7 @@ ${
     }
     
   
-    ${
-      data.objective
-        ? `
-  
-    <div class="objective informationContainer">
-    <h3 class="inforHeader">Objective</h3>
-    <p>
-      ${data.objective}
-    </p>
-    </div>
-    
-    `
-        : ""
-    }
+   
     ${
       data.certifications.length !== 0
         ? `<div class="certification informationContainer">
@@ -2253,11 +2316,7 @@ ${
         ? ` <p class="start">${experience.experiencestarts}</p>`
         : ""
     }
-    ${
-      experience.experienceends
-        ? ` <p class="end">to</p>`
-        : ""
-    }  
+    ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -2303,15 +2362,21 @@ ${
         return `<div class="education content-wrapper">
       
         <div class="start-and-end-date">
-      ${edu.educationstarts?`<p class="start">${edu.educationstarts}</p>`:""}
+      ${
+        edu.educationstarts ? `<p class="start">${edu.educationstarts}</p>` : ""
+      }
         
         
-        ${edu.educationends?`<p>to</p><p class="end">${edu.educationends}</p>`:""}
+        ${
+          edu.educationends
+            ? `<p>to</p><p class="end">${edu.educationends}</p>`
+            : ""
+        }
         
       </div>
-      <p class="qualification">${edu.qualification?edu.qualification:""}</p>
+      <p class="qualification">${edu.qualification ? edu.qualification : ""}</p>
       <p class="school-and-address">
-      ${edu.eduAndAddress?edu.eduAndAddress:""}
+      ${edu.eduAndAddress ? edu.eduAndAddress : ""}
       </p>
     </div>
     `;
@@ -2323,20 +2388,7 @@ ${
     }
     
   
-    ${
-      data.objective
-        ? `
-  
-    <div class="objective informationContainer">
-    <h3 class="inforHeader">Objective</h3>
-    <p>
-      ${data.objective}
-    </p>
-    </div>
-    
-    `
-        : ""
-    }
+   
     ${
       data.certifications.length !== 0
         ? `<div class="certification informationContainer">
@@ -2498,9 +2550,19 @@ ${
         .map((ref) => {
           return `
           <div class="reference content-wrapper">
-          ${ref.refrenceName?`<p class="refName">${ref.refrenceName}</p>`:""}
-          ${ref.referenceTitleAndOrg?`<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`:""}
-          ${ref.refrenceEmail?` <p class="email">${ref.refrenceEmail}</p>`:""}
+          ${
+            ref.refrenceName ? `<p class="refName">${ref.refrenceName}</p>` : ""
+          }
+          ${
+            ref.referenceTitleAndOrg
+              ? `<p class="titleandorg">${ref.referenceTitleAndOrg} </p>`
+              : ""
+          }
+          ${
+            ref.refrenceEmail
+              ? ` <p class="email">${ref.refrenceEmail}</p>`
+              : ""
+          }
            </div>
   `;
         })

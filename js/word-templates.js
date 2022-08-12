@@ -9,7 +9,6 @@ general.slider()
 // general.slider("slider4")
 // general.activateSubMenu()
 
-
 general.naviagtionState();
 general.smoothScroll("smoothmove")
 general.obs.observe(sectionHeroEl)

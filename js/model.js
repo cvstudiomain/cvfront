@@ -33,6 +33,8 @@ export const state = {
     certifications: [],
     experiences: [],
     skills: [],
+    jobDuty:[],
+    jobDutyAdded:false,
     hobies: [],
     reffrences: [],
     template: "",

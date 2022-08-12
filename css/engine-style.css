@@ -313,17 +313,21 @@ width: 800px;
 }
 .cv-form{
   width: 600px;
+  height: auto;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .register-section,
-.login-section,
-.form-style{
+.login-section{
   width: 280px;
-  font-weight: 500;
   position: absolute;
   top: 50%;
   left: 16px;
   transition: 0.5s;
   transform: translateY(-50%);
+  font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -494,14 +498,7 @@ input[type="submit"] {
   display: block;
   text-align: center;
 }
-.s4,
-.s5,
-.s2,
-.s3,
-.s6 {
-  left: 1000px;
- 
-}
+
 
 .s7,.welcome-message, .updating-the-system{
   background-color: #ff105f;
@@ -529,6 +526,14 @@ input[type="submit"] {
 }
 .form-style{
   width: 567px;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 32px;
+  transition: 0.5s;
 }
 .welcome-message p{
   text-align: center;
@@ -611,8 +616,23 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+width: max-content;
   gap: 12px;
+  width: 100%;
+}
+.inputBox {
+  align-items: flex-start;
+}
+
+.inputBox .txt-area-btn{
+  align-self: flex-start;
+}
+.multi-line-input{
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
 }
 .dateofbirth,
 .selectBox {
@@ -637,7 +657,7 @@ input[type="date"],
   color: #666;
   width: 120px;
 }
-.s1 p {
+#s1 p {
   width: 100px;
   left: 0;
   top: 50px;
@@ -696,12 +716,13 @@ button {
   padding: 8px 16px;
   outline: none;
 }
-.pagination-btn {
-    
-  
+.pagination-btn,.txt-area-btn  {
+    align-self: center;
+  max-width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 600;
     background-color: #660626;
   border: none;
  text-align: center;
@@ -709,11 +730,11 @@ button {
   color: #fff;
   
   
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
  
 }
-.pagination-btn:hover{
+.pagination-btn:hover,.txt-area-btn:hover{
   box-shadow: inset 0 0 0 3px rgba(255, 157, 157, 0.7);
 }
 
@@ -767,19 +788,15 @@ transform: translateX(0px);
   }
 }
 
-.txt-area-btn {
-  color: #00bd00;
-  padding: 0;
-  background: none;
-}
+
 #image-input-label:hover,
-#image-input-label:focus,
-.txt-area-btn:hover,
-.txt-area-btn:focus {
+#image-input-label:focus{
   color: #00d700;
 }
 .btn-large {
   width: max-content;
+  font-weight: 700;
+  /* font-size: 14px; */
   color: #fff;
   background-color: #ff105f;
 }
@@ -939,7 +956,8 @@ background-color:  #F7F6FB;
   transition: 1s;
 }
 .btnCloseView .fa:hover {
-  font-size: 26px;
+  /* font-size: 26px; */
+  color: #660626;
 }
 .download-btn-container{
   display: flex;
@@ -1218,7 +1236,7 @@ grid-template-columns: 1fr 1fr 1fr;
   min-width: 49.6rem;
   line-height: 1.6;
   display: grid;
-  font-size: 1rem;
+  font-size: 0.9169rem;
   justify-content: center;
   align-items: start;
   /* gap: 1rem; */
@@ -1338,8 +1356,8 @@ grid-template-columns: 1fr 1fr 1fr;
 
 } */
 .tiny-content .inforLabel{
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 0.9rem;
+  height: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1356,7 +1374,7 @@ width: 100%;
 }
 .tiny-content .contact-information .inforLabel .infor-logo{
 
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   
   }
 .template .date-of-birth {
@@ -1388,6 +1406,10 @@ width: 100%;
  
   gap: 0.5rem;
   /* color: #ff105f; */
+}
+.template .start-and-end-date .end,
+.template .start-and-end-date  .start{
+  width: fit-content;
 }
 .template .user-name-and-profession{
   text-align: center;
@@ -1705,7 +1727,7 @@ width: 100%;
 
 .template5 {
   display: grid;
-  grid-template-columns: 20rem 1fr;
+  grid-template-columns: 18rem 1fr;
 
   color: #000;
   border-bottom-left-radius: 5rem;
@@ -1765,8 +1787,42 @@ width: 100%;
   margin-bottom: 2rem;
   gap: 1rem;
 }
-.template5 .date-of-birth {
-  /* color: #ccf2cc; */
+.template5 .box-for-title-and-org{
+  width: 100%;
+  background-color: #eeecea;
+  display: flex;
+  flex-direction: row;
+  
+
+}
+.template5 .organizationAndAddress{
+ 
+  font-weight: 700;
+}
+.template5 .box-for-org-city-and-org{
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 1rem;
+  
+  font-size: 0.8rem;
+  border-bottom: 0.2rem solid black;
+}
+.template5 .reference{
+  border-left: #fff solid 0.13rem;
+  padding-left: 1rem;
+  position: relative;
+}
+.template5 .reference span{
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  left: -0.5rem;
+  top: 50%;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateY(-50%);
 }
 .template5 .start-and-end-date {
   margin: 0;
@@ -2260,6 +2316,9 @@ width: auto;
   /* html{
     font-size: 2.5px;
   } */
+  .multi-line-input{
+    flex-direction: column;
+  }
   .sectionforadd{
     max-width: 450px;
   }
@@ -2345,6 +2404,7 @@ width: auto;
   }
   .cv-form{
     width: 290px;
+    
   }
   .form-style{
     width: 260px;
@@ -2365,7 +2425,7 @@ width: auto;
 }
 @media (max-width: 360px) {
  
-  .s1 p {
+  #s1 p {
     left: -14px;
   }
 

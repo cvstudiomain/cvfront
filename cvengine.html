@@ -375,8 +375,8 @@
                 aria-hidden="true"
               ></i>
             </button>
-            <div class="cv-form cv-form-log" id="cv-form">
-              <form class="s1 form-style">
+            <div class="cv-form" id="cv-form">
+              <form class="form-style" id="s1">
                 <div class="section-header">
                   <h2>Personal Data</h2>
                 </div>
@@ -419,10 +419,10 @@
                   />
                 </div>
                 <div class="btn-box">
-                  <span class="btn-span" id="next1">next</span>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="next1">next</a>
                 </div>
               </form>
-              <form class="s2 form-style">
+              <form class="form-style hiddenClass" id="s2">
                 <div class="section-header">
                   <h2>Personal Data</h2>
                 </div>
@@ -746,11 +746,11 @@
                   </div>
                 </div>
                 <div class="btn-box">
-                  <span class="btn-span" id="back1">back</span>
-                  <span class="btn-span" id="next2">next</span>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="back1">back</a>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="next2">next</a>
                 </div>
               </form>
-              <form class="s3 form-style">
+              <form class="form-style hiddenClass" id="s3">
                 <div class="section-header">
                   <h2>Educational Data</h2>
                 </div>
@@ -796,7 +796,7 @@
                     </div>
                   </div>
                   <button type="button" class="txt-area-btn btnAddEducation">
-                    Add New
+                    Another Education
                   </button>
                   <div class="inputBox">
                     <label for="certification">Certification</label>
@@ -808,23 +808,25 @@
                       placeholder="eg. The complete javaScript course 2022: from zero to hero.."
                     ></textarea>
                     <button type="button" class="txt-area-btn btnAddCertification">
-                      Add New
+                      Another Certification
                     </button>
                   </div>
                 </div>
                 <div class="btn-box">
-                  <span class="btn-span" id="back2">back</span>
-                  <span class="btn-span" id="next3">next</span>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="back2">back</a>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="next3">next</a>
                 </div>
               </form>
               <form class="s7 form-style">
                 <p>Added successfuly</p>
               </form>
-              <form class="s4 form-style">
+              <form class="form-style hiddenClass" id="s4">
                 <div class="section-header">
-                  <h2>Recent Experience</h2>
+                  <h2>Work Experience</h2>
                 </div>
                 <div class="input-container">
+                  <div class="multi-line-input">
+
                   <div class="inputBox">
                     <label for="jobTitle">Job title</label>
                     <input
@@ -836,25 +838,57 @@
                     />
                   </div>
                   <div class="inputBox">
-                    <label for="experience">Experience</label>
+                    <label for="orgAddress">Organization / Employer</label>
+                    <input
+                      
+                      class="inputTypeText exInput"
+                      name="orgAddress"
+                      value=""
+                      placeholder="eg. LukyLaku lab USA.."
+                    />
+
+                  </div>
+                              
+                  </div>
+                  <div class="multi-line-input">
+
+                    <div class="inputBox">
+                      <label for="orgState">State</label>
+                      <input
+                        type="text"
+                        class="inputTypeText exInput"
+                        name="orgState"
+                        value=""
+                        placeholder="eg. Califonia"
+                      />
+                    </div>
+                    <div class="inputBox">
+                      <label for="orgCity">City</label>
+                      <input
+                        
+                        class="inputTypeText exInput"
+                        name="orgCity"
+                        value=""
+                        placeholder="eg. Los Angeles.."
+                      />
+  
+                    </div>
+                                
+                    </div>
+                  <div class="inputBox">
+                    <label for="experience">Job Duty / Responsibilities</label>
                     <textarea
                       rows="2"
-                      class="exInput"
+                      class="duty-box exInput"
                       name="experience"
                       value=""
                       placeholder="eg. I started off as an intern where I mostly wrote and scheduled social media posts.."
                     ></textarea>
+                    <button type="button"  class="txt-area-btn btnDuty">
+                    Add Another Duty
+                  </button>
                   </div>
-                  <div class="inputBox">
-                    <label for="orgAddress">Organization and address</label>
-                    <textarea
-                      rows="2"
-                      class="exInput"
-                      name="orgAddress"
-                      value=""
-                      placeholder="eg. LukyLaku lab Indonesia.."
-                    ></textarea>
-                  </div>
+                 
                   <div class="date">
                     <div class="start">
                       <label for="startDate">Start date </label>
@@ -877,15 +911,15 @@
                   </div>
       
                   <button type="button" class="txt-area-btn btnWorkExperience">
-                    Add New
+                    Add Work Experience
                   </button>
                 </div>
                 <div class="btn-box">
-                  <span class="btn-span" id="back3">back</span>
-                  <span class="btn-span" id="next4">next</span>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="back3">back</a>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="next4">next</a>
                 </div>
               </form>
-              <form class="s5 form-style">
+              <form class="form-style hiddenClass" id="s5">
                 <div class="section-header">
                   <h2>Social Media Links</h2>
                 </div>
@@ -921,35 +955,30 @@
                     value=""
                     placeholder="Twitter"
                   />
-                  <div class="inputBox">
-                    <label for="objective">Objective</label>
-                    <textarea
-                      rows="6"
-                      name="objective"
-                      value=""
-                      placeholder="eg. I disciplined my selve to plan, organize, motivate.."
-                    ></textarea>
-                  </div>
+              
                 </div>
       
                 <div class="btn-box">
-                  <span class="btn-span" id="back4">back</span>
-                  <span class="btn-span" id="next5">next</span>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="back4">back</a>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="next5">next</a>
                 </div>
               </form>
-              <form class="s6 form-style">
+              <form class="form-style hiddenClass" id="s6">
                 <div class="section-header">
                   <h2>Summary and others</h2>
                 </div>
                 <div class="input-container">
-                  <div>
-                    <textarea
-                      name="profile"
-                      value=""
-                      rows="2"
-                      placeholder="profile"
-                    ></textarea>
-                  </div>
+                  <div class="inputBox">
+                    <label for="profile">Profile</label>
+                    
+                      <textarea
+                        name="profile"
+                        value=""
+                        rows="4"
+                        placeholder="Efficient IT Project Management Professional with 5+ years of experience and strong vendor management skills. Seeking to improve cost, quality, and time at McBain-Bessey..."
+                      ></textarea>
+                    
+                  </div>    
                   <div class="inputBox">
                     <input
                       type="text"
@@ -958,7 +987,7 @@
                       placeholder="skill"
                     />
                     <button type="button" class="txt-area-btn addskill">
-                      Add New
+                      Another Skill
                     </button>
                   </div>
                   <div class="inputBox">
@@ -969,7 +998,7 @@
                       placeholder="interest or hobby"
                     />
                     <button type="button" class="txt-area-btn addinterest">
-                      Add New
+                      Add Interest
                     </button>
                   </div>
                   <div class="inputBox">
@@ -993,12 +1022,12 @@
                       placeholder="email address"
                     />
                     <button type="button" class="txt-area-btn addrefrence">
-                      Add New
+                      Another Refrence
                     </button>
                   </div>
                 </div>
                 <div class="btn-box">
-                  <span class="btn-span" id="back5">back</span>
+                  <a href="#cvandresume-area" class="btn-span smoothmove" id="back5">back</a>
                   <span class="generateCv btn-span" id="generateCvbtn"
                     >generate cv</span
                   >

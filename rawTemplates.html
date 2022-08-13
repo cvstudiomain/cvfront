@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <link rel="icon" href="img/fav 180X180.png" />
+    <link rel="apple-touch-icon" href="img/fav 64X64.png" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/engine-style.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <title>User Area - CVStudio</title>
+    <meta name="robots" content="noindex" />
+    <meta
+      name="description"
+      content="Start creating your dream resume and cover letter. CVStudio Login/Register"
+    />
+
+    <meta
+      name="keyword"
+      content="CVStudio Login, CVStudio Register, Free CVStudio Account, Resume builder account, Cover Letter Maker account, Free Online CV Creator Account"
+    />
+    <!-- Adsense ver> Adsense Code between -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.jsclient=ca-pub-1238727259476219"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Analytics Code -->
+    <!-- Global site tag (gtag.js - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/jsid=G-BTF52L0SFX"
+    ></script>
+
+    <script defer type="module" src="js/rawTemplates.js"></script>
+  </head>
+  <body class="master-body">
+    <div class="container" style="margin: 100px auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;">
+      <div class="template rl template1 letter cover cover1" id="">
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Ahmed Rufai Umari</h1>
+
+          <p class="profession">data.profession</p>
+        </div>
+
+        <div class="passportDateOfBirth">
+          <div class="passport-box">
+            <img
+              src=".url"
+              alt=""
+              class="passport"
+              crossorigin="anonymous"
+            />
+          </div>
+        </div>
+
+        <div class="large-content">
+          <div class="letterContainer">
+            <ul>
+              <li class="shouldNotBreak">data.receipient</li>
+              <li class="shouldNotBreak">data.compenyname</li>
+              <li class="shouldNotBreak">data.streetaddress</li>
+              <li class="shouldNotBreak">data.city data.city + ","</li>
+              <li class="shouldNotBreak">new Date(data.date.toDateString(</li>
+            </ul>
+            <br />
+            <div contenteditable="false" id="letter"><br />"</div>
+          </div>
+        </div>
+
+        <div class="tiny-content">
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="template rl template2 letter cover cover2" id="">
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Ahmed Rufai Umari</h1>
+
+          <p class="profession">data.profession</p>
+        </div>
+        <div class="tiny-content">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+              <img
+                src=".url"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+          </div>
+
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-content">
+          <div class="letterContainer">
+            <ul>
+              <li class="shouldNotBreak">data.receipient</li>
+              <li class="shouldNotBreak">data.compenyname</li>
+              <li class="shouldNotBreak">data.streetaddress</li>
+              <li class="shouldNotBreak">data.city data.city + ","</li>
+              <li class="shouldNotBreak">new Date(data.date.toDateString(</li>
+            </ul>
+            <br />
+            <div contenteditable="false" id="letter"><br />"</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="template rl template3 letter cover cover3"
+        id="
+            
+        "
+      >
+        <div class="large-profile">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+              <img
+                src=".url"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+          </div>
+
+          <div class="contact-information informationContainer">
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="user-name-and-profession">
+          <p class="profession">data.profession</p>
+
+          <h1 class="user-name">Ahmed Rufai Umari</h1>
+        </div>
+
+        <div class="large-content">
+          <div class="letterContainer">
+            <ul>
+              <li class="shouldNotBreak">data.receipient</li>
+              <li class="shouldNotBreak">data.compenyname</li>
+              <li class="shouldNotBreak">data.streetaddress</li>
+              <li class="shouldNotBreak">data.city data.city + ","</li>
+              <li class="shouldNotBreak">new Date(data.date.toDateString(</li>
+            </ul>
+            <br />
+            <div contenteditable="false" id="letter"><br />"</div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="template rl template4 letter cover cover4"
+        id="
+            
+        "
+      >
+        <div class="contact-information informationContainer">
+          <div class="contact-container">
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+
+              <p class="profession">data.profession</p>
+            </div>
+
+            <div class="content-wrapper secondContent">
+              <div class="user-name-and-profession">
+                <div class="passportDateOfBirth">
+                  <div class="passport-box">
+                    
+                    <img
+                      src=".url"
+                      alt=""
+                      class="passport"
+                      crossorigin="anonymous"
+                    />
+                  </div>
+                </div>
+
+                <h1 class="user-name">Ahmed Rufai Umari</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-content">
+          <div class="letterContainer">
+            <ul>
+              <li class="shouldNotBreak">data.receipient</li>
+              <li class="shouldNotBreak">data.compenyname</li>
+              <li class="shouldNotBreak">data.streetaddress</li>
+              <li class="shouldNotBreak">data.city data.city + ","</li>
+              <li class="shouldNotBreak">new Date(data.date.toDateString(</li>
+            </ul>
+            <br />
+            <div contenteditable="false" id="letter"><br />"</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="template rl template5 letter cover cover5"
+        id="
+            
+        "
+      >
+        <div class="tiny-content">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+              <img
+                src=".url"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+          </div>
+
+          <div class="contact-information informationContainer">
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Ahmed Rufai Umari</h1>
+
+          <p class="profession">data.profession</p>
+        </div>
+        <ul>
+          <li class="shouldNotBreak">data.receipient</li>
+          <li class="shouldNotBreak">data.compenyname</li>
+          <li class="shouldNotBreak">data.streetaddress</li>
+          <li class="shouldNotBreak">data.city data.city + ","</li>
+          <li class="shouldNotBreak">new Date(data.date.toDateString(</li>
+        </ul>
+        <div class="large-content">
+          <div class="letterContainer">
+            <div contenteditable="false" id="letter"><br />"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="template rl template6 letter cover cover6" id="">
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Ahmed Rufai Umari</h1>
+
+          <p class="profession">data.profession</p>
+        </div>
+        <div class="large-content">
+          <div class="letterContainer">
+            <ul>
+              <li class="shouldNotBreak">data.receipient</li>
+              <li class="shouldNotBreak">data.compenyname</li>
+              <li class="shouldNotBreak">data.streetaddress</li>
+              <li class="shouldNotBreak">data.city data.city + ","</li>
+              <li class="shouldNotBreak">new Date(data.date.toDateString(</li>
+            </ul>
+            <br />
+            <div contenteditable="false" id="letter"><br />"</div>
+          </div>
+        </div>
+
+        <div class="tiny-content">
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="passportDateOfBirth">
+          <div class="passport-box">
+            <img
+              src=".url"
+              alt=""
+              class="passport"
+              crossorigin="anonymous"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="template resume rl template1">
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Chritiana Morillo</h1>
+          <p class="profession">Project Manager</p>
+        </div>
+
+        <div class="passportDateOfBirth">
+          <div class="passport-box">
+            <img
+              src="pexels-christina-morillo-1181293.jpg"
+              alt=""
+              class="passport"
+              crossorigin="anonymous"
+            />
+          </div>
+
+          <div class="date-of-birth">
+            <p class="dateOfBirth">date of birth:</p>
+            <p>02/05/2000</p>
+          </div>
+        </div>
+
+        <div class="large-content">
+          
+          <div class="profile informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Profile</h3>
+            <p>Strategic and detail-oriented Project Manager with 7+ years of experience. Outstanding organizational, time management, planning, and problem-solving skills. Met all project deadlines for 5 years straight and increased Company X’s market share by 12% through successful branding projects. </p>
+          </div>
+
+          <div class="recent-experience informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Experience</h3>
+
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+                <li class="experienceOptain shouldNotBreak">
+                  et, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+              </ul>
+            </div>
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+              
+              </ul>
+            </div>
+          </div>
+
+          <div class="educational-background informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Education</h3>
+
+            <div class="education content-wrapper">
+              <span></span>
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">edu.educationstarts</p>
+
+                <p>to</p>
+                <p class="end">edu.educationends</p>
+              </div>
+              <p class="qualification shouldNotBreak">edu.qualification</p>
+              <p class="school-and-address shouldNotBreak">edu.eduAndAddress</p>
+            </div>
+          </div>
+
+          <div class="certification informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Certification</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tiny-content">
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-flag-checkered infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+
+                <p class="inforVal">Your country</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-home infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">data.state</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-user infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">gender</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-users infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">maritalstatus</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media-links informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Social media links</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/fb-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @facebook</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/ig-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @instagram</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/twitter-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.twitter</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/linkedin-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.linkedin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Skills</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">the skill 1</li>
+              <li class="shouldNotBreak">the skill 2</li>
+            </ul>
+          </div>
+
+          <div class="interest informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Interest</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">what i love to do 1</li>
+              <li class="shouldNotBreak">what i love to do 2</li>
+            </ul>
+          </div>
+
+          <div class="references informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+
+            <div class="reference content-wrapper">
+              <span></span>
+
+              <p class="refName shouldNotBreak">Reference Full Name</p>
+
+              <p class="titleandorg shouldNotBreak">Organization</p>
+
+              <p class="email shouldNotBreak">reference@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="template resume rl template2">
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Dellon Thomas</h1>
+          <p class="profession">Intern Marketter</p>
+        </div>
+        <div class="tiny-content">
+          <div class="passportDateOfBirth">
+            
+
+            <div class="passport-box">
+              <img
+                src="pexels-dellon-thomas-1405963.jpg"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+            <div class="date-of-birth">
+              <p class="dateOfBirth">date of birth:</p>
+              <p>02/05/2000</p>
+            </div>
+          </div>
+
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-flag-checkered infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+
+                <p class="inforVal">Your country</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-home infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">Your state</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-user infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">gender</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-users infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">maritalstatus</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media-links informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Social media links</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/fb-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @facebook</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/ig-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @instagram</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/twitter-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @twitter</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/linkedin-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @linkedin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Skills</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">the skill 1</li>
+              <li class="shouldNotBreak">the skill 2</li>
+            </ul>
+          </div>
+
+          <div class="interest informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Interest</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">what i love to do 1</li>
+              <li class="shouldNotBreak">what i love to do 2</li>
+            </ul>
+          </div>
+
+          <div class="references informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+
+            <div class="reference content-wrapper">
+              <span></span>
+
+              <p class="refName shouldNotBreak">ref.refrenceName</p>
+
+              <p class="titleandorg shouldNotBreak">ref.referenceTitleAndOrg</p>
+
+              <p class="email shouldNotBreak">reference@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-content">
+          <div class="profile informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Profile</h3>
+            <p>Strategic and detail-oriented Project Manager with 7+ years of experience. Outstanding organizational, time management, planning, and problem-solving skills. Met all project deadlines for 5 years straight and increased Company X’s market share by 12% through successful branding projects. </p>
+          </div>
+
+          <div class="recent-experience informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Experience</h3>
+
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+                <li class="experienceOptain shouldNotBreak">
+                  et, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+              </ul>
+            </div>
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+              
+              </ul>
+            </div>
+          </div>
+
+          <div class="educational-background informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Education</h3>
+            <div class="education content-wrapper">
+              <span></span>
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">edu.educationstarts</p>
+
+                <p>to</p>
+                <p class="end">edu.educationends</p>
+              </div>
+              <p class="qualification shouldNotBreak">edu.qualification</p>
+              <p class="school-and-address shouldNotBreak">edu.eduAndAddress</p>
+            </div>
+          </div>
+
+          <div class="certification informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Certification</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="template resume rl template3">
+        <div class="large-profile">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+              <img
+                src="pexels-fauxels-3184611.jpg"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+            <div class="date-of-birth">
+              <p class="dateOfBirth">date of birth:</p>
+              <p>02/05/2000</p>
+            </div>
+          </div>
+
+          <div class="profile informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Profile</h3>
+            <p>Strategic and detail-oriented Project Manager with 7+ years of experience. Outstanding organizational, time management, planning, and problem-solving skills. Met all project deadlines for 5 years straight and increased Company X’s market share by 12% through successful branding projects. </p>
+          </div>
+        </div>
+        <div class="user-name-and-profession">
+          <p class="profession">System Analist</p>
+          <h1 class="user-name">William Morgan</h1>
+        </div>
+
+        <div class="tiny-content">
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-flag-checkered infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+
+                <p class="inforVal">Your country</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-home infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">data.state</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-user infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">gender</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-users infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">maritalstatus</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media-links informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Social media links</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/fb-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @facebook</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/ig-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @instagram</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/twitter-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.twitter</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/linkedin-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.linkedin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Skills</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">the skill 1</li>
+              <li class="shouldNotBreak">the skill 2</li>
+            </ul>
+          </div>
+
+          <div class="interest informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Interest</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">what i love to do 1</li>
+              <li class="shouldNotBreak">what i love to do 2</li>
+            </ul>
+          </div>
+
+          <div class="references informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+
+            <div class="reference content-wrapper">
+              <span></span>
+
+              <p class="refName shouldNotBreak">ref.refrenceName</p>
+
+              <p class="titleandorg shouldNotBreak">ref.referenceTitleAndOrg</p>
+
+              <p class="email shouldNotBreak">reference@gmail.com</p>
+            </div>
+            ;
+          </div>
+        </div>
+        <div class="large-content">
+          <div class="recent-experience informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Experience</h3>
+
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+                <li class="experienceOptain shouldNotBreak">
+                  et, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+              </ul>
+            </div>
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+              
+              </ul>
+            </div>
+          </div>
+
+          <div class="educational-background informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Education</h3>
+            <div class="education content-wrapper">
+              <span></span>
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">edu.educationstarts</p>
+
+                <p>to</p>
+                <p class="end">edu.educationends</p>
+              </div>
+              <p class="qualification shouldNotBreak">edu.qualification</p>
+              <p class="school-and-address shouldNotBreak">edu.eduAndAddress</p>
+            </div>
+          </div>
+
+          <div class="certification informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Certification</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="template resume rl template4">
+        <div class="template4-header">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+             
+              <img
+                src="pexels-mentatdgt-937481.jpg"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+              :
+            </div>
+            <div class="date-of-birth">
+              <p class="dateOfBirth">date of birth:</p>
+              <p>02/05/2000</p>
+            </div>
+          </div>
+
+          <div class="user-name-and-profession">
+            <h1 class="user-name">Erric Wilson</h1>
+            <p class="profession">Project Manager</p>
+          </div>
+        </div>
+
+        <div class="tiny-content">
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+
+            <div class="contact-container">
+              <div class="content-wrapper">
+                <div class="information">
+                  <p class="inforLabel">
+                    <i
+                      class="fa fa-map-marker infor-logo"
+                      aria-hidden="true"
+                    ></i>
+                  </p>
+                  <p class="inforVal">here you can put address</p>
+                </div>
+
+                <div class="information">
+                  <p class="inforLabel">
+                    <i
+                      class="fa fa-flag-checkered infor-logo"
+                      aria-hidden="true"
+                    ></i>
+                  </p>
+
+                  <p class="inforVal">Your country</p>
+                </div>
+
+                <div class="information">
+                  <p class="inforLabel">
+                    <i class="fa fa-home infor-logo" aria-hidden="true"></i>
+                  </p>
+
+                  <p class="inforVal">data.state</p>
+                </div>
+
+                <div class="information">
+                  <p class="inforLabel">
+                    <i class="fa fa-user infor-logo" aria-hidden="true"></i>
+                  </p>
+
+                  <p class="inforVal">gender</p>
+                </div>
+
+                <div class="information">
+                  <p class="inforLabel">
+                    <i class="fa fa-users infor-logo" aria-hidden="true"></i>
+                  </p>
+
+                  <p class="inforVal">maritalstatus</p>
+                </div>
+
+                <div class="information">
+                  <p class="inforLabel">
+                    <i
+                      class="fa fa-phone-square infor-logo"
+                      aria-hidden="true"
+                    ></i>
+                  </p>
+                  <p class="inforVal">+123456789099</p>
+                </div>
+
+                <div class="information">
+                  <p class="inforLabel">
+                    <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                  </p>
+                  <p class="inforVal">random@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media-links informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Social media links</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/fb-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @facebook</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/ig-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @instagram</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/twitter-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.twitter</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/linkedin-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.linkedin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Skills</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">the skill 1</li>
+              <li class="shouldNotBreak">the skill 2</li>
+            </ul>
+          </div>
+
+          <div class="interest informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Interest</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">what i love to do 1</li>
+              <li class="shouldNotBreak">what i love to do 2</li>
+            </ul>
+          </div>
+
+          <div class="references informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+
+            <div class="reference content-wrapper">
+              <span></span>
+
+              <p class="refName shouldNotBreak">ref.refrenceName</p>
+
+              <p class="titleandorg shouldNotBreak">ref.referenceTitleAndOrg</p>
+
+              <p class="email shouldNotBreak">reference@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-content">
+          <div class="profile informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Profile</h3>
+            <p>Strategic and detail-oriented Project Manager with 7+ years of experience. Outstanding organizational, time management, planning, and problem-solving skills. Met all project deadlines for 5 years straight and increased Company X’s market share by 12% through successful branding projects. </p>
+          </div>
+
+          <div class="recent-experience informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Experience</h3>
+
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+                <li class="experienceOptain shouldNotBreak">
+                  et, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+              </ul>
+            </div>
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+              
+              </ul>
+            </div>
+          </div>
+
+          <div class="educational-background informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Education</h3>
+            <div class="education content-wrapper">
+              <span></span>
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">edu.educationstarts</p>
+
+                edu.educationends
+                <p>to</p>
+                <p class="end">edu.educationends</p>
+              </div>
+              <p class="qualification shouldNotBreak">edu.qualification</p>
+              <p class="school-and-address shouldNotBreak">edu.eduAndAddress</p>
+            </div>
+          </div>
+
+          <div class="certification informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Certification</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="template resume rl template5">
+        <div class="tiny-content">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+              <img
+                src="pexels-christina-morillo-1181293.jpg"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+            <div class="date-of-birth">
+              <p class="dateOfBirth">date of birth:</p>
+              <p>02/05/2000</p>
+            </div>
+          </div>
+
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-flag-checkered infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+
+                <p class="inforVal">Your country</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-home infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">data.state</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-user infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">gender</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-users infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">maritalstatus</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media-links informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Social media links</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/fb-white-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @facebook</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/ig-white-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @instagram</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/twitter-white-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.twitter</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/linkedin-white-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.linkedin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Skills</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">the skill 1</li>
+              <li class="shouldNotBreak">the skill 2</li>
+            </ul>
+          </div>
+
+          <div class="interest informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Interest</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">what i love to do 1</li>
+              <li class="shouldNotBreak">what i love to do 2</li>
+            </ul>
+          </div>
+
+          <div class="references informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+
+            <div class="reference content-wrapper">
+              <span></span>
+
+              <p class="refName shouldNotBreak">ref.refrenceName</p>
+
+              <p class="titleandorg shouldNotBreak">ref.referenceTitleAndOrg</p>
+
+              <p class="email shouldNotBreak">reference@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-content">
+          <div class="user-name-and-profession">
+            <h1 class="user-name">Cristiana Morillo</h1>
+            <p class="profession">Graphic Designer</p>
+          </div>
+
+          <div class="profile informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Profile</h3>
+            <p>Strategic and detail-oriented Project Manager with 7+ years of experience. Outstanding organizational, time management, planning, and problem-solving skills. Met all project deadlines for 5 years straight and increased Company X’s market share by 12% through successful branding projects. </p>
+          </div>
+
+          <div class="recent-experience informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Experience</h3>
+
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+                <li class="experienceOptain shouldNotBreak">
+                  et, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+              </ul>
+            </div>
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+              
+              </ul>
+            </div>
+          </div>
+
+          <div class="educational-background informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Education</h3>
+            <div class="education content-wrapper">
+              <span></span>
+
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">edu.educationstarts</p>
+
+                <p>to</p>
+                <p class="end">edu.educationends</p>
+              </div>
+              <p class="qualification shouldNotBreak">edu.qualification</p>
+              <p class="school-and-address shouldNotBreak">edu.eduAndAddress</p>
+            </div>
+          </div>
+
+          <div class="certification informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Certification</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="template resume rl template6">
+        <div class="user-name-and-profession">
+          <h1 class="user-name">Anthony Benjamin</h1>
+          <p class="profession">Data Scientist</p>
+        </div>
+        <div class="large-content">
+          <div class="profile informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Profile</h3>
+            <p>Strategic and detail-oriented Project Manager with 7+ years of experience. Outstanding organizational, time management, planning, and problem-solving skills. Met all project deadlines for 5 years straight and increased Company X’s market share by 12% through successful branding projects. </p>
+          </div>
+
+          <div class="recent-experience informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Experience</h3>
+
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+                <li class="experienceOptain shouldNotBreak">
+                  et, consectetur adipisicing elit. Expedita ex doloremque quasi, illum voluptatibus quos.
+                </li>
+              </ul>
+            </div>
+            <div class="experience content-wrapper">
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">03/05/2010</p>
+
+                <p class="end">to</p>
+
+                <p class="end">05/08/2017</p>
+              </div>
+              <div class="box-for-title-and-org shouldNotBreak">
+                <p class="jobtitle">Job Title Here</p>
+
+                <p class="organizationAndAddress">Organization</p>
+
+                <div class="box-for-org-city-and-org">
+                  <p class="sorgState">State</p>
+
+                  <p class="organizationAndAddress">City</p>
+                </div>
+              </div>
+
+              <ul>
+                <li class="experienceOptain shouldNotBreak">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus laboriosam nulla aut sed.
+                </li>
+              
+              
+              </ul>
+            </div>
+          </div>
+
+          <div class="educational-background informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Education</h3>
+            <div class="education content-wrapper">
+              <span></span>
+
+              <div class="start-and-end-date shouldNotBreak">
+                <p class="start">edu.educationstarts</p>
+
+                <p>to</p>
+                <p class="end">edu.educationends</p>
+              </div>
+              <p class="qualification shouldNotBreak">edu.qualification</p>
+              <p class="school-and-address shouldNotBreak">edu.eduAndAddress</p>
+            </div>
+          </div>
+
+          <div class="certification informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Certification</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tiny-content">
+          <div class="passportDateOfBirth">
+            <div class="passport-box">
+              <img
+                src="pexels-fauxels-3184611.jpg"
+                alt=""
+                class="passport"
+                crossorigin="anonymous"
+              />
+            </div>
+            <div class="date-of-birth">
+              <p class="dateOfBirth">date of birth:</p>
+              <p>02/05/2000</p>
+            </div>
+          </div>
+
+          <div class="contact-information informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">here you can put address</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-flag-checkered infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+
+                <p class="inforVal">Your country</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-home infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">data.state</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-user infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">gender</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-users infor-logo" aria-hidden="true"></i>
+                </p>
+
+                <p class="inforVal">maritalstatus</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i
+                    class="fa fa-phone-square infor-logo"
+                    aria-hidden="true"
+                  ></i>
+                </p>
+                <p class="inforVal">+123456789099</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
+                </p>
+                <p class="inforVal">random@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-media-links informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Social media links</h3>
+            <div class="content-wrapper">
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/fb-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @facebook</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/ig-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">user name @instagram</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/twitter-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.twitter</p>
+              </div>
+
+              <div class="information">
+                <p class="inforLabel">
+                  <img
+                    class="infor-logo"
+                    src="img/linkedin-black-icon.png"
+                    alt="logo"
+                  />
+                </p>
+
+                <p class="inforVal">data.linkedin</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Skills</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">the skill 1</li>
+              <li class="shouldNotBreak">the skill 2</li>
+            </ul>
+          </div>
+
+          <div class="interest informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Interest</h3>
+            <ul class="content-wrapper">
+              <li class="shouldNotBreak">what i love to do 1</li>
+              <li class="shouldNotBreak">what i love to do 2</li>
+            </ul>
+          </div>
+
+          <div class="references informationContainer">
+            <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+
+            <div class="reference content-wrapper">
+              <span></span>
+
+              <p class="refName shouldNotBreak">ref.refrenceName</p>
+              <p class="titleandorg shouldNotBreak">ref.referenceTitleAndOrg</p>
+
+              <p class="email shouldNotBreak">reference@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="address-col">
+        <address class="contacts">
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="privacy-policy.html"
+                >Privacy policy
+              </a>
+            </li>
+            <li>
+              <a class="footer-link" href="terms-and-condition.html"
+                >Terms & Condition</a
+              >
+            </li>
+            <li>
+              <a class="footer-link" href="terms-of-use.html">Terms of use</a>
+            </li>
+          </ul>
+        </address>
+      </div>
+
+      <p class="copyright">
+        Copyright &copy; <span class="year">2022</span> by CvStudio, Inc. All
+        rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

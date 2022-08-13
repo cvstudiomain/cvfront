@@ -598,8 +598,8 @@ ${
   
   
        ${
-         data.experiences.length !== 0
-           ? `
+        data.experiences.length !== 0
+          ? `
       <div class="recent-experience informationContainer">
       <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
@@ -612,9 +612,7 @@ ${
           ? ` <p class="start">${experience.experiencestarts}</p>`
           : ""
       }
-
       ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
-
        ${
          experience.experienceends
            ? ` <p class="end">${experience.experienceends}</p>`
@@ -622,32 +620,75 @@ ${
        }  
          
         </div>
-  
+         <div class="box-for-title-and-org shouldNotBreak">
         ${
           experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
             : ""
         }
+        ${
+          experience.orgAddress
+            ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+            : ""
+        }
+        <div class="box-for-org-city-and-org">
+        ${
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
+            : ""
+        }
+        ${
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+            : ""
+        }</div>   
+  
+        
+        </div>
        ${
          experience.experience
-           ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+           ? ` 
+           ${
+             Array.isArray(experience.experience)
+               ? `
+            ${
+              experience.experience.length !== 0
+                ? `
+            <ul>
+            ${experience.experience
+              .map(
+                (item) =>
+                  `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
+              )
+              .join("")}
+            </ul>
+            
+            `
+                : ""
+            }
+            
+            `
+               : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+           }
+           
+          `
            : ""
        }
-       ${
-         experience.orgAddress
-           ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-           : ""
-       }
-       
+      
+  
       </div>`
               : ""
           }`;
         })
-        .join("")}      
+        .join("")}
+  
+        
+           
       </div>`
-           : ""
-       }
+          : ""
+      }
      
+         
   
   ${
     data.educations.length !== 0
@@ -1122,8 +1163,8 @@ ${
      }
   
      ${
-       data.experiences.length !== 0
-         ? `
+      data.experiences.length !== 0
+        ? `
     <div class="recent-experience informationContainer">
     <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
@@ -1144,32 +1185,75 @@ ${
      }  
        
       </div>
-
+       <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
           : ""
       }
+      ${
+        experience.orgAddress
+          ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+          : ""
+      }
+      <div class="box-for-org-city-and-org">
+      ${
+        experience.orgState
+          ? ` <p class="sorgState">${experience.orgState}</p>`
+          : ""
+      }
+      ${
+        experience.orgCity
+          ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+          : ""
+      }</div>   
+
+      
+      </div>
      ${
        experience.experience
-         ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+         ? ` 
+         ${
+           Array.isArray(experience.experience)
+             ? `
+          ${
+            experience.experience.length !== 0
+              ? `
+          <ul>
+          ${experience.experience
+            .map(
+              (item) =>
+                `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
+            )
+            .join("")}
+          </ul>
+          
+          `
+              : ""
+          }
+          
+          `
+             : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+         }
+         
+        `
          : ""
      }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-     
+    
+
     </div>`
             : ""
         }`;
       })
-      .join("")}      
+      .join("")}
+
+      
+         
     </div>`
-         : ""
-     }
+        : ""
+    }
    
+  
   
   ${
     data.educations.length !== 0
@@ -1471,7 +1555,6 @@ ${
         : ""
     }
     ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
-
      ${
        experience.experienceends
          ? ` <p class="end">${experience.experienceends}</p>`
@@ -1479,28 +1562,70 @@ ${
      }  
        
       </div>
-
+       <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
           : ""
       }
+      ${
+        experience.orgAddress
+          ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+          : ""
+      }
+      <div class="box-for-org-city-and-org">
+      ${
+        experience.orgState
+          ? ` <p class="sorgState">${experience.orgState}</p>`
+          : ""
+      }
+      ${
+        experience.orgCity
+          ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+          : ""
+      }</div>   
+
+      
+      </div>
      ${
        experience.experience
-         ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+         ? ` 
+         ${
+           Array.isArray(experience.experience)
+             ? `
+          ${
+            experience.experience.length !== 0
+              ? `
+          <ul>
+          ${experience.experience
+            .map(
+              (item) =>
+                `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
+            )
+            .join("")}
+          </ul>
+          
+          `
+              : ""
+          }
+          
+          `
+             : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+         }
+         
+        `
          : ""
      }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-     
+    
+
     </div>`
             : ""
         }`;
       })
-      .join("")}      
+      .join("")}
+
+      
+         
     </div>`
         : ""
     }
@@ -1819,28 +1944,70 @@ ${
        }  
          
         </div>
-  
+         <div class="box-for-title-and-org shouldNotBreak">
         ${
           experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
             : ""
         }
+        ${
+          experience.orgAddress
+            ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+            : ""
+        }
+        <div class="box-for-org-city-and-org">
+        ${
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
+            : ""
+        }
+        ${
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+            : ""
+        }</div>   
+  
+        
+        </div>
        ${
          experience.experience
-           ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+           ? ` 
+           ${
+             Array.isArray(experience.experience)
+               ? `
+            ${
+              experience.experience.length !== 0
+                ? `
+            <ul>
+            ${experience.experience
+              .map(
+                (item) =>
+                  `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
+              )
+              .join("")}
+            </ul>
+            
+            `
+                : ""
+            }
+            
+            `
+               : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+           }
+           
+          `
            : ""
        }
-       ${
-         experience.orgAddress
-           ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-           : ""
-       }
-       
+      
+  
       </div>`
               : ""
           }`;
         })
-        .join("")}      
+        .join("")}
+  
+        
+           
       </div>`
           : ""
       }
@@ -2177,7 +2344,7 @@ ${
       <div class="box-for-org-city-and-org">
       ${
         experience.orgState
-          ? ` <p class="sorgState">${experience.orgState}</p>/`
+          ? ` <p class="sorgState">${experience.orgState}</p>`
           : ""
       }
       ${
@@ -2306,55 +2473,98 @@ ${
           : ""
       }
   
-     ${
-       data.experiences.length !== 0
-         ? `
-    <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
-      .map((experience) => {
-        return `${
-          Object.keys(experience).length !== 0
-            ? `<div class="experience content-wrapper">
-    <div class="start-and-end-date shouldNotBreak">
-    ${
-      experience.experiencestarts
-        ? ` <p class="start">${experience.experiencestarts}</p>`
-        : ""
-    }
-    ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
-     ${
-       experience.experienceends
-         ? ` <p class="end">${experience.experienceends}</p>`
-         : ""
-     }  
-       
-      </div>
-
       ${
-        experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+        data.experiences.length !== 0
+          ? `
+      <div class="recent-experience informationContainer">
+      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+        .map((experience) => {
+          return `${
+            Object.keys(experience).length !== 0
+              ? `<div class="experience content-wrapper">
+      <div class="start-and-end-date shouldNotBreak">
+      ${
+        experience.experiencestarts
+          ? ` <p class="start">${experience.experiencestarts}</p>`
           : ""
       }
-     ${
-       experience.experience
-         ? ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
-         : ""
-     }
-     ${
-       experience.orgAddress
-         ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
-         : ""
-     }
-     
-    </div>`
+      ${experience.experienceends ? ` <p class="end">to</p>` : ""}  
+       ${
+         experience.experienceends
+           ? ` <p class="end">${experience.experienceends}</p>`
+           : ""
+       }  
+         
+        </div>
+         <div class="box-for-title-and-org shouldNotBreak">
+        ${
+          experience.jobTitle
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
             : ""
-        }`;
-      })
-      .join("")}      
-    </div>`
-         : ""
-     }
-   
+        }
+        ${
+          experience.orgAddress
+            ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+            : ""
+        }
+        <div class="box-for-org-city-and-org">
+        ${
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
+            : ""
+        }
+        ${
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+            : ""
+        }</div>   
+  
+        
+        </div>
+       ${
+         experience.experience
+           ? ` 
+           ${
+             Array.isArray(experience.experience)
+               ? `
+            ${
+              experience.experience.length !== 0
+                ? `
+            <ul>
+            ${experience.experience
+              .map(
+                (item) =>
+                  `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
+              )
+              .join("")}
+            </ul>
+            
+            `
+                : ""
+            }
+            
+            `
+               : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+           }
+           
+          `
+           : ""
+       }
+      
+  
+      </div>`
+              : ""
+          }`;
+        })
+        .join("")}
+  
+        
+           
+      </div>`
+          : ""
+      }
+     
+    
   
     ${
       data.educations.length !== 0

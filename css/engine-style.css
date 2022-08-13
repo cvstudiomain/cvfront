@@ -1425,6 +1425,30 @@ width: 100%;
   gap: 1rem;
   padding: 1.5rem;
 }
+
+.template .box-for-title-and-org{
+  width: 100%;
+  background-color: #eeecea;
+  gap: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  
+
+}
+.template .organizationAndAddress{
+ 
+  font-weight: 700;
+}
+.template .box-for-org-city-and-org{
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 0.3rem;
+  
+  font-size: 0.8rem;
+  border-bottom: 0.2rem solid black;
+}
 .template .tiny-content {
   height: 100%;
 }
@@ -1816,29 +1840,6 @@ width: 100%;
   justify-content: center;
   margin-bottom: 2rem;
   gap: 1rem;
-}
-.template5 .box-for-title-and-org{
-  width: 100%;
-  background-color: #eeecea;
-  gap: 0.3rem;
-  display: flex;
-  flex-direction: row;
-  
-
-}
-.template5 .organizationAndAddress{
- 
-  font-weight: 700;
-}
-.template5 .box-for-org-city-and-org{
-  display: flex;
-  width: fit-content;
-  flex-direction: row;
-  margin-left: auto;
-  gap: 0.3rem;
-  
-  font-size: 0.8rem;
-  border-bottom: 0.2rem solid black;
 }
 .template5 .start-and-end-date {
   margin: 0;

@@ -566,7 +566,16 @@ formBtn.addEventListener("click", async function (e) {
     [...new FormData(e.target.closest("form"))].filter(
       (val) => val[1] !== "" && model.state.user.summeryData.push(val)
     );
-
+     let langObject={
+       language:"",
+       level:""
+     }
+     model.state.user.summeryData.forEach(val=>{
+            if(val[0]==="language")langObject.language=val[1];
+            if(val[0]==="langLevel")langObject.level=val[1];
+     })
+     model.state.user.languages.push(langObject)
+    //  return console.log(model.state.user.languages)
     let eduCol = [];
     model.state.user.eduData &&
       model.state.user.eduData.forEach(
@@ -635,6 +644,7 @@ formBtn.addEventListener("click", async function (e) {
         objectOutOfArray(val)
       ),
       experiences: model.state.user.experiences,
+      languages:model.state.user.languages,
       reffrences: model.state.user.reffrences.map((val) =>
         objectOutOfArray(val)
       ),
@@ -955,6 +965,21 @@ cvDataForm.addEventListener("click", async function (e) {
       
       messageBox.style.opacity = "1";
     messageBox.style.left = "0";
+    if (btn.classList.contains("btnAddLanguage")){
+      let theInput=document.querySelectorAll(".langInputs");
+      theInput.forEach((val) => (val.value = ""));
+      theInput[1].value="30%";
+      theInput[0].focus();
+      let langObject={language:"",level:""};
+      
+      newData.forEach(val=>{
+        if(val[0]==="language")langObject.language=val[1]
+        if(val[0]==="langLevel")langObject.level=val[1]
+
+      })
+      model.state.user.languages.push(langObject)
+      // console.log(newData)
+    }
     if (btn.classList.contains("btnAddEducation")) {
       document
         .querySelectorAll(".eduInputs")

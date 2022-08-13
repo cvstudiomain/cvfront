@@ -12,6 +12,7 @@ export const state = {
 
   searchResult: "",
   user: {
+    languages:[],
     userTotalTemplates:[],
     trynow: "",
     isGonGon: false,

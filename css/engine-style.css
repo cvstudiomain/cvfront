@@ -548,6 +548,24 @@ input[type="submit"] {
   align-items: center;
   justify-content: center;
 }
+.template .languages{
+  width: 90%;
+}
+.template .languages .theLevel{
+  width: 100%;
+  height: 0.6rem;
+  background-color: #fff;
+  border-radius: 0.2rem;
+  position: relative;
+  /* text-align: start; */
+  
+}
+.template .languages .theLevel .theLevelLoader{
+  position: absolute;
+  height: 0.6rem;
+  width: 30%;
+  background-color: #2c3e50;
+}
 .templates .s7 {
   display: flex;
   padding: 16px;
@@ -1751,7 +1769,7 @@ button {
   grid-template-columns: 18rem 1fr;
 
   color: #000;
-  border-bottom-left-radius: 5rem;
+  /* border-bottom-left-radius: 5rem; */
   /* border-right: 0.4rem solid #ff105f; */
   /* border-bottom: 0.4rem solid #ff105f; */
   /* border-top: 0.4rem solid #ff105f; */
@@ -1761,7 +1779,7 @@ button {
   color: #fff;
 
   border-top-right-radius: 5rem;
-  border-bottom-left-radius: 5rem;
+  /* border-bottom-left-radius: 5rem; */
 }
 /* .template5 .tiny-content .inforLabel{
   background-color: #ccf2cc;

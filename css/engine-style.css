@@ -1281,33 +1281,22 @@ grid-template-columns: 1fr 1fr 1fr;
   height: 100%;
 }
 .template .initials {
+  font-size: 4rem;
   text-align: center;
   font-weight: 600;
   
   margin: 0.3rem;
 }
 .template1 .initials,.template2 .initials{
-  font-size: 5rem;
+  font-size: 3rem;
 }
-.template3 .initials{
-  font-size: 8rem;
-}
-.template4 .initials{
-  font-size: 4rem;
 
-}
-.template5 .initials{
-  font-size: 4rem;
-}
-.template6 .initials{
-  font-size: 6rem;
-}
 
 .template .content-wrapper {
   display: flex;
   flex-direction: column;
-
-  gap: 1rem;
+  line-height: 1.2;
+  gap: 0.8rem;
 }
 .template .content-wrapper .qualification{
   font-weight: 700;
@@ -1343,16 +1332,12 @@ grid-template-columns: 1fr 1fr 1fr;
 }
 
 .template .reference, .template .education{
-  border-left: #fff solid 0.13rem;
+  border-left: #000 solid 0.13rem;
   padding-left: 1rem;
   margin-left: 1rem;
   position: relative;
 }
-.template .education{
-  border-left: #000 solid 0.13rem;
-  margin-left: 1rem;
 
-}
 .template .reference span,.template .education span{
   position: absolute;
   width: 0.8rem;
@@ -1360,7 +1345,7 @@ grid-template-columns: 1fr 1fr 1fr;
   left: -0.5rem;
   top: 50%;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #000;
   transform: translateY(-50%);
 }
 .template .education span{
@@ -1425,13 +1410,17 @@ width: 100%;
   gap: 1rem;
   padding: 1.5rem;
 }
+.template4 .large-content,.template2 .large-content{
+  padding-left: 2.5rem;
+}
 
 .template .box-for-title-and-org{
   width: 100%;
   background-color: #eeecea;
-  gap: 0.3rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.3rem;
   
 
 }
@@ -1448,6 +1437,9 @@ width: 100%;
   
   font-size: 0.8rem;
   border-bottom: 0.2rem solid black;
+}
+.template .box-for-title-and-org .jobtitle{
+  min-width: fit-content;
 }
 .template .tiny-content {
   height: 100%;
@@ -1515,7 +1507,7 @@ width: 100%;
   border-radius: 50%;
 }
 .template1 .user-name-and-profession .user-name {
-  font-size: 3rem;
+  font-size: 2rem;
   letter-spacing: 0.3rem;
 }
 .template1 .profession {
@@ -1558,7 +1550,7 @@ width: 100%;
 .template2 {
   /* color: #1b2d4f; */
   display: grid;
-  grid-template-columns: 19rem 1fr;
+  grid-template-columns: 18rem 1fr;
 
   border-bottom: 4rem solid #1b2d4f;
 }
@@ -1605,13 +1597,15 @@ width: 100%;
   letter-spacing: 0.2rem;
 }
 .template2 .user-name {
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 .template2 .tiny-content {
-  /* margin-top: -2rem; */
-  /* margin-left: 1rem; */
-  /* border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem; */
+  margin-top: -1rem;
+  margin-left: 1rem;
+  
+
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   background-color: #d9e3f3;
   grid-column: 1/2;
 }
@@ -1631,6 +1625,7 @@ width: 100%;
 }
 
 .template3 .large-profile {
+  border: 0.1rem solid #0b7285;
   grid-column: 1/-1;
   display: flex;
   flex-direction: row;
@@ -1644,6 +1639,7 @@ width: 100%;
 }
 .template3 .profile {
   padding-top: 1.5rem;
+  max-width: 33rem;
 }
 .template3 .user-name-and-profession {
   grid-column: 1/-1;
@@ -1704,7 +1700,7 @@ width: 100%;
   /* color: #660626; */
   display: grid;
   border-bottom: 1rem solid #ff105f;
-  grid-template-columns: 19rem 1fr;
+  grid-template-columns: 18rem 1fr;
 }
 
 .template4 .contact-information .contact-container {
@@ -1738,6 +1734,12 @@ width: 100%;
   min-width: 28rem;
   justify-content: center;
   /* margin-top: -8rem; */
+}
+.template4 .passportDateOfBirth{
+  display: flex;
+  flex-direction: column;
+  width: 19rem;
+  align-items: center;
 }
 .template4 .passport-box {
   width: 10rem;
@@ -1777,6 +1779,11 @@ width: 100%;
 .template4 .tiny-content {
   background-color: #ffe7ef;
   /* border-top-right-radius: 5rem; */
+  margin-top: -1rem;
+  margin-left: 1rem;
+  max-width: calc(100% - 1rem);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .template5 {
@@ -1823,6 +1830,12 @@ width: 100%;
   margin: 0 1rem;
   /* border-top-left-radius: 5rem; */
   /* border-bottom-right-radius: 5rem; */
+}
+
+.template5 .reference{
+  border-left: #fff solid 0.13rem;}
+.template5 .reference span{
+  background-color: #fff;
 }
 .template5 .profession {
   /* background-color: #001300;
@@ -1913,7 +1926,7 @@ width: 100%;
   letter-spacing: 0.5rem;
 }
 .template6 .user-name {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .template:hover,

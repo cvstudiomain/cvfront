@@ -623,7 +623,7 @@ ${
          <div class="box-for-title-and-org shouldNotBreak">
         ${
           experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
             : ""
         }
         ${
@@ -668,7 +668,7 @@ ${
             }
             
             `
-               : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+               : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
            }
            
           `
@@ -886,38 +886,6 @@ ${
       `
       : ""
   }
-         ${
-           data.reffrences.length !== 0
-             ? `<div class="references informationContainer">
-        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            ${
-              ref.refrenceName
-                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
-                : ""
-            }
-            ${
-              ref.referenceTitleAndOrg
-                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
-                : ""
-            }
-            ${
-              ref.refrenceEmail
-                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
-                : ""
-            }
-             </div>
-  `;
-          })
-          .join("")}
-  
-          </div>
-          `
-             : ""
-         }
         
         ${
           data.interest.length !== 0
@@ -928,6 +896,41 @@ ${
           </ul></div>`
             : ""
         }
+        ${
+          data.reffrences.length !== 0
+            ? `<div class="references informationContainer">
+            
+       <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+       ${data.reffrences
+         .map((ref) => {
+           return `
+           <div class="reference content-wrapper">
+           <span></span>
+           ${
+             ref.refrenceName
+               ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+               : ""
+           }
+           ${
+             ref.referenceTitleAndOrg
+               ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
+               : ""
+           }
+           ${
+             ref.refrenceEmail
+               ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
+               : ""
+           }
+            </div>
+ `;
+         })
+         .join("")}
+ 
+         </div>
+         `
+            : ""
+        }
+       
         </div>
           
         </div>
@@ -942,20 +945,22 @@ ${
     </div>
     <div class="tiny-content">
          <div class="passportDateOfBirth">
-          <div class="passport-box">
-          ${
-            data.images
-              ? `<img
+         ${
+           data.images
+              ? `
+            <div class="passport-box">
+              <img
             src="${data.images.url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
             
             
-            />`
+            />
+            </div>
+            `
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
-          </div>
           <div class="date-of-birth">
             <p class="dateOfBirth">date of birth:</p>
             <p>${data.dateofbirth}</p>
@@ -1100,39 +1105,6 @@ ${
          : ""
      }
   
-     ${
-       data.reffrences.length !== 0
-         ? `
-     <div class="references informationContainer">
-     <h3 class="inforHeader shouldNotBreak">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            ${
-              ref.refrenceName
-                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
-                : ""
-            }
-            ${
-              ref.referenceTitleAndOrg
-                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
-                : ""
-            }
-            ${
-              ref.refrenceEmail
-                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
-                : ""
-            }
-             </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-         : ""
-     }
         ${
           data.interest.length !== 0
             ? `   <div class="interest informationContainer">
@@ -1146,6 +1118,42 @@ ${
         </ul></div>`
             : ""
         }
+
+        ${
+          data.reffrences.length !== 0
+            ? `
+        <div class="references informationContainer">
+        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+           ${data.reffrences
+             .map((ref) => {
+               return `
+               <div class="reference content-wrapper">
+               <span></span>
+               ${
+                 ref.refrenceName
+                   ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+                   : ""
+               }
+               ${
+                 ref.referenceTitleAndOrg
+                   ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
+                   : ""
+               }
+               ${
+                 ref.refrenceEmail
+                   ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
+                   : ""
+               }
+                </div>
+     `;
+             })
+             .join("")}
+     
+     </div>
+     `
+            : ""
+        }
+       
       </div>
       
   
@@ -1188,7 +1196,7 @@ ${
        <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
           : ""
       }
       ${
@@ -1233,7 +1241,7 @@ ${
           }
           
           `
-             : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+             : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
          }
          
         `
@@ -1310,20 +1318,21 @@ ${
       
       <div class="large-profile">
         <div class="passportDateOfBirth">
-          <div class="passport-box">
+         
           ${
             data.images
-              ? `<img
+              ? ` <div class="passport-box"><img
             src="${data.images.url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
             
             
-            />`
+            />
+            </div>
+            `
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
-          </div>
           <div class="date-of-birth">
             <p class="dateOfBirth">date of birth:</p>
             <p>${data.dateofbirth}</p>
@@ -1494,40 +1503,7 @@ ${
          : ""
      }
   
-         ${
-           data.reffrences.length !== 0
-             ? `<div class="references informationContainer">
-        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
-        ${data.reffrences
-          .filter((val) => val !== {})
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            ${
-              ref.refrenceName
-                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
-                : ""
-            }
-            ${
-              ref.referenceTitleAndOrg
-                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
-                : ""
-            }
-            ${
-              ref.refrenceEmail
-                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
-                : ""
-            }
-             </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-             : ""
-         }
-  
+       
       ${
         data.interest.length !== 0
           ? `   <div class="interest informationContainer">
@@ -1537,6 +1513,41 @@ ${
       </ul></div>`
           : ""
       }
+      ${
+        data.reffrences.length !== 0
+          ? `<div class="references informationContainer">
+     <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+     ${data.reffrences
+       .filter((val) => val !== {})
+       .map((ref) => {
+         return `
+         <div class="reference content-wrapper">
+         <span></span>
+         ${
+           ref.refrenceName
+             ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+             : ""
+         }
+         ${
+           ref.referenceTitleAndOrg
+             ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
+             : ""
+         }
+         ${
+           ref.refrenceEmail
+             ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
+             : ""
+         }
+          </div>
+`;
+       })
+       .join("")}
+
+</div>
+`
+          : ""
+      }
+
     </div>
     <div class="large-content">
     ${
@@ -1565,7 +1576,7 @@ ${
        <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
           : ""
       }
       ${
@@ -1610,7 +1621,7 @@ ${
           }
           
           `
-             : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+             : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
          }
          
         `
@@ -1863,38 +1874,7 @@ ${
          : ""
      }
   
-         ${
-           data.reffrences.length !== 0
-             ? `<div class="references informationContainer">
-        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            ${
-              ref.refrenceName
-                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
-                : ""
-            }
-            ${
-              ref.referenceTitleAndOrg
-                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
-                : ""
-            }
-            ${
-              ref.refrenceEmail
-                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
-                : ""
-            }
-             </div>
-  `;
-          })
-          .join("")}
-  
-  </div>
-  `
-             : ""
-         }
+       
          ${
            data.interest.length !== 0
              ? `   <div class="interest informationContainer">
@@ -1904,6 +1884,39 @@ ${
         </ul></div>`
              : ""
          }
+         ${
+          data.reffrences.length !== 0
+            ? `<div class="references informationContainer">
+       <h3 class="inforHeader shouldNotBreak">Refrence</h3>
+       ${data.reffrences
+         .map((ref) => {
+           return `
+           <div class="reference content-wrapper">
+           <span></span>
+           ${
+             ref.refrenceName
+               ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+               : ""
+           }
+           ${
+             ref.referenceTitleAndOrg
+               ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
+               : ""
+           }
+           ${
+             ref.refrenceEmail
+               ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
+               : ""
+           }
+            </div>
+ `;
+         })
+         .join("")}
+ 
+ </div>
+ `
+            : ""
+        }
       </div>
   
       <div class="large-content">
@@ -1947,7 +1960,7 @@ ${
          <div class="box-for-title-and-org shouldNotBreak">
         ${
           experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
             : ""
         }
         ${
@@ -1992,7 +2005,7 @@ ${
             }
             
             `
-               : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+               : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
            }
            
           `
@@ -2263,6 +2276,7 @@ ${
             return `
             <div class="reference content-wrapper">
             <span></span>
+
             ${
               ref.refrenceName
                 ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
@@ -2378,7 +2392,7 @@ ${
           }
           
           `
-             : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+             : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
          }
          
         `
@@ -2499,7 +2513,7 @@ ${
          <div class="box-for-title-and-org shouldNotBreak">
         ${
           experience.jobTitle
-            ? ` <p class="jobtitle">${experience.jobTitle}</p>/" \"`
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
             : ""
         }
         ${
@@ -2544,7 +2558,7 @@ ${
             }
             
             `
-               : ` <p class="experienceOptain shouldNotBreak">${experience.experience}</p>`
+               : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
            }
            
           `
@@ -2619,6 +2633,27 @@ ${
       </div>
   
       <div class="tiny-content">
+      <div class="passportDateOfBirth">
+      <div class="passport-box">
+      ${
+        data.images
+          ? `<img
+        src="${data.images.url}"
+        alt=""
+        class="passport"
+        crossOrigin="anonymous" 
+        
+        
+        />`
+          : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+      } 
+      </div>
+      <div class="date-of-birth">
+        <p class="dateOfBirth">date of birth:</p>
+        <p>${data.dateofbirth}</p>
+      </div>
+    </div>
+
       <div class="contact-information informationContainer">
       <h3 class="inforHeader shouldNotBreak">Contact information</h3>
       <div class="content-wrapper">
@@ -2758,6 +2793,19 @@ ${
   }
   
   
+   
+    ${
+      data.interest.length !== 0
+        ? `   <div class="interest informationContainer">
+      <h3 class="inforHeader shouldNotBreak">Interest</h3>
+      <ul class="content-wrapper">
+      ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
+      </ul>
+    </div>
+      `
+        : ""
+    }
+   
     ${
       data.reffrences.length !== 0
         ? `<div class="references informationContainer">
@@ -2766,6 +2814,7 @@ ${
         .map((ref) => {
           return `
           <div class="reference content-wrapper">
+          <span></span>
           ${
             ref.refrenceName ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>` : ""
           }
@@ -2788,39 +2837,7 @@ ${
   `
         : ""
     }
-    ${
-      data.interest.length !== 0
-        ? `   <div class="interest informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Interest</h3>
-      <ul class="content-wrapper">
-      ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
-      </ul>
-    </div>
-      `
-        : ""
-    }
         
-        <div class="passportDateOfBirth">
-        <div class="passport-box">
-        ${
-          data.images
-            ? `<img
-          src="${data.images.url}"
-          alt=""
-          class="passport"
-          crossOrigin="anonymous" 
-          
-          
-          />`
-            : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-        } 
-        </div>
-        <div class="date-of-birth">
-          <p class="dateOfBirth">date of birth:</p>
-          <p>${data.dateofbirth}</p>
-        </div>
-      </div>
-  
       </div>
     </div>`;
     }

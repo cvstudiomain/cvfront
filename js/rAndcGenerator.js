@@ -1,3 +1,23 @@
+
+// ${
+
+//   data.languages.length!==0?`
+//   <div class="languages informationContainer">
+//   <h3 class="inforHeader shouldNotBreak">Languages</h3>
+// ${data.languages.map(val=>
+// `
+// <div class="language content-wrapper">
+//     <p class="theLang shouldNotBreak">${val.language}</p>
+//     <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+//   </div> 
+// </div>
+// `
+// ).join("")
+
+// }
+//   `:""
+// }
+
 function capitalizeFirstLetter(string) {
   const wordsInString = string?.toLowerCase().split(" ");
   const fixedString = wordsInString
@@ -896,27 +916,6 @@ ${
           </ul></div>`
             : ""
         }
-
-${
-
-  data.languages.length!==0?`
-  <div class="languages informationContainer">
-  <h3 class="inforHeader shouldNotBreak">Languages</h3>
-${data.languages.map(val=>
-`
-<div class="language content-wrapper">
-    <p class="theLang shouldNotBreak">${val.language}</p>
-    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-  </div> 
-</div>
-`
-).join("")
-
-}
-  `:""
-}
-
-
         ${
           data.reffrences.length !== 0
             ? `<div class="references informationContainer">
@@ -1138,24 +1137,6 @@ ${data.languages.map(val=>
             .join("")}
         </ul></div>`
             : ""
-        }
-        ${
-
-          data.languages.length!==0?`
-          <div class="languages informationContainer">
-          <h3 class="inforHeader shouldNotBreak">Languages</h3>
-        ${data.languages.map(val=>
-        `
-        <div class="language content-wrapper">
-            <p class="theLang shouldNotBreak">${val.language}</p>
-            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-          </div> 
-        </div>
-        `
-        ).join("")
-        
-        }
-          `:""
         }
 
         ${
@@ -1553,24 +1534,6 @@ ${data.languages.map(val=>
           : ""
       }
       ${
-
-        data.languages.length!==0?`
-        <div class="languages informationContainer">
-        <h3 class="inforHeader shouldNotBreak">Languages</h3>
-      ${data.languages.map(val=>
-      `
-      <div class="language content-wrapper">
-          <p class="theLang shouldNotBreak">${val.language}</p>
-          <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-        </div> 
-      </div>
-      `
-      ).join("")
-      
-      }
-        `:""
-      }
-      ${
         data.reffrences.length !== 0
           ? `<div class="references informationContainer">
      <h3 class="inforHeader shouldNotBreak">Refrence</h3>
@@ -1941,27 +1904,6 @@ ${data.languages.map(val=>
         </ul></div>`
              : ""
          }
-
-         ${
-
-          data.languages.length!==0?`
-          <div class="languages informationContainer">
-          <h3 class="inforHeader shouldNotBreak">Languages</h3>
-        ${data.languages.map(val=>
-        `
-        <div class="language content-wrapper">
-            <p class="theLang shouldNotBreak">${val.language}</p>
-            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-          </div> 
-        </div>
-        `
-        ).join("")
-        
-        }
-          `:""
-        }
-
-
          ${
           data.reffrences.length !== 0
             ? `<div class="references informationContainer">
@@ -2344,24 +2286,7 @@ ${data.languages.map(val=>
         `
           : ""
       }
-      ${
 
-        data.languages.length!==0?`
-        <div class="languages informationContainer">
-        <h3 class="inforHeader shouldNotBreak">Languages</h3>
-      ${data.languages.map(val=>
-      `
-      <div class="language content-wrapper">
-          <p class="theLang shouldNotBreak">${val.language}</p>
-          <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-        </div> 
-      </div>
-      `
-      ).join("")
-      
-      }
-        `:""
-      }
       ${
         data.reffrences.length !== 0
           ? `<div class="references informationContainer">
@@ -2900,25 +2825,7 @@ ${data.languages.map(val=>
       `
         : ""
     }
-    ${
-
-      data.languages.length!==0?`
-      <div class="languages informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Languages</h3>
-    ${data.languages.map(val=>
-    `
-    <div class="language content-wrapper">
-        <p class="theLang shouldNotBreak">${val.language}</p>
-        <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-      </div> 
-    </div>
-    `
-    ).join("")
-    
-    }
-      `:""
-    }
-
+   
     ${
       data.reffrences.length !== 0
         ? `<div class="references informationContainer">

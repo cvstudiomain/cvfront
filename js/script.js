@@ -572,7 +572,7 @@ formBtn.addEventListener("click", async function (e) {
      }
      model.state.user.summeryData.forEach(val=>{
             if(val[0]==="language")langObject.language=val[1];
-            if(val[0]==="langLevel")langObject.level=val[1];
+            if(val[0]==="langLevel"&&langObject.language!=="")langObject.level=val[1];
      })
      model.state.user.languages.push(langObject)
     //  return console.log(model.state.user.languages)
@@ -646,7 +646,7 @@ formBtn.addEventListener("click", async function (e) {
         objectOutOfArray(val)
       ),
       experiences: model.state.user.experiences,
-      languages:model.state.user.languages,
+      languages:model.state.user.languages.filter(val=>val.language!==""),
       reffrences: model.state.user.reffrences.map((val) =>
         objectOutOfArray(val)
       ),
@@ -976,11 +976,11 @@ cvDataForm.addEventListener("click", async function (e) {
       
       newData.forEach(val=>{
         if(val[0]==="language")langObject.language=val[1]
-        if(val[0]==="langLevel")langObject.level=val[1]
+        if(val[0]==="langLevel"&&langObject.language!=="")langObject.level=val[1];
 
       })
       model.state.user.languages.push(langObject)
-      // console.log(newData)
+      // return console.log(newData)
     }
     if (btn.classList.contains("btnAddEducation")) {
       document

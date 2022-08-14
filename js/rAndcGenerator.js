@@ -1003,6 +1003,7 @@ ${
        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
        ${data.reffrences
          .map((ref) => {
+           if(ref.language||ref.langLevel)return
            return `
            <div class="reference content-wrapper">
            <span></span>
@@ -1252,6 +1253,7 @@ ${
         <h3 class="inforHeader shouldNotBreak">Refrence</h3>
            ${data.reffrences
              .map((ref) => {
+              if(ref.language||ref.langLevel)return
                return `
                <div class="reference content-wrapper">
                <span></span>
@@ -1679,7 +1681,9 @@ ${
      ${data.reffrences
        .filter((val) => val !== {})
        .map((ref) => {
+        if(ref.language||ref.langLevel)return
          return `
+         
          <div class="reference content-wrapper">
          <span></span>
          ${
@@ -2082,6 +2086,7 @@ ${
        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
        ${data.reffrences
          .map((ref) => {
+          if(ref.language||ref.langLevel)return
            return `
            <div class="reference content-wrapper">
            <span></span>
@@ -2495,6 +2500,7 @@ ${
 <h3 class="inforHeader shouldNotBreak">Refrence</h3>
 ${data.reffrences
 .map((ref) => {
+  if(ref.language||ref.langLevel)return
   return `
   <div class="reference content-wrapper">
   <span></span>
@@ -3066,6 +3072,7 @@ ${data.reffrences
       <h3 class="inforHeader shouldNotBreak">Refrence</h3>
       ${data.reffrences
         .map((ref) => {
+          if(ref.language||ref.langLevel)return
           return `
           <div class="reference content-wrapper">
           <span></span>

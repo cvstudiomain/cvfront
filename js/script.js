@@ -526,7 +526,7 @@ const getCvOrLetter = async function (data) {
   const res = await axios.post("https://app.cvstudio.io/resume/create", {
     ...data,
   });
-
+// return console.log(res)
   model.state.resume = res.data.data;
   model.state.resumes.push(model.state.resume);
   model.state.user.myResumes.push(

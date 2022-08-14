@@ -1,23 +1,3 @@
-
-// ${
-
-//   data.languages.length!==0?`
-//   <div class="languages informationContainer">
-//   <h3 class="inforHeader shouldNotBreak">Languages</h3>
-// ${data.languages.map(val=>
-// `
-// <div class="language content-wrapper">
-//     <p class="theLang shouldNotBreak">${val.language}</p>
-//     <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-//   </div> 
-// </div>
-// `
-// ).join("")
-
-// }
-//   `:""
-// }
-
 function capitalizeFirstLetter(string) {
   const wordsInString = string?.toLowerCase().split(" ");
   const fixedString = wordsInString
@@ -77,9 +57,21 @@ export const createPdfMarckup = function (data) {
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        ${
+          data.receipient
+            ? `<li class="shouldNotBreak">${data.receipient}</li>`
+            : ""
+        }
+        ${
+          data.compenyname
+            ? `<li class="shouldNotBreak">${data.compenyname}</li>`
+            : ""
+        }
+        ${
+          data.streetaddress
+            ? `<li class="shouldNotBreak">${data.streetaddress}</li>`
+            : ""
+        }
         <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
@@ -200,9 +192,21 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        ${
+          data.receipient
+            ? `<li class="shouldNotBreak">${data.receipient}</li>`
+            : ""
+        }
+        ${
+          data.compenyname
+            ? `<li class="shouldNotBreak">${data.compenyname}</li>`
+            : ""
+        }
+        ${
+          data.streetaddress
+            ? `<li class="shouldNotBreak">${data.streetaddress}</li>`
+            : ""
+        }
         <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
@@ -288,9 +292,21 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        ${
+          data.receipient
+            ? `<li class="shouldNotBreak">${data.receipient}</li>`
+            : ""
+        }
+        ${
+          data.compenyname
+            ? `<li class="shouldNotBreak">${data.compenyname}</li>`
+            : ""
+        }
+        ${
+          data.streetaddress
+            ? `<li class="shouldNotBreak">${data.streetaddress}</li>`
+            : ""
+        }
         <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
@@ -378,9 +394,21 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        ${
+          data.receipient
+            ? `<li class="shouldNotBreak">${data.receipient}</li>`
+            : ""
+        }
+        ${
+          data.compenyname
+            ? `<li class="shouldNotBreak">${data.compenyname}</li>`
+            : ""
+        }
+        ${
+          data.streetaddress
+            ? `<li class="shouldNotBreak">${data.streetaddress}</li>`
+            : ""
+        }
         <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
@@ -463,9 +491,19 @@ ${
 </div>
   <ul>
   ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
-  ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
-  ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
-  <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${data.state ? data.state : ""}</li>
+  ${
+    data.compenyname
+      ? `<li class="shouldNotBreak">${data.compenyname}</li>`
+      : ""
+  }
+  ${
+    data.streetaddress
+      ? `<li class="shouldNotBreak">${data.streetaddress}</li>`
+      : ""
+  }
+  <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
+        data.state ? data.state : ""
+      }</li>
   <li class="shouldNotBreak">${new Date(data.date).toDateString()}</li>
   </ul>
   <div class="large-content">
@@ -499,9 +537,21 @@ ${
   <div class="large-content">
     <div class="letterContainer" >
       <ul>
-        ${data.receipient ? `<li class="shouldNotBreak">${data.receipient}</li>` : ""}
-        ${data.compenyname ? `<li class="shouldNotBreak">${data.compenyname}</li>` : ""}
-        ${data.streetaddress ? `<li class="shouldNotBreak">${data.streetaddress}</li>` : ""}
+        ${
+          data.receipient
+            ? `<li class="shouldNotBreak">${data.receipient}</li>`
+            : ""
+        }
+        ${
+          data.compenyname
+            ? `<li class="shouldNotBreak">${data.compenyname}</li>`
+            : ""
+        }
+        ${
+          data.streetaddress
+            ? `<li class="shouldNotBreak">${data.streetaddress}</li>`
+            : ""
+        }
         <li class="shouldNotBreak">${data.city ? data.city + "," : ""} ${
         data.state ? data.state : ""
       }</li>
@@ -618,8 +668,8 @@ ${
   
   
        ${
-        data.experiences.length !== 0
-          ? `
+         data.experiences.length !== 0
+           ? `
       <div class="recent-experience informationContainer">
       <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
@@ -705,8 +755,8 @@ ${
         
            
       </div>`
-          : ""
-      }
+           : ""
+       }
      
          
   
@@ -733,7 +783,9 @@ ${
         }
         
       </div>
-    <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+    <p class="qualification shouldNotBreak">${
+      edu.qualification ? edu.qualification : ""
+    }</p>
     <p class="school-and-address shouldNotBreak">
     ${edu.eduAndAddress ? edu.eduAndAddress : ""}
     </p>
@@ -756,7 +808,9 @@ ${
       <div class="certification informationContainer">
     <h3 class="inforHeader shouldNotBreak">Certification</h3>
     <ul class="content-wrapper">
-    ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
+    ${data.certifications
+      .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+      .join("")}
     </ul>
     </div>
     `
@@ -899,7 +953,9 @@ ${
     <h3 class="inforHeader shouldNotBreak">Skills</h3>
     <ul class="content-wrapper">
     ${data.skills
-      .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
+      .map(
+        (skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`
+      )
       .join("")}
       </ul>
       </div>
@@ -912,10 +968,36 @@ ${
             ? `   <div class="interest informationContainer">
           <h3 class="inforHeader shouldNotBreak">Interest</h3>
           <ul class="content-wrapper">
-          ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
+          ${data.interest
+            .map((intr) => `<li class="shouldNotBreak">${intr}</li>`)
+            .join("")}
           </ul></div>`
             : ""
         }
+
+
+${
+  data.languages.length !== 0
+    ? `
+  <div class="languages informationContainer">
+  <h3 class="inforHeader shouldNotBreak">Languages</h3>
+${data.languages
+  .map(
+    (val) =>
+      `
+<div class="language content-wrapper">
+    <p class="theLang shouldNotBreak">${val.language}</p>
+    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+  </div> 
+
+`
+  )
+  .join("")}
+  </div>
+  `
+    : ""
+}
+
         ${
           data.reffrences.length !== 0
             ? `<div class="references informationContainer">
@@ -942,7 +1024,7 @@ ${
                : ""
            }
             </div>
- `;
+ `
          })
          .join("")}
  
@@ -967,7 +1049,7 @@ ${
          <div class="passportDateOfBirth">
          ${
            data.images
-              ? `
+             ? `
             <div class="passport-box">
               <img
             src="${data.images.url}"
@@ -979,8 +1061,8 @@ ${
             />
             </div>
             `
-              : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
-          } 
+             : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+         } 
           <div class="date-of-birth">
             <p class="dateOfBirth">date of birth:</p>
             <p>${data.dateofbirth}</p>
@@ -1120,7 +1202,9 @@ ${
          ? `   <div class="skills informationContainer">
       <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
-      ${data.skills.map((skill) => `<li class="shouldNotBreak">${skill}</li>`).join("")}
+      ${data.skills
+        .map((skill) => `<li class="shouldNotBreak">${skill}</li>`)
+        .join("")}
       </ul></div>`
          : ""
      }
@@ -1138,6 +1222,28 @@ ${
         </ul></div>`
             : ""
         }
+
+
+${
+  data.languages.length !== 0
+    ? `
+  <div class="languages informationContainer">
+  <h3 class="inforHeader shouldNotBreak">Languages</h3>
+${data.languages
+  .map(
+    (val) =>
+      `
+<div class="language content-wrapper">
+    <p class="theLang shouldNotBreak">${val.language}</p>
+    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+  </div> 
+  `
+  )
+  .join("")}
+  </div>
+  `
+    : ""
+}
 
         ${
           data.reffrences.length !== 0
@@ -1191,8 +1297,8 @@ ${
      }
   
      ${
-      data.experiences.length !== 0
-        ? `
+       data.experiences.length !== 0
+         ? `
     <div class="recent-experience informationContainer">
     <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
@@ -1278,8 +1384,8 @@ ${
       
          
     </div>`
-        : ""
-    }
+         : ""
+     }
    
   
   
@@ -1305,7 +1411,9 @@ ${
         }
         
       </div>
-  <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+  <p class="qualification shouldNotBreak">${
+    edu.qualification ? edu.qualification : ""
+  }</p>
   <p class="school-and-address shouldNotBreak">
   ${edu.eduAndAddress ? edu.eduAndAddress : ""}
   </p>
@@ -1324,7 +1432,9 @@ ${
   <div class="certification informationContainer">
       <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
+      ${data.certifications
+        .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+        .join("")}
       </ul>
       </div>
       `
@@ -1515,7 +1625,10 @@ ${
       <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
       ${data.skills
-        .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
+        .map(
+          (skill) =>
+            `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`
+        )
         .join("")}
       </ul>
       </div>
@@ -1529,10 +1642,35 @@ ${
           ? `   <div class="interest informationContainer">
         <h3 class="inforHeader shouldNotBreak">Interest</h3>
         <ul class="content-wrapper">
-        ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
+        ${data.interest
+          .map((intr) => `<li class="shouldNotBreak">${intr}</li>`)
+          .join("")}
       </ul></div>`
           : ""
       }
+
+
+      ${
+        data.languages.length !== 0
+          ? `
+        <div class="languages informationContainer">
+        <h3 class="inforHeader shouldNotBreak">Languages</h3>
+      ${data.languages
+        .map(
+          (val) =>
+            `
+      <div class="language content-wrapper">
+          <p class="theLang shouldNotBreak">${val.language}</p>
+          <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+        </div> 
+        `
+        )
+        .join("")}
+        </div>
+        `
+          : ""
+      }
+
       ${
         data.reffrences.length !== 0
           ? `<div class="references informationContainer">
@@ -1685,7 +1823,9 @@ ${
         }
         
       </div>
-  <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+  <p class="qualification shouldNotBreak">${
+    edu.qualification ? edu.qualification : ""
+  }</p>
   <p class="school-and-address shouldNotBreak">
   ${edu.eduAndAddress ? edu.eduAndAddress : ""}
   </p>
@@ -1704,7 +1844,9 @@ ${
              ? `<div class="certification informationContainer">
       <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
+      ${data.certifications
+        .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+        .join("")}
       </ul>
       </div>
       `
@@ -1886,7 +2028,10 @@ ${
       <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
       ${data.skills
-        .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
+        .map(
+          (skill) =>
+            `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`
+        )
         .join("")}
       </ul>
       </div>
@@ -1900,13 +2045,37 @@ ${
              ? `   <div class="interest informationContainer">
           <h3 class="inforHeader shouldNotBreak">Interest</h3>
           <ul class="content-wrapper">
-          ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
+          ${data.interest
+            .map((intr) => `<li class="shouldNotBreak">${intr}</li>`)
+            .join("")}
         </ul></div>`
              : ""
          }
+
          ${
-          data.reffrences.length !== 0
-            ? `<div class="references informationContainer">
+           data.languages.length !== 0
+             ? `
+          <div class="languages informationContainer">
+          <h3 class="inforHeader shouldNotBreak">Languages</h3>
+        ${data.languages
+          .map(
+            (val) =>
+              `
+        <div class="language content-wrapper">
+            <p class="theLang shouldNotBreak">${val.language}</p>
+            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+          </div> 
+          `
+          )
+          .join("")}
+          </div>
+          `
+             : ""
+         }
+
+         ${
+           data.reffrences.length !== 0
+             ? `<div class="references informationContainer">
        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
        ${data.reffrences
          .map((ref) => {
@@ -1935,8 +2104,8 @@ ${
  
  </div>
  `
-            : ""
-        }
+             : ""
+         }
       </div>
   
       <div class="large-content">
@@ -2094,7 +2263,9 @@ ${
           ? `<div class="certification informationContainer">
         <h3 class="inforHeader shouldNotBreak">Certification</h3>
         <ul class="content-wrapper">
-        ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
+        ${data.certifications
+          .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+          .join("")}
         </ul>
         </div>
         `
@@ -2266,7 +2437,10 @@ ${
       <h3 class="inforHeader shouldNotBreak">Skills</h3>
       <ul class="content-wrapper">
       ${data.skills
-        .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
+        .map(
+          (skill) =>
+            `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`
+        )
         .join("")}
       </ul>
       </div>
@@ -2280,48 +2454,69 @@ ${
           ? `   <div class="interest informationContainer">
         <h3 class="inforHeader shouldNotBreak">Interest</h3>
         <ul class="content-wrapper">
-        ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
+        ${data.interest
+          .map((intr) => `<li class="shouldNotBreak">${intr}</li>`)
+          .join("")}
         </ul>
       </div>
         `
           : ""
       }
 
-      ${
-        data.reffrences.length !== 0
-          ? `<div class="references informationContainer">
-        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
-        ${data.reffrences
-          .map((ref) => {
-            return `
-            <div class="reference content-wrapper">
-            <span></span>
 
-            ${
-              ref.refrenceName
-                ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
-                : ""
-            }
-            ${
-              ref.referenceTitleAndOrg
-                ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
-                : ""
-            }
-            ${
-              ref.refrenceEmail
-                ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
-                : ""
-            }
-             </div>
-  `;
-          })
-          .join("")}
-  
+${
+  data.languages.length !== 0
+    ? `
+  <div class="languages informationContainer">
+  <h3 class="inforHeader shouldNotBreak">Languages</h3>
+${data.languages
+  .map(
+    (val) =>
+      `
+<div class="language content-wrapper">
+    <p class="theLang shouldNotBreak">${val.language}</p>
+    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+  </div> 
+  `
+  )
+  .join("")}
   </div>
   `
-          : ""
-      }
-  
+    : ""
+}
+${
+  data.reffrences.length !== 0
+    ? `<div class="references informationContainer">
+<h3 class="inforHeader shouldNotBreak">Refrence</h3>
+${data.reffrences
+.map((ref) => {
+  return `
+  <div class="reference content-wrapper">
+  <span></span>
+  ${
+    ref.refrenceName
+      ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+      : ""
+  }
+  ${
+    ref.referenceTitleAndOrg
+      ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
+      : ""
+  }
+  ${
+    ref.refrenceEmail
+      ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
+      : ""
+  }
+   </div>
+`;
+})
+.join("")}
+
+</div>
+`
+    : ""
+}
         </div>
   
     <div class="large-content">
@@ -2457,7 +2652,9 @@ ${
         }
         
       </div>
-      <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+      <p class="qualification shouldNotBreak">${
+        edu.qualification ? edu.qualification : ""
+      }</p>
       <p class="school-and-address shouldNotBreak">
       ${edu.eduAndAddress ? edu.eduAndAddress : ""}
       </p>
@@ -2477,7 +2674,9 @@ ${
         ? `<div class="certification informationContainer">
       <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
+      ${data.certifications
+        .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+        .join("")}
       </ul>
       </div>
       `
@@ -2624,7 +2823,9 @@ ${
         }
         
       </div>
-      <p class="qualification shouldNotBreak">${edu.qualification ? edu.qualification : ""}</p>
+      <p class="qualification shouldNotBreak">${
+        edu.qualification ? edu.qualification : ""
+      }</p>
       <p class="school-and-address shouldNotBreak">
       ${edu.eduAndAddress ? edu.eduAndAddress : ""}
       </p>
@@ -2644,7 +2845,9 @@ ${
         ? `<div class="certification informationContainer">
       <h3 class="inforHeader shouldNotBreak">Certification</h3>
       <ul class="content-wrapper">
-      ${data.certifications.map((cert) => `<li class="shouldNotBreak">${cert}</li>`).join("")}
+      ${data.certifications
+        .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+        .join("")}
       </ul>
       </div>
       `
@@ -2804,7 +3007,9 @@ ${
     <h3 class="inforHeader shouldNotBreak">Skills</h3>
     <ul class="content-wrapper">
     ${data.skills
-      .map((skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`)
+      .map(
+        (skill) => `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`
+      )
       .join("")}
     </ul>
     </div>
@@ -2819,12 +3024,35 @@ ${
         ? `   <div class="interest informationContainer">
       <h3 class="inforHeader shouldNotBreak">Interest</h3>
       <ul class="content-wrapper">
-      ${data.interest.map((intr) => `<li class="shouldNotBreak">${intr}</li>`).join("")}
+      ${data.interest
+        .map((intr) => `<li class="shouldNotBreak">${intr}</li>`)
+        .join("")}
       </ul>
     </div>
       `
         : ""
     }
+
+${
+  data.languages.length !== 0
+    ? `
+  <div class="languages informationContainer">
+  <h3 class="inforHeader shouldNotBreak">Languages</h3>
+${data.languages
+  .map(
+    (val) =>
+      `
+<div class="language content-wrapper">
+    <p class="theLang shouldNotBreak">${val.language}</p>
+    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+  </div> 
+  `
+  )
+  .join("")}
+  </div>
+  `
+    : ""
+}
    
     ${
       data.reffrences.length !== 0
@@ -2836,7 +3064,9 @@ ${
           <div class="reference content-wrapper">
           <span></span>
           ${
-            ref.refrenceName ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>` : ""
+            ref.refrenceName
+              ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+              : ""
           }
           ${
             ref.referenceTitleAndOrg

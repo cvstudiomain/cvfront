@@ -75,31 +75,39 @@ document.querySelector(".nav-tabs").addEventListener("click", function (e) {
   this.querySelectorAll(".tab").forEach((t) => t.classList.remove("active1"));
   e.target.classList.add("active1");
   // return console.log(document.querySelector(`.${model.state.section}`));
-
-  let alltemp = document
-    .querySelector(`.${model.state.section}`)
-    .querySelectorAll(".rl");
-  alltemp.forEach((tem) => tem.classList.remove("hiddenClass"));
-  if (e.target.classList.contains("tab-all")) {
-    alltemp.forEach((temp) => {
-      if (temp.classList.contains("hiddenClass"))
-        return temp.classList.remove("hiddenClass");
-    });
+  let filterString="";
+  let filteredDater="";
+  if (e.target.classList.contains("tab-cl"))filterString= "letter"
+  if (e.target.classList.contains("tab-resumes")) filterString = "resume";
+  if(model.state.section==="myResume"){
+    filteredPager(filterString,model.state.user.myResumes,myResume,pbox1)
+   
   }
-
-  if (e.target.classList.contains("tab-resumes")) {
-    alltemp.forEach((tem) => {
-      if (!tem.classList.contains("resume"))
-        return tem.classList.add("hiddenClass");
-    });
+  if(model.state.section==="templates"){
+    filteredPager(filterString,arct.allTemplates,templates,pbox2)
+   
   }
-  if (e.target.classList.contains("tab-cl")) {
-    alltemp.forEach((tem) => {
-      if (!tem.classList.contains("letter"))
-        return tem.classList.add("hiddenClass");
-    });
+  if(model.state.section==="myTemplates"){
+    filteredPager(filterString,model.state.user.userTotalTemplates,myTemplates,pbox3)
+   
   }
+  
+  
+  
 });
+const filteredPager=function(theString,theData,theBox,buttonsBox){
+  theBox.innerHTML="";
+  buttonsBox.innerHTML="";
+   
+let newData=[];
+theData.forEach(data=>{
+  let doc = new DOMParser().parseFromString(data, "text/xml");
+  if (doc.firstChild.classList.contains(theString)) newData.push(data)})
+  // return console.log(newData)
+
+  theString!==""? identifyBox(theBox,newData,buttonsBox):identifyBox(theBox,theData,buttonsBox);
+
+}
 
 btnNavEl.addEventListener("click", function () {
   console.log("ok");
@@ -766,6 +774,7 @@ const identifyBox = function (box, content, pBox) {
   model.state.searchResult.map((result) => {
     box.insertAdjacentHTML("afterbegin", result.toString());
   });
+  // console.log(pBox)
   pBox.insertAdjacentHTML(
     "beforeend",
     pagination.paginationMarckup(content, true)

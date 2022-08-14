@@ -104,7 +104,7 @@ document.querySelectorAll(".log-out").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.clear();
-    location.reload();
+    window.location="index.html";
   });
 });
 const deletUserAndResumes = async function (id) {

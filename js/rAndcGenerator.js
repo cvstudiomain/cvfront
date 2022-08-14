@@ -87,7 +87,7 @@ export const createPdfMarckup = function (data) {
   
   <div class="tiny-content">
     <div class="contact-information informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+     
       <div class="content-wrapper">
         ${
           data.email
@@ -127,16 +127,6 @@ ${
   <div class="template rl template2 letter cover cover2" id="${data._id}">
   
   <div class="user-name-and-profession">
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
-    ${
-      data.profession
-        ? `
-      <p class="profession">${data.profession}</p>
-      `
-        : ""
-    }
-  </div>
-  <div class="tiny-content">
   ${
     data.images
       ? `
@@ -154,10 +144,17 @@ ${
          </div>`
       : ""
   } 
+    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+    ${
+      data.profession
+        ? `
+      <p class="profession">${data.profession}</p>
+      `
+        : ""
+    }
 
-  
     <div class="contact-information informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+     
       <div class="content-wrapper">
         ${
           data.email
@@ -188,6 +185,7 @@ ${
       </div>
     </div>
   </div>
+ 
   
   <div class="large-content">
     <div class="letterContainer" >
@@ -566,7 +564,7 @@ ${
   
   <div class="tiny-content">
     <div class="contact-information informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Contact information</h3>
+     
       <div class="content-wrapper">
         ${
           data.email

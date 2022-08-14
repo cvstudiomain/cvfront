@@ -548,6 +548,7 @@ input[type="submit"] {
   align-items: center;
   justify-content: center;
 }
+
 .template .languages{
   width: 90%;
 }
@@ -1019,7 +1020,7 @@ button {
 .site-nav ul .log-out a {
   color: #fff;
 }
-.log-out {
+.site-nav .log-out {
   height: 80px;
   background-color: #660626;
 }
@@ -1343,7 +1344,7 @@ button {
 .template .education span {
   background-color: #000;
 }
-.template ul {
+.resume ul {
   text-align: justify;
   /* list-style: none; */
   margin-left: 2rem;
@@ -1541,7 +1542,8 @@ button {
   grid-column: 1/-1;
   background-color: #1b2d4f;
   color: #fff;
-  height: 12rem;
+  height: fit-content;
+  min-height: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1792,7 +1794,9 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center; */
-
+  height: 100%;
+  justify-self: center;
+  /* line-height: 1.1; */
   display: flex;
   flex-direction: column;
   grid-column: 1;
@@ -1805,7 +1809,7 @@ button {
   font-size: 2.4rem;
   /* background-color: #ccf2cc; */
   /* padding: 0.6rem 2rem; */
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
   /* border-top-left-radius: 5rem; */
   /* border-bottom-right-radius: 5rem; */
 }
@@ -1919,10 +1923,27 @@ button {
   grid-template-rows: auto auto 1fr;
   align-items: start;
 }
+.cover ul{
+  list-style: none;
+}
+.cover1 .user-name-and-profession,
 .cover .tiny-content {
+
   height: fit-content;
+  min-height: 14rem;
+  /* width: fit-content; */
+}
+.cover1 .user-name-and-profession{
+  align-self: center;
+  justify-content: center;
+}
+.cover2 .contact-information {
   width: fit-content;
 }
+.cover2 .contact-information .content-wrapper{
+  flex-direction: row;
+}
+.cover2 .contact-information .content-wrapper .information{max-width: 24rem;}
 .cover2 .tiny-content {
   flex-direction: row;
   width: auto;
@@ -1934,12 +1955,10 @@ button {
 .cover2 .passportDateOfBirth {
   width: 50%;
 }
-.cover2 .contact-information {
-  width: 50%;
-}
+
 .cover .large-content {
   grid-column: 1/-1;
-  padding: 0 3rem;
+  padding:3rem;
 }
 .cover4 .user-name-and-profession {
   margin-top: 0;
@@ -1947,30 +1966,50 @@ button {
 .cover4 .content-wrapper {
   justify-content: center;
 }
+.cover4 .contact-information,.over2 .user-name-and-profession{
+  min-width: 49.6rem;
+  min-height: 16rem;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.cover4 .contact-information{
+  /* max-width: 49.6rem; */
+  
+  background-color: #660626;
+  color: #fff;
+}
 .cover4 .profession {
-  background-color: #ffe7ef;
-  border-bottom-left-radius: 1px;
-  border-top-right-radius: 1px;
-  color: black;
+  
+  /* color: black; */
   margin-top: 1.5rem;
 }
 .cover5 {
-  grid-template-columns: 1fr 20rem;
+  grid-template-columns: 1fr 16rem;
   border-top-right-radius: 5rem;
+}
+.cover5 .user-name-and-profession{
+  max-width: 28rem;
+
 }
 .cover5 ul {
   margin-left: 1rem;
   /* margin-bottom: -6rem; */
   /* grid-row: 1; */
   padding: 0 2rem;
-  margin-bottom: 1rem;
+  padding-top: 3rem;
+  /* margin-bottom: 1rem; */
   grid-column: 1;
   align-self: end;
 }
 .cover5 .tiny-content {
   grid-column: 2/-1;
 }
-
+.cover5 .large-content{
+  padding-top: 0;
+}
 .cover3 .contact-information {
   margin: 1.5rem;
   align-items: flex-end;

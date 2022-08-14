@@ -620,6 +620,7 @@ ${
   }
 
   if (data.template.type === "resume") {
+    
     if (data.template.template === "resume1") {
       marckup = `<div id="${data._id}" class="template resume rl template1">
       <div class="user-name-and-profession">
@@ -642,7 +643,7 @@ ${
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
           </div>
-           
+  
           <div class="date-of-birth">
             <p class="dateOfBirth">date of birth:</p>
             <p>${data.dateofbirth}</p>
@@ -669,7 +670,7 @@ ${
          data.experiences.length !== 0
            ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
@@ -973,29 +974,28 @@ ${
             : ""
         }
 
-
-${
-  data.languages.length !== 0
-    ? `
-  <div class="languages informationContainer">
-  <h3 class="inforHeader shouldNotBreak">Languages</h3>
-${data.languages
-  .map(
-    (val) =>
-      `
-<div class="language content-wrapper">
-    <p class="theLang shouldNotBreak">${val.language}</p>
-    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-  </div> 
-
-`
-  )
-  .join("")}
-  </div>
-  `
-    : ""
-}
-
+        ${
+          data.languages.length !== 0
+            ? `
+          <div class="languages informationContainer">
+          <h3 class="inforHeader shouldNotBreak">Languages</h3>
+        ${data.languages
+          .map(
+            (val) =>`
+            ${val.language?`
+              <div class="language content-wrapper">
+              <p class="theLang shouldNotBreak">${val.language}</p>
+              <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+              </div> 
+              `:""}
+        
+        `
+          )
+          .join("")}
+          </div>
+          `
+            : ""
+        }
         ${
           data.reffrences.length !== 0
             ? `<div class="references informationContainer">
@@ -1222,26 +1222,28 @@ ${data.languages
         }
 
 
-${
-  data.languages.length !== 0
-    ? `
-  <div class="languages informationContainer">
-  <h3 class="inforHeader shouldNotBreak">Languages</h3>
-${data.languages
-  .map(
-    (val) =>
-      `
-<div class="language content-wrapper">
-    <p class="theLang shouldNotBreak">${val.language}</p>
-    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-  </div> 
-  `
-  )
-  .join("")}
-  </div>
-  `
-    : ""
-}
+        ${
+          data.languages.length !== 0
+            ? `
+          <div class="languages informationContainer">
+          <h3 class="inforHeader shouldNotBreak">Languages</h3>
+        ${data.languages
+          .map(
+            (val) =>`
+            ${val.language?`
+              <div class="language content-wrapper">
+              <p class="theLang shouldNotBreak">${val.language}</p>
+              <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+              </div> 
+              `:""}
+        
+        `
+          )
+          .join("")}
+          </div>
+          `
+            : ""
+        }
 
         ${
           data.reffrences.length !== 0
@@ -1298,7 +1300,7 @@ ${data.languages
        data.experiences.length !== 0
          ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
@@ -1655,20 +1657,21 @@ ${data.languages
         <h3 class="inforHeader shouldNotBreak">Languages</h3>
       ${data.languages
         .map(
-          (val) =>
-            `
-      <div class="language content-wrapper">
-          <p class="theLang shouldNotBreak">${val.language}</p>
-          <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-        </div> 
-        `
+          (val) =>`
+          ${val.language?`
+            <div class="language content-wrapper">
+            <p class="theLang shouldNotBreak">${val.language}</p>
+            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+            </div> 
+            `:""}
+      
+      `
         )
         .join("")}
         </div>
         `
           : ""
       }
-
       ${
         data.reffrences.length !== 0
           ? `<div class="references informationContainer">
@@ -1710,7 +1713,7 @@ ${data.languages
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
@@ -2051,25 +2054,27 @@ ${data.languages
          }
 
          ${
-           data.languages.length !== 0
-             ? `
+          data.languages.length !== 0
+            ? `
           <div class="languages informationContainer">
           <h3 class="inforHeader shouldNotBreak">Languages</h3>
         ${data.languages
           .map(
-            (val) =>
-              `
-        <div class="language content-wrapper">
-            <p class="theLang shouldNotBreak">${val.language}</p>
-            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-          </div> 
-          `
+            (val) =>`
+            ${val.language?`
+              <div class="language content-wrapper">
+              <p class="theLang shouldNotBreak">${val.language}</p>
+              <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+              </div> 
+              `:""}
+        
+        `
           )
           .join("")}
           </div>
           `
-             : ""
-         }
+            : ""
+        }
 
          ${
            data.reffrences.length !== 0
@@ -2125,7 +2130,7 @@ ${data.languages
         data.experiences.length !== 0
           ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
@@ -2462,26 +2467,28 @@ ${data.languages
       }
 
 
-${
-  data.languages.length !== 0
-    ? `
-  <div class="languages informationContainer">
-  <h3 class="inforHeader shouldNotBreak">Languages</h3>
-${data.languages
-  .map(
-    (val) =>
+      ${
+        data.languages.length !== 0
+          ? `
+        <div class="languages informationContainer">
+        <h3 class="inforHeader shouldNotBreak">Languages</h3>
+      ${data.languages
+        .map(
+          (val) =>`
+          ${val.language?`
+            <div class="language content-wrapper">
+            <p class="theLang shouldNotBreak">${val.language}</p>
+            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+            </div> 
+            `:""}
+      
       `
-<div class="language content-wrapper">
-    <p class="theLang shouldNotBreak">${val.language}</p>
-    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-  </div> 
-  `
-  )
-  .join("")}
-  </div>
-  `
-    : ""
-}
+        )
+        .join("")}
+        </div>
+        `
+          : ""
+      }
 ${
   data.reffrences.length !== 0
     ? `<div class="references informationContainer">
@@ -2538,7 +2545,7 @@ ${data.reffrences
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
@@ -2708,7 +2715,7 @@ ${data.reffrences
         data.experiences.length !== 0
           ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
@@ -3031,27 +3038,28 @@ ${data.reffrences
         : ""
     }
 
-${
-  data.languages.length !== 0
-    ? `
-  <div class="languages informationContainer">
-  <h3 class="inforHeader shouldNotBreak">Languages</h3>
-${data.languages
-  .map(
-    (val) =>
+    ${
+      data.languages.length !== 0
+        ? `
+      <div class="languages informationContainer">
+      <h3 class="inforHeader shouldNotBreak">Languages</h3>
+    ${data.languages
+      .map(
+        (val) =>`
+        ${val.language?`
+          <div class="language content-wrapper">
+          <p class="theLang shouldNotBreak">${val.language}</p>
+          <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+          `:""}
+      </div> 
+    
+    `
+      )
+      .join("")}
+      </div>
       `
-<div class="language content-wrapper">
-    <p class="theLang shouldNotBreak">${val.language}</p>
-    <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-  </div> 
-  `
-  )
-  .join("")}
-  </div>
-  `
-    : ""
-}
-   
+        : ""
+    }   
     ${
       data.reffrences.length !== 0
         ? `<div class="references informationContainer">

@@ -607,6 +607,8 @@ formBtn.addEventListener("click", async function (e) {
           val[0] !== "interest" &&
           val[0] !== "skill" &&
           val[0] !== "profile" &&
+          val[0] !== "language"&&
+          val[0] !== "langLevel"&&
           val[1] !== "" &&
           refCol.push(val)
       );

@@ -642,7 +642,7 @@ ${
               : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
           } 
           </div>
-  
+           
           <div class="date-of-birth">
             <p class="dateOfBirth">date of birth:</p>
             <p>${data.dateofbirth}</p>
@@ -669,7 +669,7 @@ ${
          data.experiences.length !== 0
            ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
@@ -1298,7 +1298,7 @@ ${data.languages
        data.experiences.length !== 0
          ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
@@ -1710,7 +1710,7 @@ ${data.languages
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
@@ -2125,7 +2125,7 @@ ${data.languages
         data.experiences.length !== 0
           ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0
@@ -2538,7 +2538,7 @@ ${data.reffrences
       data.experiences.length !== 0
         ? `
     <div class="recent-experience informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+    <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
       .map((experience) => {
         return `${
           Object.keys(experience).length !== 0
@@ -2708,7 +2708,7 @@ ${data.reffrences
         data.experiences.length !== 0
           ? `
       <div class="recent-experience informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Experience</h3>${data.experiences
+      <h3 class="inforHeader shouldNotBreak">Work Experience</h3>${data.experiences
         .map((experience) => {
           return `${
             Object.keys(experience).length !== 0

@@ -1941,6 +1941,17 @@ button {
 .cover2 .contact-information {
   width: fit-content;
 }
+.cover2 .passport-box{
+  margin-top:1.5rem;
+  border-radius:50%;
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  border: 0.2rem solid #fff;
+}
+.cover2 .passport-box img{
+  border-radius: inherit;
+}
 .cover2 .contact-information .content-wrapper{
   flex-direction: row;
 }
@@ -1960,6 +1971,10 @@ button {
 .cover .large-content {
   grid-column: 1/-1;
   padding:3rem;
+}
+.cover3 .passport-box{
+  width: 17rem;
+  height: 17rem;
 }
 .cover4 .user-name-and-profession {
   margin-top: 0;

@@ -12,6 +12,7 @@ export const state = {
 
   searchResult: "",
   user: {
+    viewersDataIdentifier:{},
     languages:[],
     userTotalTemplates:[],
     trynow: "",

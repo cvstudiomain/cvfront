@@ -4,6 +4,7 @@ import * as pagination from "./pagination.js";
 // all resumes and cover letter templates
 import * as arct from "./alltemplates.js";
 import * as general from "./general.js"
+
 general.smoothScroll("smoothmove")
 
 // console.log(arct)
@@ -125,10 +126,15 @@ resumesViewer.addEventListener("click", async function (e) {
 //   downloadCv
 // editCv
 // deleteCv
-let btn=e.target
-  if (!btn.classList.contains("viewerBtn")) return;
-  
 
+let btn=e.target
+if (!btn.classList.contains("viewerBtn")) return;
+
+if(btn.classList.contains("deleteCv")){
+  let {templateType,id}=model.state.user.viewersDataIdentifier
+  if (confirm(`Are you sure you want to delete this ${templateType}`) == true)return deleteCvOrLetter(templateType,id)
+   return
+}
   // userDashBoard.classList.remove("hiddenClass");
   if (btn.closest("button").classList.contains("btnCloseView")) {
    
@@ -279,8 +285,14 @@ myResume.addEventListener("click", function (e) {
 
  
   if (e.target.closest(".template")) {
+    let targetElement= e.target.closest(".template");
    myResume.classList.add("hiddenClass");
-    let id = e.target.closest(".template").getAttribute("id");
+    let id =targetElement.getAttribute("id");
+    let templateItentifier={
+      id:id,
+      templateType:targetElement.classList.contains("resume")?"resume":"letter"
+    }
+    model.state.user.viewersDataIdentifier=templateItentifier;
     let marckupData = "";
     model.state.resumes.forEach((resume) =>
       resume._id === id ? (marckupData = resume) : ""
@@ -308,9 +320,9 @@ myResume.addEventListener("click", function (e) {
   <button type="button" class="btn downloadCv viewerBtn">Download</button>
   
   
+  <button type="button" class="btn deleteCv viewerBtn">Delete</button>
   <button type="button" class="btn editCv viewerBtn">Edit</button>
   
-  <button type="button" class="btn deleteCv viewerBtn">Delete</button>
   </div>
   </div>
  `
@@ -783,6 +795,14 @@ const identifyBox = function (box, content, pBox) {
 
 init();
 
+
+const deleteCvOrLetter= async function(templateType,id){
+  let string="";
+  string=templateType==="letter"?`/resume/deletel-letter/:${id}`:`/resume/delete-cv/:${id}`
+  // return console.log(string)
+  let res = await axios.post(`https://app.cvstudio.io${string}`);
+      if(res.data.msg)location.reload();
+}
 const hideTemplateBtns = function (contaner, btnToUse) {
   let templts = contaner.querySelectorAll(".resumeAndLetter");
   templts.forEach((tmplt) => {

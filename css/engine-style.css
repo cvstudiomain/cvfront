@@ -988,7 +988,7 @@ button {
 .download-btn-container .downloadCv {
   background-color: #ff105f;
 }
-.downloadCv:hover {
+.downloadCv:hover,.deleteCv:hover {
   background-color: #f0094a;
 
   transition: 1s;

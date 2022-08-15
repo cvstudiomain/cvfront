@@ -1954,6 +1954,7 @@ button {
 }
 .cover2 .contact-information .content-wrapper{
   flex-direction: row;
+  max-width: 43rem;
 }
 .cover2 .contact-information .content-wrapper .information{max-width: 24rem;}
 .cover2 .tiny-content {

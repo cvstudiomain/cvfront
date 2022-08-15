@@ -703,7 +703,7 @@ ${
         <div class="box-for-org-city-and-org">
         ${
           experience.orgState
-            ? ` <p class="sorgState">${experience.orgState}</p>`
+            ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
             : ""
         }
         ${
@@ -1335,7 +1335,7 @@ ${
       <div class="box-for-org-city-and-org">
       ${
         experience.orgState
-          ? ` <p class="sorgState">${experience.orgState}</p>`
+          ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
           : ""
       }
       ${
@@ -1750,7 +1750,7 @@ ${
       <div class="box-for-org-city-and-org">
       ${
         experience.orgState
-          ? ` <p class="sorgState">${experience.orgState}</p>`
+          ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
           : ""
       }
       ${
@@ -2168,7 +2168,7 @@ ${
         <div class="box-for-org-city-and-org">
         ${
           experience.orgState
-            ? ` <p class="sorgState">${experience.orgState}</p>`
+            ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
             : ""
         }
         ${
@@ -2584,7 +2584,7 @@ ${data.reffrences
       <div class="box-for-org-city-and-org">
       ${
         experience.orgState
-          ? ` <p class="sorgState">${experience.orgState}</p>`
+          ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
           : ""
       }
       ${
@@ -2754,7 +2754,7 @@ ${data.reffrences
         <div class="box-for-org-city-and-org">
         ${
           experience.orgState
-            ? ` <p class="sorgState">${experience.orgState}</p>`
+            ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
             : ""
         }
         ${

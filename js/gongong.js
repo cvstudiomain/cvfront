@@ -33,16 +33,24 @@ const renderUserData = async function () {
   const cvs = await axios.get("https://app.cvstudio.io/allcvs", {
     ...model.state.user,
   });
+  // console.log(cvs)
   const letters = await axios.get("https://app.cvstudio.io/allletters", {
     ...model.state.user,
   });
   let usersData={
     users:users.data.users,
+    usersLength:users.data.usersLength,
     cvs:cvs.data.cvs,
-    letters:letters.data.letters
+    cvsLength:cvs.data.cvsLenght,
+    letters:letters.data.letters,
+    lettersLength:letters.data.lettersLength
   };
-
   console.log(usersData)
+  document.querySelector(".current-letters").innerText =usersData.lettersLength;
+  
+document.querySelector(".current-users").innerText = usersData.usersLength;
+ 
+document.querySelector(".current-cvs").innerText = usersData.cvsLength; 
   // state.searchResult = pagination.getSearchResultPage(state.page);
  
   userlist.innerHTML = "";
@@ -53,24 +61,20 @@ const renderUserData = async function () {
   model.state.searchResult = pagination.getSearchResultPage(model.state.page,model.state.allData.users,false);
 
   getAndGenerateMarckup(model.state.searchResult);
-  generatePaginationMarkcup(model.state.allData.users.reverse(),false);
-  model.state.allData.letters.reverse().forEach((val) => {
+  generatePaginationMarkcup(model.state.allData.users,false);
+  model.state.allData.letters.forEach((val) => {
     document
       .querySelector(".admin-user-letters")
       .insertAdjacentHTML("beforeend", createPdfMarckup(val));
   });
-  model.state.allData.cvs.reverse().forEach((val) => {
+  model.state.allData.cvs.forEach((val) => {
     document
       .querySelector(".admin-user-resumes")
       .insertAdjacentHTML("beforeend", createPdfMarckup(val));
   });
  
 
-  document.querySelector(".current-letters").innerText =
-    model.state.allData.letters.length;
-  document.querySelector(".current-users").innerText =
-    model.state.allData.users.length;
-  document.querySelector(".current-cvs").innerText = model.state.allData.cvs.length; 
+  
   
 };
 

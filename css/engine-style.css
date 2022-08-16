@@ -1496,7 +1496,7 @@ button {
 }
 .template1 .user-name-and-profession .user-name {
   font-size: 2rem;
-  letter-spacing: 0.3rem;
+  /* letter-spacing: 0.3rem; */
 }
 .template1 .profession {
   text-transform: uppercase;

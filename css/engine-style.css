@@ -624,6 +624,7 @@ input[type="file"] {
 .date {
   width: 100%;
   display: flex;
+ 
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -640,6 +641,7 @@ input[type="file"] {
   gap: 12px;
   width: 100%;
 }
+
 .inputBox {
   align-items: flex-start;
 }
@@ -647,11 +649,20 @@ input[type="file"] {
 .inputBox .txt-area-btn {
   align-self: flex-start;
 }
+.txt-area-btn{
+  margin-top: 8px;
+}
 .multi-line-input {
   width: 100%;
   display: flex;
-  gap: 2rem;
+  gap: 18px;
   flex-direction: row;
+}
+.single-lang{
+  margin-bottom: 20px;
+}
+.single-experiences{
+  margin-top: 20px;
 }
 .dateofbirth,
 .selectBox {
@@ -981,19 +992,35 @@ button {
   margin: 0 32px;
 }
 .download-btn-container .btn {
-  background-color: rgba(255, 157, 157, 0.7);
+  /* background-color: rgba(255, 157, 157, 0.7); */
+  border-radius: 4px;
 
   color: #fff;
+  font-weight: 600;
 }
-.download-btn-container .downloadCv {
-  background-color: #ff105f;
+.downloadCv {
+  background-color: 	#008000
+}
+.downloadCv:hover{
+  background-color: 	#228B22;
+}
+.deleteCv{
+  background-color: #e60000;
+}
+.deleteCv:hover{
+  background-color: #ff0000;
+
 }
 .downloadCv:hover,.deleteCv:hover {
-  background-color: #f0094a;
 
   transition: 1s;
 }
-
+.editCv{
+  background-color: #ff8c00;
+}
+.editCv:hover{
+  background-color:  #ffa333;
+}
 .site-nav ul {
   display: flex;
   flex-direction: column;
@@ -1009,8 +1036,9 @@ button {
   align-items: center;
   gap: 16px;
   padding: 12px 8px 12px 32px;
-  font-size: 18px;
+  font-size: 16px;
   color: #1a3e27;
+  font-weight: 500;
 }
 .site-nav ul li i {
   color: inherit;

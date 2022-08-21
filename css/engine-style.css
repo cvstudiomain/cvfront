@@ -2254,6 +2254,9 @@ button {
     visibility: visible;
     transform: translateX(0);
   }
+  .site-nav ul li{
+    font-size: 18px;
+  }
 
   .nav-open .icon-mobile-nav[name="close-outline"] {
     display: block;

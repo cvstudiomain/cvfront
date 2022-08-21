@@ -690,9 +690,9 @@ try {
 
   // if (data.onEdit && model.state.user.userCurrentData.images)
   // data.images = model.state.user.userCurrentData.images;
-  
+   
   // return console.log(data)
-  const res = await axios.post("http://localhost:8888/resume/create", {
+  const res = await axios.post("https://app.cvstudio.io/resume/create",{
     ...data,
   });
   if (res.data) return location.reload();

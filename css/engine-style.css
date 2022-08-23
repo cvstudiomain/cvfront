@@ -448,6 +448,7 @@ textarea {
   border: 1px solid #1a3e27;
   outline: none;
   background: transparent;
+  color:#1a3e27;
 }
 textarea {
   border: 1px solid #1a3e27;
@@ -674,7 +675,7 @@ input[type="file"] {
   gap: 16px;
 }
 label {
-  font-weight: 400;
+  font-weight: 500;
   color: #1a3e27;
   font-size: 14px;
 }
@@ -685,8 +686,8 @@ input[type="date"],
   padding: 8px;
   border: 1px solid #1a3e27;
   background-color: inherit;
-  color: #666;
-  width: 120px;
+  color: #1a3e27;
+  width: 140px;
 }
 #s1 p {
   width: 100px;

@@ -38,6 +38,9 @@ export const resumeformcontainer = function (onEdit, data) {
           <input type="file" id="image_input" accept="image/png, image/jpg" />
           </div>
           <div class="input-container">
+          <div class="multi-line-input">
+          <div class="inputBox">
+          <label for="fullName">Full Name</label>
           <input
           type="text"
           class="inputTypeText fullName"
@@ -45,6 +48,10 @@ export const resumeformcontainer = function (onEdit, data) {
           value="${onEdit ? data.fullName : ""}"
           placeholder="Full name"
           />
+          </div>
+          <div class="inputBox">
+          <label for="profession">Profession</label>
+
         <input
           type="text"
           class="inputTypeText"
@@ -52,6 +59,12 @@ export const resumeformcontainer = function (onEdit, data) {
           value="${onEdit ? data.profession : ""}"
           placeholder="Enter profession"
         />
+        </div>
+        </div>
+        <div class="multi-line-input">
+        <div class="inputBox">
+        <label for="email">Email</label>
+
         <input
         type="email"
           class="inputTypeText"
@@ -59,6 +72,10 @@ export const resumeformcontainer = function (onEdit, data) {
           value="${onEdit ? data.email : ""}"
           placeholder="Enter email"
           />
+          </div>
+          <div class="inputBox">
+          <label for="phoneNumber">Phone Number</label>
+
           <input
           type="text"
           class="inputTypeText"
@@ -66,7 +83,11 @@ export const resumeformcontainer = function (onEdit, data) {
           value="${onEdit ? data.phoneNumber : ""}"
           placeholder="Enter phone number"
         />
-      
+        </div>
+        </div>
+        <div class="multi-line-input">
+          <div class="inputBox">
+        <label for="state">State</label>
      
         <input
           type="text"
@@ -75,6 +96,9 @@ export const resumeformcontainer = function (onEdit, data) {
           value="${onEdit ? data.state : ""}"
           placeholder="Enter state"
         />
+        </div>
+        <div class="inputBox">
+        <label for="state">Address</label>
 
         <input
           type="text"
@@ -83,6 +107,8 @@ export const resumeformcontainer = function (onEdit, data) {
           value="${onEdit ? data.address : ""}"
           placeholder="Enter address"
         />
+        </div>
+        </div>
         <div class="dateofbirth">
           <label for="dateofbirth">Date of birth: </label>
           <input
@@ -93,6 +119,7 @@ export const resumeformcontainer = function (onEdit, data) {
             placeholder="Date of birth"
           />
         </div>
+        
         <div class="selectBox">
           <label for="gender">Gender:</label>
           <select id="gender" name="gender" value="">

@@ -658,7 +658,16 @@ ${
   </div>
  </div>
   <div class="multi-line-input">
-    <div class="inputBox">
+  <div class="inputBox">
+  <label for="orgCity">City</label>
+  <input
+    class="inputTypeText exInput"
+    name="orgCity"
+    value="${exp?.orgCity ? exp.orgCity : ""}"
+    placeholder="eg. Los Angeles.."
+  />
+</div> 
+  <div class="inputBox">
       <label for="orgState">State</label>
       <input
         type="text"
@@ -668,15 +677,7 @@ ${
         placeholder="eg. Califonia"
       />
     </div>
-    <div class="inputBox">
-      <label for="orgCity">City</label>
-      <input
-        class="inputTypeText exInput"
-        name="orgCity"
-        value="${exp?.orgCity ? exp.orgCity : ""}"
-        placeholder="eg. Los Angeles.."
-      />
-    </div>
+   
    </div>
 
 
@@ -788,16 +789,7 @@ ${
        </div>
 
         <div class="multi-line-input">
-          <div class="inputBox">
-            <label for="orgState">State</label>
-            <input
-              type="text"
-              class="inputTypeText exInput"
-              name="orgState"
-              value=""
-              placeholder="eg. Califonia"
-            />
-          </div>
+         
           <div class="inputBox">
             <label for="orgCity">City</label>
             <input
@@ -807,6 +799,16 @@ ${
               placeholder="eg. Los Angeles.."
             />
           </div>
+          <div class="inputBox">
+          <label for="orgState">State</label>
+          <input
+            type="text"
+            class="inputTypeText exInput"
+            name="orgState"
+            value=""
+            placeholder="eg. Califonia"
+          />
+        </div>
          </div>
        <div class="exp-container">
         <div class="inputBox all-exp">

@@ -620,7 +620,7 @@ ${
   }
 
   if (data.template.type === "resume") {
-    
+   
     if (data.template.template === "resume1") {
       marckup = `<div id="${data._id}" class="template resume rl template1">
       <div class="user-name-and-profession">
@@ -715,33 +715,8 @@ ${
         
         </div>
        ${
-         experience.experience
-           ? ` 
-           ${
-             Array.isArray(experience.experience)
-               ? `
-            ${
-              experience.experience.length !== 0
-                ? `
-            <ul>
-            ${experience.experience
-              .map(
-                (item) =>
-                  `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
-              )
-              .join("")}
-            </ul>
-            
-            `
-                : ""
-            }
-            
-            `
-               : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
-           }
-           
-          `
-           : ""
+          findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):""
+         
        }
       
   
@@ -1346,36 +1321,10 @@ ${
 
       
       </div>
-     ${
-       experience.experience
-         ? ` 
-         ${
-           Array.isArray(experience.experience)
-             ? `
-          ${
-            experience.experience.length !== 0
-              ? `
-          <ul>
-          ${experience.experience
-            .map(
-              (item) =>
-                `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
-            )
-            .join("")}
-          </ul>
-          
-          `
-              : ""
-          }
-          
-          `
-             : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
-         }
-         
-        `
-         : ""
-     }
-    
+   ${
+
+      findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
+    }
 
     </div>`
             : ""
@@ -1761,37 +1710,10 @@ ${
 
       
       </div>
-     ${
-       experience.experience
-         ? ` 
-         ${
-           Array.isArray(experience.experience)
-             ? `
-          ${
-            experience.experience.length !== 0
-              ? `
-          <ul>
-          ${experience.experience
-            .map(
-              (item) =>
-                `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
-            )
-            .join("")}
-          </ul>
-          
-          `
-              : ""
-          }
-          
-          `
-             : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
-         }
-         
-        `
-         : ""
-     }
-    
+      ${
 
+         findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
+       }
     </div>`
             : ""
         }`;
@@ -2179,37 +2101,10 @@ ${
   
         
         </div>
-       ${
-         experience.experience
-           ? ` 
-           ${
-             Array.isArray(experience.experience)
-               ? `
-            ${
-              experience.experience.length !== 0
-                ? `
-            <ul>
-            ${experience.experience
-              .map(
-                (item) =>
-                  `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
-              )
-              .join("")}
-            </ul>
-            
-            `
-                : ""
-            }
-            
-            `
-               : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
-           }
-           
-          `
-           : ""
-       }
-      
-  
+        ${
+
+           findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
+         }
       </div>`
               : ""
           }`;
@@ -2595,37 +2490,10 @@ ${data.reffrences
 
       
       </div>
-     ${
-       experience.experience
-         ? ` 
-         ${
-           Array.isArray(experience.experience)
-             ? `
-          ${
-            experience.experience.length !== 0
-              ? `
-          <ul>
-          ${experience.experience
-            .map(
-              (item) =>
-                `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
-            )
-            .join("")}
-          </ul>
-          
-          `
-              : ""
-          }
-          
-          `
-             : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
-         }
-         
-        `
-         : ""
-     }
-    
+      ${
 
+         findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
+       }
     </div>`
             : ""
         }`;
@@ -2765,37 +2633,10 @@ ${data.reffrences
   
         
         </div>
-       ${
-         experience.experience
-           ? ` 
-           ${
-             Array.isArray(experience.experience)
-               ? `
-            ${
-              experience.experience.length !== 0
-                ? `
-            <ul>
-            ${experience.experience
-              .map(
-                (item) =>
-                  `<li class="experienceOptain shouldNotBreak">${experience.experience}</li>`
-              )
-              .join("")}
-            </ul>
-            
-            `
-                : ""
-            }
-            
-            `
-               : ` <ul><li class="experienceOptain shouldNotBreak">${experience.experience}</li></ul>`
-           }
-           
-          `
-           : ""
-       }
-      
-  
+        ${
+
+           findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
+         }
       </div>`
               : ""
           }`;
@@ -3107,3 +2948,18 @@ ${data.reffrences
   }
   return marckup;
 };
+
+
+const findDuty=(expData)=>{
+ 
+  if(!Array.isArray(expData)) return ""
+  let marckup=[];
+  expData.forEach(val=>{
+    if(val!=="" &&val!==undefined&&val!==null)marckup.push(`<li>${val}</li>`)
+  })
+
+   return `<ul>${marckup.join("")}</ul>`
+  
+ 
+  
+}

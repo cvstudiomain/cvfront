@@ -196,8 +196,11 @@ resumesViewer.addEventListener("click", async function (e) {
     let templateType = model.state.user.viewersDataIdentifier.templateType;
     model.state.user.contentEdit = true;
     let userCurrentData = model.state.user.userCurrentData;
-
+     userCurrentData.experiences.map(duty=>{
+       duty.experience.map(val=>console.log(val))
+     })
     if (templateType === "resume") {
+     
       cvFormContainer.classList.remove("hiddenClass");
       cvFormContainer.innerHTML = "";
       cvFormContainer.insertAdjacentHTML(

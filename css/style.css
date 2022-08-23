@@ -280,6 +280,125 @@ padding: 2rem;
 }
 
 /**************************/
+/* Blog */
+/**************************/
+.blog-section{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 5rem;
+  padding: 3.125rem 5vw;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  
+}
+.blog-card{
+
+}
+.blog-image{
+  width: 100%;
+  height: 17.625rem;
+  object-fit: cover;
+  margin-bottom: 0.625rem;
+  border-radius: 0.625rem;
+}
+.blog-overview{
+  margin: 0.625rem 0 1.25rem;
+  line-height: 1.875rem;
+  
+}
+.blog-title{
+  font-weight: 600;
+}
+.btn-dark{
+  background: #1b1b1b;
+  padding: 0.625rem  1.25rem;
+  color: #fff;
+  border-radius: 0.625rem;
+  /* font-size: 1rem; */
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.banner{
+  width: 100%;
+  height: 25rem;
+  background-position: center;
+  background-size: cover;
+  background-color: #e7e7e7;
+  position: relative;
+}
+.banner-botton{
+  position: absolute;
+  bottom: 2rem;
+  right: 1rem;
+}
+.blog-editor-section{
+width: 70vw;
+display: flex;
+flex-direction: column;
+min-width: 400px;
+/* gap: 60px; */
+/* height: 100px; */
+margin: auto;
+padding: 50px 0;
+}
+.blog-textarea::-webkit-scrollbar{
+  width: 10px;
+}
+
+.blog-textarea::-webkit-scrollbar-thumb{
+  background-color:rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.blog-title,.blog-article{
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  outline: none;
+  font-size: 50px;
+  font-weight: 600;
+  color: #2d2d2d;
+  resize: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.blog-title::placeholder{
+  color: #2d2d2d;
+}
+.blog-article::placeholder{
+  color: #2d2d2d;
+}
+.blog-article{
+  height: 500px;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 500;
+  padding-bottom: 100px;
+  white-space: pre-wrap;
+}
+.blog-options{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  z-index: 9;
+  display: flex;
+  ;
+  justify-content: center;
+  align-items: center;
+}
+.blog-options button:hover{
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  transition: 1s;
+  background-color: #fff;
+}
+/**************************/
 /* FEATURED IN SECTION */
 /**************************/
 

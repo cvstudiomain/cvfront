@@ -1,4 +1,11 @@
 export const state = {
+  blogFromInput:{
+    banner:{},
+    blogArticle:"",
+    blogTittle:"",
+    imageUpload:{},
+    category:[]
+  },
   slider1:0,
   slider2:0,
   slider3:0,

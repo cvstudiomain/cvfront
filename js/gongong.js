@@ -75,7 +75,7 @@ document.querySelector(".current-cvs").innerText = usersData.cvsLength;
   });
  
 
-  const blogEditors = await axios.post("http://localhost:8888/user/get-blog-editors",)
+  const blogEditors = await axios.post("https://app.cvstudio.io/user/get-blog-editors",)
   model.state.blogEditors=blogEditors.data.editors;
 listOfEditors.innerHTML=model.state.blogEditors.map(editor=>`<li>${editor.userName}</li>`)
   
@@ -147,6 +147,6 @@ document
   })
   document.querySelector(".btn-add-editor").addEventListener("click",async()=>{
     let editorEmail= document.querySelector(".add-editor").value;
-  const newEditor = await axios.post("http://localhost:8888/user/add-blog-editor", {email:editorEmail})
+  const newEditor = await axios.post("https://app.cvstudio.io/user/add-blog-editor", {email:editorEmail})
  console.log(newEditor)
 })

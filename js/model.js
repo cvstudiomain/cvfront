@@ -1,15 +1,11 @@
 export const state = {
-  blogFromInput:{
-    banner:{},
-    blogArticle:"",
-    blogTittle:"",
-    imageUpload:{},
-    category:[]
-  },
+  
   slider1:0,
   slider2:0,
   slider3:0,
   slider4:0,
+  posts:[],
+  blogEditors:[],
   fontSize:"",
   templateToUse: { type: "", template: "" },
   section: "myResume",
@@ -19,6 +15,7 @@ export const state = {
 
   searchResult: "",
   user: {
+    editor:false,
     viewersDataIdentifier:{},
     contentEdit:false,
     userCurrentData:{},

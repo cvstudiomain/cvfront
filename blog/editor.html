@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="../css/general.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/queries.css" />
+    <link rel="stylesheet" href="../css/loader.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script
@@ -67,7 +69,22 @@
 
       gtag("config", "G-BTF52L0SFX");
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/raw"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@2.3.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/nested-list@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/paragraph@2.0.2"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@2.0.0"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@1.0.1"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@1.0.1"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -154,6 +171,8 @@
                 >Login</a
               >
             </li>
+            <li><a href="#" class="main-nav-link log-out">Log out</a></li>
+
             <li>
               <a class="main-nav-link smoothmove nav-cta" href="#cta"
                 >Create for free</a
@@ -169,21 +188,43 @@
       </header>
 
 
-      <main id="word-templates">
-        <section class="banner">
-          
-          <label for="banner-botton" class="banner-botton btn">Banner image</label>
-          <input type="file" name="banner-botton" id="banner-botton" class="banner-botton" hidden>
-        </section>
+      <main>
+       
      <section class="blog-editor-section">
+       <div class="editor-large-section">
 
-       <textarea name="blog-title" class="blog-textarea blog-title" placeholder="Blog title..."></textarea>
-       <textarea name="blog-article" class="blog-textarea blog-article" placeholder="Start writing here..."></textarea>
-       <div class="blog-options">
-         <label for="image-upload" class="btn btn-gray image-upload">Upload image</label>
-         <input type="file" name="image-upload" class="image-upload" id="image-upload" hidden>
-         <button class="btn-dark publish-btn" >Publish</button>
-       </div>
+         <textarea name="blog-title" class="blog-textarea blog-title" placeholder="Blog title..."></textarea>
+         
+         
+         <div name="blog-article" class="blog-textarea blog-article" id="editorjs" placeholder="Start writing here..."></div>
+        
+        </div>
+        <div class="editor-small-section cta-form">
+          <button class="btn publish-btn" >Publish</button>
+          
+          <div class="editor-feature-img">
+            <label for="image-upload" class=" btn-gray image-upload">Upload image</label>
+            <input type="file" name="image-upload" class="image-upload" id="image-upload" hidden>
+          </div>
+          <div class="category-group">
+            <label for="category">Category</label>
+            <select name="category" id="select-category" class="category"></select>
+            <button class="btn add-category-btn" >Add</button>
+          
+          </div>
+          <div class="category-group">
+            <label for="new-category">New Category</label>
+            <input name="new-category" id="new-category" class="category"></input>
+            <button class="btn new-category-btn" >Add</button>
+          
+          </div>
+          <div class="category-group">
+            <label for="category-list">Categories</label>
+            <ul class="category-list">
+      
+            </ul>
+          </div>
+        </div>
      </section>
         
        

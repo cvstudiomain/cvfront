@@ -5,12 +5,13 @@ import * as pagination from "./pagination.js";
 import * as arct from "./alltemplates.js";
 import * as general from "./general.js";
 import * as Forms from "./myForms.js";
-
+import * as Loader from "./loader.js"
+// console.log(Loader.loader())
 general.smoothScroll("smoothmove");
 
 // console.log(arct)
 const containerBody = document.querySelector("body");
-const loaderContainer = document.querySelector(".loaderContainer");
+let loaderContainer ="" 
 
 const userAreaContents = document.querySelector(".content-columns");
 const paginationBox = document.querySelectorAll(".paginationBox");
@@ -44,15 +45,20 @@ const headerEl = document.querySelector(".master-body");
 const preLoade = function (start = true) {
   if (start) {
     containerBody.classList.add("body-on-load");
+    userDashBoard.classList.add("hideMe")
     return loaderContainer.classList.remove("hideMe");
   }
+  userDashBoard.classList.remove("hideMe")
   containerBody.classList.remove("body-on-load");
+
   loaderContainer.classList.add("hideMe");
 };
 const init = async function () {
   try {
+    // return console.log(Loader)
+    containerBody.insertAdjacentHTML("afterbegin",Loader.loader(true))
+    loaderContainer=document.querySelector(".loaderContainer");
     preLoade(true);
-
     let userData = JSON.parse(localStorage.getItem("user"));
     // console.log(userData)
     if (!userData) window.location = "index.html";
@@ -67,7 +73,9 @@ const init = async function () {
     model.state.user.email = userData.email;
     model.state.user.siteUserName = userData.siteUserName;
     model.state.user.userid = userData.userid;
-
+    model.state.user.editor=userData.editor;
+    
+    if(model.state.user.editor) window.location="blog/editor.html"
     cvFormContainer.insertAdjacentHTML(
       "afterbegin",
       Forms.resumeformcontainer(false, null)
@@ -248,8 +256,8 @@ resumesViewer.addEventListener("click", async function (e) {
     // ".school-and-address",
 
     resumesViewer.classList.add("hiddenClass");
-    myResume.innerHTML = `<div class="loader"></div>`;
-    myResume.classList.remove("hiddenClass");
+    // myResume.innerHTML = `<div class="loader"></div>`;
+    // myResume.classList.remove("hiddenClass");
     var opt = {
       pagebreak: {
         avoid: ["shouldNotBreak", "h3", "p", "li"],

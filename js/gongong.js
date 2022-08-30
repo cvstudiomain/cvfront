@@ -3,11 +3,12 @@ import * as model from "./model.js";
 import { createPdfMarckup } from "./rAndcGenerator.js";
 import * as pagination from "./pagination.js"
 
-
+const blogInAdmin=document.querySelector(".blog-in-admin")
 let userlist = document.querySelector(".user-list");
 let paginationBox = document.querySelector(".pagination");
 let userResums = document.querySelector(".user-res-cl-container");
 let templateHeader = document.querySelector(".template-header");
+const listOfEditors=document.querySelector(".list-of-editors");
 
 const getAndGenerateMarckup = function (listofuser) {
   const marckup = listofuser
@@ -45,7 +46,7 @@ const renderUserData = async function () {
     letters:letters.data.letters,
     lettersLength:letters.data.lettersLength
   };
-  console.log(usersData)
+  // console.log(usersData)
   document.querySelector(".current-letters").innerText =usersData.lettersLength;
   
 document.querySelector(".current-users").innerText = usersData.usersLength;
@@ -74,7 +75,9 @@ document.querySelector(".current-cvs").innerText = usersData.cvsLength;
   });
  
 
-  
+  const blogEditors = await axios.post("http://localhost:8888/user/get-blog-editors",)
+  model.state.blogEditors=blogEditors.data.editors;
+listOfEditors.innerHTML=model.state.blogEditors.map(editor=>`<li>${editor.userName}</li>`)
   
 };
 
@@ -129,7 +132,7 @@ document
   .querySelector(".admin-nav-bar")
   .addEventListener("click", function (e) {
     if (!e.target.classList.contains("admin-nav-element")) return;
-
+    if(e.target.getAttribute("id")==="blog-in-admin") return blogInAdmin.classList.remove("hideMe")
     let allSectionsInAdmin = document.querySelectorAll(".section-in-admin");
     allSectionsInAdmin.forEach((section) => {
       if (!section.classList.contains("hideMe"))
@@ -139,3 +142,11 @@ document
         .classList.remove("hideMe");
     });
   });
+  document.querySelector(".close-admin-blog").addEventListener("click",()=>{
+    blogInAdmin.classList.add("hideMe");
+  })
+  document.querySelector(".btn-add-editor").addEventListener("click",async()=>{
+    let editorEmail= document.querySelector(".add-editor").value;
+  const newEditor = await axios.post("http://localhost:8888/user/add-blog-editor", {email:editorEmail})
+ console.log(newEditor)
+})

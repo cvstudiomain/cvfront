@@ -72,6 +72,7 @@ btnLogin.addEventListener("click", async function (e) {
       email: res.data.user.email,
       siteUserName: res.data.user.userName,
       userid: res.data.user._id,
+      editor: res.data.user.editor,
       accesstoken: model.state.user.accesstoken,
     };
 

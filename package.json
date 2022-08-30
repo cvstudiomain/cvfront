@@ -5,6 +5,7 @@
   "default": "index.html",
   "type": "module",
   "dependencies": {
+    "@editorjs/editorjs": "^2.25.0",
     "axios": "^0.26.1"
   },
   "devDependencies": {

@@ -30,10 +30,33 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/engine-style.css">
+  <link rel="stylesheet" href="css/loader.css">
   <script defer type="module" src="js/gongong.js"></script>
 
 </head>
 <body>
+  <div class="blog-in-admin hideMe">
+    <div class="editors">
+      <div class="editor-input">
+
+        <label for="add-editor">Add Another Editor</label>
+        <input type="text" class="add-editor inputTypeText" placeholder="Editor Email">
+        <button class="btn btn-add-editor">Add Editor</button>
+      </div>
+      <label for="list-of-editors">List of edititors</label>
+      <ul class="list-of-editors">
+         <li>editor 1</li>
+         <li>editor 1</li>
+         <li>editor 1</li>
+         <li>editor 1</li>
+         <li>editor 1</li>
+         
+      </ul>
+    </div>
+    <div class="blog-by-editor">
+      <span class="close-admin-blog">Close</span>
+    </div>
+  </div>
   <div class="admin-dashboard">
     <div class="admin-side-bar">
       <header class="">
@@ -48,6 +71,9 @@
         <li class="admin-nav-element" id="admin-user-letters">
           Cover letters
         </li>
+        <li class="admin-nav-element" id="blog-in-admin">
+         Blog 
+                </li>
         <li class="log-out admin-nav-element" id="logout">Log out</li>
       </ul>
     </div>

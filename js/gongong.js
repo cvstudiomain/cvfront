@@ -2,7 +2,9 @@
 import * as model from "./model.js";
 import { createPdfMarckup } from "./rAndcGenerator.js";
 import * as pagination from "./pagination.js"
-
+let userData = JSON.parse(localStorage.getItem("user"));
+    // console.log(userData) if (userData.isGonGon) 
+    if (!userData.isGonGon) window.location = "index.html";
 const blogInAdmin=document.querySelector(".blog-in-admin")
 let userlist = document.querySelector(".user-list");
 let paginationBox = document.querySelector(".pagination");

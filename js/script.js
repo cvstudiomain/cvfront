@@ -204,9 +204,10 @@ resumesViewer.addEventListener("click", async function (e) {
     let templateType = model.state.user.viewersDataIdentifier.templateType;
     model.state.user.contentEdit = true;
     let userCurrentData = model.state.user.userCurrentData;
-     userCurrentData.experiences.map(duty=>{
-       duty.experience.map(val=>console.log(val))
-     })
+    // return console.log(userCurrentData) 
+    // userCurrentData.experiences.map(duty=>{
+    //    duty.experience.map(val=>console.log(val))
+    //  })
     if (templateType === "resume") {
      
       cvFormContainer.classList.remove("hiddenClass");
@@ -660,6 +661,7 @@ coverLetterContainer.addEventListener("click", async function (e) {
   btnSave.innerText = "Done";
   model.state.templateToUse.type = "";
   model.state.templateToUse.template = "";
+  init();
 });
 
 const getCvOrLetter = async function (data) {
@@ -706,7 +708,7 @@ try {
   const res = await axios.post("https://app.cvstudio.io/resume/create",{
     ...data,
   });
-  if (res.data) return location.reload();
+  if (res.data) return location.reload()
   return;
   model.state.resume = res.data.data;
   model.state.resumes.push(model.state.resume);
@@ -767,8 +769,9 @@ const saveResume= async (e)=> {
 
 // return console.log(model.state.user.inputData)
     await getCvOrLetter(model.state.user.inputData);
+    init()
     // this.innerText = "Save";
-    // location.reload();
+    location.reload();
   } catch (error) {
     console.log(error);
   }

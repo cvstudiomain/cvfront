@@ -69,6 +69,10 @@ const postToReadMarckup=`
 blogArticleAndOverview.insertAdjacentHTML("afterbegin",postToReadMarckup)
 let allPosts=blogMarckup(model.state.posts);
 blogSection.insertAdjacentHTML("afterbegin",allPosts)
+window.scrollTo({
+  top: 0,
+  behavior: "smooth",
+});
 
 }
 init();

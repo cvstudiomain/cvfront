@@ -935,7 +935,8 @@ button {
   /* border-top-left-radius: 32px; */
   display: flex;
   height: calc(100vh - 80px);
-
+  z-index: 4;
+  margin-top: 1px;
   flex-direction: column;
   gap: 48px;
 }
@@ -2134,7 +2135,7 @@ button {
   margin: auto;
   padding-bottom: 8px;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
-
+z-index: 5;
   display: flex;
   flex-direction: column;
   /* align-items: center; */

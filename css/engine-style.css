@@ -23,7 +23,7 @@ body {
   align-items: center;
   justify-content: center; */
   /* overflow: auto; */
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
   background-color: #ffe7ef;
 }
@@ -391,6 +391,10 @@ color: #000;
   align-items: center;
   justify-content: center;
 }
+.logAndRegisContainer{
+  height: 100%;
+  padding-top: 32px;
+}
 .loaderContainer {
   background-color: #fff;
   position: absolute;
@@ -398,7 +402,7 @@ color: #000;
 }
 
 .logandregister {
-  height: 546px;
+  min-height: 546px;
 }
 
 .input-container {

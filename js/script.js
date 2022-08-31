@@ -74,8 +74,8 @@ const init = async function () {
     model.state.user.siteUserName = userData.siteUserName;
     model.state.user.userid = userData.userid;
     model.state.user.editor=userData.editor;
-    // return console.log(model.state.user.editor)
-    if(model.state.user.editor===true) return window.location="blog/editor.html"
+    // return console.log(model.state.user.editor==="true")
+    model.state.user.editor==="true"? window.location="blog/editor.html":null
     cvFormContainer.insertAdjacentHTML(
       "afterbegin",
       Forms.resumeformcontainer(false, null)

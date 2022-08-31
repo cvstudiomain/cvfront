@@ -93,14 +93,10 @@ const init=async function(){
   // console.log(model.state.user.editor)
   let userData = JSON.parse(localStorage.getItem("user"));
   // console.log(userData)
-  //  console.log(userData)
   
-  model.state.user.accesstoken = userData.accesstoken;
-  model.state.user.email = userData.email;
-  model.state.user.siteUserName = userData.siteUserName;
-  model.state.user.userid = userData.userid;
-  model.state.user.editor=userData.editor;
-  if(!model.state.user.editor&&!userData.isGonGon) window.location="home.html"
+  
+  // return console.log(model.state.editor, userData.isGonGon)
+  if(model.state.user.editor!==true||!userData.isGonGon) return window.location="home.html"
  
   const catres = await axios.get(`https://app.cvstudio.io/user/get-categories`);
       selectCategory.innerHTML= catres.data.data.map(val=>`<option value="${val.category}">${val.category}</option>`).join("");

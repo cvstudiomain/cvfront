@@ -701,16 +701,18 @@ ${
             : ""
         }
         <div class="box-for-org-city-and-org">
+        
         ${
-          experience.orgState
-            ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
             : ""
         }
         ${
-          experience.orgCity
-            ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
             : ""
-        }</div>   
+        }
+        </div>   
   
         
         </div>
@@ -1309,15 +1311,18 @@ ${
       }
       <div class="box-for-org-city-and-org">
       ${
-        experience.orgState
-          ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
+        experience.orgCity
+          ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
           : ""
       }
       ${
-        experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+        experience.orgState
+          ? ` <p class="sorgState">${experience.orgState}</p>`
           : ""
-      }</div>   
+      }
+     
+    
+      </div>   
 
       
       </div>
@@ -1698,15 +1703,16 @@ ${
       }
       <div class="box-for-org-city-and-org">
       ${
-        experience.orgState
-          ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
+        experience.orgCity
+          ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
           : ""
       }
       ${
-        experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+        experience.orgState
+          ? ` <p class="sorgState">${experience.orgState}</p>`
           : ""
-      }</div>   
+      }
+      </div>   
 
       
       </div>
@@ -2089,15 +2095,16 @@ ${
         }
         <div class="box-for-org-city-and-org">
         ${
-          experience.orgState
-            ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
             : ""
         }
         ${
-          experience.orgCity
-            ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
             : ""
-        }</div>   
+        }
+       </div>   
   
         
         </div>
@@ -2478,15 +2485,16 @@ ${data.reffrences
       }
       <div class="box-for-org-city-and-org">
       ${
-        experience.orgState
-          ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
+        experience.orgCity
+          ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
           : ""
       }
       ${
-        experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+        experience.orgState
+          ? ` <p class="sorgState">${experience.orgState}</p>`
           : ""
-      }</div>   
+      }
+     </div>   
 
       
       </div>
@@ -2621,15 +2629,16 @@ ${data.reffrences
         }
         <div class="box-for-org-city-and-org">
         ${
-          experience.orgState
-            ? ` <p class="sorgState">${experience.orgState+" /"}</p>`
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
             : ""
         }
         ${
-          experience.orgCity
-            ? `<p class="organizationAndAddress">${experience.orgCity}</p>`
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
             : ""
-        }</div>   
+        }
+      </div>   
   
         
         </div>

@@ -16,7 +16,7 @@ const useInitial = function (data) {
 
 export const createPdfMarckup = function (data) {
   let marckup = "";
-  // console.log(data.experience)
+  // return console.log(data)
   if (data.template.type === "letter") {
     if (data.template.template === "letter1") {
       marckup = `

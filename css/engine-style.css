@@ -383,13 +383,23 @@ color: #000;
   width: 100%;
 }
 .loaderContainer,
-.logAndRegisContainer {
+.logAndRegisContainer,.webLinkData{
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.webLinkData{
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.webLinkData .inputBox{
+  width: 500px;
 }
 .logAndRegisContainer{
   height: 100%;
@@ -778,11 +788,8 @@ button {
   box-shadow: inset 0 0 0 3px rgba(255, 157, 157, 0.7);
 }
 
-/*
-.download-btn-container .fa{
-  color: red;
-  font-size: 30px;
-} */
+
+
 
 .login-signup-btn-container {
   width: fit-content;
@@ -896,6 +903,7 @@ button {
 }
 
 .content-columns {
+  /* position: relative; */
   grid-column: 2;
   grid-row: 2;
   margin-bottom: 16px;
@@ -1015,6 +1023,10 @@ button {
 
   color: #fff;
   font-weight: 600;
+}
+.download-btn-container .copyLink{
+  background-color: #1b2d4f;
+  /* font-size: 30px; */
 }
 .downloadCv {
   background-color: 	#008000
@@ -2387,6 +2399,10 @@ z-index: 5;
   }
 }
 @media (max-width: 644px) {
+  .webLinkData .inputBox {
+    width: 100%;
+    padding:16px;
+}
   html {
     font-size: 3px;
   }

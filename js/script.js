@@ -12,7 +12,9 @@ general.smoothScroll("smoothmove");
 // console.log(arct)
 const containerBody = document.querySelector("body");
 let loaderContainer ="" 
-
+const webLinkContainer=document.querySelector(".webLinkData")
+const LinkTextBox=document.querySelector(".theLinktoWeb")
+    
 const userAreaContents = document.querySelector(".content-columns");
 const paginationBox = document.querySelectorAll(".paginationBox");
 let duty = "";
@@ -197,9 +199,19 @@ resumesViewer.addEventListener("click", async function (e) {
   //   downloadCv
   // editCv
   // deleteCv
-
+//copyLink
+//{id: '630f698bf6045ce3aad1a225', templateType: 'letter'}
   let btn = e.target;
   if (!btn.classList.contains("viewerBtn")) return;
+  if (btn.classList.contains("copyLink")) {
+    let{id,templateType}=model.state.user.viewersDataIdentifier
+    let itemLink=`https://www.cvstudio.io/web/#${templateType}--${id}`;
+    // console.log(itemLink)
+    webLinkContainer.classList.remove("hideMe")
+    LinkTextBox.value=itemLink;
+    
+    // console.log(model.state.user.viewersDataIdentifier)
+  }
   if (btn.classList.contains("editCv")) {
     let templateType = model.state.user.viewersDataIdentifier.templateType;
     model.state.user.contentEdit = true;
@@ -414,6 +426,7 @@ myResume.addEventListener("click", function (e) {
   <button type="button" class="btn downloadCv viewerBtn"><i class="fa-solid fa-download" style="margin-right:8px"></i>Download</button>
   
   <button type="button" class="btn editCv viewerBtn">Edit</button>
+  <button type="button" class="btn copyLink viewerBtn">Copy link</button>
   
   <button type="button" class="btn deleteCv viewerBtn">Delete</button>
   
@@ -1293,3 +1306,23 @@ function checkFlexGap() {
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
 checkFlexGap();
+
+webLinkContainer.addEventListener("click",function(e){
+  if(e.target.closest("button").classList.contains("closeLinkView"))
+  {
+   webLinkContainer.querySelector(".infor").classList.add("hiddenClass")
+
+
+    return webLinkContainer.classList.add("hideMe");
+  }
+ 
+    
+  if(e.target.classList.contains("btnCopyLink")){
+    LinkTextBox.select();
+    LinkTextBox.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    navigator.clipboard.writeText(LinkTextBox.value);
+    
+   webLinkContainer.querySelector(".infor").classList.remove("hiddenClass")
+  }
+})

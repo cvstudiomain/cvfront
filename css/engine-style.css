@@ -2237,7 +2237,8 @@ z-index: 5;
   }
 
   .site-wrap {
-    grid-template-columns: max-content auto;
+    grid-template-columns: max-content 1fr;
+    width: 100%;
   }
 
   .user-main {

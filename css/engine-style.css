@@ -869,7 +869,7 @@ button {
   /* display: flex;
   flex-direction: column; */
   /* gap: 4px; */
-  grid-template-columns: 280px max-content 320px;
+  grid-template-columns: 280px 1fr 320px;
   grid-template-rows: auto auto;
 }
 .hideMe {

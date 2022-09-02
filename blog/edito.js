@@ -97,7 +97,8 @@ const init=async function(){
   
   // return console.log(model.state.editor, userData.isGonGon)
   if(userData.editor!=="true"&&!userData.isGonGon) return window.location="home.html"
- 
+   if(!userData.isGonGon)model.state.user.userid=userData.userid;
+  //  console.log(model.state.user.userid);
   const catres = await axios.get(`https://app.cvstudio.io/user/get-categories`);
       selectCategory.innerHTML= catres.data.data.map(val=>`<option value="${val.category}">${val.category}</option>`).join("");
 }
@@ -191,14 +192,15 @@ return imgUrl;
  
   publishBtn.addEventListener("click",async e=>{
     blogFromInput.blogTittle=blogTittle.value;
-    blogFromInput.editorId=model.state.user.userid
+    blogFromInput.editorId=model.state.user.userid?model.state.user.userid:"admin"
     blogFromInput.blogArticle=await editor.save()
    if(blogFromInput.blogArticle.length===0)return
 publishBtn.innerHTML=Loader.loader(true)
-  
+  // return console.log(blogFromInput)
      let blogRes = await axios.post("https://app.cvstudio.io/user/create-blog", {
       blogFromInput:blogFromInput
     });
+    if(blogRes) return console.log(blogRes)
     window.location="../blog/home.html"
   })  
   document.querySelector(".log-out").addEventListener("click",()=>{

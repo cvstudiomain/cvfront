@@ -869,7 +869,7 @@ button {
   /* display: flex;
   flex-direction: column; */
   /* gap: 4px; */
-  grid-template-columns: 280px 1fr 320px;
+  grid-template-columns: 280px auto auto;
   grid-template-rows: auto auto;
 }
 .hideMe {
@@ -2237,7 +2237,7 @@ z-index: 5;
   }
 
   .site-wrap {
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: auto auto;
   }
 
   .user-main {

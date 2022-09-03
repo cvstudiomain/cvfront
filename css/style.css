@@ -321,7 +321,7 @@ padding: 2rem;
 }
 .main-blog-posts .blog-article-paragraph{
   margin-bottom: 1.5rem;
-
+  margin-left: 2rem;
 }
 .main-blog-posts .post-header-tittle .heading-secondary{
   margin: auto;
@@ -353,6 +353,10 @@ padding: 2rem;
   width: 100%;
   margin-bottom: 3rem;
 }
+.blog-article-and-overview .heading-tertiary{
+  margin-bottom: 0;
+}
+
 .blog-card{
 width: 35rem;
 min-height: 34rem;

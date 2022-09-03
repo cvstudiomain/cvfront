@@ -9,7 +9,9 @@ const blogMarckup=(data)=>{
 // return console.log(data)
   let marckup=data.map(block=>{
     // return console.log(block.blogArticle)
+    
     let inArt=block.blogArticle[0].blocks.filter(item=>item.type==="paragraph")
+    
     let blogLocation=block.blogTittle.split(" ").join("-")
     
     

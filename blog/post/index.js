@@ -36,9 +36,13 @@ return marckup
 }
 
 const generateArticle=function(data){  
+  console.log(data)
         return data[0].blocks.map(item=>{
+         
             if(item.type==="paragraph")return`<p class="blog-article-paragraph">${item.data.text}</p>`
-  })
+            if(item.type==="header")return`<h3 class="blog-article-header heading-tertiary">${item.data.text}</h3>`
+            
+          })
 }
 
 const init=async function(){

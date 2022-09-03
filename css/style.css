@@ -309,7 +309,8 @@ padding: 2rem;
   margin:auto 4rem;
   border-bottom: black solid 2px;
 }
-.main-blog-posts .post-header-tittle{
+.post-header-tittle{
+  color: #fff;
   width: 100%;
   grid-column: 1/-1;
   min-height: 34rem;
@@ -336,7 +337,7 @@ padding: 2rem;
   margin-bottom: 1.5rem;
   
 }
-.main-blog-posts .post-header-tittle .heading-secondary{
+.main-blog-posts .post-header-tittle .heading-secondary,.post-header-tittle .heading-primary{
   margin: auto;
   color:#ffff;
 

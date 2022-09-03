@@ -34,14 +34,18 @@ const blogMarckup=(data)=>{
 return marckup
 
 }
-
+const getlList=function(data){
+  return data.map(li=>`<li>${li}</li>`).join("");
+}
 const generateArticle=function(data){  
   console.log(data)
         return data[0].blocks.map(item=>{
          
             if(item.type==="paragraph")return`<p class="blog-article-paragraph">${item.data.text}</p>`
             if(item.type==="header")return`<h3 class="blog-article-header heading-tertiary">${item.data.text}</h3>`
-            
+            if(item.type==="list")return item.data.style==="unordered"?`<ul class="post-list">${getlList(item.data.items)}</ul>`:`<ol class="post-list">${getlList(item.data.items)}</ol>`
+              // return`<h3 class="blog-article-header heading-tertiary">${item.data.text}</h3>`
+           
           }).join("");
 }
 

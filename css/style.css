@@ -317,7 +317,7 @@ padding: 2rem;
   padding: 0 6rem;
   
   grid-row: 1;
-    background-image: linear-gradient( to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.35) ), url("../img/cvstudio post title bg img.jpg");
+    background-image: linear-gradient( to right bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8) ), url("../img/cvstudio post title bg img.jpg");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -380,7 +380,7 @@ display: flex;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   color: black;
-  margin: 3rem 4rem;
+  margin: 3rem;
 }
 .blog-image{
   width: 100%;

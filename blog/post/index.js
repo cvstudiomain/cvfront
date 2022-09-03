@@ -1,5 +1,5 @@
-const blogSection=document.querySelector(".blog-section")
-// console.log(blogSection)
+const relatedPosts=document.querySelector(".related-posts")
+// console.log(relatedPosts)
 const blogArticleAndOverview=document.querySelector(".blog-article-and-overview")
 let headerTittle=document.querySelector(".post-header-tittle")
 import * as model from "../../js/model.js"
@@ -25,7 +25,7 @@ const blogMarckup=(data)=>{
    <p class="blog-overview">
     ${defineContentLimit(inArt[0].data.text,78)}
    </p>
-   <a href="../../blog/post/#${blogLocation}" id="${blogLocation}" class="btn-read">Read More</a>
+   <a href="../../blog/post/#${blogLocation}" id="${blogLocation}" class="btn-read"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>${" "}Read More</a>
    
  </div>
   `
@@ -42,7 +42,7 @@ const generateArticle=function(data){
             if(item.type==="paragraph")return`<p class="blog-article-paragraph">${item.data.text}</p>`
             if(item.type==="header")return`<h3 class="blog-article-header heading-tertiary">${item.data.text}</h3>`
             
-          })
+          }).join("");
 }
 
 const init=async function(){
@@ -53,7 +53,7 @@ const init=async function(){
  
   let postToRead=model.state.posts.find(post=>post.blogTittle.split(" ").join("-")===postTilttle);
 const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
-
+document.title =blogTittle;
 headerTittle.insertAdjacentHTML("afterbegin",`<h1 class="heading-secondary">${blogTittle}</h1>`)
 
 const postToReadMarckup=`
@@ -70,9 +70,9 @@ const postToReadMarckup=`
             
 
 `
-blogArticleAndOverview.insertAdjacentHTML("afterbegin",postToReadMarckup)
+blogArticleAndOverview.insertAdjacentHTML("afterbegin",`<div class="container">${postToReadMarckup}</div>`)
 let allPosts=blogMarckup(model.state.posts);
-blogSection.insertAdjacentHTML("afterbegin",allPosts)
+relatedPosts.insertAdjacentHTML("afterbegin",allPosts)
 window.scrollTo({
   top: 0,
   behavior: "smooth",
@@ -87,7 +87,7 @@ init();
 
 
 
-blogSection.addEventListener("click",function(e){
+relatedPosts.addEventListener("click",function(e){
    if(!e.target.classList.contains("btn-read"))return
   
   let id=e.target.getAttribute("id");

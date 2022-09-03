@@ -282,7 +282,7 @@ padding: 2rem;
 /**************************/
 /* Blog */
 /**************************/
-.blog-section{
+.main-blog .blog-section,.main-blog-posts .blog-section .related-posts{
   width:100%;
   margin:3rem auto;
   
@@ -305,6 +305,10 @@ padding: 2rem;
   gap: 6rem;
   grid-template-rows: max-content max-content;
 }
+.main-blog-posts .blog-section  .heading-tertiary{
+  margin:auto 6rem;
+  border-bottom: black solid 2px;
+}
 .main-blog-posts .post-header-tittle{
   width: 100%;
   grid-column: 1/-1;
@@ -313,7 +317,10 @@ padding: 2rem;
   padding: 0 6rem;
   
   grid-row: 1;
-  background-color: #e7e7e7;
+    background-image: linear-gradient( to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.35) ), url("../img/cvstudio post title bg img.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
 
   display: flex;
   align-items: center;
@@ -321,10 +328,12 @@ padding: 2rem;
 }
 .main-blog-posts .blog-article-paragraph{
   margin-bottom: 1.5rem;
-  margin-left: 2rem;
+  
 }
 .main-blog-posts .post-header-tittle .heading-secondary{
   margin: auto;
+  color:#ffff;
+
 }
 .main-blog-posts .blog-article-and-overview{
   grid-column: 1;
@@ -354,7 +363,8 @@ padding: 2rem;
   margin-bottom: 3rem;
 }
 .blog-article-and-overview .heading-tertiary{
-  margin-bottom: 0;
+  margin:3rem auto;
+  margin-top: 4rem;
 }
 
 .blog-card{
@@ -404,18 +414,18 @@ display: flex;
   /* text-align: justify; */
 }
 .btn-read{
-  background: #bbbb;
-  padding: 0.625rem  1.25rem;
-  color: #fff;
+  background: none;
+  /* padding: 0.625rem  1.25rem; */
+  color: #45260a;
   width: fit-content;
   /* align-self: center; */
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 600;
   /* border-radius: 0.625rem; */
   /* font-size: 1rem; */
   margin-left: 3rem;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .blog-card .publish-date{
   font-size: 1rem;

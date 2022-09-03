@@ -24,7 +24,7 @@ const blogMarckup=(data)=>{
    <p class="blog-overview">
     ${defineContentLimit(inArt[0].data.text,78)}
    </p>
-   <a href="../blog/post/#${blogLocation}" id="${blogLocation}" class="btn-read">Read More</a>
+   <a href="../blog/post/#${blogLocation}" id="${blogLocation}" class="btn-read"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>${" "}Read More</a>
    
  </div>
   `

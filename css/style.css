@@ -380,7 +380,7 @@ display: flex;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   color: black;
-  margin: 3rem;
+  margin: 3rem 4rem;
 }
 .blog-image{
   width: 100%;

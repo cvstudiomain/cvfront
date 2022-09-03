@@ -279,7 +279,7 @@ z-index: 99;
  }
  .main-blog-posts .blog-article-and-overview{
    grid-row: 2;
-   margin: auto 3rem ;
+   margin: auto 4rem ;
  }
  .main-blog-posts .blog-section{
    grid-row: 3;

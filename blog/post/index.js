@@ -70,7 +70,7 @@ const postToReadMarckup=`
             
 
 `
-blogArticleAndOverview.insertAdjacentHTML("afterbegin",`<div class="container">${postToReadMarckup}</div>`)
+blogArticleAndOverview.insertAdjacentHTML("afterbegin",`<div class="post-to-read-container">${postToReadMarckup}</div>`)
 let allPosts=blogMarckup(model.state.posts);
 relatedPosts.insertAdjacentHTML("afterbegin",allPosts)
 window.scrollTo({

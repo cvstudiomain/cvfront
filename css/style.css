@@ -306,7 +306,7 @@ padding: 2rem;
   grid-template-rows: max-content max-content;
 }
 .main-blog-posts .blog-section  .heading-tertiary{
-  margin:auto 6rem;
+  margin:auto 4rem;
   border-bottom: black solid 2px;
 }
 .main-blog-posts .post-header-tittle{

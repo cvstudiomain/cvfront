@@ -201,7 +201,7 @@ publishBtn.innerHTML=Loader.loader(true)
       blogFromInput:blogFromInput
     });
     if(blogRes) return console.log(blogRes)
-    window.location="../blog/home.html"
+    window.location="../blog/"
   })  
   document.querySelector(".log-out").addEventListener("click",()=>{
     localStorage.clear()

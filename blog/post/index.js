@@ -1,5 +1,9 @@
 const relatedPosts=document.querySelector(".related-posts")
 // console.log(relatedPosts)
+import * as Loader from "../../js/loader.js";
+
+const thisBody=document.querySelector('body');
+let loaderContainer="";
 const blogArticleAndOverview=document.querySelector(".blog-article-and-overview")
 let headerTittle=document.querySelector(".post-header-tittle")
 import * as model from "../../js/model.js"
@@ -50,6 +54,9 @@ const generateArticle=function(data){
 }
 
 const init=async function(){
+  thisBody.insertAdjacentHTML("beforeend",Loader.loader(true))
+  loaderContainer=document.querySelector(".loaderContainer")
+  // return
   let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
   let postTilttle = localStorage.getItem("blogTittle")
 
@@ -77,6 +84,8 @@ const postToReadMarckup=`
 blogArticleAndOverview.insertAdjacentHTML("afterbegin",`<div class="post-to-read-container">${postToReadMarckup}</div>`)
 let allPosts=blogMarckup(model.state.posts);
 relatedPosts.insertAdjacentHTML("afterbegin",allPosts)
+loaderContainer.classList.add("hideMe")
+
 window.scrollTo({
   top: 0,
   behavior: "smooth",

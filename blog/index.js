@@ -1,4 +1,8 @@
 // let date=new Date(block.createdAt).toDateString();
+import * as Loader from "../js/loader.js";
+
+const thisBody=document.querySelector('body');
+let loaderContainer="";
 const blogSection=document.querySelector(".blog-section")
 const defineContentLimit=(content,limit)=>{
   let dots="..."
@@ -33,13 +37,15 @@ const blogMarckup=(data)=>{
 return marckup
 
 }
-
 const init=async function(){
+  thisBody.insertAdjacentHTML("beforeend",Loader.loader(true))
+  loaderContainer=document.querySelector(".loaderContainer")
   let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
   // return console.log(blogRes)
   let allPosts=blogMarckup(blogRes.data.data);
   blogSection.insertAdjacentHTML("afterbegin",allPosts)
-
+  // console.log(loaderContainer)
+  loaderContainer.classList.add("hideMe")
 }
 
 

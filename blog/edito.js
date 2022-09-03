@@ -204,7 +204,7 @@ publishBtn.innerHTML=Loader.loader(true)
   })  
   document.querySelector(".log-out").addEventListener("click",()=>{
     localStorage.clear()
-    window.location="home.html"
+    window.location="index.html"
   })
   
   

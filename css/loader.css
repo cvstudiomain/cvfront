@@ -22,6 +22,10 @@ z-index: 99999;
   justify-content: center;
 }
 
+.publish-btn .loaderContainer,
+.editor-feature-img .loaderContainer{
+  height: 100%;
+}
 .loader {
 
 

@@ -200,7 +200,7 @@ publishBtn.innerHTML=Loader.loader(true)
      let blogRes = await axios.post("https://app.cvstudio.io/user/create-blog", {
       blogFromInput:blogFromInput
     });
-    if(blogRes) window.location="../blog/"
+    if(blogRes) window.location.reload()
   })  
   document.querySelector(".log-out").addEventListener("click",()=>{
     localStorage.clear()

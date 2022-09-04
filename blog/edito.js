@@ -88,25 +88,27 @@ const blogFromInput={
   categories:[],
   editorId:""
 }
-
+let allCategories=[];
 const init=async function(){
   // console.log(model.state.user.editor)
   let userData = JSON.parse(localStorage.getItem("user"));
   // console.log(userData)
-  //  console.log(userData)
+  
   
   // return console.log(model.state.editor, userData.isGonGon)
   if(userData.editor!=="true"&&!userData.isGonGon) return window.location="home.html"
    if(!userData.isGonGon)model.state.user.userid=userData.userid;
   //  console.log(model.state.user.userid);
   const catres = await axios.get(`https://app.cvstudio.io/user/get-categories`);
-      selectCategory.innerHTML= catres.data.data.map(val=>`<option value="${val.category}">${val.category}</option>`).join("");
+  allCategories=catres;   
+  selectCategory.innerHTML= catres.data.data.map(val=>`<option value="${val.category}">${val.category}</option>`).join("");
 }
 
 init()
+let categoryToAdd=[]
 // console.log(imageUpload,bannerBtn)
 addCategoryBtn.addEventListener("click",function(){
-  let categoryToAdd=selectCategory.value
+  categoryToAdd=selectCategory.value
    blogFromInput.categories.push(categoryToAdd);
 categoryList.insertAdjacentHTML("beforeend",`<li class="category-list-item">${categoryToAdd}</li>`)
 
@@ -115,6 +117,9 @@ categoryList.insertAdjacentHTML("beforeend",`<li class="category-list-item">${ca
 addNewCategory.addEventListener("click",async function(e){
  let categoryValue=newCategory.value;
  if(categoryValue==="")return
+ 
+ let categoryExist=allCategories.data.data.some(cat=>cat.category.toLowerCase()===categoryValue.toLowerCase());
+ if(categoryExist) return alert("Category Already Exist")
  blogFromInput.categories.push(categoryValue);
  let catres = await axios.post(`https://app.cvstudio.io/user/create-blog-category`,{categoryValue:categoryValue});
 console.log(catres)

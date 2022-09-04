@@ -96,7 +96,7 @@ const init=async function(){
   
   
   // return console.log(model.state.editor, userData.isGonGon)
-  if(userData.editor!=="true"&&!userData.isGonGon) return window.location="home.html"
+  if(userData.editor!=="true"&&!userData.isGonGon) return window.location="../blog/"
    if(!userData.isGonGon)model.state.user.userid=userData.userid;
   //  console.log(model.state.user.userid);
   const catres = await axios.get(`https://app.cvstudio.io/user/get-categories`);

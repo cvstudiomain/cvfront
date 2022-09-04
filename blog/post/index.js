@@ -59,7 +59,8 @@ const init=async function(){
   // return
   let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
   let postTilttle = localStorage.getItem("blogTittle")
-
+    if(!postTilttle)postTilttle=location.href.split("#")[1];
+    // console.log(postTilttle)
   model.state.posts=blogRes.data.data;
  
   let postToRead=model.state.posts.find(post=>post.blogTittle.split(" ").join("-")===postTilttle);
@@ -84,12 +85,12 @@ const postToReadMarckup=`
 blogArticleAndOverview.insertAdjacentHTML("afterbegin",`<div class="post-to-read-container">${postToReadMarckup}</div>`)
 let allPosts=blogMarckup(model.state.posts);
 relatedPosts.insertAdjacentHTML("afterbegin",allPosts)
-loaderContainer.classList.add("hideMe")
 
 window.scrollTo({
   top: 0,
   behavior: "smooth",
 });
+loaderContainer.classList.add("hideMe")
 
 }
 init();

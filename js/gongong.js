@@ -1,7 +1,7 @@
 // import axios from "axios";
 import * as model from "./model.js";
-import { createPdfMarckup } from "./rAndcGenerator.js";
 import * as pagination from "./pagination.js"
+import { createPdfMarckup } from "./rAndcGenerator.js";
 let userData = JSON.parse(localStorage.getItem("user"));
     // console.log(userData) if (userData.isGonGon) 
     if (!userData.isGonGon) window.location = "index.html";

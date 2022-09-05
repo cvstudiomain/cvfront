@@ -1,17 +1,25 @@
 const relatedPosts=document.querySelector(".related-posts")
 // console.log(relatedPosts)
 import * as Loader from "../../js/loader.js";
+import * as model from "../../js/model.js";
+import * as pagination from "../../js/pagination.js"
 
+const paginationBox=document.querySelector(".pagination")
 const thisBody=document.querySelector('body');
 let loaderContainer="";
 const blogArticleAndOverview=document.querySelector(".blog-article-and-overview")
 let headerTittle=document.querySelector(".post-header-tittle")
-import * as model from "../../js/model.js"
+// import * as model from "../../js/model.js"
 const defineContentLimit=(content,limit)=>{
   let dots="..."
   if(content.length>limit)return content.substring(0,limit) + dots;
   return content+dots;
 }
+const generatePaginationMarkcup = function (val) {
+  paginationBox.innerHTML = "";
+  paginationBox.insertAdjacentHTML("afterbegin", pagination.paginationMarckup(val));
+};
+
 const blogMarckup=(data)=>{
 // return console.log(data)
   let marckup=data.map(block=>{
@@ -23,13 +31,13 @@ const blogMarckup=(data)=>{
   return`
   <div class="blog-card">
   <img src="${block.fetureImage?.url?block.fetureImage.url:""}" class="blog-image" alt="blog feature image">
-  <h1 class="blog-tittle ">
+  <a href="../../blog/post/#${blogLocation}" data-tittle="../../blog/post/#${blogLocation}" class="blog-tittle read">
    ${defineContentLimit(block.blogTittle,55)}
-  </h1>
+  </a>
    <p class="blog-overview">
     ${defineContentLimit(inArt[0].data.text,78)}
    </p>
-   <a href="../../blog/post/#${blogLocation}" id="${blogLocation}" class="btn-read"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>${" "}Read More</a>
+   <a href="../../blog/post/#${blogLocation}" data-tittle="../../blog/post/#${blogLocation}"  class="btn-read read"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>${" "}Read More</a>
    
  </div>
   `
@@ -42,7 +50,7 @@ const getlList=function(data){
   return data.map(li=>`<li>${li}</li>`).join("");
 }
 const generateArticle=function(data){  
-  console.log(data)
+  
         return data[0].blocks.map(item=>{
          
             if(item.type==="paragraph")return`<p class="blog-article-paragraph">${item.data.text}</p>`
@@ -58,13 +66,34 @@ const init=async function(){
   loaderContainer=document.querySelector(".loaderContainer")
   // return
   let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
-  let postTilttle = localStorage.getItem("blogTittle")
-    if(!postTilttle)postTilttle=location.href.split("#")[1];
+
+  let postTilttle = localStorage.getItem("blogTittle").split("#")[1]
+  if(postTilttle===null||postTilttle==="undefined"||postTilttle===undefined )postTilttle=location.href.split("#")[1];
+  // return console.log(postTilttle)
     // console.log(postTilttle)
   model.state.posts=blogRes.data.data;
- 
+ let relatedPost=[]
   let postToRead=model.state.posts.find(post=>post.blogTittle.split(" ").join("-")===postTilttle);
 const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
+    
+    model.state.posts.forEach(post=>{
+      categories.forEach(readCat => {
+        post.categories.forEach(relatedPostcat=>{
+          if(readCat===relatedPostcat) relatedPost.push(post);
+        })
+        
+      });
+    })
+   model.state.relatedPosts=[...new Set (relatedPost)]
+   model.state.page = 1;
+   model.state.searchResult = pagination.getSearchResultPage(
+     model.state.page,
+     model.state.relatedPosts,
+     true
+   );
+  //  console.log(model.state.relatedPosts,model.state.searchResult)
+   generatePaginationMarkcup(model.state.relatedPosts);
+
 document.title =blogTittle;
 headerTittle.insertAdjacentHTML("afterbegin",`<h1 class="heading-secondary">${blogTittle}</h1>`)
 
@@ -83,8 +112,11 @@ const postToReadMarckup=`
 
 `
 blogArticleAndOverview.insertAdjacentHTML("afterbegin",`<div class="post-to-read-container">${postToReadMarckup}</div>`)
-let allPosts=blogMarckup(model.state.posts);
-relatedPosts.insertAdjacentHTML("afterbegin",allPosts)
+model.state.allPosts=blogMarckup(model.state.searchResult);
+// console.log(model.state.searchResult)
+relatedPosts.insertAdjacentHTML("afterbegin",model.state.allPosts.join(""))
+
+generatePaginationMarkcup(model.state.relatedPosts);
 
 window.scrollTo({
   top: 0,
@@ -102,11 +134,29 @@ init();
 
 
 relatedPosts.addEventListener("click",function(e){
-   if(!e.target.classList.contains("btn-read"))return
+   if(!e.target.classList.contains("read"))return
   
-  let id=e.target.getAttribute("id");
+  let tittle=e.target.dataset.tittle;
   localStorage.removeItem("blogTittle")
-  localStorage.setItem("blogTittle",id)
+  localStorage.setItem("blogTittle",tittle)
   window.location.reload()
  
  })
+ paginationBox.addEventListener("click", function (e) {
+  const btn = e.target.closest(".btn--inline");
+  if (!btn) return;
+ 
+  this.innerHTML = "";
+  // let userlist = document.querySelector(".user-list");
+  const gotoPage = Number(btn.dataset.goto);
+  
+  model.state.allPosts=blogMarckup(model.state.relatedPosts);
+  model.state.searchResult = pagination.getSearchResultPage(gotoPage,model.state.allPosts,true);
+  // getAndGenerateMarckup();
+  // return console.log(model.state.searchResult,model.state.relatedPosts)
+  relatedPosts.innerHTML = "";
+  relatedPosts.insertAdjacentHTML("afterbegin",model.state.searchResult.join(""))
+
+// console.log(model.state.relatedPosts)
+  generatePaginationMarkcup(model.state.relatedPosts,true);
+});

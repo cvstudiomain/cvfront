@@ -3,6 +3,8 @@ export const getSearchResultPage = function (page,content,notList=false) {
   state.page = page;
   let theNumber=8;
   if(notList) theNumber=6;
+  if(state.relatedPosts.length!==0)theNumber=3;
+
   let start = (page - 1) * theNumber;
   let end = page * theNumber;
 
@@ -13,6 +15,7 @@ export const paginationMarckup = function (searchResult,notList=false) {
   let curPage = state.page;
   let numberOfItems = 8;
   if(notList) numberOfItems=6;
+  if(state.relatedPosts.length!==0)numberOfItems=3;
   const numPages = Math.ceil(searchResult.length / numberOfItems);
 
   

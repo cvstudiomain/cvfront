@@ -1,5 +1,6 @@
 export const state = {
-  
+  allPosts:[],
+  relatedPosts:[],
   slider1:0,
   slider2:0,
   slider3:0,

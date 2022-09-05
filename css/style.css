@@ -305,6 +305,20 @@ padding: 2rem;
   gap: 6rem;
   grid-template-rows: max-content max-content;
 }
+.main-blog .pagination, .post-pagination{
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+.main-blog .pagination .pagination-btn, .post-pagination .pagination-btn{
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  background-color: #45260a;
+  color: #fff;
+}
 .main-blog-posts .blog-section  .heading-tertiary{
   margin:auto 4rem;
   border-bottom: black solid 2px;
@@ -409,7 +423,7 @@ display: flex;
   /* text-align: justify; */
   
 }
-.blog-tittle{
+ .blog-tittle{
   font-weight: 700;
   font-size: 16px;
   line-height: 22px;
@@ -417,8 +431,14 @@ display: flex;
   max-height: unset;
   word-wrap: break-word;
   margin: 0 3rem;
+  text-decoration: none;
+  color: black;
   /* word-wrap: break-word; */
   /* text-align: justify; */
+}
+.blog-card .blog-tittle:hover{
+  background-color: #eee4e4;
+  cursor: pointer;
 }
 .btn-read{
   background: none;

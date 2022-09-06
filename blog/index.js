@@ -3,7 +3,7 @@ import * as Loader from "../js/loader.js";
 import * as model from "../js/model.js";
 import * as pagination from "../js/pagination.js"
 const paginationBox=document.querySelector(".pagination")
-console.log(paginationBox)
+
 const thisBody=document.querySelector('body');
 let loaderContainer="";
 const blogSection=document.querySelector(".blog-section")
@@ -17,7 +17,7 @@ const generatePaginationMarkcup = function (val) {
   paginationBox.insertAdjacentHTML("afterbegin", pagination.paginationMarckup(val));
 };
 const blogMarckup=(data)=>{
-// return console.log(data)
+
   let marckup=data.map(block=>{
     // return console.log(block.blogArticle)
     
@@ -44,12 +44,25 @@ const blogMarckup=(data)=>{
 return marckup
 
 }
+function decodeQueryParam(p) {
+  return decodeURIComponent(p.replace(/\+/g, ' '));
+}
 const init=async function(){
+  let postFilterString=location.href.split("#")[1];
+  postFilterString=postFilterString? decodeQueryParam(postFilterString):"";
   thisBody.insertAdjacentHTML("beforeend",Loader.loader(true))
   loaderContainer=document.querySelector(".loaderContainer")
   let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
-  // return console.log(blogRes)
-   model.state.allPosts=blogMarckup(blogRes.data.data);
+  let blogData=blogRes.data.data;
+  if(postFilterString){
+    document.querySelector(".category-identifier").innerText=postFilterString
+    blogData=[];
+    blogRes.data.data.forEach(data=>{
+      data.categories.forEach(cat=>cat===postFilterString?blogData.push(data):"")
+    })
+  }
+  // console.log(blogData)
+   model.state.allPosts=blogMarckup(blogData);
   model.state.page = 1;
   model.state.searchResult = pagination.getSearchResultPage(
     model.state.page,

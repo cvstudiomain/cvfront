@@ -338,8 +338,23 @@ padding: 2rem;
     text-align: center;
 
   display: flex;
+  flex-direction: column;
+
   align-items: center;
   justify-content: center;
+}
+.bread-crumb-and-header{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.post-header-tittle .bread-crumb{
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.post-header-tittle .bread-crumb a{
+  color: #fff;
+  text-decoration: none;
 }
 .main-blog-posts .post-list{
   font-size: 2rem;

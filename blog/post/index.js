@@ -75,7 +75,6 @@ const init=async function(){
  let relatedPost=[]
   let postToRead=model.state.posts.find(post=>post.blogTittle.split(" ").join("-")===postTilttle);
 const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
-    
     model.state.posts.forEach(post=>{
       categories.forEach(readCat => {
         post.categories.forEach(relatedPostcat=>{
@@ -95,7 +94,10 @@ const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
    generatePaginationMarkcup(model.state.relatedPosts);
 
 document.title =blogTittle;
-headerTittle.insertAdjacentHTML("afterbegin",`<h1 class="heading-secondary">${blogTittle}</h1>`)
+let breadCrumb=`<div class="bread-crumb">
+<a href="../../blog/">Blog - </a>${categories.map(cat=>`<a href="../../blog/#${cat}">${cat}</a>`).join(" | ")}
+</div>`
+headerTittle.insertAdjacentHTML("afterbegin",`<div class="bread-crumb-and-header"><h1 class="heading-secondary">${blogTittle}</h1>${breadCrumb}</div>`)
 
 const postToReadMarckup=`
  

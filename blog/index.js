@@ -44,17 +44,19 @@ const blogMarckup=(data)=>{
 return marckup
 
 }
-function decodeQueryParam(p) {
-  return decodeURIComponent(p.replace(/\+/g, ' '));
-}
+// function decodeQueryParam(p) {
+//   return decodeURIComponent(p.replace(/\+/g, ' '));
+// }
 const init=async function(){
   let postFilterString=location.href.split("#")[1];
-  postFilterString=postFilterString? decodeQueryParam(postFilterString):"";
+  postFilterString=postFilterString?postFilterString.split("-").join(" "):"";
   thisBody.insertAdjacentHTML("beforeend",Loader.loader(true))
   loaderContainer=document.querySelector(".loaderContainer")
   let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
   let blogData=blogRes.data.data;
   if(postFilterString){
+document.title = postFilterString;
+
     document.querySelector(".category-identifier").innerText=postFilterString
     blogData=[];
     blogRes.data.data.forEach(data=>{

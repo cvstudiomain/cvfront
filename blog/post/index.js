@@ -60,7 +60,13 @@ const generateArticle=function(data){
            
           }).join("");
 }
-
+const mapCategory=function(cat){
+ return cat.map(c=>{
+   
+    let ct=c.split(" ").join("-");
+    return`<a href="../../blog/#${ct}">${c}</a>`
+  })
+}
 const init=async function(){
   thisBody.insertAdjacentHTML("beforeend",Loader.loader(true))
   loaderContainer=document.querySelector(".loaderContainer")
@@ -95,7 +101,7 @@ const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
 
 document.title =blogTittle;
 let breadCrumb=`<div class="bread-crumb">
-<a href="../../blog/">Blog - </a>${categories.map(cat=>`<a href="../../blog/#${cat}">${cat}</a>`).join(" | ")}
+<a href="../../blog/">Blog - </a>${mapCategory(categories).join(" | ")}
 </div>`
 headerTittle.insertAdjacentHTML("afterbegin",`<div class="bread-crumb-and-header"><h1 class="heading-secondary">${blogTittle}</h1>${breadCrumb}</div>`)
 

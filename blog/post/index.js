@@ -3,6 +3,11 @@ const relatedPosts=document.querySelector(".related-posts")
 import * as Loader from "../../js/loader.js";
 import * as model from "../../js/model.js";
 import * as pagination from "../../js/pagination.js"
+import * as general from "../../js/general.js"
+general.activateSubMenu()
+
+general.naviagtionState();
+general.activateSubMenu()
 
 const paginationBox=document.querySelector(".pagination")
 const thisBody=document.querySelector('body');

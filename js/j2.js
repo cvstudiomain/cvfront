@@ -11,22 +11,19 @@ let visits
 const addVisitor = async function () {
  
   
-  visits=localStorage.getItem("visits")
-  console.log(visits)
-  if(visits) return
+  localStorage.remove("visits")
+ 
+ 
   
   const numberOfVisitors = await axios.post(
     "https://app.cvstudio.io/user/visitors"
     );
     console.log(numberOfVisitors);
     
-    localStorage.setItem("visits","visits")
+  
 };
 addVisitor();
-window.onbeforeunload = function() {
-   localStorage.removeItem("visits")
-  return '';
-};
+
 const allLinks = document.querySelectorAll(".smoothmove");
 
 allLinks.forEach(function (link) {

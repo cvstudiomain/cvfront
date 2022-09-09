@@ -1,11 +1,32 @@
+// const { async } = require("regenerator-runtime");
+
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header");
 btnNavEl.addEventListener("click", function () {
   console.log("ok");
   headerEl.classList.toggle("nav-open");
 });
+let visits
 // Smooth scrolling animation
-
+const addVisitor = async function () {
+ 
+  
+  visits=localStorage.getItem("visits")
+  console.log(visits)
+  if(visits) return
+  
+  const numberOfVisitors = await axios.post(
+    "https://app.cvstudio.io/user/visitors"
+    );
+    console.log(numberOfVisitors);
+    
+    localStorage.setItem("visits","visits")
+};
+addVisitor();
+window.onbeforeunload = function() {
+   localStorage.removeItem("visits")
+  return '';
+};
 const allLinks = document.querySelectorAll(".smoothmove");
 
 allLinks.forEach(function (link) {
@@ -25,7 +46,7 @@ allLinks.forEach(function (link) {
       const sectionEl = document.querySelector(href);
       sectionEl.scrollIntoView({ behavior: "smooth" });
     }
-   
+
     // if(href==="/templates.html")return window.location=href
     // Close mobile naviagtion
     if (link.classList.contains("main-nav-link"))
@@ -75,13 +96,12 @@ function checkFlexGap() {
 }
 checkFlexGap();
 
-const templateLink=document.querySelector(".template-link");
-const templateSupmenu=document.querySelector(".template-sub-menu")
+const templateLink = document.querySelector(".template-link");
+const templateSupmenu = document.querySelector(".template-sub-menu");
 templateLink.addEventListener("mouseleave", function (e) {
-templateSupmenu.classList.remove("sub-menu-show")
-})
+  templateSupmenu.classList.remove("sub-menu-show");
+});
 
 templateLink.addEventListener("mouseenter", function (e) {
-
-templateSupmenu.classList.add("sub-menu-show")
-})
+  templateSupmenu.classList.add("sub-menu-show");
+});

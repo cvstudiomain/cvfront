@@ -48,7 +48,8 @@ body {
   gap: 32px;
   margin-top: 16px;
 }
-.admin-dashboard,.blog-in-admin {
+.admin-dashboard,
+.blog-in-admin {
   height: 100%;
   min-height: 100vh;
   width: 100%;
@@ -61,23 +62,49 @@ body {
   justify-content: center;
   gap: 16px;
 }
-.blog-in-admin{
+.admin-post-categories {
+  font-size: 24px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+.admin-post-categories li {
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+.admin-post-categories li .btn-delete-cat-item {
+  color: red;
+}
+.admin-post-categories li .btn-delete-cat-item:hover {
+  color: darkred;
+}
+.admin-post-categories li:hover {
+  background-color: #e7f1f3;
+}
+.blog-in-admin {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 99;
   grid-template-columns: 300px 1fr;
-/* background-color: rgb(58, 13, 13); */
+  /* background-color: rgb(58, 13, 13); */
   font-size: 16px;
   font-weight: 500;
 }
-.blog-in-admin .editors .editor-input{
+.blog-in-admin .editors .editor-input {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
 }
-.admin-side-bar,.blog-in-admin .editors {
+.admin-side-bar,
+.blog-in-admin .editors {
   width: 100%;
   height: 100%;
   display: flex;
@@ -87,6 +114,46 @@ body {
   grid-column: 1;
   border: 1px solid #eee;
   padding-bottom: 16px;
+}
+.blog-in-admin .list-of-blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  font-size: 18px;
+  border: 1px solid #eee;
+  padding: 32px;
+  color: #333;
+  margin-top: 16px;
+  height: 584px;
+  overflow-y: scroll;
+}
+.blog-in-admin .list-of-blog-posts li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 8px;
+  align-items: center;
+}
+.blog-in-admin .list-of-blog-posts li .pstitle {
+  width: 500px;
+  overflow: hidden;
+}
+.blog-in-admin .list-of-blog-posts li .btn {
+  color: #fff;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+}
+.blog-in-admin .list-of-blog-posts li .btn-edit {
+  background-color: rgb(2, 66, 2);
+}
+.blog-in-admin .list-of-blog-posts li .btn-delete {
+  background-color: rgb(255, 118, 118);
+}
+.blog-in-admin .list-of-blog-posts li:hover {
+  background-color: #e7f1f3;
 }
 .admin-side-bar .admin-nav-bar {
   font-size: 16px;
@@ -110,7 +177,7 @@ body {
   padding: 32px;
   position: relative;
 }
-.blog-by-editor .close-admin-blog{
+.blog-by-editor .close-admin-blog {
   font-size: 16px;
   color: red;
   position: absolute;
@@ -120,30 +187,30 @@ body {
   margin-top: 16px;
   margin-right: 16px;
 }
-.blog-in-admin label{
+.blog-in-admin label {
   font-size: 20px;
   font-weight: 700;
 }
-.blog-by-editor .close-admin-blog:hover{
-color: rgb(177, 119, 119);
+.blog-by-editor .close-admin-blog:hover {
+  color: rgb(177, 119, 119);
 }
-.blog-in-admin .btn-add-editor:hover{
-background-color:rgb(177, 119, 119) ;
+.blog-in-admin .btn-add-editor:hover {
+  background-color: rgb(177, 119, 119);
 }
-.blog-in-admin .list-of-editors{
+.blog-in-admin .list-of-editors {
   display: flex;
   flex-direction: column;
   list-style: none;
   font-size: 18px;
   gap: 18px;
 }
-.blog-in-admin .list-of-editors li{
+.blog-in-admin .list-of-editors li {
   text-transform: uppercase;
   cursor: pointer;
   margin-left: 16px;
 }
-.blog-in-admin .list-of-editors li:hover{
-color: #000;
+.blog-in-admin .list-of-editors li:hover {
+  color: #000;
 }
 .user-resources-container {
   display: flex;
@@ -383,7 +450,8 @@ color: #000;
   width: 100%;
 }
 .loaderContainer,
-.logAndRegisContainer,.webLinkData{
+.logAndRegisContainer,
+.webLinkData {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -391,17 +459,17 @@ color: #000;
   align-items: center;
   justify-content: center;
 }
-.webLinkData{
+.webLinkData {
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 9999;
   position: fixed;
   top: 0;
   left: 0;
 }
-.webLinkData .inputBox{
+.webLinkData .inputBox {
   width: 500px;
 }
-.logAndRegisContainer{
+.logAndRegisContainer {
   height: 100%;
   padding-top: 32px;
 }
@@ -453,7 +521,7 @@ textarea {
   border: 1px solid #1a3e27;
   outline: none;
   background: transparent;
-  color:#1a3e27;
+  color: #1a3e27;
 }
 textarea {
   border: 1px solid #1a3e27;
@@ -561,26 +629,23 @@ input[type="submit"] {
   line-height: 1.2;
   gap: 0.8rem;
 }
-.template .language{
+.template .language {
   gap: 0.1rem;
-   
- }
-
-.template .languages{
-  width: 90%;
-  
 }
 
-.template .languages .theLevel{
+.template .languages {
+  width: 90%;
+}
+
+.template .languages .theLevel {
   width: 100%;
   height: 0.3rem;
   background-color: #fff;
   border-radius: 0.2rem;
   position: relative;
   /* text-align: start; */
-  
 }
-.template .languages .theLevel .theLevelLoader{
+.template .languages .theLevel .theLevelLoader {
   position: absolute;
   height: 0.3rem;
   border-radius: 0.2rem;
@@ -643,7 +708,7 @@ input[type="file"] {
 .date {
   width: 100%;
   display: flex;
- 
+
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -668,7 +733,7 @@ input[type="file"] {
 .inputBox .txt-area-btn {
   align-self: flex-start;
 }
-.txt-area-btn{
+.txt-area-btn {
   margin-top: 8px;
 }
 .multi-line-input {
@@ -677,10 +742,10 @@ input[type="file"] {
   gap: 18px;
   flex-direction: row;
 }
-.single-lang{
+.single-lang {
   margin-bottom: 20px;
 }
-.single-experiences{
+.single-experiences {
   margin-top: 20px;
 }
 .dateofbirth,
@@ -753,6 +818,7 @@ input[type="date"],
   justify-content: center;
   gap: 0.6rem;
 }
+#image-upload-label,
 #image-input-label,
 button {
   text-transform: uppercase;
@@ -765,6 +831,8 @@ button {
   border: none;
   padding: 8px 16px;
   outline: none;
+}
+.upload-new-photo {
 }
 .pagination-btn,
 .txt-area-btn {
@@ -787,9 +855,6 @@ button {
 .txt-area-btn:hover {
   box-shadow: inset 0 0 0 3px rgba(255, 157, 157, 0.7);
 }
-
-
-
 
 .login-signup-btn-container {
   width: fit-content;
@@ -880,7 +945,6 @@ button {
   visibility: hidden;
 }
 
-
 .site-wrap-header {
   width: 100%;
   position: -webkit-sticky; /* Safari */
@@ -904,6 +968,7 @@ button {
 
 .content-columns {
   /* position: relative; */
+  max-width: 704px;
   grid-column: 2;
   grid-row: 2;
   margin-bottom: 16px;
@@ -1024,32 +1089,31 @@ button {
   color: #fff;
   font-weight: 600;
 }
-.download-btn-container .copyLink{
+.download-btn-container .copyLink {
   background-color: #1b2d4f;
   /* font-size: 30px; */
 }
 .downloadCv {
-  background-color: 	#008000
+  background-color: #008000;
 }
-.downloadCv:hover{
-  background-color: 	#228B22;
+.downloadCv:hover {
+  background-color: #228b22;
 }
-.deleteCv{
+.deleteCv {
   background-color: #e60000;
 }
-.deleteCv:hover{
+.deleteCv:hover {
   background-color: #ff0000;
-
 }
-.downloadCv:hover,.deleteCv:hover {
-
+.downloadCv:hover,
+.deleteCv:hover {
   transition: 1s;
 }
-.editCv{
+.editCv {
   background-color: #ff8c00;
 }
-.editCv:hover{
-  background-color:  #ffa333;
+.editCv:hover {
+  background-color: #ffa333;
 }
 .site-nav ul {
   display: flex;
@@ -1202,7 +1266,8 @@ button {
   border-radius: 16px;
 }
 .template-infor-container,
-.resume-infor-container {
+.resume-infor-container,
+.gallery-infor-container {
   text-align: center;
   display: flex;
   width: 100%;
@@ -1262,15 +1327,26 @@ button {
 
 .myTemplates,
 .myResume,
-.templates {
+.templates,
+.myGallery {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 
   justify-content: center;
   flex-direction: row;
+
   width: 100%;
   height: 100%;
+}
+.myGallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.myGallery .gallery-img {
+  height: 200px;
+  width: 200px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .myResumeInfor {
   padding: 8px;
@@ -1367,7 +1443,7 @@ button {
 .template .inforHeader {
   font-size: 1.13rem;
   font-weight: 700;
-  
+
   text-transform: uppercase;
 }
 .template .informationContainer {
@@ -1935,7 +2011,8 @@ button {
 .template6 .date-of-birth {
   /* color: #ff105f; */
 
-margin-bottom: 2rem;}
+  margin-bottom: 2rem;
+}
 .template6 .passport-box {
   width: 12rem;
   height: 12rem;
@@ -1954,7 +2031,6 @@ margin-bottom: 2rem;}
   width: 15rem;
   border-bottom-right-radius: 5rem;
   padding: 0.1rem 0.4rem;
-
 }
 .template6 .large-content {
   grid-column: 1/2;
@@ -1988,39 +2064,40 @@ margin-bottom: 2rem;}
   grid-template-rows: auto auto 1fr;
   align-items: start;
 }
-.cover ul{
+.cover ul {
   list-style: none;
 }
 .cover1 .user-name-and-profession,
 .cover .tiny-content {
-
   height: fit-content;
   min-height: 14rem;
   /* width: fit-content; */
 }
-.cover1 .user-name-and-profession{
+.cover1 .user-name-and-profession {
   align-self: center;
   justify-content: center;
 }
 .cover2 .contact-information {
   width: fit-content;
 }
-.cover2 .passport-box{
-  margin-top:1.5rem;
-  border-radius:50%;
+.cover2 .passport-box {
+  margin-top: 1.5rem;
+  border-radius: 50%;
   width: 8rem;
   height: 8rem;
   overflow: hidden;
   border: 0.2rem solid #fff;
 }
-.cover2 .passport-box img{
+.cover2 .passport-box img {
   border-radius: inherit;
 }
-.cover2 .contact-information .content-wrapper{
+.cover2 .contact-information .content-wrapper {
   flex-direction: row;
   max-width: 43rem;
 }
-.cover2 .contact-information .content-wrapper .information{max-width: 24rem;}
+.cover2 .contact-information .content-wrapper .information {
+  max-width: 24rem;
+}
 .cover2 .tiny-content {
   flex-direction: row;
   width: auto;
@@ -2035,9 +2112,9 @@ margin-bottom: 2rem;}
 
 .cover .large-content {
   grid-column: 1/-1;
-  padding:3rem;
+  padding: 3rem;
 }
-.cover3 .passport-box{
+.cover3 .passport-box {
   width: 17rem;
   height: 17rem;
 }
@@ -2047,7 +2124,8 @@ margin-bottom: 2rem;}
 .cover4 .content-wrapper {
   justify-content: center;
 }
-.cover4 .contact-information,.over2 .user-name-and-profession{
+.cover4 .contact-information,
+.over2 .user-name-and-profession {
   min-width: 49.6rem;
   min-height: 16rem;
   height: fit-content;
@@ -2056,14 +2134,13 @@ margin-bottom: 2rem;}
   justify-content: center;
   padding: 1rem;
 }
-.cover4 .contact-information{
+.cover4 .contact-information {
   /* max-width: 49.6rem; */
-  
+
   background-color: #660626;
   color: #fff;
 }
 .cover4 .profession {
-  
   /* color: black; */
   margin-top: 1.5rem;
 }
@@ -2071,9 +2148,8 @@ margin-bottom: 2rem;}
   grid-template-columns: 1fr 16rem;
   border-top-right-radius: 5rem;
 }
-.cover5 .user-name-and-profession{
+.cover5 .user-name-and-profession {
   max-width: 28rem;
-
 }
 .cover5 ul {
   margin-left: 1rem;
@@ -2088,7 +2164,7 @@ margin-bottom: 2rem;}
 .cover5 .tiny-content {
   grid-column: 2/-1;
 }
-.cover5 .large-content{
+.cover5 .large-content {
   padding-top: 0;
 }
 .cover3 .contact-information {
@@ -2166,7 +2242,7 @@ margin-bottom: 2rem;}
   margin: auto;
   padding-bottom: 8px;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
-z-index: 5;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -2208,6 +2284,13 @@ z-index: 5;
 @media (max-width: 1270px) {
   html {
     font-size: 3.6px;
+  }
+  .myGallery {
+    width: 380px;
+  }
+  .myGallery .gallery-img {
+    width: 182px;
+    height: 182px;
   }
 }
 @media (max-width: 1250px) {
@@ -2290,7 +2373,7 @@ z-index: 5;
     visibility: visible;
     transform: translateX(0);
   }
-  .site-nav ul li{
+  .site-nav ul li {
     font-size: 18px;
   }
 
@@ -2372,6 +2455,7 @@ z-index: 5;
   .sectionforadd {
     max-width: 600px;
   }
+
   .site-wrap {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -2384,7 +2468,7 @@ z-index: 5;
   .content-columns {
     grid-column: 1;
     grid-row: 2;
-    width: auto;
+    width: calc(100% - 32px);
   }
   .side-ad {
     width: 300px;
@@ -2402,8 +2486,8 @@ z-index: 5;
 @media (max-width: 644px) {
   .webLinkData .inputBox {
     width: 100%;
-    padding:16px;
-}
+    padding: 16px;
+  }
   html {
     font-size: 3px;
   }
@@ -2412,10 +2496,9 @@ z-index: 5;
   }
 }
 @media (max-width: 600px) {
-  .content-columns {
-    
+  /* .content-columns {
     width: auto;
-  }
+  } */
 }
 @media (max-width: 560px) {
   html {
@@ -2487,6 +2570,13 @@ z-index: 5;
   }
 }
 @media (max-width: 430px) {
+  .myGallery {
+    width: 100%;
+  }
+  .myGallery .gallery-img {
+    width: 132px;
+    height: 132px;
+  }
   html {
     font-size: 3.2px;
   }

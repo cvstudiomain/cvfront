@@ -9,12 +9,64 @@ const publishBtn=document.querySelector(".publish-btn");
 const selectCategory=document.querySelector("#select-category");
 const newCategory=document.querySelector("#new-category")
 const addNewCategory=document.querySelector(".new-category-btn");
-const featureImg=document.querySelector(".editor-feature-img")
+const featureImg=document.querySelector(".editor-feature-img");
+const theFeatureImg=document.querySelector(".the-feature-img");
 const loaderContainer=document.querySelector(".loaderContainer");
 const categoryList=document.querySelector(".category-list");
 const addCategoryBtn=document.querySelector(".add-category-btn");
+let featureImgFile="";
+const blogFromInput={
+  id:"",
+  blogArticle:"",
+  blogTittle:"",
+  fetureImage:{},
+  categories:[],
+  editorId:"",
+  update:false
+}
+let allCategories=[];
+const generateCategories=function(categories){
+  categoryList.innerHTML="";
+  categories.forEach(cat=>{
+    if(cat) categoryList.insertAdjacentHTML("beforeend",`<li class="category-list-item"><span class="cat-item" >${cat}</span><span class="btn-delete-cat-item" id="${cat}"><i class="fa fa-trash" aria-hidden="true"></i></span></li>`)
 
+  })
+}
+const generateSelectCategories=function(categories){
+  selectCategory.innerHTML="";
+  categories.forEach(cat=>{
+    if(cat) selectCategory.insertAdjacentHTML("beforeend",`<option value="${cat.category}">${cat.category}<span class="btn-delete-cat-item" id="${cat.category}"><i class="fa fa-trash" aria-hidden="true"></i></span></option>`)
 
+  })
+}
+categoryList.addEventListener("click",e=>{
+ let catId=e.target.closest(".btn-delete-cat-item");
+ if(!catId)return;
+ catId=catId.id
+  blogFromInput.categories=blogFromInput.categories.filter(cat=>cat!==catId);
+  generateCategories(blogFromInput.categories);
+  console.log(blogFromInput)
+})
+let blogRes = await axios.post("https://app.cvstudio.io/user/blogs/");
+model.state.posts = blogRes.data.data;
+
+let postId=location.href.split("#")[1]
+let initialBlock={};
+if(postId){
+  blogFromInput.update=true;
+  publishBtn.innerText="Update"
+  model.state.posts.forEach(post=>{if(post._id===postId){
+    blogTittle.innerText=post.blogTittle;
+    blogFromInput.fetureImage=post.fetureImage;
+    blogFromInput.id=post._id;
+    initialBlock= post.blogArticle[0];
+    theFeatureImg.src=blogFromInput.fetureImage.url;
+    blogFromInput.categories=post.categories
+    generateCategories(blogFromInput.categories)
+    
+  }})
+  
+}
 
 let editor = new EditorJS({
  /**
@@ -71,6 +123,7 @@ let editor = new EditorJS({
  /**
   * Initial Editor data
   */
+  data:initialBlock? initialBlock:{}
  
 });
 /**
@@ -80,37 +133,32 @@ let editor = new EditorJS({
 
 
 
-let featureImgFile="";
-const blogFromInput={
-  blogArticle:"",
-  blogTittle:"",
-  fetureImage:{},
-  categories:[],
-  editorId:""
-}
-let allCategories=[];
+
 const init=async function(){
   // console.log(model.state.user.editor)
   let userData = JSON.parse(localStorage.getItem("user"));
+  
   // console.log(userData)
   
   
   // return console.log(model.state.editor, userData.isGonGon)
-  if(userData.editor!=="true"&&!userData.isGonGon) return window.location="../blog/"
+  if(userData?.editor!=="true"&&!userData?.isGonGon) return window.location="../blog/"
    if(!userData.isGonGon)model.state.user.userid=userData.userid;
   //  console.log(model.state.user.userid);
   const catres = await axios.get(`https://app.cvstudio.io/user/get-categories`);
   allCategories=catres;   
-  selectCategory.innerHTML= catres.data.data.map(val=>`<option value="${val.category}">${val.category}</option>`).join("");
+  generateSelectCategories(catres.data.data)
+  // selectCategory.innerHTML= catres.data.data.map(val=>`<option value="${val.category}">${val.category}</option>`).join("");
+ 
 }
 
 init()
 let categoryToAdd=[]
-// console.log(imageUpload,bannerBtn)
+
 addCategoryBtn.addEventListener("click",function(){
   categoryToAdd=selectCategory.value
    blogFromInput.categories.push(categoryToAdd);
-categoryList.insertAdjacentHTML("beforeend",`<li class="category-list-item">${categoryToAdd}</li>`)
+   generateCategories(blogFromInput.categories);
 
 })
 
@@ -121,9 +169,9 @@ addNewCategory.addEventListener("click",async function(e){
  let categoryExist=allCategories.data.data.some(cat=>cat.category.toLowerCase()===categoryValue.toLowerCase());
  if(categoryExist) return alert("Category Already Exist")
  blogFromInput.categories.push(categoryValue);
+ generateCategories(blogFromInput.categories)
  let catres = await axios.post(`https://app.cvstudio.io/user/create-blog-category`,{categoryValue:categoryValue});
 console.log(catres)
-categoryList.insertAdjacentHTML("beforeend",`<li class="category-list-item">${categoryValue}</li>`)
 selectCategory.insertAdjacentHTML("afterbegin", `<option value=${categoryValue}>${categoryValue}</option>`)
 newCategory.value="";
 newCategory.focus()
@@ -157,7 +205,7 @@ featureImg.insertAdjacentHTML("afterbegin",Loader.loader(false))
             
             lc.classList.remove("hideMe")
               blogFromInput.fetureImage=await uploadBlogImg(featureImgFile)
-              featureImg.style.backgroundImage=imageUrl;
+              theFeatureImg.src=reader.result;
              lc.classList.add("hideMe")
            
       };

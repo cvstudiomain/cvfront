@@ -5,16 +5,18 @@ import * as pagination from "./pagination.js";
 import * as arct from "./alltemplates.js";
 import * as general from "./general.js";
 import * as Forms from "./myForms.js";
-import * as Loader from "./loader.js"
+import * as Loader from "./loader.js";
 // console.log(Loader.loader())
 general.smoothScroll("smoothmove");
 
 // console.log(arct)
 const containerBody = document.querySelector("body");
-let loaderContainer ="" 
-const webLinkContainer=document.querySelector(".webLinkData")
-const LinkTextBox=document.querySelector(".theLinktoWeb")
-    
+let loaderContainer = "";
+const webLinkContainer = document.querySelector(".webLinkData");
+const LinkTextBox = document.querySelector(".theLinktoWeb");
+const galleryInforContainer = document.querySelector(
+  ".gallery-infor-container"
+);
 const userAreaContents = document.querySelector(".content-columns");
 const paginationBox = document.querySelectorAll(".paginationBox");
 let duty = "";
@@ -23,6 +25,7 @@ let sectionName = document.querySelector(".user-section-name");
 const templates = document.querySelector(".templates");
 const htmlParent = document.querySelector("html");
 const myResume = document.querySelector(".myResume");
+const myGallery = document.querySelector(".myGallery");
 const resumesViewer = document.querySelector(".resumesViewer");
 const resumeInforContainer = document.querySelector(".resume-infor-container");
 const noResumeInfor = document.querySelector(".no-resume-infor");
@@ -47,10 +50,10 @@ const headerEl = document.querySelector(".master-body");
 const preLoade = function (start = true) {
   if (start) {
     containerBody.classList.add("body-on-load");
-    userDashBoard.classList.add("hideMe")
+    userDashBoard.classList.add("hideMe");
     return loaderContainer.classList.remove("hideMe");
   }
-  userDashBoard.classList.remove("hideMe")
+  userDashBoard.classList.remove("hideMe");
   containerBody.classList.remove("body-on-load");
 
   loaderContainer.classList.add("hideMe");
@@ -58,8 +61,8 @@ const preLoade = function (start = true) {
 const init = async function () {
   try {
     // return console.log(Loader)
-    containerBody.insertAdjacentHTML("afterbegin",Loader.loader(true))
-    loaderContainer=document.querySelector(".loaderContainer");
+    containerBody.insertAdjacentHTML("afterbegin", Loader.loader(true));
+    loaderContainer = document.querySelector(".loaderContainer");
     preLoade(true);
     let userData = JSON.parse(localStorage.getItem("user"));
     // console.log(userData)
@@ -75,9 +78,11 @@ const init = async function () {
     model.state.user.email = userData.email;
     model.state.user.siteUserName = userData.siteUserName;
     model.state.user.userid = userData.userid;
-    model.state.user.editor=userData.editor;
+    model.state.user.editor = userData.editor;
     // return console.log(model.state.user.editor==="true")
-    model.state.user.editor==="true"? window.location="blog/editor.html":null
+    model.state.user.editor === "true"
+      ? (window.location = "blog/editor.html")
+      : null;
     cvFormContainer.insertAdjacentHTML(
       "afterbegin",
       Forms.resumeformcontainer(false, null)
@@ -97,8 +102,16 @@ const init = async function () {
     const templatesRes = await axios.post(
       `https://app.cvstudio.io/resume/gettemplate/:${id}`
     );
-    // console.log(resume, templatesRes);
-
+    let ImgsRes = await axios.post(`https://app.cvstudio.io/user/imgs/:${id}`);
+    if (ImgsRes.data.userimgs.length !== 0) {
+      ImgsRes.data.userimgs.forEach((imgItem) => {
+        if (imgItem.url)
+          myGallery.insertAdjacentHTML(
+            "afterbegin",
+            `<img class="gallery-img" src="${imgItem?.url}" />`
+          );
+      });
+    }
     if (resume.data.cv) {
       model.state.resumes.push(...resume.data.cv);
       model.state.resumes.forEach((resume) => {
@@ -141,7 +154,6 @@ const init = async function () {
   }
 };
 init();
-
 
 document.querySelector(".nav-tabs").addEventListener("click", function (e) {
   if (!e.target.classList.contains("tab")) return;
@@ -199,29 +211,28 @@ resumesViewer.addEventListener("click", async function (e) {
   //   downloadCv
   // editCv
   // deleteCv
-//copyLink
-//{id: '630f698bf6045ce3aad1a225', templateType: 'letter'}
+  //copyLink
+  //{id: '630f698bf6045ce3aad1a225', templateType: 'letter'}
   let btn = e.target;
   if (!btn.classList.contains("viewerBtn")) return;
   if (btn.classList.contains("copyLink")) {
-    let{id,templateType}=model.state.user.viewersDataIdentifier
-    let itemLink=`https://www.cvstudio.io/web/#${templateType}--${id}`;
+    let { id, templateType } = model.state.user.viewersDataIdentifier;
+    let itemLink = `https://www.cvstudio.io/web/#${templateType}--${id}`;
     // console.log(itemLink)
-    webLinkContainer.classList.remove("hideMe")
-    LinkTextBox.value=itemLink;
-    
+    webLinkContainer.classList.remove("hideMe");
+    LinkTextBox.value = itemLink;
+
     // console.log(model.state.user.viewersDataIdentifier)
   }
   if (btn.classList.contains("editCv")) {
     let templateType = model.state.user.viewersDataIdentifier.templateType;
     model.state.user.contentEdit = true;
     let userCurrentData = model.state.user.userCurrentData;
-    // return console.log(userCurrentData) 
+    // return console.log(userCurrentData)
     // userCurrentData.experiences.map(duty=>{
     //    duty.experience.map(val=>console.log(val))
     //  })
     if (templateType === "resume") {
-     
       cvFormContainer.classList.remove("hiddenClass");
       cvFormContainer.innerHTML = "";
       cvFormContainer.insertAdjacentHTML(
@@ -536,6 +547,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
   templateInorContainer.classList.add("hiddenClass");
   resumeInforContainer.classList.add("hiddenClass");
   templatesInfor.classList.add("hiddenClass");
+  galleryInforContainer.classList.add("hiddenClass");
   document
     .querySelector(".nav-tabs")
     .querySelectorAll("a")
@@ -558,6 +570,20 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     hidePaginations(pbox1);
     model.state.section = "myResume";
     resumeInforContainer.classList.remove("hiddenClass");
+    // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+    document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
+    targetElement.classList.add("active");
+    sectionName.innerText = sectionText;
+    // if (model.state.resumes.length !== 0) {
+    //   let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
+    //   generateMarckup(marckup);
+    // }
+    templates.classList.add("hiddenClass");
+  }
+  if (buttonId === "myGallery") {
+    hidePaginations(pbox1);
+    model.state.section = "myGallery";
+    galleryInforContainer.classList.remove("hiddenClass");
     // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
@@ -608,42 +634,104 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     window.location = "index.html";
   }
 });
-const onChangeImage=function(e){
-    e.target.addEventListener("change", async function (e) {
-      try {
-        const file = e.target.files[0];
-        // console.log(file,"hello")
-        if (!file) return alert("File not exist.");
-        if (file.size > 1024 * 1024) return alert("Size too large");
-        if (
-          file.type !== "image/jpg" &&
-          file.type !== "image/png" &&
-          file.type !== "image/jpeg"
-        )
-          return alert("File type not supported");
+const onChangeImage = function (e) {
+  e.target.addEventListener("change", async function (e) {
+    try {
+      const file = e.target.files[0];
+      // console.log(file,"hello")
+      if (!file) return alert("File not exist.");
+      if (file.size > 1024 * 1024) return alert("Size too large");
+      if (
+        file.type !== "image/jpg" &&
+        file.type !== "image/png" &&
+        file.type !== "image/jpeg"
+      )
+        return alert("File type not supported");
 
-        model.state.user.file = file;
-        let reader = new FileReader();
-        reader.onloadend = function () {
-          document
-            .querySelectorAll(".display_image2")
-            .forEach(
-              (display) =>
-                (display.style.backgroundImage = `url(${reader.result})`)
-            );
-        };
-        if (file) {
-          reader.readAsDataURL(file);
-        }
-      } catch (error) {
-        console.log(error.message);
+      model.state.user.file = file;
+
+      let reader = new FileReader();
+      reader.onloadend = function () {
+        document
+          .querySelectorAll(".display_image2")
+          ?.forEach(
+            (display) =>
+              (display.style.backgroundImage = `url(${reader.result})`)
+          );
+      };
+      if (file) {
+        reader.readAsDataURL(file);
       }
-    });
-}
+    } catch (error) {
+      console.log(error.message);
+    }
+  });
+};
+document
+  .querySelector("#image_input3")
+  .addEventListener("change", async (e) => {
+    try {
+      const file = e.target.files[0];
+      // console.log(file,"hello")
+      if (!file) return alert("File not exist.");
+      if (file.size > 1024 * 1024) return alert("Size too large");
+      if (
+        file.type !== "image/jpg" &&
+        file.type !== "image/png" &&
+        file.type !== "image/jpeg"
+      )
+        return alert("File type not supported");
+
+      model.state.user.file = file;
+
+      if (model.state.user.file) {
+        let formData = new FormData();
+        let token = model.state.user.token;
+        formData.append("file", model.state.user.file);
+        preLoade(true);
+        let res = await axios.post("https://app.cvstudio.io/upload/", {
+          imageType: model.state.user.file.type,
+        });
+        let url = res.data.uploadUrl;
+        // console.log(url);
+        await fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          body: model.state.user.file,
+        });
+        let imgUrl = { url: url.split("?")[0] };
+        // return console.log(imgUrl.url);
+        let newImage = {
+          userid: model.state.user.userid,
+          url: imgUrl.url,
+        };
+
+        let newImgRes = await axios.post(
+          "https://app.cvstudio.io/user/create-new-img",
+          {
+            newImage: newImage,
+          }
+        );
+        let imgData = newImgRes.data.data;
+
+        if (imgData.url) {
+          myGallery.insertAdjacentHTML(
+            "afterbegin",
+            `<img class="gallery-img" src="${imgData?.url}" />`
+          );
+        }
+        preLoade(false);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  });
 coverLetterContainer.addEventListener("click", async function (e) {
   // return console.log()
   if (e.target.id === "image_input2" || e.target.it === "image-input-label") {
-      onChangeImage(e)
+    onChangeImage(e);
   }
   if (e.target.closest(".btnCloseView")) {
     hidePaginations(pbox1);
@@ -678,80 +766,74 @@ coverLetterContainer.addEventListener("click", async function (e) {
 });
 
 const getCvOrLetter = async function (data) {
+  try {
+    if (model.state.user.contentEdit) {
+      data.template = model.state.user.userCurrentData.template;
+      data.onEdit = model.state.user.contentEdit;
+      let userPassport = model.state.user.userCurrentData.images;
+      if (userPassport) data.images = userPassport;
+      data._id = model.state.user.userCurrentData._id;
+    }
 
-try {
-  
-  if(model.state.user.contentEdit){
-    data.template=model.state.user.userCurrentData.template;
-    data.onEdit=model.state.user.contentEdit;
-    let userPassport=model.state.user.userCurrentData.images;
-    if(userPassport) data.images=userPassport;
-    data._id=model.state.user.userCurrentData._id
-   }
+    if (model.state.user.file) {
+      let formData = new FormData();
+      let token = model.state.user.token;
+      formData.append("file", model.state.user.file);
+      let res = await axios.post("https://app.cvstudio.io/upload/", {
+        imageType: model.state.user.file.type,
+      });
+      let url = res.data.uploadUrl;
+      // console.log(url)
+      await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        body: model.state.user.file,
+      });
+      let imgUrl = { url: url.split("?")[0] };
+      // return console.log(imgUrl);
 
-  if (model.state.user.file) {
-    let formData = new FormData();
-    let token = model.state.user.token;
-    formData.append("file", model.state.user.file);
-    let res = await axios.post("https://app.cvstudio.io/upload/", {
-      imageType: model.state.user.file.type,
+      // console.log(res.data.uploadUrl,url,imgUrl)
+
+      data.images = imgUrl;
+    }
+
+    // if (data.onEdit && model.state.user.userCurrentData.images)
+    // data.images = model.state.user.userCurrentData.images;
+
+    // return console.log(data)
+    const res = await axios.post("https://app.cvstudio.io/resume/create", {
+      ...data,
     });
-    let url = res.data.uploadUrl;
-    // console.log(url)
-    await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      body: model.state.user.file,
-    });
-    let imgUrl = { url: url.split("?")[0] };
-    // return console.log(imgUrl);
-
-    // console.log(res.data.uploadUrl,url,imgUrl)
-
-    data.images = imgUrl;
-  }
-
-
-  // if (data.onEdit && model.state.user.userCurrentData.images)
-  // data.images = model.state.user.userCurrentData.images;
-   
-  // return console.log(data)
-  const res = await axios.post("https://app.cvstudio.io/resume/create",{
-    ...data,
-  });
-  if (res.data) return location.reload()
-  return;
-  model.state.resume = res.data.data;
-  model.state.resumes.push(model.state.resume);
-  model.state.user.myResumes.push(
-    temMarckup.createPdfMarckup(model.state.resume)
-  );
-  noResumeInfor.classList.add("hiddenClass");
-  myTemplates.classList.add("hiddenClass");
-  document.querySelector("#myTemplates").classList.remove("active");
-
-  myResume.classList.remove("hiddenClass");
-  document.querySelector("#myResume").classList.add("active");
-  myResume.innerHTML = "";
-  model.state.resumes.forEach((resume) => {
-    myResume.insertAdjacentHTML(
-      "afterbegin",
-      temMarckup.createPdfMarckup(resume)
+    if (res.data) return location.reload();
+    return;
+    model.state.resume = res.data.data;
+    model.state.resumes.push(model.state.resume);
+    model.state.user.myResumes.push(
+      temMarckup.createPdfMarckup(model.state.resume)
     );
-  });
-  cvFormContainer.classList.add("hiddenClass");
-  coverLetterContainer.classList.add("hiddenClass");
-  userDashBoard.classList.remove("hiddenClass");
-  s6.classList.add("hiddenClass");
-  s1.style.left = "16px";
-  // progress.style.width = "60px";
-  clearInput();
+    noResumeInfor.classList.add("hiddenClass");
+    myTemplates.classList.add("hiddenClass");
+    document.querySelector("#myTemplates").classList.remove("active");
 
-} catch (error) {
-  
-}
+    myResume.classList.remove("hiddenClass");
+    document.querySelector("#myResume").classList.add("active");
+    myResume.innerHTML = "";
+    model.state.resumes.forEach((resume) => {
+      myResume.insertAdjacentHTML(
+        "afterbegin",
+        temMarckup.createPdfMarckup(resume)
+      );
+    });
+    cvFormContainer.classList.add("hiddenClass");
+    coverLetterContainer.classList.add("hiddenClass");
+    userDashBoard.classList.remove("hiddenClass");
+    s6.classList.add("hiddenClass");
+    s1.style.left = "16px";
+    // progress.style.width = "60px";
+    clearInput();
+  } catch (error) {}
 };
 const clearInput = function () {
   document
@@ -759,36 +841,32 @@ const clearInput = function () {
     .forEach((elem) => (elem.value = ""));
   document.querySelectorAll("textarea").forEach((elem) => (elem.value = ""));
 };
-const saveResume= async (e)=> {
+const saveResume = async (e) => {
   try {
-   
     model.state.user.inputData = {
       userid: model.state.user.userid,
       template: model.state.templateToUse,
       ...model.state.user.persData,
       ...model.state.user.socLinks,
-      skills:model.state.user.skills,
-      certifications:model.state.user.certifications,
+      skills: model.state.user.skills,
+      certifications: model.state.user.certifications,
       interest: model.state.user.hobies,
       educations: model.state.user.educations,
       experiences: model.state.user.experiences,
-      languages:model.state.user.languages,
+      languages: model.state.user.languages,
       reffrences: model.state.user.reffrences,
       images: {},
     };
 
-
- 
-
-// return console.log(model.state.user.inputData)
+    // return console.log(model.state.user.inputData)
     await getCvOrLetter(model.state.user.inputData);
-    init()
+    init();
     // this.innerText = "Save";
     location.reload();
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const getTheTemplates = function (data) {
   let alluserTemplates = arct.allTemplates;
@@ -1036,8 +1114,8 @@ cvFormContainer.addEventListener("click", async function (e) {
   let s5 = this.querySelector("#s5");
   let s6 = this.querySelector("#s6");
   if (e.target.id === "image_input" || e.target.it === "image-input-label") {
-    onChangeImage(e)
-}
+    onChangeImage(e);
+  }
   if (e.target.closest(".btnCloseView")) {
     hidePaginations(pbox1);
     closeViewer();
@@ -1045,8 +1123,10 @@ cvFormContainer.addEventListener("click", async function (e) {
     return myResume.classList.remove("hiddenClass");
   }
   if (e.target.id === "next1") {
-    model.state.user.persData =Object.fromEntries([...new FormData(e.target.closest("form"))]);
-  
+    model.state.user.persData = Object.fromEntries([
+      ...new FormData(e.target.closest("form")),
+    ]);
+
     s1.classList.add("hiddenClass");
     s2.classList.remove("hiddenClass");
     // progress.style.width = "120px";
@@ -1058,35 +1138,33 @@ cvFormContainer.addEventListener("click", async function (e) {
     // progress.style.width = "60px";
   }
   if (e.target.id === "next2") {
-   let thisContainer=e.target.closest(".form-style");
-   let allEducations=[];
-   let notProEdu=[]
-   thisContainer.querySelectorAll(".single-edu").forEach(item=>{
-     if(!item.classList.contains("hiddenClass")) notProEdu.push(item)
-    
-    })
-   notProEdu.forEach(item=>{
-    let eduEntries=[... new FormData(item)].filter(ent=>ent[1]!=="")
-    if(eduEntries.length!==0) return allEducations.push(Object.fromEntries(eduEntries))
-    
-    })
+    let thisContainer = e.target.closest(".form-style");
+    let allEducations = [];
+    let notProEdu = [];
+    thisContainer.querySelectorAll(".single-edu").forEach((item) => {
+      if (!item.classList.contains("hiddenClass")) notProEdu.push(item);
+    });
+    notProEdu.forEach((item) => {
+      let eduEntries = [...new FormData(item)].filter((ent) => ent[1] !== "");
+      if (eduEntries.length !== 0)
+        return allEducations.push(Object.fromEntries(eduEntries));
+    });
     // console.log(allEducations)
-  //  .filter(edu=>!edu.classList.contains("hiddenClass"));
-   let allCertifications=[];
-    let notProCert=[];
-   thisContainer.querySelectorAll(".single-cert").forEach(cert=>{
-     if(!cert.classList.contains("hiddenClass")) notProCert.push(cert)
-   })
-   notProCert.forEach(cert=>{
-     
-    let item=cert.querySelector(".certInput").value;
-    if(item!=="")allCertifications.push(item);
-  })
-  //  console.log(allEducations,allCertifications)
-  model.state.user.educations=allEducations;
-  model.state.user.certifications=allCertifications  
-  
-  s2.classList.add("hiddenClass");
+    //  .filter(edu=>!edu.classList.contains("hiddenClass"));
+    let allCertifications = [];
+    let notProCert = [];
+    thisContainer.querySelectorAll(".single-cert").forEach((cert) => {
+      if (!cert.classList.contains("hiddenClass")) notProCert.push(cert);
+    });
+    notProCert.forEach((cert) => {
+      let item = cert.querySelector(".certInput").value;
+      if (item !== "") allCertifications.push(item);
+    });
+    //  console.log(allEducations,allCertifications)
+    model.state.user.educations = allEducations;
+    model.state.user.certifications = allCertifications;
+
+    s2.classList.add("hiddenClass");
     s3.classList.remove("hiddenClass");
     // progress.style.width = "180px";
   }
@@ -1096,48 +1174,49 @@ cvFormContainer.addEventListener("click", async function (e) {
     // progress.style.width = "120px";
   }
   if (e.target.id === "next3") {
-    let allExperiences=[];
-    let expEntries=[]
-    e.target.closest(".form-style").querySelectorAll(".single-experiences").forEach(expItem=>{
-      if(expItem.classList.contains("hiddenClass")) return
-      expEntries.push([... new FormData(expItem)]);
-    });
-    expEntries.forEach(item=>{
-      let duties=[];
-      let objectData=[];
-      item.forEach(duty=>{
-        if(duty[0]==="experience"&&duty[1]!=="")duties.push(duty[1])
-        if(duty[0]!=="experience"&&duty[1]!=="")objectData.push(duty)
-        
-      })
-      let expObject=null;
-      if(objectData.length!==0){
-       
-        expObject=(Object.fromEntries(objectData));
-        
+    let allExperiences = [];
+    let expEntries = [];
+    e.target
+      .closest(".form-style")
+      .querySelectorAll(".single-experiences")
+      .forEach((expItem) => {
+        if (expItem.classList.contains("hiddenClass")) return;
+        expEntries.push([...new FormData(expItem)]);
+      });
+    expEntries.forEach((item) => {
+      let duties = [];
+      let objectData = [];
+      item.forEach((duty) => {
+        if (duty[0] === "experience" && duty[1] !== "") duties.push(duty[1]);
+        if (duty[0] !== "experience" && duty[1] !== "") objectData.push(duty);
+      });
+      let expObject = null;
+      if (objectData.length !== 0) {
+        expObject = Object.fromEntries(objectData);
       }
-        if(duties.length!==0) expObject.experience=duties;
-        if(expObject!==null) allExperiences.push(expObject)
-    })
+      if (duties.length !== 0) expObject.experience = duties;
+      if (expObject !== null) allExperiences.push(expObject);
+    });
     // console.log(allExperiences)
-   model.state.user.experiences=allExperiences;
-    
-   s3.classList.add("hiddenClass");
+    model.state.user.experiences = allExperiences;
+
+    s3.classList.add("hiddenClass");
     s4.classList.remove("hiddenClass");
     // progress.style.width = "216px";
   }
   if (e.target.id === "back3") {
-   
     s4.classList.add("hiddenClass");
     s3.classList.remove("hiddenClass");
     // progress.style.width = "180px";
   }
   if (e.target.id === "next4") {
-    let allSocialLinks=  Object.fromEntries([...new FormData(e.target.closest("form"))]);
-model.state.user.socLinks=allSocialLinks;
+    let allSocialLinks = Object.fromEntries([
+      ...new FormData(e.target.closest("form")),
+    ]);
+    model.state.user.socLinks = allSocialLinks;
 
-    // console.log(allSocialLinks) 
-    
+    // console.log(allSocialLinks)
+
     s4.classList.add("hiddenClass");
     s5.classList.remove("hiddenClass");
     // progress.style.width = "300px";
@@ -1148,44 +1227,44 @@ model.state.user.socLinks=allSocialLinks;
     // progress.style.width = "216px";
   }
   if (e.target.id === "next5") {
-    e.target.innerText="Please wait..."
-    let allSkills=[];
-    let thisContainer=e.target.closest(".form-style");
-    thisContainer.querySelectorAll(".skillInput").forEach(skill=>{
-      if(skill.value!=="")allSkills.push(skill.value)
-    })
-    let allInterest=[];
-    thisContainer.querySelectorAll(".single-interest").forEach(intr=>{
-    if(intr.value!=="") allInterest.push(intr.value)
+    e.target.innerText = "Please wait...";
+    let allSkills = [];
+    let thisContainer = e.target.closest(".form-style");
+    thisContainer.querySelectorAll(".skillInput").forEach((skill) => {
+      if (skill.value !== "") allSkills.push(skill.value);
     });
-    let allReff=[];
-    thisContainer.querySelectorAll(".single-reff").forEach(ref=>{
-      if(ref.classList.contains("hiddenClass")) return;
-      let refEntries=[... new FormData(ref)];
-      let refObjectData=refEntries.filter(item=>item[1]!=="");
-      
-       if(refObjectData.length!==0)allReff.push(Object.fromEntries(refObjectData))
+    let allInterest = [];
+    thisContainer.querySelectorAll(".single-interest").forEach((intr) => {
+      if (intr.value !== "") allInterest.push(intr.value);
     });
-    let profile=thisContainer.querySelector("#profile").value;
-    let allLanguages=[]
-    thisContainer.querySelectorAll(".single-lang").forEach(item=>{
-      if(item.classList.contains("hiddenClass")) return
-      let langObject={language:"",level:""};
-       let inputData=Object.fromEntries([...new FormData(item)])
-         langObject.language=inputData.language;
-         langObject.level=inputData.langLevel;
-        if(langObject.language!=="") allLanguages.push(langObject)
-    }
-      )
-      model.state.user.skills=allSkills;
-      model.state.user.hobies=allInterest;
-      model.state.user.reffrences=allReff;
-      model.state.user.languages=allLanguages;
-      model.state.user.persData.profile=profile;
-  // console.log(model.state.user.persData)
-     return saveResume()
+    let allReff = [];
+    thisContainer.querySelectorAll(".single-reff").forEach((ref) => {
+      if (ref.classList.contains("hiddenClass")) return;
+      let refEntries = [...new FormData(ref)];
+      let refObjectData = refEntries.filter((item) => item[1] !== "");
+
+      if (refObjectData.length !== 0)
+        allReff.push(Object.fromEntries(refObjectData));
+    });
+    let profile = thisContainer.querySelector("#profile").value;
+    let allLanguages = [];
+    thisContainer.querySelectorAll(".single-lang").forEach((item) => {
+      if (item.classList.contains("hiddenClass")) return;
+      let langObject = { language: "", level: "" };
+      let inputData = Object.fromEntries([...new FormData(item)]);
+      langObject.language = inputData.language;
+      langObject.level = inputData.langLevel;
+      if (langObject.language !== "") allLanguages.push(langObject);
+    });
+    model.state.user.skills = allSkills;
+    model.state.user.hobies = allInterest;
+    model.state.user.reffrences = allReff;
+    model.state.user.languages = allLanguages;
+    model.state.user.persData.profile = profile;
+    // console.log(model.state.user.persData)
+    return saveResume();
     // odel.state.user.socLinks = [...new FormData(e.target.closest("form"))];
-    
+
     // progress.style.width = "100%";
   }
   if (e.target.id === "back5") {
@@ -1196,53 +1275,64 @@ model.state.user.socLinks=allSocialLinks;
 
   let btn = e.target;
 
-  
-  if (btn.type !== "button")  return; //console.log("not added");
+  if (btn.type !== "button") return; //console.log("not added");
 
-    
-    if (btn.classList.contains("btnAddLanguage")) {
-    document.querySelector(".all-languages").insertAdjacentHTML("beforeend",Forms.anotherLang());
-    }
-    if (btn.classList.contains("btnAddEducation")) {
-      let allEdu=document.querySelector(".all-edu")
-      let newEduForm=document.querySelector(".hiddenEduForm");
-      if(newEduForm.classList.contains("hiddenClass"))return newEduForm.classList.remove("hiddenClass");
-      return allEdu.insertAdjacentHTML("beforeend",Forms.anotherEdu())
-      
-    }
-    
-    if (btn.classList.contains("btnAddCertificaktion")) {
-    let allCert=document.querySelector(".all-cert")
-    let hiddenCert=document.querySelector(".hiddenCert")
-    if(hiddenCert.classList.contains("hiddenClass"))return hiddenCert.classList.remove("hiddenClass");
-    return allCert.insertAdjacentHTML("beforeend",Forms.anotherCertification())
-    }
-   
-    if (btn.classList.contains("btnWorkExperience")) {
-    let allExperiences=document.querySelector(".all-experiences");
+  if (btn.classList.contains("btnAddLanguage")) {
+    document
+      .querySelector(".all-languages")
+      .insertAdjacentHTML("beforeend", Forms.anotherLang());
+  }
+  if (btn.classList.contains("btnAddEducation")) {
+    let allEdu = document.querySelector(".all-edu");
+    let newEduForm = document.querySelector(".hiddenEduForm");
+    if (newEduForm.classList.contains("hiddenClass"))
+      return newEduForm.classList.remove("hiddenClass");
+    return allEdu.insertAdjacentHTML("beforeend", Forms.anotherEdu());
+  }
+
+  if (btn.classList.contains("btnAddCertificaktion")) {
+    let allCert = document.querySelector(".all-cert");
+    let hiddenCert = document.querySelector(".hiddenCert");
+    if (hiddenCert.classList.contains("hiddenClass"))
+      return hiddenCert.classList.remove("hiddenClass");
+    return allCert.insertAdjacentHTML(
+      "beforeend",
+      Forms.anotherCertification()
+    );
+  }
+
+  if (btn.classList.contains("btnWorkExperience")) {
+    let allExperiences = document.querySelector(".all-experiences");
     // console.log(allExperiences)
     // let hiddenExperiences=allExperiences.querySelector(".hiddenExperiences");
     // if(hiddenExperiences.classList.contains("hiddenClass"))return hiddenExperiences.remove("hiddenClass");
-    return allExperiences.insertAdjacentHTML("beforeend",Forms.anotherExperiences());
-    }
-    if (btn.classList.contains("btnDuty")) {
-      
-      let allDuties=btn.closest(".exp-container").querySelector(".all-exp");
-      // let hiddenDuty=btn.closest(".exp-container").querySelector(".hiddenExperience");
-      // console.log(allDuties,hiddenDuty)
-      // if(hiddenDuty.classList.contains("hiddenClass"))return hiddenDuty.classList.remove("hiddenClass");
-      return allDuties.insertAdjacentHTML("beforeend",Forms.anotherXp());
-      }
-    if (btn.classList.contains("addskill")) {
-    document.querySelector(".all-skills").insertAdjacentHTML("beforeend",Forms.anotherSkill());
-    }
-    if (btn.classList.contains("addinterest")) {
-      document.querySelector(".all-interest").insertAdjacentHTML("beforeend",Forms.anotherInterest())
-    
-    }
-    if (btn.classList.contains("addrefrence")) {
-    document.querySelector(".all-reff").insertAdjacentHTML("beforeend",Forms.anotherReff())
-    }
+    return allExperiences.insertAdjacentHTML(
+      "beforeend",
+      Forms.anotherExperiences()
+    );
+  }
+  if (btn.classList.contains("btnDuty")) {
+    let allDuties = btn.closest(".exp-container").querySelector(".all-exp");
+    // let hiddenDuty=btn.closest(".exp-container").querySelector(".hiddenExperience");
+    // console.log(allDuties,hiddenDuty)
+    // if(hiddenDuty.classList.contains("hiddenClass"))return hiddenDuty.classList.remove("hiddenClass");
+    return allDuties.insertAdjacentHTML("beforeend", Forms.anotherXp());
+  }
+  if (btn.classList.contains("addskill")) {
+    document
+      .querySelector(".all-skills")
+      .insertAdjacentHTML("beforeend", Forms.anotherSkill());
+  }
+  if (btn.classList.contains("addinterest")) {
+    document
+      .querySelector(".all-interest")
+      .insertAdjacentHTML("beforeend", Forms.anotherInterest());
+  }
+  if (btn.classList.contains("addrefrence")) {
+    document
+      .querySelector(".all-reff")
+      .insertAdjacentHTML("beforeend", Forms.anotherReff());
+  }
 });
 const updateExperience = function (data) {
   data = data.filter((val) => val[1] !== "");
@@ -1307,22 +1397,19 @@ function checkFlexGap() {
 }
 checkFlexGap();
 
-webLinkContainer.addEventListener("click",function(e){
-  if(e.target.closest("button").classList.contains("closeLinkView"))
-  {
-   webLinkContainer.querySelector(".infor").classList.add("hiddenClass")
-
+webLinkContainer.addEventListener("click", function (e) {
+  if (e.target.closest("button").classList.contains("closeLinkView")) {
+    webLinkContainer.querySelector(".infor").classList.add("hiddenClass");
 
     return webLinkContainer.classList.add("hideMe");
   }
- 
-    
-  if(e.target.classList.contains("btnCopyLink")){
+
+  if (e.target.classList.contains("btnCopyLink")) {
     LinkTextBox.select();
     LinkTextBox.setSelectionRange(0, 99999); /* For mobile devices */
-  
+
     navigator.clipboard.writeText(LinkTextBox.value);
-    
-   webLinkContainer.querySelector(".infor").classList.remove("hiddenClass")
+
+    webLinkContainer.querySelector(".infor").classList.remove("hiddenClass");
   }
-})
+});

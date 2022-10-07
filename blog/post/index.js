@@ -15,6 +15,14 @@ let loaderContainer="";
 const blogArticleAndOverview=document.querySelector(".blog-article-and-overview")
 let headerTittle=document.querySelector(".post-header-tittle")
 // import * as model from "../../js/model.js"
+const generateEditOrDelete=function(id){
+  let marckup=`<div class="edit-and-delete-post">
+  <a href="http://127.0.0.1:5501/blog/editor.html#edit#${id} class="btn edit-post">Edit</a>
+  <a href="http://127.0.0.1:5501/blog/editor.html#delete${id} class="btn delete post">Delete</a>
+  </div>`
+  return marckup
+
+}
 const defineContentLimit=(content,limit)=>{
   let dots="..."
   if(content.length>limit)return content.substring(0,limit) + dots;
@@ -73,6 +81,8 @@ const mapCategory=function(cat){
   })
 }
 const init=async function(){
+  let userData = JSON.parse(localStorage.getItem("user"));
+
   thisBody.insertAdjacentHTML("beforeend",Loader.loader(true))
   loaderContainer=document.querySelector(".loaderContainer")
   // return
@@ -85,7 +95,8 @@ const init=async function(){
   model.state.posts=blogRes.data.data;
  let relatedPost=[]
   let postToRead=model.state.posts.find(post=>post.blogTittle.split(" ").join("-")===postTilttle);
-const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
+ 
+  const{ blogArticle,blogTittle,fetureImage,categories }=postToRead;
     model.state.posts.forEach(post=>{
       categories.forEach(readCat => {
         post.categories.forEach(relatedPostcat=>{

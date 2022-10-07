@@ -1342,9 +1342,13 @@ button {
 
 .myGallery .gallery-img {
   /* height: 200px; */
-  width: 100%;
-  max-height: 200px;
+  width: auto;
+  max-height: 250px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  overflow-y: hidden;
+}
+.myGallery .gallery-img img {
+  width: 100%;
 }
 .myResumeInfor {
   padding: 8px;

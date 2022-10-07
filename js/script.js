@@ -108,7 +108,7 @@ const init = async function () {
         if (imgItem.url)
           myGallery.insertAdjacentHTML(
             "afterbegin",
-            `<img class="gallery-img" src="${imgItem?.url}" />`
+            `<div class="gallery-img"><img src="${imgItem?.url}" /></div>`
           );
       });
     }
@@ -719,7 +719,7 @@ document
         if (imgData.url) {
           myGallery.insertAdjacentHTML(
             "afterbegin",
-            `<img class="gallery-img" src="${imgData?.url}" />`
+            `<div class="gallery-img"><img  src="${imgData?.url}" /></div>`
           );
         }
         preLoade(false);

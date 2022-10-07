@@ -1339,13 +1339,11 @@ button {
   width: 100%;
   height: 100%;
 }
-.myGallery {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 .myGallery .gallery-img {
-  height: 200px;
-  width: 200px;
+  /* height: 200px; */
+  width: 100%;
+  max-height: 200px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .myResumeInfor {
@@ -2285,13 +2283,6 @@ button {
   html {
     font-size: 3.6px;
   }
-  .myGallery {
-    width: 380px;
-  }
-  .myGallery .gallery-img {
-    width: 182px;
-    height: 182px;
-  }
 }
 @media (max-width: 1250px) {
   html {
@@ -2570,13 +2561,6 @@ button {
   }
 }
 @media (max-width: 430px) {
-  .myGallery {
-    width: 100%;
-  }
-  .myGallery .gallery-img {
-    width: 132px;
-    height: 132px;
-  }
   html {
     font-size: 3.2px;
   }

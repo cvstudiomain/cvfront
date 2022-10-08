@@ -1370,6 +1370,10 @@ button {
 }
 .galleryImgViewer img {
   height: 100%;
+  overflow-x: hidden;
+}
+.galleryImgViewer button {
+  background-color: transparent;
 }
 .myResumeInfor {
   padding: 8px;

@@ -937,6 +937,14 @@ button {
   grid-template-columns: 280px 1fr 320px;
   grid-template-rows: auto auto;
 }
+.absoluteClass {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #9e9393;
+  top: 0;
+  left: 0;
+}
 .hideMe {
   position: absolute;
   transform: translateX(1000px);
@@ -1339,16 +1347,29 @@ button {
   width: 100%;
   height: 100%;
 }
-
+.myGallery {
+  position: relative;
+}
 .myGallery .gallery-img {
   /* height: 200px; */
   width: auto;
+  cursor: pointer;
   max-height: 250px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow-y: hidden;
 }
 .myGallery .gallery-img img {
   width: 100%;
+}
+.galleryImgViewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+}
+.galleryImgViewer img {
+  height: 100%;
 }
 .myResumeInfor {
   padding: 8px;

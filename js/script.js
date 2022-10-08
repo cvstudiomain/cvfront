@@ -1368,7 +1368,23 @@ const addTextArea = (e, placeholder, name) => {
 const iterableData = function (itrData) {
   return itrData.map((valData) => `<li>${valData}</li>`).join("");
 };
-
+const galleryImgViewer = document.querySelector(".galleryImgViewer");
+myGallery.addEventListener("click", (e) => {
+  if (e.target.closest(".btnCloseView"))
+    galleryImgViewer.classList.add("hideMe");
+  let imgurl = e.target.src;
+  if (!imgurl) return;
+  galleryImgViewer.innerHTML = `
+  <button type="button" class="btnCloseView "> <i
+    class="fa fa-times icon-mobile-nav viewerBtn"
+    
+    aria-hidden="true"
+  ></i></button>
+  <img src="${imgurl}" />
+  `;
+  // return console.log(galleryImgViewer.classList);
+  galleryImgViewer.classList.remove("hideMe");
+});
 // const btnNavEl = document.querySelector(".btn-mobile-nav");
 // const headerEl = document.querySelector(".header");
 

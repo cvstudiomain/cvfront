@@ -1261,7 +1261,57 @@ button {
   /* margin-left: -32px; */
   position: relative;
 }
-
+.main-social-media-links {
+  /* height: 200px; */
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.main-social-media-links .side-img {
+  width: 30%;
+  height: 100%;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(34, 31, 29, 0.35),
+      rgba(92, 87, 83, 0.35)
+    ),
+    url("../img/social/bg\ img.png");
+  background-size: cover;
+  background-position: center;
+}
+.main-social-media-links .anouncement-and-links {
+  width: 70%;
+  height: 100%;
+  background-image: linear-gradient(to right, #0a143c, #182e8b);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.main-social-media-links .anouncement-and-links .text {
+  margin: 32px;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.main-social-media-links .anouncement-and-links .links {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-self: center;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+.main-social-media-links .anouncement-and-links .links a {
+  height: 48px;
+  width: 48px;
+}
+.main-social-media-links .anouncement-and-links .links a img {
+  height: 100%;
+}
 .main-header,
 .anouncements-box {
   background: #fff;
@@ -2505,6 +2555,31 @@ button {
   }
 }
 @media (max-width: 644px) {
+  .main-social-media-links .anouncement-and-links .text {
+    font-size: 12px;
+    margin: 16px;
+  }
+  .main-social-media-links .anouncement-and-links .text p {
+    font-size: 14px;
+  }
+  .main-social-media-links .anouncement-and-links .links {
+    margin-bottom: 16px;
+  }
+  .main-social-media-links .anouncement-and-links .links a {
+    width: 32px;
+    height: 32px;
+  }
+  .main-social-media-links .side-img {
+    width: 100%;
+    height: 200px;
+    display: none;
+  }
+  .main-social-media-links .anouncement-and-links {
+    width: 100%;
+  }
+  .main-social-media-links {
+    flex-direction: column;
+  }
   .webLinkData .inputBox {
     width: 100%;
     padding: 16px;

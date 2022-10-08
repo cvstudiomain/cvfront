@@ -1367,10 +1367,11 @@ button {
   align-items: center;
   justify-content: center;
   transition: 1s;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .galleryImgViewer img {
   height: 100%;
-  overflow-x: hidden;
 }
 .galleryImgViewer button {
   background-color: transparent;

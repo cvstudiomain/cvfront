@@ -722,12 +722,12 @@ document
         );
         let imgData = newImgRes.data.data;
 
-        if (imgData.url) {
+        if (imgData.images.url) {
           model.state.user.img = imgData;
           model.state.user.galleryImgs.push(imgData);
           myGallery.insertAdjacentHTML(
             "afterbegin",
-            `<div class="gallery-img"><img id="${imgData._id}" src="${imgData?.url}" /></div>`
+            `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" /></div>`
           );
         }
         let reader = new FileReader();

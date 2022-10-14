@@ -832,7 +832,13 @@ button {
   padding: 8px 16px;
   outline: none;
 }
-.upload-new-photo {
+#image-upload-label {
+  background-color: #fff;
+  border-radius: 32px;
+  padding: 16px 14px;
+  border: 1px solid #583e2e;
+  font-weight: 400;
+  color: #000;
 }
 .pagination-btn,
 .txt-area-btn {
@@ -1410,7 +1416,7 @@ button {
   height: 100%;
   height: 60px;
   padding-right: 16px;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .absoluteClass {
   position: absolute;

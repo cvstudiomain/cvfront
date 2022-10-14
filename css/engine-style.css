@@ -1465,17 +1465,18 @@ button {
 }
 .myGallery .gallery-img,
 .myGallery-inner .gallery-img {
-  /* height: 200px; */
-  width: auto;
+  max-height: 180px;
+  /* width: auto; */
   cursor: pointer;
 
   /* height: fit-content; */
-  max-height: 210px;
+  /* max-height: 210px; */
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .myGallery .gallery-img img,
 .myGallery-inner .gallery-img img {
+  display: block;
   width: 100%;
 }
 .galleryImgViewer {
@@ -2670,6 +2671,10 @@ button {
   }
 }
 @media (max-width: 600px) {
+  .myGallery,
+  .myGallery-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
   /* .content-columns {
     width: auto;
   } */

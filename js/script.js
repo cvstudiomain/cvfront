@@ -26,6 +26,7 @@ const templates = document.querySelector(".templates");
 const htmlParent = document.querySelector("html");
 const myResume = document.querySelector(".myResume");
 const myGallery = document.querySelector(".myGallery");
+const myInnerGallery = document.querySelector(".myGallery-inner");
 const myGalleryContainer = document.querySelector(".my-gallery-container");
 const resumesViewer = document.querySelector(".resumesViewer");
 const resumeInforContainer = document.querySelector(".resume-infor-container");
@@ -110,11 +111,15 @@ const init = async function () {
       ImgsRes.data.userimgs.forEach((imgItem) => {
         // console.log(imgItem);
         model.state.user.galleryImgs.push(imgItem);
-        if (imgItem.images.url)
-          myGallery.insertAdjacentHTML(
-            "afterbegin",
-            `<div class="gallery-img" ><img id="${imgItem?._id}" src="${imgItem?.images.url}" /></div>`
-          );
+        if (!imgItem.images.url) return;
+        myGallery.insertAdjacentHTML(
+          "afterbegin",
+          `<div class="gallery-img" ><img id="${imgItem?._id}" src="${imgItem?.images.url}" /></div>`
+        );
+        myInnerGallery.insertAdjacentHTML(
+          "afterbegin",
+          `<div class="gallery-img" ><img id="${imgItem?._id}" src="${imgItem?.images.url}" /></div>`
+        );
       });
     }
     // console.log("resume.images.url");
@@ -545,6 +550,8 @@ const hidePaginations = function (box) {
 document.querySelector(".site-menu").addEventListener("click", function (e) {
   e.preventDefault();
   closeViewer();
+  document.querySelector(`.anouncements-box`).classList.remove("hiddenClass");
+
   let buttonId = e.target.closest("li").getAttribute("id");
   if (!buttonId) return;
 
@@ -576,7 +583,8 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     hidePaginations(pbox1);
     model.state.section = "myResume";
     resumeInforContainer.classList.remove("hiddenClass");
-    // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+    document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
@@ -586,20 +594,23 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     // }
     templates.classList.add("hiddenClass");
   }
-  // if (buttonId === "myGallery") {
-  //   hidePaginations(pbox1);
-  //   model.state.section = "myGallery";
-  //   galleryInforContainer.classList.remove("hiddenClass");
-  //   document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
-  //   document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
-  //   targetElement.classList.add("active");
-  //   sectionName.innerText = sectionText;
-  //   if (model.state.resumes.length !== 0) {
-  //     let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
-  //     generateMarckup(marckup);
-  //   }
-  //   templates.classList.add("hiddenClass");
-  // }
+  if (buttonId === "my-gallery-contents") {
+    hidePaginations(pbox1);
+    model.state.section = "My Gallery";
+    galleryInforContainer.classList.remove("hiddenClass");
+    // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+    document.querySelector(`.anouncements-box`).classList.add("hiddenClass");
+    let thContainer = document.querySelector(`.${buttonId}`);
+    thContainer.classList.remove("hiddenClass");
+    thContainer.scrollIntoView({ behavior: "smooth" });
+    targetElement.classList.add("active");
+    sectionName.innerText = sectionText;
+    // if (model.state.resumes.length !== 0) {
+    //   let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
+    //   generateMarckup(marckup);
+    // }
+    templates.classList.add("hiddenClass");
+  }
 
   if (buttonId === "myProfile") {
     targetElement.classList.add("active");
@@ -729,6 +740,10 @@ document
             "afterbegin",
             `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" /></div>`
           );
+          myInnerGallery.insertAdjacentHTML(
+            "afterbegin",
+            `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" /></div>`
+          );
         }
         let reader = new FileReader();
         reader.onloadend = function () {
@@ -743,7 +758,9 @@ document
           reader.readAsDataURL(file);
         }
         preLoade(false);
-        document.querySelector("#cvandresume-area").scrollIntoView();
+        document
+          .querySelector("#cvandresume-area")
+          .scrollIntoView({ behavior: "smooth" });
         myGalleryContainer.classList.add("hideMe");
       }
     } catch (error) {
@@ -1394,6 +1411,26 @@ myGallery.addEventListener("click", (e) => {
         (display.style.backgroundImage = `url(${model.state.user.img.url})`)
     );
   myGalleryContainer.classList.add("hideMe");
+});
+
+const galleryImgViewer = document.querySelector(".galleryImgViewer");
+galleryImgViewer.addEventListener("click", function (e) {
+  console.log(e);
+  if (e.target.closest(".btnCloseView")) return this.classList.add("hideMe");
+});
+myInnerGallery.addEventListener("click", (e) => {
+  let imgurl = e.target.src;
+  if (!imgurl) return;
+  galleryImgViewer.innerHTML = `
+  <button type="button" class="btnCloseView "> <i
+    class="fa fa-times icon-mobile-nav viewerBtn"
+    
+    aria-hidden="true"
+  ></i></button>
+  <img src="${imgurl}" />
+  `;
+  // return console.log(galleryImgViewer.classList);
+  galleryImgViewer.classList.remove("hideMe");
 });
 // const btnNavEl = document.querySelector(".btn-mobile-nav");
 // const headerEl = document.querySelector(".header");

@@ -839,7 +839,7 @@ button {
   font-size: 12px;
   border: 1px solid #583e2e;
   font-weight: 400;
-  color: #000;
+  color: #583e2e;
 }
 .pagination-btn,
 .txt-area-btn {
@@ -970,6 +970,7 @@ button {
   position: relative;
   overflow: hidden;
   max-width: 704px;
+  /* height: fit-content; */
   grid-column: 2;
   grid-row: 2;
   margin-bottom: 16px;
@@ -1235,7 +1236,7 @@ button {
   color: #999;
   /* font-weight: 500; */
 }
-
+.gallery-header p,
 .no-resume-infor,
 .no-template-infor {
   font-size: 16px;
@@ -1357,7 +1358,7 @@ button {
   flex-direction: column;
   background: #fff;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   justify-self: center;
 }
 
@@ -1379,7 +1380,8 @@ button {
 .myTemplates,
 .myResume,
 .templates,
-.myGallery {
+.myGallery,
+.myGallery-inner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
@@ -1391,18 +1393,31 @@ button {
   height: 100%;
 }
 
-.myGallery {
+.myGallery,
+.myGallery-inner {
   max-height: 448px;
   /* max-height: 500px; */
+
+  background-color: #fff9f9;
+
   overflow-y: scroll;
   padding: 16px;
 }
+
 .myGallery .gallery-button {
   position: relative;
   background-color: transparent;
 }
-.my-gallery-container {
+.my-gallery-container,
+.my-gallery-contents {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.my-gallery-contents {
+  width: 100%;
+  /* justify-self: flex-start; */
+  position: relative;
+  overflow: hidden;
 }
 .my-gallery-container .gallery-header .new-upload {
   align-items: center;
@@ -1410,7 +1425,9 @@ button {
   display: flex;
   flex-direction: row;
 }
-.my-gallery-container .gallery-header {
+.my-gallery-container .gallery-header,
+.my-gallery-contents .gallery-header {
+  min-width: 320px;
   display: flex;
   flex-direction: row;
   background-color: #fff;
@@ -1418,6 +1435,13 @@ button {
   height: 60px;
   padding-right: 16px;
   justify-content: center;
+}
+.my-gallery-contents .gallery-header {
+  justify-content: left;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 32px;
+  font-weight: 600;
 }
 .absoluteClass {
   position: absolute;
@@ -1439,22 +1463,27 @@ button {
 .my-gallery-container {
   height: fit-content;
 }
-.myGallery .gallery-img {
+.myGallery .gallery-img,
+.myGallery-inner .gallery-img {
   /* height: 200px; */
   width: auto;
   cursor: pointer;
+
   /* height: fit-content; */
   max-height: 210px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow-y: hidden;
 }
-.myGallery .gallery-img img {
+.myGallery .gallery-img img,
+.myGallery-inner .gallery-img img {
   width: 100%;
 }
 .galleryImgViewer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* height: calc(100% - 32px); */
+  /* margin: auto 16px; */
   justify-content: center;
   transition: 1s;
   max-width: 100%;
@@ -1464,7 +1493,9 @@ button {
   height: 100%;
 }
 .galleryImgViewer button {
-  background-color: transparent;
+  background-color: #fff;
+  padding: 2px;
+  margin: 0;
 }
 .myResumeInfor {
   padding: 8px;
@@ -2505,6 +2536,10 @@ button {
   .user-content-child {
     grid-template-columns: repeat(2, 1fr);
   }
+  .my-gallery-contents {
+    display: flex;
+    flex-direction: column;
+  }
   .cv-form {
     width: 500px;
   }
@@ -2562,6 +2597,9 @@ button {
   }
   .user-content-child {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .my-gallery-contents {
+    display: flex;
   }
   .sectionforadd {
     max-width: 600px;
@@ -2676,6 +2714,9 @@ button {
 @media (max-width: 500px) {
   .user-content-child {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .my-gallery-contents {
+    display: flex;
   }
   html {
     font-size: 4px;

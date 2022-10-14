@@ -791,10 +791,10 @@ input[type="date"],
   margin: auto;
 }
 .display_image2 {
-  background-image: url(".././PngItem_5159773.png");
+  background-image: url(".././images.jpeg");
   height: 150px;
   width: 150px;
-  opacity: 0.3;
+  /* opacity: 0.3; */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

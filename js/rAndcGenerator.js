@@ -152,7 +152,6 @@ ${
       `
         : ""
     }
-
     <div class="contact-information informationContainer">
      
       <div class="content-wrapper">
@@ -242,7 +241,6 @@ ${
          </div>`
       : ""
   } 
-
   
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
@@ -445,7 +443,6 @@ ${
          </div>`
       : ""
   } 
-
     <div class="contact-information informationContainer">
       <div class="content-wrapper">
         ${
@@ -613,14 +610,12 @@ ${
          </div>`
       : ""
   } 
-
   </div>
   `;
     }
   }
 
   if (data.template.type === "resume") {
-   
     if (data.template.template === "resume1") {
       marckup = `<div id="${data._id}" class="template resume rl template1">
       <div class="user-name-and-profession">
@@ -704,7 +699,9 @@ ${
         
         ${
           experience.orgCity
-            ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
+            ? `<p class="organizationAndAddress">${
+                experience.orgCity + " /"
+              }</p>`
             : ""
         }
         ${
@@ -717,8 +714,10 @@ ${
         
         </div>
        ${
-          findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):""
-         
+         findDuty(experience.experience) !== undefined &&
+         findDuty(experience.experience) !== null
+           ? findDuty(experience.experience)
+           : ""
        }
       
   
@@ -815,28 +814,23 @@ ${
          ? `
       <div class="information">
         <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
-
       <p class="inforVal">${data.country}</p>
     </div>`
          : ""
      }
-
      ${
        data.state
          ? `
       <div class="information">
            <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
-
       <p class="inforVal">${data.state}</p>
     </div>`
          : ""
      }
-
      ${
        data.gender
          ? `<div class="information">
            <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
-
       <p class="inforVal">${data.gender}</p>
     </div>`
          : ""
@@ -846,7 +840,6 @@ ${
       data.maritalstatus
         ? `<div class="information">
           <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
-
       <p class="inforVal">${data.maritalstatus}</p>
     </div>
       `
@@ -884,7 +877,6 @@ ${
       data.facebook
         ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -893,7 +885,6 @@ ${
       data.instagram
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -903,7 +894,6 @@ ${
       data.twitter
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -912,7 +902,6 @@ ${
       data.linkedin
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -950,7 +939,6 @@ ${
           </ul></div>`
             : ""
         }
-
         ${
           data.languages.length !== 0
             ? `
@@ -958,13 +946,17 @@ ${
           <h3 class="inforHeader shouldNotBreak">Languages</h3>
         ${data.languages
           .map(
-            (val) =>`
-            ${val.language?`
+            (val) => `
+            ${
+              val.language
+                ? `
               <div class="language content-wrapper">
               <p class="theLang shouldNotBreak">${val.language}</p>
               <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
               </div> 
-              `:""}
+              `
+                : ""
+            }
         
         `
           )
@@ -980,7 +972,7 @@ ${
        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
        ${data.reffrences
          .map((ref) => {
-           if(ref.language||ref.langLevel)return
+           if (ref.language || ref.langLevel) return;
            return `
            <div class="reference content-wrapper">
            <span></span>
@@ -1000,7 +992,7 @@ ${
                : ""
            }
             </div>
- `
+ `;
          })
          .join("")}
  
@@ -1134,7 +1126,6 @@ ${
       data.facebook
         ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1143,7 +1134,6 @@ ${
       data.instagram
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1153,7 +1143,6 @@ ${
       data.twitter
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1162,7 +1151,6 @@ ${
       data.linkedin
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1198,8 +1186,6 @@ ${
         </ul></div>`
             : ""
         }
-
-
         ${
           data.languages.length !== 0
             ? `
@@ -1207,13 +1193,17 @@ ${
           <h3 class="inforHeader shouldNotBreak">Languages</h3>
         ${data.languages
           .map(
-            (val) =>`
-            ${val.language?`
+            (val) => `
+            ${
+              val.language
+                ? `
               <div class="language content-wrapper">
               <p class="theLang shouldNotBreak">${val.language}</p>
               <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
               </div> 
-              `:""}
+              `
+                : ""
+            }
         
         `
           )
@@ -1222,7 +1212,6 @@ ${
           `
             : ""
         }
-
         ${
           data.reffrences.length !== 0
             ? `
@@ -1230,7 +1219,7 @@ ${
         <h3 class="inforHeader shouldNotBreak">Refrence</h3>
            ${data.reffrences
              .map((ref) => {
-              if(ref.language||ref.langLevel)return
+               if (ref.language || ref.langLevel) return;
                return `
                <div class="reference content-wrapper">
                <span></span>
@@ -1312,7 +1301,7 @@ ${
       <div class="box-for-org-city-and-org">
       ${
         experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
+          ? `<p class="organizationAndAddress">${experience.orgCity + " /"}</p>`
           : ""
       }
       ${
@@ -1323,20 +1312,19 @@ ${
      
     
       </div>   
-
       
       </div>
    ${
-
-      findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
-    }
-
+     findDuty(experience.experience) !== undefined &&
+     findDuty(experience.experience) !== null
+       ? findDuty(experience.experience)
+       : ""
+   }
     </div>`
             : ""
         }`;
       })
       .join("")}
-
       
          
     </div>`
@@ -1535,7 +1523,6 @@ ${
       data.facebook
         ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1544,7 +1531,6 @@ ${
       data.instagram
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1554,7 +1540,6 @@ ${
       data.twitter
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1563,7 +1548,6 @@ ${
       data.linkedin
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1604,8 +1588,6 @@ ${
       </ul></div>`
           : ""
       }
-
-
       ${
         data.languages.length !== 0
           ? `
@@ -1613,13 +1595,17 @@ ${
         <h3 class="inforHeader shouldNotBreak">Languages</h3>
       ${data.languages
         .map(
-          (val) =>`
-          ${val.language?`
+          (val) => `
+          ${
+            val.language
+              ? `
             <div class="language content-wrapper">
             <p class="theLang shouldNotBreak">${val.language}</p>
             <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
             </div> 
-            `:""}
+            `
+              : ""
+          }
       
       `
         )
@@ -1635,7 +1621,7 @@ ${
      ${data.reffrences
        .filter((val) => val !== {})
        .map((ref) => {
-        if(ref.language||ref.langLevel)return
+         if (ref.language || ref.langLevel) return;
          return `
          
          <div class="reference content-wrapper">
@@ -1659,12 +1645,10 @@ ${
 `;
        })
        .join("")}
-
 </div>
 `
           : ""
       }
-
     </div>
     <div class="large-content">
     ${
@@ -1704,7 +1688,7 @@ ${
       <div class="box-for-org-city-and-org">
       ${
         experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
+          ? `<p class="organizationAndAddress">${experience.orgCity + " /"}</p>`
           : ""
       }
       ${
@@ -1713,19 +1697,19 @@ ${
           : ""
       }
       </div>   
-
       
       </div>
       ${
-
-         findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
-       }
+        findDuty(experience.experience) !== undefined &&
+        findDuty(experience.experience) !== null
+          ? findDuty(experience.experience)
+          : ""
+      }
     </div>`
             : ""
         }`;
       })
       .join("")}
-
       
          
     </div>`
@@ -1916,7 +1900,6 @@ ${
       data.facebook
         ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -1925,7 +1908,6 @@ ${
       data.instagram
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -1935,7 +1917,6 @@ ${
       data.twitter
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -1944,7 +1925,6 @@ ${
       data.linkedin
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -1984,37 +1964,39 @@ ${
         </ul></div>`
              : ""
          }
-
          ${
-          data.languages.length !== 0
-            ? `
+           data.languages.length !== 0
+             ? `
           <div class="languages informationContainer">
           <h3 class="inforHeader shouldNotBreak">Languages</h3>
         ${data.languages
           .map(
-            (val) =>`
-            ${val.language?`
+            (val) => `
+            ${
+              val.language
+                ? `
               <div class="language content-wrapper">
               <p class="theLang shouldNotBreak">${val.language}</p>
               <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
               </div> 
-              `:""}
+              `
+                : ""
+            }
         
         `
           )
           .join("")}
           </div>
           `
-            : ""
-        }
-
+             : ""
+         }
          ${
            data.reffrences.length !== 0
              ? `<div class="references informationContainer">
        <h3 class="inforHeader shouldNotBreak">Refrence</h3>
        ${data.reffrences
          .map((ref) => {
-          if(ref.language||ref.langLevel)return
+           if (ref.language || ref.langLevel) return;
            return `
            <div class="reference content-wrapper">
            <span></span>
@@ -2096,7 +2078,9 @@ ${
         <div class="box-for-org-city-and-org">
         ${
           experience.orgCity
-            ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
+            ? `<p class="organizationAndAddress">${
+                experience.orgCity + " /"
+              }</p>`
             : ""
         }
         ${
@@ -2109,9 +2093,11 @@ ${
         
         </div>
         ${
-
-           findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
-         }
+          findDuty(experience.experience) !== undefined &&
+          findDuty(experience.experience) !== null
+            ? findDuty(experience.experience)
+            : ""
+        }
       </div>`
               : ""
           }`;
@@ -2288,7 +2274,6 @@ ${
          
         </div>
       </div>
-
   
   ${
     data.twitter || data.instagram || data.facebook || data.linkedin
@@ -2300,17 +2285,14 @@ ${
       data.facebook
         ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/fb-white-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
     }
-
     ${
       data.instagram
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/ig-white-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -2320,17 +2302,14 @@ ${
       data.twitter
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/twitter-white-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
     }
-
     ${
       data.linkedin
         ? `<div class="information">
           <p class="inforLabel"><img class="infor-logo" src="img/linkedin-white-icon.png" alt="logo"/></p> 
-
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""
@@ -2372,8 +2351,6 @@ ${
         `
           : ""
       }
-
-
       ${
         data.languages.length !== 0
           ? `
@@ -2381,13 +2358,17 @@ ${
         <h3 class="inforHeader shouldNotBreak">Languages</h3>
       ${data.languages
         .map(
-          (val) =>`
-          ${val.language?`
+          (val) => `
+          ${
+            val.language
+              ? `
             <div class="language content-wrapper">
             <p class="theLang shouldNotBreak">${val.language}</p>
             <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
             </div> 
-            `:""}
+            `
+              : ""
+          }
       
       `
         )
@@ -2401,9 +2382,9 @@ ${
     ? `<div class="references informationContainer">
 <h3 class="inforHeader shouldNotBreak">Refrence</h3>
 ${data.reffrences
-.map((ref) => {
-  if(ref.language||ref.langLevel)return
-  return `
+  .map((ref) => {
+    if (ref.language || ref.langLevel) return;
+    return `
   <div class="reference content-wrapper">
   <span></span>
   ${
@@ -2423,9 +2404,8 @@ ${data.reffrences
   }
    </div>
 `;
-})
-.join("")}
-
+  })
+  .join("")}
 </div>
 `
     : ""
@@ -2486,7 +2466,7 @@ ${data.reffrences
       <div class="box-for-org-city-and-org">
       ${
         experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
+          ? `<p class="organizationAndAddress">${experience.orgCity + " /"}</p>`
           : ""
       }
       ${
@@ -2495,19 +2475,19 @@ ${data.reffrences
           : ""
       }
      </div>   
-
       
       </div>
       ${
-
-         findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
-       }
+        findDuty(experience.experience) !== undefined &&
+        findDuty(experience.experience) !== null
+          ? findDuty(experience.experience)
+          : ""
+      }
     </div>`
             : ""
         }`;
       })
       .join("")}
-
       
          
     </div>`
@@ -2630,7 +2610,9 @@ ${data.reffrences
         <div class="box-for-org-city-and-org">
         ${
           experience.orgCity
-            ? `<p class="organizationAndAddress">${experience.orgCity+" /"}</p>`
+            ? `<p class="organizationAndAddress">${
+                experience.orgCity + " /"
+              }</p>`
             : ""
         }
         ${
@@ -2643,9 +2625,11 @@ ${data.reffrences
         
         </div>
         ${
-
-           findDuty(experience.experience)!==undefined&&findDuty(experience.experience)!==null?findDuty(experience.experience):"" 
-         }
+          findDuty(experience.experience) !== undefined &&
+          findDuty(experience.experience) !== null
+            ? findDuty(experience.experience)
+            : ""
+        }
       </div>`
               : ""
           }`;
@@ -2737,7 +2721,6 @@ ${data.reffrences
         <p>${data.dateofbirth}</p>
       </div>
     </div>
-
       <div class="contact-information informationContainer">
       <h3 class="inforHeader shouldNotBreak">Contact information</h3>
       <div class="content-wrapper">
@@ -2824,7 +2807,6 @@ ${data.reffrences
     data.facebook
       ? `<div class="information">
       <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
-
     <p class="inforVal">${data.facebook}</p>
     </div>`
       : ""
@@ -2833,7 +2815,6 @@ ${data.reffrences
     data.instagram
       ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
-
     <p class="inforVal">${data.instagram}</p>
     </div>`
       : ""
@@ -2843,7 +2824,6 @@ ${data.reffrences
     data.twitter
       ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
-
     <p class="inforVal">${data.twitter}</p>
     </div>`
       : ""
@@ -2852,7 +2832,6 @@ ${data.reffrences
     data.linkedin
       ? `<div class="information">
         <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
-
     <p class="inforVal">${data.linkedin}</p>
     </div>`
       : ""
@@ -2893,7 +2872,6 @@ ${data.reffrences
       `
         : ""
     }
-
     ${
       data.languages.length !== 0
         ? `
@@ -2901,12 +2879,16 @@ ${data.reffrences
       <h3 class="inforHeader shouldNotBreak">Languages</h3>
     ${data.languages
       .map(
-        (val) =>`
-        ${val.language?`
+        (val) => `
+        ${
+          val.language
+            ? `
           <div class="language content-wrapper">
           <p class="theLang shouldNotBreak">${val.language}</p>
           <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
-          `:""}
+          `
+            : ""
+        }
       </div> 
     
     `
@@ -2922,7 +2904,7 @@ ${data.reffrences
       <h3 class="inforHeader shouldNotBreak">Refrence</h3>
       ${data.reffrences
         .map((ref) => {
-          if(ref.language||ref.langLevel)return
+          if (ref.language || ref.langLevel) return;
           return `
           <div class="reference content-wrapper">
           <span></span>
@@ -2958,17 +2940,13 @@ ${data.reffrences
   return marckup;
 };
 
+const findDuty = (expData) => {
+  if (!Array.isArray(expData)) return "";
+  let marckup = [];
+  expData.forEach((val) => {
+    if (val !== "" && val !== undefined && val !== null)
+      marckup.push(`<li>${val}</li>`);
+  });
 
-const findDuty=(expData)=>{
- 
-  if(!Array.isArray(expData)) return ""
-  let marckup=[];
-  expData.forEach(val=>{
-    if(val!=="" &&val!==undefined&&val!==null)marckup.push(`<li>${val}</li>`)
-  })
-
-   return `<ul>${marckup.join("")}</ul>`
-  
- 
-  
-}
+  return `<ul>${marckup.join("")}</ul>`;
+};

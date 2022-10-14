@@ -782,7 +782,7 @@ input[type="date"],
   color: #999;
   /* color: #f0094a; */
 }
-#image-input-label {
+.image-input {
   color: #00bd00;
   width: 100%;
   font-size: 14px;
@@ -819,7 +819,7 @@ input[type="date"],
   gap: 0.6rem;
 }
 #image-upload-label,
-#image-input-label,
+.image-input,
 button {
   text-transform: uppercase;
   text-align: center;
@@ -937,21 +937,6 @@ button {
   grid-template-columns: 280px 1fr 320px;
   grid-template-rows: auto auto;
 }
-.absoluteClass {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: #9e9393;
-  top: 0;
-  left: 0;
-}
-.hideMe {
-  position: absolute;
-  transform: translateX(1000px);
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
 
 .site-wrap-header {
   width: 100%;
@@ -975,7 +960,8 @@ button {
 }
 
 .content-columns {
-  /* position: relative; */
+  position: relative;
+  overflow: hidden;
   max-width: 704px;
   grid-column: 2;
   grid-row: 2;
@@ -1397,14 +1383,61 @@ button {
   width: 100%;
   height: 100%;
 }
+
 .myGallery {
+  max-height: 448px;
+  /* max-height: 500px; */
+  overflow-y: scroll;
+  padding: 16px;
+}
+.myGallery .gallery-button {
   position: relative;
+  background-color: transparent;
+}
+.my-gallery-container {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.my-gallery-container .gallery-header .new-upload {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.my-gallery-container .gallery-header {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  height: 100%;
+  height: 60px;
+  padding-right: 16px;
+  justify-content: flex-end;
+}
+.absoluteClass {
+  position: absolute;
+  height: 100%;
+  /* z-index: 9999; */
+  width: 100%;
+  background-color: #fff9f9;
+  top: 0;
+  left: 0;
+}
+.hideMe {
+  position: absolute;
+  transform: translateX(1000px);
+  opacity: 0;
+  pointer-events: none;
+
+  visibility: hidden;
+}
+.my-gallery-container {
+  height: fit-content;
 }
 .myGallery .gallery-img {
   /* height: 200px; */
   width: auto;
   cursor: pointer;
-  max-height: 250px;
+  /* height: fit-content; */
+  max-height: 210px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow-y: hidden;
 }

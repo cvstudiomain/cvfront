@@ -28,14 +28,13 @@ export const resumeformcontainer = function (onEdit, data) {
       </p>
       <div class="image-container">
         <div class="display_image2" ${
-          onEdit&& `${
-                data.images
-                  ? `style=background-image:url(${data.images.url})`
-                  : ""
-              }`
+          onEdit &&
+          `${
+            data.images ? `style=background-image:url(${data.images.url})` : ""
+          }`
         }></div>
-          <label id="image-input-label" for="image_input">Choose Image</label>
-          <input type="file" id="image_input" accept="image/png, image/jpg" />
+          <span class="image-input" >Choose Image</span>
+         
           </div>
           <div class="input-container">
           <div class="multi-line-input">
@@ -510,7 +509,9 @@ export const resumeformcontainer = function (onEdit, data) {
         : ""
     }
     
-  <form class="input-container single-edu hiddenEduForm ${onEdit ? "hiddenClass" : ""}">
+  <form class="input-container single-edu hiddenEduForm ${
+    onEdit ? "hiddenClass" : ""
+  }">
       
   <div class="inputBox">
       <label for="qualification">Qualification</label>
@@ -591,7 +592,9 @@ export const resumeformcontainer = function (onEdit, data) {
         : ""
     }
       
-      <div class="inputBox hiddenCert ${editCert ? "hiddenClass" : ""} single-cert">
+      <div class="inputBox hiddenCert ${
+        editCert ? "hiddenClass" : ""
+      } single-cert">
         <textarea
           rows="2"
           class="certInput new-cert "
@@ -1290,22 +1293,15 @@ export const leterformcontainer = function (onEdit, data) {
    <div class="letterContainer" id="showtheletter">
      <div class="image-container">
        <div class="display_image2" ${
-         onEdit&&`${
-               data.images
-                 ? `style=background-image:url(${data.images.url})`
-                 : ""
-             }`
-           
+         onEdit &&
+         `${
+           data.images ? `style=background-image:url(${data.images.url})` : ""
+         }`
        }
         ></div>
-       <label id="image-input-label" for="image_input2"
-         >Choose Image</label
-       >
-       <input
-         type="file"
-         id="image_input2"
-         accept="$image/png, image/jpg"
-       />
+        <span class="image-input" >Choose Image</span>
+       
+      
      </div>
      <div contenteditable="true" name="theletter" id="theletter">
      ${
@@ -1594,7 +1590,7 @@ export const anotherLang = function () {
 
   `;
 };
-export const anotherXp=function(){
+export const anotherXp = function () {
   return `
   
   <textarea
@@ -1606,5 +1602,5 @@ export const anotherXp=function(){
   placeholder="eg. I started off as an intern where I mostly wrote and scheduled social media posts.."
 ></textarea>
 
-  `
-}
+  `;
+};

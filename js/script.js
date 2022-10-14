@@ -26,6 +26,7 @@ const templates = document.querySelector(".templates");
 const htmlParent = document.querySelector("html");
 const myResume = document.querySelector(".myResume");
 const myGallery = document.querySelector(".myGallery");
+const myGalleryContainer = document.querySelector(".my-gallery-container");
 const resumesViewer = document.querySelector(".resumesViewer");
 const resumeInforContainer = document.querySelector(".resume-infor-container");
 const noResumeInfor = document.querySelector(".no-resume-infor");
@@ -62,6 +63,7 @@ const init = async function () {
   try {
     // return console.log(Loader)
     containerBody.insertAdjacentHTML("afterbegin", Loader.loader(true));
+    // userAreaContents.insertAdjacentHTML("afterbegin", Loader.loader(false));
     loaderContainer = document.querySelector(".loaderContainer");
     preLoade(true);
     let userData = JSON.parse(localStorage.getItem("user"));
@@ -98,25 +100,28 @@ const init = async function () {
 
     templateInorContainer.classList.add("hiddenClass");
     const resume = await axios.post(`https://app.cvstudio.io/resume/:${id}`);
-
+    // console.log(resume);
     const templatesRes = await axios.post(
       `https://app.cvstudio.io/resume/gettemplate/:${id}`
     );
     let ImgsRes = await axios.post(`https://app.cvstudio.io/user/imgs/:${id}`);
+    // return console.log(ImgsRes.data.userimgs);
     if (ImgsRes.data.userimgs.length !== 0) {
       ImgsRes.data.userimgs.forEach((imgItem) => {
-        if (imgItem.url)
+        // console.log(imgItem);
+        model.state.user.galleryImgs.push(imgItem);
+        if (imgItem.images.url)
           myGallery.insertAdjacentHTML(
             "afterbegin",
-            `<div class="gallery-img"><img src="${imgItem?.url}" /></div>`
+            `<div class="gallery-img" ><img id="${imgItem?._id}" src="${imgItem?.images.url}" /></div>`
           );
       });
     }
+    // console.log("resume.images.url");
+
     if (resume.data.cv) {
       model.state.resumes.push(...resume.data.cv);
       model.state.resumes.forEach((resume) => {
-        // console.log(resume)
-
         model.state.user.myResumes.push(temMarckup.createPdfMarckup(resume));
       });
 
@@ -147,6 +152,7 @@ const init = async function () {
 
       noTemplateInfor.classList.add("hiddenClass");
     }
+    userDashBoard.classList.remove("hideMe");
 
     preLoade(false);
   } catch (error) {
@@ -580,20 +586,20 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     // }
     templates.classList.add("hiddenClass");
   }
-  if (buttonId === "myGallery") {
-    hidePaginations(pbox1);
-    model.state.section = "myGallery";
-    galleryInforContainer.classList.remove("hiddenClass");
-    // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
-    document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
-    targetElement.classList.add("active");
-    sectionName.innerText = sectionText;
-    // if (model.state.resumes.length !== 0) {
-    //   let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
-    //   generateMarckup(marckup);
-    // }
-    templates.classList.add("hiddenClass");
-  }
+  // if (buttonId === "myGallery") {
+  //   hidePaginations(pbox1);
+  //   model.state.section = "myGallery";
+  //   galleryInforContainer.classList.remove("hiddenClass");
+  //   document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+  //   document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
+  //   targetElement.classList.add("active");
+  //   sectionName.innerText = sectionText;
+  //   if (model.state.resumes.length !== 0) {
+  //     let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
+  //     generateMarckup(marckup);
+  //   }
+  //   templates.classList.add("hiddenClass");
+  // }
 
   if (buttonId === "myProfile") {
     targetElement.classList.add("active");
@@ -634,42 +640,42 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     window.location = "index.html";
   }
 });
-const onChangeImage = function (e) {
-  e.target.addEventListener("change", async function (e) {
-    try {
-      const file = e.target.files[0];
-      // console.log(file,"hello")
-      if (!file) return alert("File not exist.");
-      if (file.size > 1024 * 1024) return alert("Size too large");
-      if (
-        file.type !== "image/jpg" &&
-        file.type !== "image/png" &&
-        file.type !== "image/jpeg"
-      )
-        return alert("File type not supported");
+// const onChangeImage = function (e) {
+//   e.target.addEventListener("change", async function (e) {
+//     try {
+//       const file = e.target.files[0];
+//       // console.log(file,"hello")
+//       if (!file) return alert("File not exist.");
+//       if (file.size > 1024 * 1024) return alert("Size too large");
+//       if (
+//         file.type !== "image/jpg" &&
+//         file.type !== "image/png" &&
+//         file.type !== "image/jpeg"
+//       )
+//         return alert("File type not supported");
 
-      model.state.user.file = file;
+//       model.state.user.file = file;
 
-      let reader = new FileReader();
-      reader.onloadend = function () {
-        document
-          .querySelectorAll(".display_image2")
-          ?.forEach(
-            (display) =>
-              (display.style.backgroundImage = `url(${reader.result})`)
-          );
-      };
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  });
-};
+//       let reader = new FileReader();
+//       reader.onloadend = function () {
+//         document
+//           .querySelectorAll(".display_image2")
+//           ?.forEach(
+//             (display) =>
+//               (display.style.backgroundImage = `url(${reader.result})`)
+//           );
+//       };
+//       if (file) {
+//         reader.readAsDataURL(file);
+//       }
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   });
+// };
 document
   .querySelector("#image_input3")
-  .addEventListener("change", async (e) => {
+  .addEventListener("change", async function (e) {
     try {
       const file = e.target.files[0];
       // console.log(file,"hello")
@@ -705,7 +711,7 @@ document
         // return console.log(imgUrl.url);
         let newImage = {
           userid: model.state.user.userid,
-          url: imgUrl.url,
+          images: imgUrl,
         };
 
         let newImgRes = await axios.post(
@@ -717,12 +723,28 @@ document
         let imgData = newImgRes.data.data;
 
         if (imgData.url) {
+          model.state.user.img = imgData;
+          model.state.user.galleryImgs.push(imgData);
           myGallery.insertAdjacentHTML(
             "afterbegin",
-            `<div class="gallery-img"><img  src="${imgData?.url}" /></div>`
+            `<div class="gallery-img"><img id="${imgData._id}" src="${imgData?.url}" /></div>`
           );
         }
+        let reader = new FileReader();
+        reader.onloadend = function () {
+          document
+            .querySelectorAll(".display_image2")
+            ?.forEach(
+              (display) =>
+                (display.style.backgroundImage = `url(${reader.result})`)
+            );
+        };
+        if (file) {
+          reader.readAsDataURL(file);
+        }
         preLoade(false);
+        document.querySelector("#cvandresume-area").scrollIntoView();
+        myGalleryContainer.classList.add("hideMe");
       }
     } catch (error) {
       console.log(error.message);
@@ -730,8 +752,12 @@ document
   });
 coverLetterContainer.addEventListener("click", async function (e) {
   // return console.log()
-  if (e.target.id === "image_input2" || e.target.it === "image-input-label") {
-    onChangeImage(e);
+  if (e.target.classList.contains("image-input")) {
+    // console.log(myGallery);
+    myGalleryContainer.classList.remove("hideMe");
+    document
+      .querySelector("#cvandresume-area")
+      .scrollIntoView({ behavior: "smooth" });
   }
   if (e.target.closest(".btnCloseView")) {
     hidePaginations(pbox1);
@@ -775,26 +801,8 @@ const getCvOrLetter = async function (data) {
       data._id = model.state.user.userCurrentData._id;
     }
 
-    if (model.state.user.file) {
-      let formData = new FormData();
-      let token = model.state.user.token;
-      formData.append("file", model.state.user.file);
-      let res = await axios.post("https://app.cvstudio.io/upload/", {
-        imageType: model.state.user.file.type,
-      });
-      let url = res.data.uploadUrl;
-      // console.log(url)
-      await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        body: model.state.user.file,
-      });
-      let imgUrl = { url: url.split("?")[0] };
-      // return console.log(imgUrl);
-
-      // console.log(res.data.uploadUrl,url,imgUrl)
+    if (model.state.user.img) {
+      let imgUrl = model.state.user.img;
 
       data.images = imgUrl;
     }
@@ -1113,8 +1121,11 @@ cvFormContainer.addEventListener("click", async function (e) {
   let s4 = this.querySelector("#s4");
   let s5 = this.querySelector("#s5");
   let s6 = this.querySelector("#s6");
-  if (e.target.id === "image_input" || e.target.it === "image-input-label") {
-    onChangeImage(e);
+  // console.log(e.target);
+
+  if (e.target.classList.contains("image-input")) {
+    // console.log(myGallery);
+    myGalleryContainer.classList.remove("hideMe");
   }
   if (e.target.closest(".btnCloseView")) {
     hidePaginations(pbox1);
@@ -1368,22 +1379,21 @@ const addTextArea = (e, placeholder, name) => {
 const iterableData = function (itrData) {
   return itrData.map((valData) => `<li>${valData}</li>`).join("");
 };
-const galleryImgViewer = document.querySelector(".galleryImgViewer");
+// const galleryImgViewer = document.querySelector(".galleryImgViewer");
 myGallery.addEventListener("click", (e) => {
-  if (e.target.closest(".btnCloseView"))
-    galleryImgViewer.classList.add("hideMe");
-  let imgurl = e.target.src;
-  if (!imgurl) return;
-  galleryImgViewer.innerHTML = `
-  <button type="button" class="btnCloseView "> <i
-    class="fa fa-times icon-mobile-nav viewerBtn"
-    
-    aria-hidden="true"
-  ></i></button>
-  <img src="${imgurl}" />
-  `;
-  // return console.log(galleryImgViewer.classList);
-  galleryImgViewer.classList.remove("hideMe");
+  let imgId = e.target.id;
+  model.state.user.galleryImgs.forEach((img) => {
+    // return console.log(img.images);
+    if (img._id === imgId) return (model.state.user.img = img.images);
+  });
+
+  document
+    .querySelectorAll(".display_image2")
+    ?.forEach(
+      (display) =>
+        (display.style.backgroundImage = `url(${model.state.user.img.url})`)
+    );
+  myGalleryContainer.classList.add("hideMe");
 });
 // const btnNavEl = document.querySelector(".btn-mobile-nav");
 // const headerEl = document.querySelector(".header");

@@ -1,14 +1,14 @@
-
 /* general styling */
-body{
+body {
   position: relative;
 }
 
 .loaderContainer {
   position: fixed;
-top: 0;
-left: 0;
-z-index: 99999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999999999;
   height: 100vh;
   width: 100%;
   background-color: #f1f2f3;
@@ -23,14 +23,12 @@ z-index: 99999;
 }
 
 .publish-btn .loaderContainer,
-.editor-feature-img .loaderContainer{
+.editor-feature-img .loaderContainer {
   height: 100%;
 }
 .loader {
-
-
   -webkit-animation: spin 1s linear infinite;
-          animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
   border: 3px solid #f1f2f3;
   border-top: 3px solid #695143;
   border-radius: 50%;
@@ -42,7 +40,7 @@ z-index: 99999;
   to {
     border-top-color: #ff105f;
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -50,11 +48,9 @@ z-index: 99999;
   to {
     border-top-color: #ec407a;
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
-
-
 
 .hideMe {
   transform: translateX(1000px);
@@ -62,11 +58,3 @@ z-index: 99999;
   pointer-events: none;
   visibility: hidden;
 }
-
-
-
-
-
-
-
-

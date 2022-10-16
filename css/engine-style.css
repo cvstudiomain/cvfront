@@ -1410,7 +1410,7 @@ button {
 }
 .my-gallery-container,
 .my-gallery-contents {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .my-gallery-contents {
@@ -1455,7 +1455,7 @@ button {
 }
 .inner-img-actions {
   font-size: 32px;
-  color: #182e8b;
+  color: #000;
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -1463,9 +1463,7 @@ button {
   background-color: rgba(255, 255, 255, 0.7);
   justify-content: center;
 }
-.inner-img-actions .fa-trash {
-  color: red;
-}
+
 .confirm-delete-img {
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.7);

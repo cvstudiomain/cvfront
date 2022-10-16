@@ -6,6 +6,7 @@ import * as arct from "./alltemplates.js";
 import * as general from "./general.js";
 import * as Forms from "./myForms.js";
 import * as Loader from "./loader.js";
+// import { async } from "regenerator-runtime";
 // console.log(Loader.loader())
 general.smoothScroll("smoothmove");
 
@@ -118,7 +119,12 @@ const init = async function () {
         );
         myInnerGallery.insertAdjacentHTML(
           "afterbegin",
-          `<div class="gallery-img" ><img id="${imgItem?._id}" src="${imgItem?.images.url}" /></div>`
+          `<div class="gallery-img" ><img id="${imgItem?._id}" src="${imgItem?.images.url}" />
+          <div class="inner-img-actions absoluteClass hideMe">
+          <span class="view-img"><i class="fa fa-eye" aria-hidden="true"></i></span>
+          <span class="delete-img"><i class="fa fa-trash" aria-hidden="true"></i></span>
+          </div>
+          </div>`
         );
       });
     }
@@ -605,6 +611,23 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     thContainer.scrollIntoView({ behavior: "smooth" });
     targetElement.classList.add("active");
     sectionName.innerText = sectionText;
+    let allGalleryImgs = myInnerGallery.querySelectorAll(".gallery-img");
+    allGalleryImgs.forEach((imgItem) => {
+      imgItem.addEventListener("mouseover", function (e) {
+        // console.log();
+        e.target
+          .closest(".gallery-img")
+          .querySelector(".inner-img-actions")
+          .classList.remove("hideMe");
+      });
+      imgItem.addEventListener("mouseout", function (e) {
+        e.target
+          .closest(".gallery-img")
+          .querySelector(".inner-img-actions")
+          .classList.add("hideMe");
+      });
+    });
+
     // if (model.state.resumes.length !== 0) {
     //   let marckup = model.state.resumes.map((resume) => createPdfMarckup(resume));
     //   generateMarckup(marckup);
@@ -742,7 +765,12 @@ document
           );
           myInnerGallery.insertAdjacentHTML(
             "afterbegin",
-            `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" /></div>`
+            `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" />
+            <div class="inner-img-actions absoluteClass hideMe">
+          <span class="view-img"><i class="fa fa-eye" aria-hidden="true"></i></span>
+          <span class="delete-img"><i class="fa fa-trash" aria-hidden="true"></i></span>
+          </div>
+            </div>`
           );
         }
         let reader = new FileReader();
@@ -1414,21 +1442,61 @@ myGallery.addEventListener("click", (e) => {
 });
 
 const galleryImgViewer = document.querySelector(".galleryImgViewer");
-galleryImgViewer.addEventListener("click", function (e) {
-  console.log(e);
+galleryImgViewer.addEventListener("click", async function (e) {
+  if (e.target.classList.contains("btn-delete")) {
+    let imgurl = e.target.id.split("#")[1];
+    let galImgOb = {};
+    model.state.user.galleryImgs.forEach((img) => {
+      if (img._id === imgurl) return (galImgOb = img);
+    });
+    let delImgRes = await axios.post(
+      `https://app.cvstudio.io/user/delete-img/`,
+      {
+        ...galImgOb,
+      }
+    );
+
+    if (delImgRes.data.imgres) location.reload();
+  }
   if (e.target.closest(".btnCloseView")) return this.classList.add("hideMe");
 });
+
 myInnerGallery.addEventListener("click", (e) => {
-  let imgurl = e.target.src;
-  if (!imgurl) return;
+  // return console.log(e.target);
+  let innerImgActBtn = e.target.closest("span");
+  if (!innerImgActBtn) return;
+  // if (innerImgActBtn.classList.contains("view-img")) return
+  // if (innerImgActBtn.classList.contains("delete-img")) console.log("del");
+
+  let targetImg = e.target.closest(".gallery-img").querySelector("img");
+  let imgurl = targetImg.src;
+  let imgid = targetImg.id;
+  // return console.log(imgid, imgurl);
+
   galleryImgViewer.innerHTML = `
   <button type="button" class="btnCloseView "> <i
     class="fa fa-times icon-mobile-nav viewerBtn"
     
     aria-hidden="true"
   ></i></button>
+  ${
+    innerImgActBtn?.classList.contains("delete-img")
+      ? `
+      <div class="confirm-delete-img absoluteClass">
+        <div class="confirm-delete-infor">
+        <h1>Are you sure you want to delete</h1>
+        <p>Deleting this will affect any of your files that is using it</p>
+        <button class="btn btn-large btn-delete" id="${
+          "#" + imgid
+        }">Delete</button>
+        </div>
+        </div>
+        `
+      : ""
+  }
   <img src="${imgurl}" />
   `;
+  // if (e.target.classList.contains("btn-delete")) return console.log("hi");
   // return console.log(galleryImgViewer.classList);
   galleryImgViewer.classList.remove("hideMe");
 });

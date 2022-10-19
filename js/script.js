@@ -591,7 +591,7 @@ document.querySelector(".site-menu").addEventListener("click", function (e) {
     hidePaginations(pbox1);
     model.state.section = "myResume";
     resumeInforContainer.classList.remove("hiddenClass");
-    document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
+    // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
 
     document.querySelector(`.${buttonId}`).classList.remove("hiddenClass");
     targetElement.classList.add("active");

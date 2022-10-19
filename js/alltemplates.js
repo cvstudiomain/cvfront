@@ -1,7 +1,5 @@
-export const allTemplates=[
-  
-  
- ` <div
+export const allTemplates = [
+  ` <div
   class="resumeAndLetter resume resume1"
   id="resume1"
 >
@@ -17,7 +15,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter resume resume2 "
   id="resume2"
@@ -32,7 +30,7 @@ export const allTemplates=[
     alt="Resume Template"
   />
 </div>`,
-`
+  `
 <div
   class="resumeAndLetter resume resume3 "
   id="resume3"
@@ -48,7 +46,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter resume resume4 "
   id="resume4"
@@ -63,7 +61,7 @@ export const allTemplates=[
     alt="Resume Template"
   />
 </div>`,
-`
+  `
 <div
   class="resumeAndLetter resume resume5 "
   id="resume5"
@@ -80,7 +78,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter resume resume6 "
   id="resume6"
@@ -96,8 +94,23 @@ export const allTemplates=[
     alt="Resume Template"
   />
 </div>`,
+  `
+<div
+  class="resumeAndLetter resume resume7 "
+  id="resume7"
+>
+ <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+  <button class="custom-btn btn-5">use this</button>
 
-`
+  <img
+    src="img/meals/template7.png"
+    class="meal-img"
+    alt="Resume Template"
+  />
+</div>`,
+  `
 <div
   class="resumeAndLetter letter letter1 "
   id="letter1"
@@ -114,7 +127,7 @@ export const allTemplates=[
     />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter letter letter2 "
   id="letter2"
@@ -131,7 +144,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter letter letter3 "
   id="letter3"
@@ -148,7 +161,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter letter letter4 "
   id="letter4"
@@ -165,7 +178,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter letter letter5 "
   id="letter5"
@@ -182,7 +195,7 @@ export const allTemplates=[
   />
 </div>`,
 
-`
+  `
 <div
   class="resumeAndLetter letter letter6 "
   id="letter6"
@@ -198,6 +211,5 @@ export const allTemplates=[
     alt="Resume Template"
     />
 </div>
-`
-]
-
+`,
+];

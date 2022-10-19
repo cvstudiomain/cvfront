@@ -1680,7 +1680,7 @@ button {
   background-color: #000;
 }
 .resume ul {
-  text-align: justify;
+  text-align: left;
   /* list-style: none; */
   margin-left: 2rem;
   display: flex;
@@ -1731,7 +1731,7 @@ button {
   flex-direction: column;
   width: 100%;
   min-width: 100%;
-  text-align: justify;
+  text-align: left;
   /* gap: 1rem; */
   padding: 1.5rem;
 }
@@ -2255,7 +2255,111 @@ button {
 .template6 .user-name {
   font-size: 2rem;
 }
+.template7 {
+  grid-template-columns: 16rem 1fr;
+  grid-template-rows: 12rem 1fr;
+  padding-bottom: 1rem;
+}
 
+.template7 .header-wrapper {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-height: 12rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  background-color: #292927;
+}
+.template7 .header-wrapper .user-name-and-profession .user-name {
+  text-transform: uppercase;
+}
+.template7 .user-name-and-profession {
+  grid-column: 2;
+  color: #be9038;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  height: auto;
+  font-size: 1.3rem;
+}
+.template7 .user-name-and-profession .profession {
+  color: #fff;
+}
+.template7 .tiny-content {
+  grid-row: 1 / -1;
+  grid-column: 1;
+  background-color: #343a40;
+  color: #fff;
+  margin-left: 1rem;
+  max-width: calc(100% - 1rem);
+}
+.template7 .tiny-content .passportDateOfBirth {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: fit-content;
+  align-self: center;
+}
+.template7 .tiny-content .passportDateOfBirth .passport-box {
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+}
+.template7 .tiny-content .passportDateOfBirth .passport-box .passport {
+  border-radius: inherit;
+}
+.template7 .tiny-content .inforHeader {
+  background-color: #be9038;
+  padding-left: 0.5rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+}
+.template7 .tiny-content .inforLabel .fa {
+  color: #be9038;
+}
+.template7 .large-content {
+  width: 100%;
+  padding: 1.8rem;
+  padding-left: 2.5rem;
+  grid-column: 2;
+  grid-row: 2;
+}
+.template7 .large-content .start-and-end-date {
+  border: 1px solid #888;
+  width: fit-content;
+  padding: 0.2rem;
+  height: fit-content;
+}
+.template7 .large-content .inforHeader {
+  border-bottom: 1px solid #888;
+  margin-bottom: 1rem;
+}
+.template7 .inner-content-wrapper .box-for-title-and-org {
+  margin-bottom: 1rem;
+  background: none;
+}
+.template7 .education {
+  margin-left: 0;
+  border: none;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+.template7 .large-content .content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.template7 .large-content .certification .content-wrapper {
+  flex-direction: column;
+}
+.template7 .reference span {
+  background-color: #be9038;
+}
+.template7 .reference {
+  border-left: #be9038 solid 0.13rem;
+}
 .template:hover,
 .resumeAndLetter:hover {
   cursor: pointer;

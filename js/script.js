@@ -747,7 +747,8 @@ document
           userid: model.state.user.userid,
           images: imgUrl,
         };
-
+        model.state.user.img = newImage.images;
+        console.log(model.state.user.img);
         let newImgRes = await axios.post(
           "https://app.cvstudio.io/user/create-new-img",
           {
@@ -757,7 +758,6 @@ document
         let imgData = newImgRes.data.data;
 
         if (imgData.images.url) {
-          model.state.user.img = imgData;
           model.state.user.galleryImgs.push(imgData);
           myGallery.insertAdjacentHTML(
             "afterbegin",
@@ -847,9 +847,7 @@ const getCvOrLetter = async function (data) {
     }
 
     if (model.state.user.img) {
-      let imgUrl = model.state.user.img;
-
-      data.images = imgUrl;
+      data.images = model.state.user.img;
     }
 
     // if (data.onEdit && model.state.user.userCurrentData.images)

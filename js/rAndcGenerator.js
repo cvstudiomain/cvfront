@@ -19,7 +19,7 @@ const useInitial = function (data) {
 
 export const createPdfMarckup = function (data) {
   let marckup = "";
-  // return console.log(data)
+  const { url } = data.images.images;
   if (data.template.type === "letter") {
     if (data.template.template === "letter1") {
       marckup = `
@@ -44,7 +44,7 @@ export const createPdfMarckup = function (data) {
          <div class="passportDateOfBirth">
          <div class="passport-box">
          <img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
@@ -136,7 +136,7 @@ ${
       <div class="passportDateOfBirth">
       <div class="passport-box">
       <img
-         src="${data.images.url}"
+         src="${url}"
          alt=""
          class="passport"
          crossOrigin="anonymous" 
@@ -233,7 +233,7 @@ ${
       <div class="passportDateOfBirth">
       <div class="passport-box">
       <img
-         src="${data.images.url}"
+         src="${url}"
          alt=""
          class="passport"
          crossOrigin="anonymous" 
@@ -371,7 +371,7 @@ ${
             <div class="passportDateOfBirth">
             <div class="passport-box">
             <img
-               src="${data.images.url}"
+               src="${url}"
                alt=""
                class="passport"
                crossOrigin="anonymous" 
@@ -435,7 +435,7 @@ ${
       <div class="passportDateOfBirth">
       <div class="passport-box">
       <img
-         src="${data.images.url}"
+         src="${url}"
          alt=""
          class="passport"
          crossOrigin="anonymous" 
@@ -602,7 +602,7 @@ ${
       <div class="passportDateOfBirth">
       <div class="passport-box">
       <img
-         src="${data.images.url}"
+         src="${url}"
          alt=""
          class="passport"
          crossOrigin="anonymous" 
@@ -631,7 +631,7 @@ ${
           ${
             data.images
               ? `<img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
@@ -1023,7 +1023,7 @@ ${
              ? `
             <div class="passport-box">
               <img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
@@ -1399,7 +1399,7 @@ ${
           ${
             data.images
               ? ` <div class="passport-box"><img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
@@ -1786,7 +1786,7 @@ ${
   ${
     data.images
       ? `<img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
@@ -2185,7 +2185,7 @@ ${
           ${
             data.images
               ? `<img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 
@@ -2709,7 +2709,7 @@ ${data.reffrences
       ${
         data.images
           ? `<img
-        src="${data.images.url}"
+        src="${url}"
         alt=""
         class="passport"
         crossOrigin="anonymous" 
@@ -2959,7 +2959,7 @@ ${data.reffrences
           ${
             data.images
               ? `<img
-            src="${data.images.url}"
+            src="${url}"
             alt=""
             class="passport"
             crossOrigin="anonymous" 

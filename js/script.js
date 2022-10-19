@@ -310,6 +310,8 @@ resumesViewer.addEventListener("click", async function (e) {
         scale: 2,
         logging: true,
         letterRendering: 1,
+        // allowTaint: true,
+        // logging: true,
         useCORS: true,
       },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
@@ -747,8 +749,7 @@ document
           userid: model.state.user.userid,
           images: imgUrl,
         };
-        model.state.user.img = newImage.images;
-        console.log(model.state.user.img);
+
         let newImgRes = await axios.post(
           "https://app.cvstudio.io/user/create-new-img",
           {
@@ -757,7 +758,10 @@ document
         );
         let imgData = newImgRes.data.data;
 
-        if (imgData.images.url) {
+        if (imgData.images) {
+          model.state.user.img = imgData.images;
+          console.log(model.state.user.img);
+
           model.state.user.galleryImgs.push(imgData);
           myGallery.insertAdjacentHTML(
             "afterbegin",

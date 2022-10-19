@@ -47,7 +47,7 @@ export const createPdfMarckup = function (data) {
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />
@@ -139,7 +139,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-        crossOrigin="anonymous" 
+        
          
          
          />
@@ -236,7 +236,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-        crossOrigin="anonymous" 
+        
          
          
          />
@@ -374,7 +374,7 @@ ${
                src="${data.images.url}"
                alt=""
                class="passport"
-              crossOrigin="anonymous" 
+              
                
                
                />
@@ -438,7 +438,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-        crossOrigin="anonymous" 
+        
          
          
          />
@@ -605,7 +605,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-        crossOrigin="anonymous" 
+        
          
          
          />
@@ -634,7 +634,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />`
@@ -1026,7 +1026,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />
@@ -1402,7 +1402,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />
@@ -1789,7 +1789,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />`
@@ -2188,7 +2188,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />`
@@ -2712,7 +2712,7 @@ ${data.reffrences
         src="${data.images.url}"
         alt=""
         class="passport"
-       crossOrigin="anonymous" 
+       
         
         
         />`
@@ -2962,7 +2962,7 @@ ${data.reffrences
             src="${data.images.url}"
             alt=""
             class="passport"
-           crossOrigin="anonymous" 
+           
             
             
             />`

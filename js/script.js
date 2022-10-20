@@ -796,6 +796,7 @@ const getCvOrLetter = async function (data) {
       data.onEdit = model.state.user.contentEdit;
       let userPassport = model.state.user.userCurrentData.images;
       if (userPassport) data.images = userPassport;
+      if (model.state.user.img.url) data.images = model.state.user.img;
       data._id = model.state.user.userCurrentData._id;
     }
 
@@ -1407,15 +1408,14 @@ myGallery.addEventListener("click", (e) => {
   if (!imgId) return;
   model.state.user.galleryImgs.forEach((img) => {
     // return console.log(img.images);
-    if (img._id === imgId)
-      return (model.state.user.userCurrentData.images = img.images);
+    if (img._id === imgId) return (model.state.user.img = img.images);
   });
 
   document
     .querySelectorAll(".display_image2")
     ?.forEach(
       (display) =>
-        (display.style.backgroundImage = `url(${model.state.user.userCurrentData.images.url})`)
+        (display.style.backgroundImage = `url(${model.state.user.img.url})`)
     );
   myGalleryContainer.classList.add("hideMe");
 });

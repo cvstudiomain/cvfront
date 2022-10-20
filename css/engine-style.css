@@ -1396,7 +1396,8 @@ button {
 .myGallery,
 .myGallery-inner {
   max-height: 448px;
-  /* max-height: 500px; */
+  max-height: 500px;
+  min-height: 300px;
 
   background-color: #fff9f9;
 

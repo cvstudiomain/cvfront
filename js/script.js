@@ -1404,16 +1404,18 @@ const iterableData = function (itrData) {
 // const galleryImgViewer = document.querySelector(".galleryImgViewer");
 myGallery.addEventListener("click", (e) => {
   let imgId = e.target.id;
+  if (!imgId) return;
   model.state.user.galleryImgs.forEach((img) => {
     // return console.log(img.images);
-    if (img._id === imgId) return (model.state.user.img = img.images);
+    if (img._id === imgId)
+      return (model.state.user.userCurrentData.images = img.images);
   });
 
   document
     .querySelectorAll(".display_image2")
     ?.forEach(
       (display) =>
-        (display.style.backgroundImage = `url(${model.state.user.img.url})`)
+        (display.style.backgroundImage = `url(${model.state.user.userCurrentData.images.url})`)
     );
   myGalleryContainer.classList.add("hideMe");
 });

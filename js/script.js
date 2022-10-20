@@ -25,6 +25,7 @@ let sectionName = document.querySelector(".user-section-name");
 
 const templates = document.querySelector(".templates");
 const htmlParent = document.querySelector("html");
+const cap = "http://api.cloudinary.com/v1_1/dxjyrdzmm/upload";
 const myResume = document.querySelector(".myResume");
 const myGallery = document.querySelector(".myGallery");
 const myInnerGallery = document.querySelector(".myGallery-inner");
@@ -42,6 +43,7 @@ const templateInorContainer = document.querySelector(
 const pbox1 = document.querySelector(".myResumes-p-btns");
 const pbox2 = document.querySelector(".myTemplates-p-btns");
 const pbox3 = document.querySelector(".templates-p-btns");
+const pr = "f0tjzjo5";
 
 const userDashBoard = document.querySelector(".userDashBoard");
 
@@ -61,6 +63,9 @@ const preLoade = function (start = true) {
 
   loaderContainer.classList.add("hideMe");
 };
+
+let prz = "";
+let cza = cap;
 const init = async function () {
   try {
     // return console.log(Loader)
@@ -68,6 +73,7 @@ const init = async function () {
     // userAreaContents.insertAdjacentHTML("afterbegin", Loader.loader(false));
     loaderContainer = document.querySelector(".loaderContainer");
     preLoade(true);
+    prz = pr;
     let userData = JSON.parse(localStorage.getItem("user"));
     // console.log(userData)
     if (!userData) window.location = "index.html";
@@ -78,6 +84,8 @@ const init = async function () {
 
       return;
     }
+
+    model.state.preset = prz;
     model.state.user.accesstoken = userData.accesstoken;
     model.state.user.email = userData.email;
     model.state.user.siteUserName = userData.siteUserName;
@@ -170,6 +178,7 @@ const init = async function () {
     if (error) preLoade(true);
   }
 };
+
 init();
 
 document.querySelector(".nav-tabs").addEventListener("click", function (e) {
@@ -197,6 +206,7 @@ document.querySelector(".nav-tabs").addEventListener("click", function (e) {
     );
   }
 });
+
 const filteredPager = function (theString, theData, theBox, buttonsBox) {
   theBox.innerHTML = "";
   buttonsBox.innerHTML = "";
@@ -275,7 +285,6 @@ resumesViewer.addEventListener("click", async function (e) {
       return deleteCvOrLetter(templateType, id);
     return;
   }
-  // userDashBoard.classList.remove("hiddenClass");
   if (btn.closest("button").classList.contains("btnCloseView")) {
     myResume.classList.remove("hiddenClass");
     hidePaginations(pbox1);
@@ -283,22 +292,14 @@ resumesViewer.addEventListener("click", async function (e) {
 
     return resumesViewer.classList.add("hiddenClass");
   }
-  // return console.log(btn)
   if (btn.classList.contains("downloadCv")) {
     htmlParent.style.fontSize = "16px";
     let container = e.target.closest(".resumesViewer");
     let myCv = container.querySelector(".template");
     let name = myCv.classList.contains("letter") ? "letter.pdf" : "cv.pdf";
 
-    // myCv.style.minHeight="100%";
-    // myCv.style.width="100%";
-    // ".objective",
-    // ".content-wrapper",
-    // ".school-and-address",
-
     resumesViewer.classList.add("hiddenClass");
-    // myResume.innerHTML = `<div class="loader"></div>`;
-    // myResume.classList.remove("hiddenClass");
+
     var opt = {
       pagebreak: {
         avoid: ["shouldNotBreak", "h3", "p", "li"],
@@ -310,8 +311,6 @@ resumesViewer.addEventListener("click", async function (e) {
         scale: 2,
         logging: true,
         letterRendering: 1,
-        // allowTaint: true,
-        // logging: true,
         useCORS: true,
       },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
@@ -324,6 +323,8 @@ resumesViewer.addEventListener("click", async function (e) {
     return location.reload();
   }
 });
+model.state.based_url = cza;
+
 pbox1.addEventListener("click", (e) => {
   const btn = e.target.closest(".btn--inline");
   if (!btn) return;
@@ -469,6 +470,7 @@ myResume.addEventListener("click", function (e) {
     return;
   }
 });
+
 const closeViewer = () => {
   [cvFormContainer, coverLetterContainer].forEach((box) =>
     !box.classList.contains("hiddenClass")
@@ -725,76 +727,23 @@ document
         return alert("File type not supported");
 
       model.state.user.file = file;
-
-      if (model.state.user.file) {
-        let formData = new FormData();
-        let token = model.state.user.token;
-        formData.append("file", model.state.user.file);
-        preLoade(true);
-        let res = await axios.post("https://app.cvstudio.io/upload/", {
-          imageType: model.state.user.file.type,
-        });
-        let url = res.data.uploadUrl;
-        // console.log(url);
-        await fetch(url, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          body: model.state.user.file,
-        });
-        let imgUrl = { url: url.split("?")[0] };
-        // return console.log(imgUrl.url);
-        let newImage = {
-          userid: model.state.user.userid,
-          images: imgUrl,
-        };
-
-        let newImgRes = await axios.post(
-          "https://app.cvstudio.io/user/create-new-img",
-          {
-            newImage: newImage,
-          }
-        );
-        let imgData = newImgRes.data.data;
-
-        if (imgData.images) {
-          model.state.user.img = imgData.images;
-          console.log(model.state.user.img);
-
-          model.state.user.galleryImgs.push(imgData);
-          myGallery.insertAdjacentHTML(
-            "afterbegin",
-            `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" /></div>`
-          );
-          myInnerGallery.insertAdjacentHTML(
-            "afterbegin",
-            `<div class="gallery-img" ><img id="${imgData?._id}" src="${imgData?.images.url}" />
-            <div class="inner-img-actions absoluteClass hideMe">
-          <span class="view-img"><i class="fa fa-eye" aria-hidden="true"></i></span>
-          <span class="delete-img"><i class="fa fa-trash" aria-hidden="true"></i></span>
-          </div>
-            </div>`
-          );
-        }
-        let reader = new FileReader();
-        reader.onloadend = function () {
-          document
-            .querySelectorAll(".display_image2")
-            ?.forEach(
-              (display) =>
-                (display.style.backgroundImage = `url(${reader.result})`)
-            );
-        };
-        if (file) {
-          reader.readAsDataURL(file);
-        }
-        preLoade(false);
+      let reader = new FileReader();
+      reader.onloadend = function () {
         document
-          .querySelector("#cvandresume-area")
-          .scrollIntoView({ behavior: "smooth" });
-        myGalleryContainer.classList.add("hideMe");
+          .querySelectorAll(".display_image2")
+          ?.forEach(
+            (display) =>
+              (display.style.backgroundImage = `url(${reader.result})`)
+          );
+      };
+      if (file) {
+        reader.readAsDataURL(file);
       }
+
+      document
+        .querySelector("#cvandresume-area")
+        .scrollIntoView({ behavior: "smooth" });
+      myGalleryContainer.classList.add("hideMe");
     } catch (error) {
       console.log(error.message);
     }
@@ -850,17 +799,43 @@ const getCvOrLetter = async function (data) {
       data._id = model.state.user.userCurrentData._id;
     }
 
-    if (model.state.user.img) {
-      data.images = model.state.user.img;
+    if (model.state.user.file) {
+      let formData = new FormData();
+      let token = model.state.user.token;
+      formData.append("file", model.state.user.file);
+      formData.append("upload_preset", model.state.preset);
+      preLoade(true);
+      let cloudRes = {};
+      await axios({
+        url: model.state.based_url,
+        method: "POST",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
+      }).then((res) => {
+        cloudRes = res;
+      });
+
+      let imgUrl = { url: cloudRes.data.url };
+      data.images = imgUrl;
+      let newImage = {
+        userid: model.state.user.userid,
+        images: imgUrl,
+      };
+
+      let newImgRes = await axios.post(
+        "https://app.cvstudio.io/user/create-new-img",
+        {
+          newImage: newImage,
+        }
+      );
     }
 
-    // if (data.onEdit && model.state.user.userCurrentData.images)
-    // data.images = model.state.user.userCurrentData.images;
-
-    // return console.log(data)
     const res = await axios.post("https://app.cvstudio.io/resume/create", {
       ...data,
     });
+
     if (res.data) return location.reload();
     return;
     model.state.resume = res.data.data;

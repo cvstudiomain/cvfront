@@ -13,8 +13,9 @@ export const state = {
   templates: [],
   resumes: [],
   templateToBeDownload: [],
-
+  based_url: "",
   searchResult: "",
+  preset: "",
   user: {
     editor: false,
     viewersDataIdentifier: {},
@@ -55,4 +56,5 @@ export const state = {
   page: 1,
   resume: {},
   cloud_image: {},
+  cloud_name: "",
 };

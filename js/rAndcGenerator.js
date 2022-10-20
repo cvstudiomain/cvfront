@@ -19,7 +19,7 @@ const useInitial = function (data) {
 
 export const createPdfMarckup = function (data) {
   let marckup = "";
-  // const {url}=data.images.images.url;
+
   if (data.template.type === "letter") {
     if (data.template.template === "letter1") {
       marckup = `
@@ -47,7 +47,7 @@ export const createPdfMarckup = function (data) {
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />
@@ -139,7 +139,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-     
+        
          
          
          />
@@ -236,7 +236,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-     
+        
          
          
          />
@@ -374,7 +374,7 @@ ${
                src="${data.images.url}"
                alt=""
                class="passport"
-           
+              
                
                
                />
@@ -438,7 +438,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-     
+        
          
          
          />
@@ -605,7 +605,7 @@ ${
          src="${data.images.url}"
          alt=""
          class="passport"
-     
+        
          
          
          />
@@ -634,7 +634,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />`
@@ -1026,7 +1026,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />
@@ -1402,7 +1402,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />
@@ -1789,7 +1789,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />`
@@ -2188,7 +2188,7 @@ ${
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />`
@@ -2712,7 +2712,7 @@ ${data.reffrences
         src="${data.images.url}"
         alt=""
         class="passport"
-    
+       
         
         
         />`
@@ -2962,7 +2962,7 @@ ${data.reffrences
             src="${data.images.url}"
             alt=""
             class="passport"
-        
+           
             
             
             />`

@@ -783,6 +783,7 @@ coverLetterContainer.addEventListener("click", async function (e) {
 
   // console.log(model.state.user.coverLetter)
   getCvOrLetter(model.state.user.coverLetter);
+  location.reload();
 });
 
 const getCvOrLetter = async function (data) {
@@ -833,7 +834,8 @@ const getCvOrLetter = async function (data) {
       ...data,
     });
 
-    if (res.data) return location.reload();
+    return;
+    // init();
     // return;
     // model.state.resume = res.data.data;
     // model.state.resumes.push(model.state.resume);
@@ -887,6 +889,7 @@ const saveResume = async (e) => {
 
     // return console.log(model.state.user.inputData)
     getCvOrLetter(model.state.user.inputData);
+    location.reload();
   } catch (error) {
     console.log(error);
   }

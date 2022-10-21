@@ -297,7 +297,7 @@ resumesViewer.addEventListener("click", async function (e) {
     let container = e.target.closest(".resumesViewer");
     let myCv = container.querySelector(".template");
     let name = myCv.classList.contains("letter") ? "letter.pdf" : "cv.pdf";
-
+    preLoade(true);
     resumesViewer.classList.add("hiddenClass");
 
     var opt = {

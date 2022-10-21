@@ -13,6 +13,7 @@ html {
 body {
   font-family: "Rubik", sans-serif;
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   height: 100%;
   line-height: 1;
@@ -22,7 +23,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center; */
-  /* overflow: auto; */
+  overflow-x: hidden;
 
   position: relative;
   background-color: #ffe7ef;

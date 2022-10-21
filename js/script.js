@@ -821,7 +821,7 @@ const getCvOrLetter = async function (data) {
         userid: model.state.user.userid,
         images: imgUrl,
       };
-
+      return console.log(data);
       let newImgRes = await axios.post(
         "https://app.cvstudio.io/user/create-new-img",
         {

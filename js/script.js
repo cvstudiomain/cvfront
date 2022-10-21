@@ -782,11 +782,7 @@ coverLetterContainer.addEventListener("click", async function (e) {
   model.state.user.coverLetter = coverLetter;
 
   // console.log(model.state.user.coverLetter)
-  getCvOrLetter(model.state.user.coverLetter);
-  btnSave.innerText = "Done";
-  model.state.templateToUse.type = "";
-  model.state.templateToUse.template = "";
-  init();
+  await getCvOrLetter(model.state.user.coverLetter);
 });
 
 const getCvOrLetter = async function (data) {
@@ -891,9 +887,6 @@ const saveResume = async (e) => {
 
     // return console.log(model.state.user.inputData)
     await getCvOrLetter(model.state.user.inputData);
-    init();
-    // this.innerText = "Save";
-    location.reload();
   } catch (error) {
     console.log(error);
   }

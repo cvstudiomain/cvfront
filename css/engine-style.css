@@ -1670,7 +1670,7 @@ button {
 .template .education {
   border-left: #000 solid 0.13rem;
   padding-left: 1rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   position: relative;
 }
 

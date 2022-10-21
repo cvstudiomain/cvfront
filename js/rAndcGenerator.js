@@ -3601,7 +3601,7 @@ ${data.reffrences
        <div class="box-for-title-and-org shouldNotBreak">
       ${
         experience.jobTitle
-          ? ` <p class="jobtitle">${experience.jobTitle}</p>/`
+          ? ` <p class="jobtitle">${experience.jobTitle}</p>`
           : ""
       }
       ${
@@ -3612,7 +3612,7 @@ ${data.reffrences
       <div class="box-for-org-city-and-org">
       ${
         experience.orgCity
-          ? `<p class="organizationAndAddress">${experience.orgCity + " /"}</p>`
+          ? `<p class="organizationAndAddress">${experience.orgCity + ","}</p>`
           : ""
       }
       ${
@@ -3621,7 +3621,7 @@ ${data.reffrences
           : ""
       }
      </div>  
-     
+     </div>
     <div class="start-and-end-date shouldNotBreak">
     ${
       experience.experiencestarts
@@ -3637,7 +3637,7 @@ ${data.reffrences
          : ""
      }  
        
-      </div>
+     
      
      </div>
       </div>

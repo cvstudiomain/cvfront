@@ -834,32 +834,32 @@ const getCvOrLetter = async function (data) {
     });
 
     if (res.data) return location.reload();
-    return;
-    model.state.resume = res.data.data;
-    model.state.resumes.push(model.state.resume);
-    model.state.user.myResumes.push(
-      temMarckup.createPdfMarckup(model.state.resume)
-    );
-    noResumeInfor.classList.add("hiddenClass");
-    myTemplates.classList.add("hiddenClass");
-    document.querySelector("#myTemplates").classList.remove("active");
+    // return;
+    // model.state.resume = res.data.data;
+    // model.state.resumes.push(model.state.resume);
+    // model.state.user.myResumes.push(
+    //   temMarckup.createPdfMarckup(model.state.resume)
+    // );
+    // noResumeInfor.classList.add("hiddenClass");
+    // myTemplates.classList.add("hiddenClass");
+    // document.querySelector("#myTemplates").classList.remove("active");
 
-    myResume.classList.remove("hiddenClass");
-    document.querySelector("#myResume").classList.add("active");
-    myResume.innerHTML = "";
-    model.state.resumes.forEach((resume) => {
-      myResume.insertAdjacentHTML(
-        "afterbegin",
-        temMarckup.createPdfMarckup(resume)
-      );
-    });
-    cvFormContainer.classList.add("hiddenClass");
-    coverLetterContainer.classList.add("hiddenClass");
-    userDashBoard.classList.remove("hiddenClass");
-    s6.classList.add("hiddenClass");
-    s1.style.left = "16px";
-    // progress.style.width = "60px";
-    clearInput();
+    // myResume.classList.remove("hiddenClass");
+    // document.querySelector("#myResume").classList.add("active");
+    // myResume.innerHTML = "";
+    // model.state.resumes.forEach((resume) => {
+    //   myResume.insertAdjacentHTML(
+    //     "afterbegin",
+    //     temMarckup.createPdfMarckup(resume)
+    //   );
+    // });
+    // cvFormContainer.classList.add("hiddenClass");
+    // coverLetterContainer.classList.add("hiddenClass");
+    // userDashBoard.classList.remove("hiddenClass");
+    // s6.classList.add("hiddenClass");
+    // s1.style.left = "16px";
+    // // progress.style.width = "60px";
+    // clearInput();
   } catch (error) {}
 };
 const clearInput = function () {

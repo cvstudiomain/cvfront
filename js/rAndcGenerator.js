@@ -3349,8 +3349,7 @@ ${data.reffrences
                 )}</h1>
                 <p class="profession">${data.profession}</p>
               </div>
-            </div>
-            <div class="contact-information informationContainer">
+              <div class="contact-information informationContainer">
               <div class="content-wrapper">
                 ${
                   data.country
@@ -3418,6 +3417,8 @@ ${data.reffrences
                     : ""
                 }
               </div>
+            </div>
+         
             </div>
             <div class="tiny-content">
               <div class="passportDateOfBirth">

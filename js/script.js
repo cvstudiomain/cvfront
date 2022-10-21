@@ -718,7 +718,7 @@ document
       const file = e.target.files[0];
       // console.log(file,"hello")
       if (!file) return alert("File not exist.");
-      if (file.size > 1024 * 1024) return alert("Size too large");
+      if (file.size / 1000 > 100) return alert("Size too large");
       if (
         file.type !== "image/jpg" &&
         file.type !== "image/png" &&
@@ -796,9 +796,9 @@ const getCvOrLetter = async function (data) {
       data.onEdit = model.state.user.contentEdit;
       let userPassport = model.state.user.userCurrentData.images;
       if (userPassport) data.images = userPassport;
-      if (model.state.user.img.url) data.images = model.state.user.img;
       data._id = model.state.user.userCurrentData._id;
     }
+    if (model.state.user.img.url) data.images = model.state.user.img;
 
     if (model.state.user.file) {
       let formData = new FormData();
@@ -1404,8 +1404,8 @@ const iterableData = function (itrData) {
 };
 // const galleryImgViewer = document.querySelector(".galleryImgViewer");
 myGallery.addEventListener("click", (e) => {
-  let imgId = e.target.id;
-  if (!imgId) return;
+  if (!e.target.closest(".gallery-img")) return;
+  let imgId = e.target.closest(".gallery-img").querySelector("img").id;
   model.state.user.galleryImgs.forEach((img) => {
     // return console.log(img.images);
     if (img._id === imgId) return (model.state.user.img = img.images);

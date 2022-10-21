@@ -1420,6 +1420,7 @@ button {
   position: relative;
   overflow: hidden;
 }
+
 .my-gallery-container .gallery-header .new-upload {
   align-items: center;
   justify-content: center;
@@ -1436,6 +1437,13 @@ button {
   height: 60px;
   padding-right: 16px;
   justify-content: center;
+}
+.my-gallery-container .gallery-header {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: fit-content;
+  padding: 16px 0;
 }
 .my-gallery-contents .gallery-header {
   justify-content: left;

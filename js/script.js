@@ -782,8 +782,7 @@ coverLetterContainer.addEventListener("click", async function (e) {
   model.state.user.coverLetter = coverLetter;
 
   // console.log(model.state.user.coverLetter)
-  getCvOrLetter(model.state.user.coverLetter);
-  location.reload();
+  await getCvOrLetter(model.state.user.coverLetter);
 });
 
 const getCvOrLetter = async function (data) {
@@ -821,7 +820,6 @@ const getCvOrLetter = async function (data) {
         userid: model.state.user.userid,
         images: imgUrl,
       };
-      // return console.log(data);
       let newImgRes = await axios.post(
         "https://app.cvstudio.io/user/create-new-img",
         {
@@ -829,12 +827,13 @@ const getCvOrLetter = async function (data) {
         }
       );
     }
+    // return console.log(data);
 
     const res = await axios.post("https://app.cvstudio.io/resume/create", {
       ...data,
     });
 
-    return;
+    return location.reload();
     // init();
     // return;
     // model.state.resume = res.data.data;
@@ -888,8 +887,7 @@ const saveResume = async (e) => {
     };
 
     // return console.log(model.state.user.inputData)
-    getCvOrLetter(model.state.user.inputData);
-    location.reload();
+    await getCvOrLetter(model.state.user.inputData);
   } catch (error) {
     console.log(error);
   }

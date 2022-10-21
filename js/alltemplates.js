@@ -14,6 +14,37 @@ export const allTemplates = [
     alt="Resume Template"
   />
 </div>`,
+  `
+<div
+  class="resumeAndLetter resume resume7 "
+  id="resume7"
+>
+ <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+  <button class="custom-btn btn-5">use this</button>
+
+  <img
+    src="img/meals/template7.png"
+    class="meal-img"
+    alt="Resume Template"
+  />
+</div>`,
+  ` <div
+  class="resumeAndLetter resume resume8"
+  id="resume8"
+>
+ <div class="s7">
+                <p>You have this in your list of templates</p>
+              </div>
+  <button class="custom-btn btn-5">USE THIS</button>
+
+  <img
+    src="img/meals/template8.png"
+    class="meal-img"
+    alt="Resume Template"
+  />
+</div>`,
 
   `
 <div

@@ -2350,6 +2350,15 @@ button {
   margin-bottom: 1rem;
   background: none;
 }
+.template7 .inner-content-wrapper ul {
+  margin-left: 1.5rem;
+}
+.template7 .inner-content-wrapper {
+  margin-left: 0.5rem;
+}
+.template7 .box-for-org-city-and-org {
+  border-bottom: none;
+}
 .template7 .education {
   margin-left: 0;
   border: none;
@@ -2368,6 +2377,225 @@ button {
 }
 .template7 .reference {
   border-left: #be9038 solid 0.13rem;
+}
+
+.template8 {
+  display: block;
+  padding: 1rem;
+}
+.template8 .inner-container {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  grid-template-rows: max-content max-content;
+  border: 1px solid #666;
+  padding: 1rem;
+}
+.template8 .inner-container .header-wrapper {
+  grid-column: 1/-1;
+  grid-row: 1;
+  min-height: 10rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #999; */
+}
+.template8 .inner-container .inforHeader,
+.template8 .inner-container .header-wrapper .user-name-and-profession {
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .user-name-and-profession
+  .user-name {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.template8 .inner-container .header-wrapper .contact-information {
+  width: 100%;
+  align-items: center;
+  margin-top: 2rem;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.8fr 0.8fr 1fr;
+  grid-template-rows: 1fr;
+  flex-direction: row;
+  background-color: #999;
+  gap: 0;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information {
+  width: 100%;
+  max-width: 12rem;
+
+  margin: 1px 0;
+  padding: 1rem 0;
+  background: #fff;
+  padding-left: 0.5rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information
+  .inforVal
+  .header {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information
+  .inforVal
+  .val {
+  font-size: 0.8rem;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* padding-left: 0; */
+}
+
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information
+  .inforLabel {
+  font-size: 1.5rem;
+  color: #666;
+}
+.template8
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information:last-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  /* padding-right: 0; */
+}
+.template8 .inner-container .tiny-content {
+  border-right: 1px solid #999;
+  padding: 0;
+  margin: 0;
+}
+.template8 .inner-container .tiny-content .informationContainer {
+  margin: 0;
+  border-bottom: 1px solid #999;
+  padding: 1rem;
+}
+.template8 .inner-container .tiny-content .passportDateOfBirth {
+  border-bottom: 1px solid #999;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 2.3rem;
+}
+.template8 .inner-container .tiny-content .passportDateOfBirth .passport-box {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+
+  border: 1px solid #999;
+  padding: 0.7rem;
+}
+.template8
+  .inner-container
+  .tiny-content
+  .passportDateOfBirth
+  .passport-box
+  .passport {
+  border-radius: inherit;
+}
+.template8 .inner-container .large-content {
+  margin: 0;
+  padding: 0;
+}
+.template8 .inner-container .large-content .informationContainer {
+  border-bottom: 1px solid #999;
+  margin: 0;
+  padding: 1.5rem;
+}
+.template8 .inner-container .tiny-content .references,
+.template8 .inner-container .large-content .certification {
+  border-bottom: none;
+}
+.template8
+  .inner-container
+  .large-content
+  .inner-content-wrapper
+  .box-for-title-and-org {
+  background: none;
+  flex-direction: column;
+  width: fit-content;
+}
+.template8 .inner-container .large-content .education {
+  margin-left: 0;
+  border-left: 0;
+  padding-left: 0;
+}
+.template8 .inner-container ul {
+  margin-left: 1.5rem;
+}
+.template8 .inner-container .large-content .profile {
+  padding-top: 0;
+}
+.template8
+  .inner-container
+  .large-content
+  .inner-content-wrapper
+  .box-for-org-city-and-org {
+  border: none;
+  align-self: flex-start;
+  margin: 0;
+  font-size: 0.7rem;
+}
+.template8
+  .inner-container
+  .large-content
+  .inner-content-wrapper
+  .start-and-end-date {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+.template8
+  .inner-container
+  .large-content
+  .recent-experience
+  .inner-content-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 .template:hover,
 .resumeAndLetter:hover {

@@ -320,7 +320,7 @@ resumesViewer.addEventListener("click", async function (e) {
     myCv.style.minHeight = "70.157rem";
     htmlParent.style.fontSize = model.state.fontSize;
 
-    return location.reload();
+    window.location.reload();
   }
 });
 model.state.based_url = cza;

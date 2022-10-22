@@ -3998,17 +3998,7 @@ ${data.reffrences
             </div>
     
             <div class="large-content">
-              ${
-                data.profile
-                  ? `
-        <div class="profile informationContainer">
-      <h3 class="inforHeader shouldNotBreak">Professional Profile</h3>
-      <p>
-      ${data.profile}  
-      </p>
-    </div>`
-                  : ""
-              }
+             
               ${
                 data.experiences.length !== 0
                   ? `

@@ -2380,18 +2380,18 @@ button {
   border-left: #be9038 solid 0.13rem;
 }
 
-.template8 {
+.professional-template {
   display: block;
   padding: 1rem;
 }
-.template8 .inner-container {
+.professional-template .inner-container {
   display: grid;
   grid-template-columns: 16rem 1fr;
   grid-template-rows: max-content max-content;
   border: 1px solid #666;
   padding: 1rem;
 }
-.template8 .inner-container .header-wrapper {
+.professional-template .inner-container .header-wrapper {
   grid-column: 1/-1;
   grid-row: 1;
   min-height: 10rem;
@@ -2402,12 +2402,15 @@ button {
   align-items: center;
   /* background-color: #999; */
 }
-.template8 .inner-container .inforHeader,
-.template8 .inner-container .header-wrapper .user-name-and-profession {
+.professional-template .inner-container .inforHeader,
+.professional-template
+  .inner-container
+  .header-wrapper
+  .user-name-and-profession {
   text-transform: uppercase;
   letter-spacing: 0.4rem;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .user-name-and-profession
@@ -2415,12 +2418,12 @@ button {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-.template8 .inner-container .header-wrapper .contact-information {
+.professional-template .inner-container .header-wrapper .contact-information {
   width: 100%;
   align-items: center;
   margin-top: 2rem;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2433,7 +2436,7 @@ button {
   background-color: #999;
   gap: 0;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2449,7 +2452,7 @@ button {
   border-radius: 0.5rem;
   gap: 1rem;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2461,7 +2464,7 @@ button {
   text-transform: uppercase;
   margin-bottom: 0.3rem;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2471,7 +2474,7 @@ button {
   .val {
   font-size: 0.8rem;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2482,7 +2485,7 @@ button {
   /* padding-left: 0; */
 }
 
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2492,7 +2495,7 @@ button {
   font-size: 1.5rem;
   color: #666;
 }
-.template8
+.professional-template
   .inner-container
   .header-wrapper
   .contact-information
@@ -2502,24 +2505,28 @@ button {
   border-bottom-right-radius: 0;
   /* padding-right: 0; */
 }
-.template8 .inner-container .tiny-content {
+.professional-template .inner-container .tiny-content {
   border-right: 1px solid #999;
   padding: 0;
   margin: 0;
 }
-.template8 .inner-container .tiny-content .informationContainer {
+.professional-template .inner-container .tiny-content .informationContainer {
   margin: 0;
   border-bottom: 1px solid #999;
   padding: 1rem;
 }
-.template8 .inner-container .tiny-content .passportDateOfBirth {
+.professional-template .inner-container .tiny-content .passportDateOfBirth {
   border-bottom: 1px solid #999;
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 2rem;
   padding-left: 2.3rem;
 }
-.template8 .inner-container .tiny-content .passportDateOfBirth .passport-box {
+.professional-template
+  .inner-container
+  .tiny-content
+  .passportDateOfBirth
+  .passport-box {
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
@@ -2527,7 +2534,7 @@ button {
   border: 1px solid #999;
   padding: 0.7rem;
 }
-.template8
+.professional-template
   .inner-container
   .tiny-content
   .passportDateOfBirth
@@ -2535,20 +2542,20 @@ button {
   .passport {
   border-radius: inherit;
 }
-.template8 .inner-container .large-content {
+.professional-template .inner-container .large-content {
   margin: 0;
   padding: 0;
 }
-.template8 .inner-container .large-content .informationContainer {
+.professional-template .inner-container .large-content .informationContainer {
   border-bottom: 1px solid #999;
   margin: 0;
   padding: 1.5rem;
 }
-.template8 .inner-container .tiny-content .references,
-.template8 .inner-container .large-content .certification {
+.professional-template .inner-container .tiny-content .references,
+.professional-template .inner-container .large-content .certification {
   border-bottom: none;
 }
-.template8
+.professional-template
   .inner-container
   .large-content
   .inner-content-wrapper
@@ -2557,18 +2564,18 @@ button {
   flex-direction: column;
   width: fit-content;
 }
-.template8 .inner-container .large-content .education {
+.professional-template .inner-container .large-content .education {
   margin-left: 0;
   border-left: 0;
   padding-left: 0;
 }
-.template8 .inner-container ul {
+.professional-template .inner-container ul {
   margin-left: 1.5rem;
 }
-.template8 .inner-container .large-content .profile {
+.professional-template .inner-container .large-content .profile {
   padding-top: 0;
 }
-.template8
+.professional-template
   .inner-container
   .large-content
   .inner-content-wrapper
@@ -2578,7 +2585,7 @@ button {
   margin: 0;
   font-size: 0.7rem;
 }
-.template8
+.professional-template
   .inner-container
   .large-content
   .inner-content-wrapper
@@ -2587,7 +2594,7 @@ button {
   align-items: flex-end;
   gap: 0;
 }
-.template8
+.professional-template
   .inner-container
   .large-content
   .recent-experience
@@ -2598,6 +2605,181 @@ button {
   flex-wrap: nowrap;
   justify-content: space-between;
 }
+.template9 {
+  padding: 0;
+}
+.template9 .inner-container {
+  border: none;
+  padding: 0;
+  grid-template-columns: 19rem 1fr;
+  grid-template-rows: max-content max-content max-content max-content;
+}
+.template9 .inner-container .profession-container {
+  grid-row: 1;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 19rem 1fr;
+  background-color: #e4d9d5;
+  border-bottom: 0.4rem solid #9d736a;
+
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  min-height: 6rem;
+  letter-spacing: 0.5rem;
+}
+.template9 .inner-container .profession-container .profession {
+  grid-column: 2;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  align-self: end;
+}
+.template9 .inner-container .header-wrapper {
+  grid-row: 2;
+  grid-column: 2;
+  padding: 0;
+  margin: 0;
+  margin-right: 2rem;
+  min-height: auto;
+  /* justify-content: center; */
+}
+.template9 .inner-container .header-wrapper .user-name-and-profession {
+  margin: 0;
+  padding: 2rem 0;
+}
+.template9 .inner-container .header-wrapper .contact-information {
+  margin-top: 0;
+}
+.template9
+  .inner-container
+  .header-wrapper
+  .user-name-and-profession
+  .user-name {
+  margin: 0;
+  text-align: left;
+  font-size: 2.5rem;
+}
+.template9 .inner-container .passportDateOfBirth {
+  grid-column: 1;
+  /* padding: 0 2rem; */
+  height: 100%;
+  grid-row: 2;
+  width: 100%;
+  /* border-bottom: 1px solid #999; */
+  padding: 0 2rem;
+}
+.template9 .inner-container .passportDateOfBirth .passport-box {
+  border: 1px solid #999;
+  margin-top: -3rem;
+  height: calc(100% + 2.2rem);
+  max-height: 17rem;
+  width: fit-content;
+  padding: 0.8rem;
+}
+.template9
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper
+  .information
+  .inforLabel {
+  color: #fff;
+  background-color: #9d736a;
+  border-radius: 50%;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.template9 .inner-container .passportDateOfBirth .passport-box .passport {
+  /* min-height: 10rem; */
+  height: 100%;
+  /* width: auto; */
+}
+.template9 .inner-container .profile {
+  grid-column: 1/-1;
+  grid-row: 3;
+  margin: 0 2rem;
+  margin-bottom: 2rem;
+}
+.template9 .inner-container .profile .inforHeader {
+  position: relative;
+}
+.template9 .inner-container .profile .inforHeader span {
+  position: absolute;
+  background-color: #999;
+  height: 1px;
+  width: 4rem;
+  left: 0;
+  bottom: -1px;
+}
+.template9 .inner-container .tiny-content .informationContainer,
+.template9 .inner-container .large-content .informationContainer {
+  border: none;
+  padding: 0;
+}
+.template9
+  .inner-container
+  .header-wrapper
+  .contact-information
+  .content-wrapper {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.template9 .inner-container .large-content,
+.template9 .inner-container .tiny-content {
+  padding: 0;
+}
+.template9 .inner-container .large-content .inforHeader,
+.template9 .inner-container .tiny-content .inforHeader {
+  letter-spacing: 0.3rem;
+  background-color: #e4d9d5;
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.template9
+  .inner-container
+  .large-content
+  .informationContainer
+  .content-wrapper,
+.template9
+  .inner-container
+  .tiny-content
+  .informationContainer
+  .content-wrapper {
+  margin: 0 2rem;
+}
+
+.template9 .inner-container .tiny-content .inforHeader {
+  margin-left: 2rem;
+  padding-left: 0.5rem;
+}
+.template9 .inner-container .large-content .inforHeader {
+  margin-right: 2rem;
+  padding-left: 2rem;
+}
+.template9
+  .inner-container
+  .tiny-content
+  .informationContainer
+  .content-wrapper {
+  margin-left: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.template9 .inner-container .tiny-content .informationContainer .ul {
+  margin-left: 4rem;
+}
+.template9 .inner-container .large-content .informationContainer .ul {
+  margin-left: 1.5rem;
+}
+
+.template9 .inner-container .large-content .informationContainer {
+  margin-bottom: 1rem;
+}
+/* .template9 .informationContainer ul {
+  margin-left: 3rem;
+} */
+
 .template:hover,
 .resumeAndLetter:hover {
   cursor: pointer;

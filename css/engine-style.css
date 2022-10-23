@@ -29,8 +29,8 @@ body {
   background-color: #ffe7ef;
 }
 .body-on-load {
-  height: 100vh;
-  /* overflow: hidden; */
+  /* max-height: 100vh;
+  overflow: hidden; */
 }
 
 .pagination {
@@ -476,7 +476,7 @@ body {
 }
 .loaderContainer {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   z-index: 999;
 }
 
@@ -1517,7 +1517,6 @@ button {
   padding: 8px 12px;
 }
 .hideMe {
-  position: absolute;
   transform: translateX(1000px);
   opacity: 0;
   pointer-events: none;
@@ -2791,12 +2790,12 @@ button {
 .template10 .triangle-down {
   position: absolute;
   right: 5rem;
-  top: 0;
+  top: 0.8rem;
   width: 0;
   height: 0;
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  border-top: 2.5rem solid #434240;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 1rem solid #434240;
 }
 .template10 .inner-container {
   padding: 0;

@@ -4148,6 +4148,8 @@ ${data.reffrences
             <div class="header-wrapper">
             <div class="passportDateOfBirth">
          
+            <span class="line"></span>
+            <span class="triangle-down"></span>
 
               <div class="user-name-and-profession">
               <div class="profession-inner-container">
@@ -4180,62 +4182,76 @@ ${data.reffrences
           </div>
               <div class="contact-information informationContainer">
               <div class="content-wrapper">
-                ${
-                  data.country
-                    ? `
-            <div class="information">
-              <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
-      
-            <div class="inforVal"><p class="header">Country</p><p class="val">${data.country}</p></div>
-          </div>`
-                    : ""
-                }
-               
-                ${
-                  data.gender
-                    ? `<div class="information">
-                 <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
-      
-            
-            <div class="inforVal">
-            <p class="header">Gender</p>
-            <p class="val">${data.gender}</p>
-          </div>
+              ${
+                data.country
+                  ? `
+          <div class="information">
+            <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
     
-          </div>`
-                    : ""
-                }
-                ${
-                  data.maritalstatus
-                    ? `<div class="information">
-                <p class="inforLabel"> <i class="fa fa-heart" aria-hidden="true"></i></p> 
-      
-       
+          <div class="inforVal"><p class="header">Country</p><p class="val">${data.country}</p></div>
+        </div>`
+                  : ""
+              }
+              ${
+                data.email
+                  ? `<div class="information">
+            <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+           
             <div class="inforVal">
-                        <p class="header">Status</p>
-                        <p class="val">${data.maritalstatus}</p>
-                        
-                      </div>
+            <p class="header">Email</p>
+            <p class="val">${data.email}</p>
           </div>
-            `
-                    : ""
-                }
-             
+          </div>
+          `
+                  : ""
+              }
+              ${
+                data.gender
+                  ? `<div class="information">
+               <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+    
+          
+          <div class="inforVal">
+          <p class="header">Gender</p>
+          <p class="val">${data.gender}</p>
+        </div>
+  
+        </div>`
+                  : ""
+              }
+              ${
+                data.maritalstatus
+                  ? `<div class="information">
+              <p class="inforLabel"> <i class="fa fa-heart" aria-hidden="true"></i></p> 
+    
+     
+          <div class="inforVal">
+                      <p class="header">Status</p>
+                      <p class="val">${data.maritalstatus}</p>
+                      
+                    </div>
+        </div>
+          `
+                  : ""
+              }
+              ${
+                data.phoneNumber
+                  ? ` <div class="information">
+           <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+         
+  
+          <div class="inforVal">
+          <p class="header">Phone</p>
+          <p class="val">${data.phoneNumber}</p>
+        </div>
+        </div>`
+                  : ""
+              }
               </div>
             </div>
          
             </div>
-            ${
-              data.profile
-                ? `
-      <div class="profile informationContainer">
-    <h3 class="inforHeader shouldNotBreak">Profile<span></span></h3>
-    <p>
-    ${data.profile}  
-    </p>
-  </div>`
-                : ""
-            }
+         
             <div class="tiny-content">
             <div class="contact-information informationContainer">
             <h3 class="inforHeader shouldNotBreak">Contact</h3>
@@ -4421,6 +4437,17 @@ ${data.reffrences
             </div>
     
             <div class="large-content">
+            ${
+              data.profile
+                ? `
+      <div class="profile informationContainer">
+    <h3 class="inforHeader shouldNotBreak">Profile<span></span></h3>
+    <p>
+    ${data.profile}  
+    </p>
+  </div>`
+                : ""
+            }
              
               ${
                 data.experiences.length !== 0

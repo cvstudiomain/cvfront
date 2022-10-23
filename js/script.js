@@ -1041,7 +1041,6 @@ document.querySelector(".get-one").addEventListener("click", function () {
   return;
 });
 myTemplates.addEventListener("click", function (e) {
-  // console.log(e.target)
   model.state.user.contentEdit = false;
   if (e.target.closest(".resumeAndLetter")) {
     // if (!e.target.closest(".rl")) return;
@@ -1058,7 +1057,10 @@ myTemplates.addEventListener("click", function (e) {
         .getAttribute("id");
 
       model.state.templateToUse.template = thisTemplate;
-      model.state.templateToUse.type = thisTemplate.slice(0, -1);
+      model.state.templateToUse.type = thisTemplate.includes("resume")
+        ? "resume"
+        : "letter";
+      // return console.log(model.state.templateToUse);
 
       // console.log(model.state.templateToUse);
       // e.target.innerText = "Use this";

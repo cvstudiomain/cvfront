@@ -44,6 +44,21 @@ id="resume9"
   alt="Resume Template"
 />
 </div>`,
+  ` <div
+class="resumeAndLetter resume resume10"
+id="resume10"
+>
+<div class="s7">
+              <p>You have this in your list of templates</p>
+            </div>
+<button class="custom-btn btn-5">USE THIS</button>
+
+<img
+  src="img/meals/template10.png"
+  class="meal-img"
+  alt="Resume Template"
+/>
+</div>`,
 
   `
 <div

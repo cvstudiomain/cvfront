@@ -63,16 +63,16 @@ const preLoade = function (start = true) {
 
   loaderContainer.classList.add("hideMe");
 };
+containerBody.insertAdjacentHTML("afterbegin", Loader.loader(true));
+// userAreaContents.insertAdjacentHTML("afterbegin", Loader.loader(false));
+loaderContainer = document.querySelector(".loaderContainer");
 
 let prz = "";
 let cza = cap;
 const init = async function () {
   try {
     // return console.log(Loader)
-    containerBody.insertAdjacentHTML("afterbegin", Loader.loader(true));
-    // userAreaContents.insertAdjacentHTML("afterbegin", Loader.loader(false));
-    loaderContainer = document.querySelector(".loaderContainer");
-    preLoade(true);
+
     prz = pr;
     let userData = JSON.parse(localStorage.getItem("user"));
     // console.log(userData)

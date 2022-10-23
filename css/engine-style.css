@@ -2819,6 +2819,9 @@ button {
   text-align: left;
   margin-bottom: 0;
 }
+.template10 .inner-container .tiny-content .social-media-links {
+  padding-top: 0;
+}
 .template10
   .inner-container
   .header-wrapper

@@ -4253,58 +4253,11 @@ ${data.reffrences
             </div>
          
             <div class="tiny-content">
-            <div class="contact-information informationContainer">
-            <h3 class="inforHeader shouldNotBreak">Contact</h3>
-            <div class="content-wrapper">
-            ${
-              data.address
-                ? `<div class="information">
-               <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
-              <p class="inforVal">${data.address}</p>
-            </div>
-              `
-                : ""
-            }
-            
-              
-             
-               ${
-                 data.state
-                   ? `
-                <div class="information">
-                     <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
-          
-                <p class="inforVal">${data.state}</p>
-              </div>`
-                   : ""
-               }
-          
-   
-              ${
-                data.phoneNumber
-                  ? ` <div class="information">
-                 <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
-                <p class="inforVal">${data.phoneNumber}</p>
-              </div>`
-                  : ""
-              }
-              ${
-                data.email
-                  ? `<div class="information">
-                  <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
-                  <p class="inforVal">${data.email}</p>
-                </div>
-                `
-                  : ""
-              }
-             
-            </div>
-          </div>
-             
+           
               ${
                 data.twitter || data.instagram || data.facebook || data.linkedin
                   ? `
-    <div class="social-media-links informationContainer">
+    <div class="social-media-links informationContainer" >
     <h3 class="inforHeader shouldNotBreak">Social Handles</h3>
     <div class="content-wrapper">
     ${

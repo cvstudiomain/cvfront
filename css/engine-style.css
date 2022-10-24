@@ -2910,6 +2910,7 @@ button {
 }
 .template11 .tiny-content .inforLabel .fa {
   color: #3e3d3b;
+  font-size: 1rem;
 }
 .template11 .tiny-content .inforLabel {
   background: #fff;
@@ -2933,6 +2934,9 @@ button {
   letter-spacing: 0.25rem;
   border-left: 0.5rem solid #478ac1;
   border-right: 0.5rem solid #478ac1;
+}
+.template11 .languages .theLevel .theLevelLoader {
+  background-color: #478ac1;
 }
 .template11 .header-wrapper {
   grid-column: 2;

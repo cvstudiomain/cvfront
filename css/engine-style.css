@@ -1794,6 +1794,7 @@ button {
 .template .user-name-and-profession {
   text-align: center;
   line-height: 1;
+  text-transform: uppercase;
   gap: 1rem;
 }
 .template1 {
@@ -2264,13 +2265,13 @@ button {
 .template6 .user-name {
   font-size: 2rem;
 }
-.template7 {
+.plain-professional-template {
   grid-template-columns: 16rem 1fr;
   grid-template-rows: 12rem 1fr;
   padding-bottom: 1rem;
 }
 
-.template7 .header-wrapper {
+.plain-professional-template .header-wrapper {
   grid-column: 1 / -1;
   grid-row: 1;
   min-height: 12rem;
@@ -2279,10 +2280,13 @@ button {
   grid-template-columns: 18rem 1fr;
   background-color: #292927;
 }
-.template7 .header-wrapper .user-name-and-profession .user-name {
+.plain-professional-template
+  .header-wrapper
+  .user-name-and-profession
+  .user-name {
   text-transform: uppercase;
 }
-.template7 .user-name-and-profession {
+.plain-professional-template .user-name-and-profession {
   grid-column: 2;
   color: #be9038;
   display: flex;
@@ -2295,10 +2299,10 @@ button {
   height: auto;
   font-size: 1.3rem;
 }
-.template7 .user-name-and-profession .profession {
+.plain-professional-template .user-name-and-profession .profession {
   color: #fff;
 }
-.template7 .tiny-content {
+.plain-professional-template .tiny-content {
   grid-row: 1 / -1;
   grid-column: 1;
   background-color: #343a40;
@@ -2306,76 +2310,80 @@ button {
   margin-left: 1rem;
   max-width: calc(100% - 1rem);
 }
-.template7 .tiny-content .passportDateOfBirth {
+.plain-professional-template .tiny-content .passportDateOfBirth {
   margin-bottom: 1rem;
   margin-top: 1rem;
   width: fit-content;
   align-self: center;
 }
-.template7 .tiny-content .passportDateOfBirth .passport-box {
+.plain-professional-template .tiny-content .passportDateOfBirth .passport-box {
   border-radius: 50%;
   width: 8rem;
   height: 8rem;
 }
-.template7 .tiny-content .passportDateOfBirth .passport-box .passport {
+.plain-professional-template
+  .tiny-content
+  .passportDateOfBirth
+  .passport-box
+  .passport {
   border-radius: inherit;
 }
-.template7 .tiny-content .inforHeader {
+.plain-professional-template .tiny-content .inforHeader {
   background-color: #be9038;
   padding-left: 0.5rem;
   margin-top: 1.2rem;
   margin-bottom: 1rem;
 }
-.template7 .tiny-content .inforLabel .fa {
+.plain-professional-template .tiny-content .inforLabel .fa {
   color: #be9038;
 }
-.template7 .large-content {
+.plain-professional-template .large-content {
   width: 100%;
   padding: 1.8rem;
   padding-left: 2.5rem;
   grid-column: 2;
   grid-row: 2;
 }
-.template7 .large-content .start-and-end-date {
+.plain-professional-template .large-content .start-and-end-date {
   border: 1px solid #888;
   width: fit-content;
   padding: 0.2rem;
   height: fit-content;
 }
-.template7 .large-content .inforHeader {
+.plain-professional-template .large-content .inforHeader {
   border-bottom: 1px solid #888;
   margin-bottom: 1rem;
 }
-.template7 .inner-content-wrapper .box-for-title-and-org {
+.plain-professional-template .inner-content-wrapper .box-for-title-and-org {
   margin-bottom: 1rem;
   background: none;
 }
-.template7 .inner-content-wrapper ul {
+.plain-professional-template .inner-content-wrapper ul {
   margin-left: 1.5rem;
 }
-.template7 .inner-content-wrapper {
+.plain-professional-template .inner-content-wrapper {
   margin-left: 0.5rem;
 }
-.template7 .box-for-org-city-and-org {
+.plain-professional-template .box-for-org-city-and-org {
   border-bottom: none;
 }
-.template7 .education {
+.plain-professional-template .education {
   margin-left: 0;
   border: none;
   margin-bottom: 1rem;
   padding-left: 0;
 }
-.template7 .large-content .content-wrapper {
+.plain-professional-template .large-content .content-wrapper {
   display: flex;
   flex-direction: row;
 }
-.template7 .large-content .certification .content-wrapper {
+.plain-professional-template .large-content .certification .content-wrapper {
   flex-direction: column;
 }
-.template7 .reference span {
+.plain-professional-template .reference span {
   background-color: #be9038;
 }
-.template7 .reference {
+.plain-professional-template .reference {
   border-left: #be9038 solid 0.13rem;
 }
 
@@ -2892,7 +2900,137 @@ button {
 /* .template9 .informationContainer ul {
   margin-left: 3rem;
 } */
+.template11 {
+  grid-template-columns: 19rem 1fr;
+  grid-template-rows: fit-content fit-content;
+}
+.template11 .tiny-content {
+  margin-left: 0;
+  background-color: #3e3d3b;
+}
+.template11 .tiny-content .inforLabel .fa {
+  color: #3e3d3b;
+}
+.template11 .tiny-content .inforLabel {
+  background: #fff;
+  border-radius: 50%;
+  padding: 1rem;
+  color: #3e3d3b;
 
+  font-size: 2rem;
+}
+
+.template11 .tiny-content .social-media-links .inforLabel {
+  background: none;
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+}
+.template11 .tiny-content .inforHeader {
+  background-color: #fff;
+  color: #3e3d3b;
+  font-size: 1.2rem;
+  letter-spacing: 0.25rem;
+  border-left: 0.5rem solid #478ac1;
+  border-right: 0.5rem solid #478ac1;
+}
+.template11 .header-wrapper {
+  grid-column: 2;
+  display: block;
+  background-color: #fff;
+  margin-left: 1.3rem;
+  width: calc(100% - 1.3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* padding-bottom: 2rem; */
+}
+.template11 .header-wrapper .user-name-and-profession {
+  color: #000;
+  padding-bottom: 0;
+  padding-right: 0;
+  position: relative;
+}
+.template11 .header-wrapper .user-name-and-profession .user-name {
+  font-size: 3.3rem;
+  letter-spacing: 0.3rem;
+}
+.template11 .header-wrapper .user-name-and-profession .first-name {
+  color: #478ac1;
+}
+.template11 .header-wrapper .user-name-and-profession .profession {
+  border-bottom: 1px solid #999;
+  border-top: 1px solid #999;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  width: 100%;
+  color: #000;
+}
+.template11 .large-content .inforHeader {
+  border: none;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+.template11 .large-content .profile .inforHeader {
+  margin-bottom: 0;
+}
+.template11 .tag {
+  background-color: #478ac1;
+  height: 2.8rem;
+  width: 2rem;
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+}
+.template11 .internal-line {
+  height: 2rem;
+  width: 0.7rem;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+}
+.template11 .large-content .start-and-end-date {
+  border: none;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 0.9;
+}
+.template11 .tiny-content .information .inforVal .header {
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+.template11 .tiny-content .references .reference {
+  border-left: 0.3rem solid #478ac1;
+}
+.template11 .large-content .informationContainer {
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.5rem;
+}
+.template11 .reference span {
+  background-color: #478ac1;
+}
+.template11 .large-content .experience {
+  flex-direction: column;
+}
+.template11 .large-content .experience .inner-content-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+}
+.template11 .inner-content-wrapper .box-for-title-and-org {
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.template11
+  .inner-content-wrapper
+  .box-for-title-and-org
+  .box-for-org-city-and-org {
+  margin-left: 0;
+}
 .template:hover,
 .resumeAndLetter:hover {
   cursor: pointer;

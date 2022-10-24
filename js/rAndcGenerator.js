@@ -26,7 +26,7 @@ export const createPdfMarckup = function (data) {
      <div class="template rl template1 letter cover cover1" id="${data._id}">
   
   <div class="user-name-and-profession">
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+    <h1 class="user-name">${data.fullName}</h1>
     ${
       data.profession
         ? `
@@ -147,7 +147,7 @@ ${
          </div>`
       : ""
   } 
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+    <h1 class="user-name">${data.fullName}</h1>
     ${
       data.profession
         ? `
@@ -285,7 +285,7 @@ ${
     `
       : ""
   }
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+    <h1 class="user-name">${data.fullName}</h1>
   </div>
   
   <div class="large-content">
@@ -384,7 +384,7 @@ ${
         } 
       
   
-          <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+          <h1 class="user-name">${data.fullName}</h1>
         </div>
       </div>
     </div>
@@ -478,7 +478,7 @@ ${
     </div>
   </div>
   <div class="user-name-and-profession">
-  <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+  <h1 class="user-name">${data.fullName}</h1>
   ${
     data.profession
       ? `
@@ -523,7 +523,7 @@ ${
   
   
   <div class="user-name-and-profession">
-    <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+    <h1 class="user-name">${data.fullName}</h1>
     ${
       data.profession
         ? `
@@ -622,7 +622,7 @@ ${
     if (data.template.template === "resume1") {
       marckup = `<div id="${data._id}" class="template resume rl template1">
       <div class="user-name-and-profession">
-      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+      <h1 class="user-name">${data.fullName}</h1>
          <p class="profession">${data.profession}</p>
        </div>
   
@@ -1013,7 +1013,7 @@ ${
       marckup = `  <div id="${data._id}" class="template resume rl template2">
       
     <div class="user-name-and-profession">
-      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+      <h1 class="user-name">${data.fullName}</h1>
       <p class="profession">${data.profession}</p>
     </div>
     <div class="tiny-content">
@@ -1431,7 +1431,7 @@ ${
       </div>
       <div class="user-name-and-profession">
       <p class="profession">${data.profession}</p>
-         <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+         <h1 class="user-name">${data.fullName}</h1>
        </div>
   
   
@@ -1806,7 +1806,7 @@ ${
   
           
           
-          <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+          <h1 class="user-name">${data.fullName}</h1>
           <p class="profession">${data.profession}</p>
       
           </div>
@@ -2417,7 +2417,7 @@ ${data.reffrences
   
     <div class="large-content">
       <div class="user-name-and-profession">
-        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+        <h1 class="user-name">${data.fullName}</h1>
         <p class="profession">${data.profession}</p>
       </div>
       ${
@@ -2560,7 +2560,7 @@ ${data.reffrences
       marckup = `   <div id="${data._id}" class="template resume rl template6">
       
       <div class="user-name-and-profession">
-      <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+      <h1 class="user-name">${data.fullName}</h1>
       <p class="profession">${data.profession}</p>
     </div>
       <div class="large-content">
@@ -2943,11 +2943,13 @@ ${data.reffrences
     if (data.template.template === "resume7") {
       marckup = `
       
-      <div id="${data._id}" class="template resume rl template7">
+      <div id="${
+        data._id
+      }" class="template resume rl plain-professional-template  template7">
        
        <div class="header-wrapper">
        <div class="user-name-and-profession">
-        <h1 class="user-name">${capitalizeFirstLetter(data.fullName)}</h1>
+        <h1 class="user-name">${data.fullName}</h1>
         <p class="profession">${data.profession}</p>
       </div>
 
@@ -4537,6 +4539,429 @@ ${data.reffrences
             </div>
           </div>
         </div>`;
+    }
+    if (data.template.template === "resume11") {
+      marckup = `
+      
+      <div id="${
+        data._id
+      }" class="template resume rl plain-professional-template  template11">
+       
+       <div class="header-wrapper">
+       <div class="user-name-and-profession">
+        <h1 class="user-name">${data.fullName
+          .split(" ")
+          .map((strin, i) =>
+            i === 0 ? `<span class="first-name">${strin}</span>` : strin
+          )
+          .join(" ")}</h1>
+        <span class="tag"></span>
+        <p class="profession">${data.profession}</p>
+      </div>
+
+       </div>
+       
+        <div class="tiny-content">        
+        <div class="contact-information informationContainer">
+        <h3 class="inforHeader shouldNotBreak">Contact</h3>
+        <div class="content-wrapper">
+        ${
+          data.address
+            ? `<div class="information">
+           <p class="inforLabel"><i class="fa fa-map-marker infor-logo" aria-hidden="true"></i></p>
+           <div class="inforVal">
+           <p class="header">Address</p>
+           <p class="val">${data.address} here</p>
+         </div>
+          
+        </div>
+          `
+            : ""
+        }
+        
+          
+           ${
+             data.country
+               ? `
+            <div class="information">
+              <p class="inforLabel"><i class="fa fa-flag-checkered infor-logo" aria-hidden="true"></i></p> 
+              <div class="inforVal">
+              <p class="header">Country</p>
+              <p class="val">${data.country}</p>
+            </div>
+          
+          </div>`
+               : ""
+           }
+      
+           ${
+             data.state
+               ? `
+            <div class="information">
+                 <p class="inforLabel"><i class="fa fa-home infor-logo" aria-hidden="true"></i></p> 
+                 <div class="inforVal">
+                 <p class="header">State</p>
+                 <p class="val">${data.state}</p>
+               </div>
+            
+          </div>`
+               : ""
+           }
+      
+           ${
+             data.gender
+               ? `<div class="information">
+                 <p class="inforLabel"><i class="fa fa-user infor-logo" aria-hidden="true"></i></p> 
+                 <div class="inforVal">
+                 <p class="header">Gender</p>
+                 <p class="val">${data.gender}here</p>
+               </div>
+           
+          </div>`
+               : ""
+           }
+          
+          ${
+            data.maritalstatus
+              ? `<div class="information">
+                <p class="inforLabel"><i class="fa fa-users infor-logo" aria-hidden="true"></i></p> 
+                <div class="inforVal">
+                <p class="header">Status</p>
+                <p class="val">${data.maritalstatus}</p>
+              </div>
+            
+          </div>
+            `
+              : ""
+          }
+          ${
+            data.phoneNumber
+              ? ` <div class="information">
+             <p class="inforLabel"><i class="fa fa-phone-square infor-logo" aria-hidden="true"></i></p>
+             <div class="inforVal">
+             <p class="header">Phone</p>
+             <p class="val">${data.phoneNumber}</p>
+           </div>
+            
+          </div>`
+              : ""
+          }
+          ${
+            data.email
+              ? `<div class="information">
+              <p class="inforLabel"><i class="fa fa-envelope infor-logo" aria-hidden="true"></i></p>
+              
+              <div class="inforVal">
+                  <p class="header">Email</p>
+                  <p class="val">${data.email}</p>
+                </div>
+            </div>
+            `
+              : ""
+          }
+         
+        </div>
+      </div>
+  
+  ${
+    data.twitter || data.instagram || data.facebook || data.linkedin
+      ? `
+    <div class="social-media-links informationContainer">
+    <h3 class="inforHeader shouldNotBreak">Social Handles</h3>
+    <div class="content-wrapper">
+    ${
+      data.facebook
+        ? `<div class="information">
+        <p class="inforLabel"><img class="infor-logo" src="img/fb2.png" alt="logo"/></p> 
+      <p class="inforVal">${data.facebook}</p>
+      </div>`
+        : ""
+    }
+    ${
+      data.instagram
+        ? `<div class="information">
+          <p class="inforLabel"><img class="infor-logo" src="img/ig2.png" alt="logo"/></p> 
+      <p class="inforVal">${data.instagram}</p>
+      </div>`
+        : ""
+    }
+    
+    ${
+      data.twitter
+        ? `<div class="information">
+          <p class="inforLabel"><img class="infor-logo" src="img/tw2.png" alt="logo"/></p> 
+      <p class="inforVal">${data.twitter}</p>
+      </div>`
+        : ""
+    }
+    ${
+      data.linkedin
+        ? `<div class="information">
+          <p class="inforLabel"><img class="infor-logo" src="img/in2.png" alt="logo"/></p> 
+      <p class="inforVal">${data.linkedin}</p>
+      </div>`
+        : ""
+    }
+  
+    </div>
+    </div>
+  `
+      : ""
+  }
+    ${
+      data.skills.length !== 0
+        ? `   <div class="skills informationContainer">
+      <h3 class="inforHeader shouldNotBreak">Skills</h3>
+      <ul class="content-wrapper">
+      ${data.skills
+        .map(
+          (skill) =>
+            `${skill ? `<li class="shouldNotBreak">${skill}</li>` : ""}`
+        )
+        .join("")}
+      </ul>
+      </div>
+      `
+        : ""
+    }
+    
+  
+      ${
+        data.interest.length !== 0
+          ? `   <div class="interest informationContainer">
+        <h3 class="inforHeader shouldNotBreak">Interest</h3>
+        <ul class="content-wrapper">
+        ${data.interest
+          .map((intr) => `<li class="shouldNotBreak">${intr}</li>`)
+          .join("")}
+        </ul>
+      </div>
+        `
+          : ""
+      }
+      ${
+        data.languages.length !== 0
+          ? `
+        <div class="languages informationContainer">
+        <h3 class="inforHeader shouldNotBreak">Languages</h3>
+      ${data.languages
+        .map(
+          (val) => `
+          ${
+            val.language
+              ? `
+            <div class="language content-wrapper">
+            <p class="theLang shouldNotBreak">${val.language}</p>
+            <div class="theLevel shouldNotBreak"><span class="theLevelLoader" style="width: ${val.level};"></span></div>
+            </div> 
+            `
+              : ""
+          }
+      
+      `
+        )
+        .join("")}
+        </div>
+        `
+          : ""
+      }
+${
+  data.reffrences.length !== 0
+    ? `<div class="references informationContainer">
+<h3 class="inforHeader shouldNotBreak">Refrence</h3>
+${data.reffrences
+  .map((ref) => {
+    if (ref.language || ref.langLevel) return;
+    return `
+  <div class="reference content-wrapper">
+  <span></span>
+  ${
+    ref.refrenceName
+      ? `<p class="refName shouldNotBreak">${ref.refrenceName}</p>`
+      : ""
+  }
+  ${
+    ref.referenceTitleAndOrg
+      ? `<p class="titleandorg shouldNotBreak">${ref.referenceTitleAndOrg} </p>`
+      : ""
+  }
+  ${
+    ref.refrenceEmail
+      ? ` <p class="email shouldNotBreak">${ref.refrenceEmail}</p>`
+      : ""
+  }
+   </div>
+`;
+  })
+  .join("")}
+</div>
+`
+    : ""
+}
+        </div>
+  
+    <div class="large-content">
+      
+      ${
+        data.profile
+          ? `
+        <div class="profile informationContainer">
+      <h3 class="inforHeader shouldNotBreak">Profile</h3>
+      <p>
+      ${data.profile}  
+      </p>
+    </div>`
+          : ""
+      }
+  
+    ${
+      data.experiences.length !== 0
+        ? `
+    <div class="recent-experience informationContainer">
+    <h3 class="inforHeader shouldNotBreak">Experience</h3>
+      ${data.experiences
+        .map((experience) => {
+          return `${
+            Object.keys(experience).length !== 0
+              ? `<div class="experience content-wrapper">
+      
+                            <div class="inner-content-wrapper">
+      
+         <div class="box-for-title-and-org shouldNotBreak">
+        ${
+          experience.jobTitle
+            ? ` <p class="jobtitle">${experience.jobTitle}</p>`
+            : ""
+        }
+        
+        <div class="box-for-org-city-and-org">
+        ${
+          experience.orgAddress
+            ? ` <p class="organizationAndAddress">${experience.orgAddress}</p>`
+            : ""
+        }
+        ${
+          experience.orgCity
+            ? `<p class="organizationAndAddress">${
+                experience.orgCity + ","
+              }</p>`
+            : ""
+        }
+        ${
+          experience.orgState
+            ? ` <p class="sorgState">${experience.orgState}</p>`
+            : ""
+        }
+       </div>  
+       </div>
+       <span class="internal-line"></span>
+
+      <div class="start-and-end-date shouldNotBreak">
+      ${
+        experience.experiencestarts
+          ? ` <p class="start">${convertToFullYear(
+              experience.experiencestarts
+            )}</p>`
+          : ""
+      }
+      ${experience.experienceends ? ` <p class="end">-</p>` : ""}  
+       ${
+         experience.experienceends
+           ? ` <p class="end">${convertToFullYear(
+               experience.experienceends
+             )}</p>`
+           : ""
+       }  
+         
+       
+       
+       </div>
+        </div>
+        ${
+          findDuty(experience.experience) !== undefined &&
+          findDuty(experience.experience) !== null
+            ? findDuty(experience.experience)
+            : ""
+        }
+       
+      </div>`
+              : ""
+          }`;
+        })
+        .join("")}
+      
+         
+    </div>`
+        : ""
+    }
+   
+  
+    ${
+      data.educations.length !== 0
+        ? `
+  
+    <div class="educational-background informationContainer">
+    <h3 class="inforHeader shouldNotBreak">Education</h3>
+    ${data.educations
+      .map((edu) => {
+        return `<div class="education content-wrapper">
+      
+      
+        <div class="start-and-end-date shouldNotBreak">
+      ${
+        edu.educationstarts
+          ? `<p class="start">${convertToFullYear(edu.educationstarts)}</p>`
+          : ""
+      }
+        
+        
+        ${
+          edu.educationends
+            ? `<p>-</p><p class="end">${convertToFullYear(
+                edu.educationends
+              )}</p>`
+            : ""
+        }
+        
+      </div>
+      <p class="internal-line"></p>
+
+      <div class="inner-content-wrapper">
+
+      <p class="qualification shouldNotBreak">${
+        edu.qualification ? edu.qualification : ""
+      }</p>
+      <p class="school-and-address shouldNotBreak">
+      ${edu.eduAndAddress ? edu.eduAndAddress : ""}
+      </p>
+    </div>
+    </div>
+    `;
+      })
+      .join("")}
+  </div>
+    `
+        : ""
+    }
+    
+  
+   
+    ${
+      data.certifications.length !== 0
+        ? `<div class="certification informationContainer">
+      <h3 class="inforHeader shouldNotBreak">Certification</h3>
+      <ul class="content-wrapper">
+      ${data.certifications
+        .map((cert) => `<li class="shouldNotBreak">${cert}</li>`)
+        .join("")}
+      </ul>
+      </div>
+      `
+        : ""
+    }
+        </div>
+      </div>
+  `;
     }
   }
   return marckup;

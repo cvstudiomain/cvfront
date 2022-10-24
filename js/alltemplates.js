@@ -15,6 +15,21 @@ export const allTemplates = [
   />
 </div>`,
   ` <div
+class="resumeAndLetter resume resume11 no-passport"
+id="resume11"
+>
+<div class="s7">
+              <p>You have this in your list of templates</p>
+            </div>
+<button class="custom-btn btn-5">USE THIS</button>
+
+<img
+  src="img/meals/template11.png"
+  class="meal-img "
+  alt="Resume Template"
+/>
+</div>`,
+  ` <div
   class="resumeAndLetter resume resume8"
   id="resume8"
 >

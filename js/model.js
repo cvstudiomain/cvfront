@@ -16,6 +16,7 @@ export const state = {
   based_url: "",
   searchResult: "",
   preset: "",
+  noPassport: false,
   user: {
     editor: false,
     viewersDataIdentifier: {},

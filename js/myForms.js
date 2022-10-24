@@ -1,4 +1,4 @@
-export const resumeformcontainer = function (onEdit, data) {
+export const resumeformcontainer = function (onEdit, data, noPassport) {
   let editEdu = onEdit && data.educations.length !== 0;
   let editCert = onEdit && data.certifications.length !== 0;
 
@@ -22,7 +22,10 @@ export const resumeformcontainer = function (onEdit, data) {
       <div class="section-header">
         <h2>Personal Data</h2>
       </div>
-      <p class="jobsInUk">
+      ${
+        noPassport
+          ? ""
+          : `<p class="jobsInUk">
         <!-- Sorry you can't use photo for now. The feature is comming back soon! -->
         Jobs in Canada, USA, and UK do not mostly require photo
       </p>
@@ -35,7 +38,9 @@ export const resumeformcontainer = function (onEdit, data) {
         }></div>
           <span class="image-input" >Choose Image</span>
          
-          </div>
+          </div>`
+      }
+     
           <div class="input-container">
           <div class="multi-line-input">
           <div class="inputBox">
@@ -1189,7 +1194,7 @@ ${
   </div>
 `;
 };
-export const leterformcontainer = function (onEdit, data) {
+export const leterformcontainer = function (onEdit, data, noPassport) {
   return `
 
  <button type="button" class="btnCloseView closeForm">
@@ -1291,7 +1296,10 @@ export const leterformcontainer = function (onEdit, data) {
    </div>
 
    <div class="letterContainer" id="showtheletter">
-     <div class="image-container">
+   ${
+     noPassport
+       ? ""
+       : `<div class="image-container">
        <div class="display_image2" ${
          onEdit &&
          `${
@@ -1302,7 +1310,8 @@ export const leterformcontainer = function (onEdit, data) {
         <span class="image-input" >Choose Image</span>
        
       
-     </div>
+     </div>`
+   }
      <div contenteditable="true" name="theletter" id="theletter">
      ${
        onEdit

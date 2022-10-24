@@ -761,7 +761,7 @@ coverLetterContainer.addEventListener("click", async function (e) {
     hidePaginations(pbox1);
     closeViewer();
     htmlParent.style.fontSize = model.state.fontSize;
-    return myResume.classList.remove("hiddenClass");
+    return myTemplates.classList.remove("hiddenClass");
   }
   let btnSave = e.target;
   if (!btnSave.classList.contains("btn-save-letter")) return;
@@ -1049,12 +1049,18 @@ myTemplates.addEventListener("click", function (e) {
     if (e.target.classList.contains("custom-btn")) {
       // e.target.innerText = "Please wait...";
       // document.querySelector(".myResumeInfor").classList.remove("hiddenClass");
-
+      model.state.noPassport = false;
       model.state.templateToUse.type = "";
       model.state.templateToUse.template = "";
       let thisTemplate = e.target
         .closest(".resumeAndLetter")
         .getAttribute("id");
+      model.state.noPassport = e.target
+        .closest(".resumeAndLetter")
+        .classList.contains("no-passport")
+        ? true
+        : false;
+      // console.log(model.state.noPassport);
 
       model.state.templateToUse.template = thisTemplate;
       model.state.templateToUse.type = thisTemplate.includes("resume")
@@ -1071,7 +1077,7 @@ myTemplates.addEventListener("click", function (e) {
         cvFormContainer.innerHTML = "";
         cvFormContainer.insertAdjacentHTML(
           "afterbegin",
-          Forms.resumeformcontainer(false, null)
+          Forms.resumeformcontainer(false, null, model.state.noPassport)
         );
       }
       if (model.state.templateToUse.type === "letter") {
@@ -1079,7 +1085,7 @@ myTemplates.addEventListener("click", function (e) {
         coverLetterContainer.innerHTML = "";
         coverLetterContainer.insertAdjacentHTML(
           "afterbegin",
-          Forms.leterformcontainer(false, null)
+          Forms.leterformcontainer(false, null, model.state.noPassport)
         );
       }
     }
@@ -1150,7 +1156,7 @@ cvFormContainer.addEventListener("click", async function (e) {
     hidePaginations(pbox1);
     closeViewer();
     htmlParent.style.fontSize = model.state.fontSize;
-    return myResume.classList.remove("hiddenClass");
+    return myTemplates.classList.remove("hiddenClass");
   }
   if (e.target.id === "next1") {
     model.state.user.persData = Object.fromEntries([

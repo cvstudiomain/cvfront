@@ -5076,7 +5076,7 @@ ${data.reffrences
     ${
       data.facebook
         ? `<div class="information">
-        <p class="inforLabel"><img class="infor-logo" src="img/fb-black-icon.png" alt="logo"/></p> 
+        <p class="inforLabel"><img class="infor-logo" src="img/fb-white-icon.png" alt="logo"/></p> 
       <p class="inforVal">${data.facebook}</p>
       </div>`
         : ""
@@ -5084,7 +5084,7 @@ ${data.reffrences
     ${
       data.instagram
         ? `<div class="information">
-          <p class="inforLabel"><img class="infor-logo" src="img/ig-black-icon.png" alt="logo"/></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/ig-white-icon.png" alt="logo"/></p> 
       <p class="inforVal">${data.instagram}</p>
       </div>`
         : ""
@@ -5093,7 +5093,7 @@ ${data.reffrences
     ${
       data.twitter
         ? `<div class="information">
-          <p class="inforLabel"><img class="infor-logo" src="img/twitter-black-icon.png" alt="logo"/></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/twitter-white-icon.png" alt="logo"/></p> 
       <p class="inforVal">${data.twitter}</p>
       </div>`
         : ""
@@ -5101,7 +5101,7 @@ ${data.reffrences
     ${
       data.linkedin
         ? `<div class="information">
-          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-black-icon.png" alt="logo"/></p> 
+          <p class="inforLabel"><img class="infor-logo" src="img/linkedin-white-icon.png" alt="logo"/></p> 
       <p class="inforVal">${data.linkedin}</p>
       </div>`
         : ""

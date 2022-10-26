@@ -2900,19 +2900,19 @@ button {
 /* .template9 .informationContainer ul {
   margin-left: 3rem;
 } */
-.template11 {
+.profession-template-no-passport {
   grid-template-columns: 19rem 1fr;
   grid-template-rows: fit-content fit-content;
 }
-.template11 .tiny-content {
+.profession-template-no-passport .tiny-content {
   margin-left: 0;
   background-color: #3e3d3b;
 }
-.template11 .tiny-content .inforLabel .fa {
+.profession-template-no-passport .tiny-content .inforLabel .fa {
   color: #3e3d3b;
   font-size: 1rem;
 }
-.template11 .tiny-content .inforLabel {
+.profession-template-no-passport .tiny-content .inforLabel {
   background: #fff;
   border-radius: 50%;
   padding: 1rem;
@@ -2921,13 +2921,13 @@ button {
   font-size: 2rem;
 }
 
-.template11 .tiny-content .social-media-links .inforLabel {
+.profession-template-no-passport .tiny-content .social-media-links .inforLabel {
   background: none;
   padding: 0;
   height: 2rem;
   width: 2rem;
 }
-.template11 .tiny-content .inforHeader {
+.profession-template-no-passport .tiny-content .inforHeader {
   background-color: #fff;
   color: #3e3d3b;
   font-size: 1.2rem;
@@ -2935,10 +2935,10 @@ button {
   border-left: 0.5rem solid #478ac1;
   border-right: 0.5rem solid #478ac1;
 }
-.template11 .languages .theLevel .theLevelLoader {
+.profession-template-no-passport .languages .theLevel .theLevelLoader {
   background-color: #478ac1;
 }
-.template11 .header-wrapper {
+.profession-template-no-passport .header-wrapper {
   grid-column: 2;
   display: block;
   background-color: #fff;
@@ -2949,20 +2949,29 @@ button {
   justify-content: flex-end;
   /* padding-bottom: 2rem; */
 }
-.template11 .header-wrapper .user-name-and-profession {
+.profession-template-no-passport .header-wrapper .user-name-and-profession {
   color: #000;
   padding-bottom: 0;
   padding-right: 0;
   position: relative;
 }
-.template11 .header-wrapper .user-name-and-profession .user-name {
+.profession-template-no-passport
+  .header-wrapper
+  .user-name-and-profession
+  .user-name {
   font-size: 3.3rem;
   letter-spacing: 0.3rem;
 }
-.template11 .header-wrapper .user-name-and-profession .first-name {
+.profession-template-no-passport
+  .header-wrapper
+  .user-name-and-profession
+  .first-name {
   color: #478ac1;
 }
-.template11 .header-wrapper .user-name-and-profession .profession {
+.profession-template-no-passport
+  .header-wrapper
+  .user-name-and-profession
+  .profession {
   border-bottom: 1px solid #999;
   border-top: 1px solid #999;
   font-size: 1.5rem;
@@ -2972,16 +2981,16 @@ button {
   width: 100%;
   color: #000;
 }
-.template11 .large-content .inforHeader {
+.profession-template-no-passport .large-content .inforHeader {
   border: none;
   font-size: 1.3rem;
   letter-spacing: 0.2rem;
   margin-bottom: 0.4rem;
 }
-.template11 .large-content .profile .inforHeader {
+.profession-template-no-passport .large-content .profile .inforHeader {
   margin-bottom: 0;
 }
-.template11 .tag {
+.profession-template-no-passport .tag {
   background-color: #478ac1;
   height: 2.8rem;
   width: 2rem;
@@ -2989,13 +2998,13 @@ button {
   bottom: 4rem;
   right: 0;
 }
-.template11 .internal-line {
+.profession-template-no-passport .internal-line {
   height: 2rem;
   width: 0.7rem;
   border-left: 1px solid #999;
   border-right: 1px solid #999;
 }
-.template11 .large-content .start-and-end-date {
+.profession-template-no-passport .large-content .start-and-end-date {
   border: none;
   padding: 0;
   flex-direction: column;
@@ -3003,33 +3012,36 @@ button {
   gap: 0;
   line-height: 0.9;
 }
-.template11 .tiny-content .information .inforVal .header {
+.profession-template-no-passport .tiny-content .information .inforVal .header {
   text-transform: uppercase;
   margin-bottom: 0.2rem;
 }
-.template11 .tiny-content .references .reference {
+.profession-template-no-passport .tiny-content .references .reference {
   border-left: 0.3rem solid #478ac1;
 }
-.template11 .large-content .informationContainer {
+.profession-template-no-passport .large-content .informationContainer {
   border-bottom: 1px solid #999;
   padding-bottom: 0.5rem;
 }
-.template11 .reference span {
+.profession-template-no-passport .reference span {
   background-color: #478ac1;
 }
-.template11 .large-content .experience {
+.profession-template-no-passport .large-content .experience {
   flex-direction: column;
 }
-.template11 .large-content .experience .inner-content-wrapper {
+.profession-template-no-passport
+  .large-content
+  .experience
+  .inner-content-wrapper {
   display: flex;
   flex-direction: row-reverse;
   gap: 1rem;
 }
-.template11 .inner-content-wrapper .box-for-title-and-org {
+.profession-template-no-passport .inner-content-wrapper .box-for-title-and-org {
   flex-direction: column;
   margin-bottom: 0;
 }
-.template11
+.profession-template-no-passport
   .inner-content-wrapper
   .box-for-title-and-org
   .box-for-org-city-and-org {
@@ -3066,6 +3078,7 @@ button {
   padding: 1rem;
   padding-bottom: 1.5rem;
   padding-left: 2rem;
+  overflow: hidden;
 }
 .template12 .inner-container .tiny-content .languages {
   padding: 0;
@@ -3132,6 +3145,7 @@ button {
   justify-content: center;
   align-items: center;
   grid-row: 2;
+  overflow: hidden;
 }
 .template12
   .inner-container
@@ -3221,6 +3235,222 @@ button {
 }
 .template12 .inner-container .header-wrapper {
   grid-column: 2;
+}
+.template13 {
+  border-top: 1rem solid #fbc912;
+}
+.template13 .tiny-content .references .reference {
+  border-color: #fbc912;
+  /* justify-content: center; */
+}
+.template13 .languages .theLevel .theLevelLoader {
+  background-color: #fbc912;
+}
+.template13 .tiny-content .references .reference span {
+  background-color: #fbc912;
+}
+.template13 .header-wrapper hr {
+  /* align-self: center; */
+  width: 3rem;
+}
+.template13 .header-wrapper .user-name-and-profession {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.template13 .header-wrapper .user-name-and-profession .user-name {
+  font-size: 2.5rem;
+}
+.template13 .header-wrapper .user-name-and-profession .profession {
+  font-size: 1.2rem;
+  width: fit-content;
+  border: none;
+  padding: 0;
+}
+.template13 .header-wrapper .user-name-and-profession .header-sub-decorations {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.template13
+  .header-wrapper
+  .user-name-and-profession
+  .header-sub-decorations
+  .span2 {
+  height: 1rem;
+  width: 1rem;
+  background-color: #fbc912;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+.template13
+  .header-wrapper
+  .user-name-and-profession
+  .header-sub-decorations
+  .span1,
+.template13
+  .header-wrapper
+  .user-name-and-profession
+  .header-sub-decorations
+  .span3 {
+  height: 0.12rem;
+  width: 11rem;
+  background-color: #9d9d9d;
+  position: relative;
+}
+
+.template13
+  .header-wrapper
+  .user-name-and-profession
+  .header-sub-decorations
+  .span3::after {
+  content: "";
+  top: -0.5rem;
+  position: absolute;
+  min-height: 1rem;
+  min-width: 1rem;
+  border-radius: 50%;
+  background-color: #000;
+}
+.template13
+  .header-wrapper
+  .user-name-and-profession
+  .header-sub-decorations
+  .span1::after {
+  content: "";
+  top: -0.5rem;
+  position: absolute;
+  min-height: 1rem;
+  min-width: 1rem;
+  right: 0;
+  border-radius: 50%;
+  background-color: #000;
+}
+.template13 .tiny-content .tiny-content-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+/* .template13 .tiny-content .first,
+.template13 .tiny-content .second, */
+.template13 .right,
+.template13 .left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.template13 .header-line {
+  height: 0.1rem;
+  background-color: #9d9d9d;
+  width: 2rem;
+}
+.template13 .second {
+  width: 2.5rem;
+}
+.template13 .right .second {
+  margin-left: -0.5rem;
+}
+.template13 .tiny-content .tiny-content-header .w {
+  font-size: 3rem;
+  font-weight: 600;
+  background-color: #fbc912;
+  border: 0.3rem solid #fff;
+  min-height: 5rem;
+  min-width: 5rem;
+  text-align: center;
+  color: #000;
+  border-radius: 50%;
+
+  width: fit-content;
+}
+.template13 .tiny-content {
+  background-color: #2f2f2f;
+}
+.template13 .tiny-content .inforLabel .fa {
+  font-size: 1.2rem;
+}
+.template13 .tiny-content .social-media-links .inforLabel {
+  padding: 0.3rem;
+}
+.template13 .tiny-content .inforHeader,
+.template13 .large-content .inforHeader {
+  border: none;
+  background-color: inherit;
+  color: #fff;
+  border-bottom: 0.2rem solid #9d9d9d;
+  padding-left: 0;
+  position: relative;
+}
+.template13 .large-content .inforHeader {
+  color: #000;
+}
+.template13 .tiny-content .inforHeader::after,
+.template13 .large-content .inforHeader::after {
+  content: "";
+  height: 0.2rem;
+  width: 3rem;
+  position: absolute;
+  background-color: #fbc912;
+  left: 0;
+  bottom: -0.23rem;
+}
+.template13 .tiny-content .information {
+  border: 0.05rem solid #fbc912;
+}
+.template13 .tiny-content .information .inforLabel {
+  border-radius: 0;
+  background-color: #fbc912;
+}
+.template13 .large-content .experience .inner-content-wrapper {
+  flex-direction: row;
+}
+.template13 .large-content .start-and-end-date {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.template13 .large-content .informationContainer {
+  border-bottom: 0;
+}
+.template13 .large-content .informationContainer .experience-and-edu-wrapper {
+  border-left: 0.2rem solid #9d9d9d;
+  padding-left: 1rem;
+}
+.template13
+  .large-content
+  .informationContainer
+  .experience-and-edu-wrapper
+  .content-wrapper {
+  position: relative;
+}
+.template13
+  .large-content
+  .informationContainer
+  .experience-and-edu-wrapper
+  .experience::after,
+.template13
+  .large-content
+  .informationContainer
+  .experience-and-edu-wrapper
+  .qualification::after {
+  content: "";
+  position: absolute;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: #9d9d9d;
+  border-radius: 50%;
+  left: -1.5rem;
+}
+.template13 .large-content .education {
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 .template:hover,
 .resumeAndLetter:hover {

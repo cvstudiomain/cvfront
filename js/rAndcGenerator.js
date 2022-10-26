@@ -5391,7 +5391,7 @@ ${data.reffrences
           <div class="second header-line"></div>
           <div class="third header-line"></div>
         </div>
-        <p class="w">w</p>
+        <p class="w">${data.fullName[0]}</p>
         <div class="left">
           <div class="first header-line"></div>
           <div class="second header-line"></div>

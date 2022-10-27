@@ -3104,7 +3104,8 @@ button {
   font-size: 1.3rem;
   min-width: calc(100% + 0.5rem);
   margin-right: -0.5rem;
-  box-shadow: #fde686 2.4px 2.4px 3.2px;
+
+  box-shadow: #fde686 0px 1px 2px 0px;
   /* box-shadow: 3px 3px 5px 6px #fde686; */
   border-bottom-right-radius: 1rem;
   color: #3e3d3b;
@@ -3178,18 +3179,29 @@ button {
   .contact-information
   .content-wrapper
   .information
+  .inforVal
+  .header {
+  text-transform: uppercase;
+  font-family: 600;
+}
+.template12
+  .inner-container
+  .contact-information
+  .content-wrapper
+  .information
   .abs-infor
   .outer-angle {
   /* height: 100; */
   content: "";
   position: absolute;
-  right: -2.4rem;
+  right: -2.7rem;
   bottom: 0;
   width: 0;
   height: 0;
-  border-left: 2.4rem solid #fff;
-  border-top: 2.4rem solid transparent;
-  border-bottom: 2.4rem solid transparent;
+  border-left: 2.7rem solid #fff;
+  border-top: 2.7rem solid transparent;
+  border-bottom: 2.7rem solid transparent;
+  margin-bottom: -0.5rem;
 }
 .template12
   .inner-container
@@ -3216,15 +3228,16 @@ button {
   /* border-left: 2.5rem solid ; */
   content: "";
   position: absolute;
-  right: -2.3rem;
+  right: -2.8rem;
   bottom: 0;
   width: 0;
   height: 0;
-  border-left: 2.3rem solid #383735;
+  border-left: 2.7rem solid #383735;
   /* margin-left: -3rem; */
   z-index: 1;
-  border-top: 2.3rem solid transparent;
-  border-bottom: 2.3rem solid transparent;
+  border-top: 2.7rem solid transparent;
+  border-bottom: 2.7rem solid transparent;
+  margin-bottom: -0.6rem;
 }
 .template12 .inner-container .contact-information .content-wrapper {
   display: grid;
@@ -3451,6 +3464,210 @@ button {
 .template13 .large-content .education {
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+.template14 {
+  grid-template-columns: 1fr 20rem;
+  grid-template-rows: 10rem 10rem 1fr;
+}
+.template14 .large-content {
+  grid-column: 1;
+  grid-row: 2/3;
+  margin: 0;
+  padding: 0;
+}
+.template14 .tiny-content {
+  grid-row: 3;
+  grid-column: 2;
+  margin-left: 0;
+  background-color: #3a3b40;
+  color: #fff;
+}
+.template14 .tiny-content .inforLabel {
+  background-color: #079dac;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.template14 .tiny-content .inforLabel .fa {
+  color: #fff;
+  font-size: 1rem;
+}
+.template14 .tiny-content .social-media-links .inforLabel {
+  padding: 0.5rem;
+}
+.template14 .tiny-content .references .reference {
+  border-color: #079dac;
+}
+.template14 .tiny-content .references .reference span {
+  background-color: #079dac;
+}
+.template14 .header-wrapper {
+  grid-row: 1;
+  grid-column: 1;
+  display: block;
+  min-height: 100%;
+  color: #000;
+  background-color: #fff;
+}
+.template14 .user-name-and-profession {
+  margin-left: 0.5rem;
+}
+.template14 .user-name-and-profession,
+.template14 .user-name-and-profession .profession {
+  color: #000;
+}
+.template14 .user-name-and-profession .profession {
+  position: relative;
+}
+.template14 .user-name-and-profession .profession::after {
+  content: "";
+  position: absolute;
+  height: 0.2rem;
+  width: 4rem;
+
+  background-color: #bdbec3;
+  right: -4.6rem;
+  bottom: 0.6rem;
+}
+.template14 .passportDateOfBirth {
+  grid-column: 2;
+  grid-row: 1/2;
+  position: relative;
+}
+
+.template14 .passportDateOfBirth::after {
+  content: "";
+  height: 6.1rem;
+  position: absolute;
+  width: 100%;
+  background-color: rgba(30, 102, 98, 0.8);
+  bottom: 0;
+  right: 0;
+}
+.template14 .profile {
+  gap: 0;
+  color: #fff;
+}
+.template14 .languages .theLevel .theLevelLoader {
+  background-color: #079dac;
+}
+.template14 .profile .profile-wrapper {
+  background-color: #079dac;
+  gap: 0;
+  margin-top: 0;
+  padding: 1rem;
+  padding-left: 1.5rem;
+}
+.template14 .informationContainer .inforHeader {
+  border: none;
+  padding: 1rem 1.5rem;
+  padding-right: 4rem;
+  margin-bottom: 0;
+  position: relative;
+  background-color: transparent;
+}
+.template14 .large-content .informationContainer .inforHeader::after {
+  content: "";
+  position: absolute;
+  height: 0.2rem;
+  width: 3rem;
+  left: 1.5rem;
+  bottom: 1rem;
+  background-color: #bdbec3;
+}
+.template14 .tiny-content .informationContainer .inforHeader {
+  position: relative;
+}
+.template14 .tiny-content .informationContainer .inforHeader::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 3rem;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+.template14 .tiny-content .informationContainer .inforHeader {
+  padding: 0;
+}
+.template14 .informationContainer .inforHeader .palalolegram {
+  width: 9rem;
+  top: 0;
+  right: -80%;
+  height: 100%;
+  transform: skew(20deg);
+  position: absolute;
+  background: #fff;
+}
+.template14 .informationContainer .inforHeader .palalolegram::after {
+  content: "";
+  top: 0;
+  /* margin: 1rem; */
+  /* right: -80%; */
+  height: 80%;
+  width: 3rem;
+  z-index: 1;
+  left: 1rem;
+  transform: skew(2deg);
+  position: absolute;
+  background: #bdbec3;
+}
+.template14 .profile .inforHeader {
+  background-color: #079dac;
+  width: fit-content;
+  margin-bottom: 0;
+}
+.template14 .large-content .start-and-end-date {
+  border: none;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin-left: 1.5rem;
+  position: relative;
+}
+.template14 .large-content .start-and-end-date::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: #bdbec3;
+  /* border: 1px solid #bdbec3; */
+  /* background-color: #fff; */
+  /* background-color: #000; */
+  border-radius: 50%;
+  right: -125%;
+}
+/* .template14 .large-content .start-and-end-date::after:before {
+  content: "";
+  height: 0.5rem;
+  right: -75%;
+  width: 0.5rem;
+  position: absolute;
+} */
+.template14 .inner-content-wrapper {
+  border-left: 0.2rem solid #bdbec3;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 0.6rem;
+  padding-right: 1rem;
+}
+.template14 .box-for-title-and-org {
+  flex-direction: column;
+}
+.template14 .box-for-org-city-and-org {
+  margin-left: 0;
+}
+.template14 .large-content .informationContainer {
+  gap: 0;
+}
+.template14 .large-content .education {
+  margin-bottom: 0;
+}
+.template14 .large-content .education .inner-content-wrapper {
+  padding-bottom: 1rem;
+}
+.template14 .large-content .certification .content-wrapper {
+  padding: 0 1rem;
 }
 .template:hover,
 .resumeAndLetter:hover {

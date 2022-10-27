@@ -3546,7 +3546,7 @@ button {
   position: absolute;
   width: 100%;
   background-color: rgba(30, 102, 98, 0.8);
-  bottom: 0;
+  bottom: -0.1rem;
   right: 0;
 }
 .template14 .profile {

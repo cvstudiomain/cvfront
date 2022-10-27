@@ -3183,6 +3183,7 @@ button {
   .header {
   text-transform: uppercase;
   font-family: 600;
+  color: rgb(252, 252, 252);
 }
 .template12
   .inner-container

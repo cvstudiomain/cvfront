@@ -3228,7 +3228,7 @@ button {
   /* border-left: 2.5rem solid ; */
   content: "";
   position: absolute;
-  right: -2.8rem;
+  right: -2.88rem;
   bottom: 0;
   width: 0;
   height: 0;
@@ -3237,7 +3237,15 @@ button {
   z-index: 1;
   border-top: 2.7rem solid transparent;
   border-bottom: 2.7rem solid transparent;
-  margin-bottom: -0.6rem;
+  margin-bottom: -0.5rem;
+}
+.template12 .languages .theLevel .theLevelLoader,
+.template12 .reference span {
+  background-color: #fde686;
+}
+.template12 .reference {
+  border-color: #fde686;
+  margin-left: 1.5rem;
 }
 .template12 .inner-container .contact-information .content-wrapper {
   display: grid;

@@ -3504,13 +3504,16 @@ button {
 .template14 .header-wrapper {
   grid-row: 1;
   grid-column: 1;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 100%;
   color: #000;
   background-color: #fff;
 }
 .template14 .user-name-and-profession {
   margin-left: 0.5rem;
+  padding-bottom: 0;
 }
 .template14 .user-name-and-profession,
 .template14 .user-name-and-profession .profession {

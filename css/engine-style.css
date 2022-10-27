@@ -3514,6 +3514,8 @@ button {
 .template14 .user-name-and-profession {
   margin-left: 0.5rem;
   padding-bottom: 0;
+  background-color: #079dac;
+  /* background-color: #3a3b40; */
 }
 .template14 .user-name-and-profession,
 .template14 .user-name-and-profession .profession {

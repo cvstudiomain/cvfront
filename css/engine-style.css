@@ -3699,6 +3699,7 @@ button {
 }
 .template15 .inner-container .header-wrapper .user-name-and-profession {
   text-align: left;
+  letter-spacing: 0.1rem;
 }
 .template15
   .inner-container

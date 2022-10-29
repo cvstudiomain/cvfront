@@ -3843,6 +3843,92 @@ button {
 .template15 .inner-container .header-wrapper .passportDateOfBirth {
   max-width: 10rem;
 }
+.template16 .inner-container {
+  border: none;
+  padding: 0;
+  grid-template-rows: fit-content fit-content 1fr;
+}
+.template16 .inner-container .header-wrapper {
+  align-items: center;
+  justify-content: center;
+}
+.template16 .inner-container .profile {
+  grid-column: 1/-1;
+  grid-row: 2;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+.template16 .inner-container .profile .inforHeader {
+  position: relative;
+  width: fit-content;
+}
+.template16 .inner-container .profile .inforHeader::after,
+.template16 .inner-container .profile .inforHeader::before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background-color: #999;
+  width: 6rem;
+  top: 50%;
+}
+.template16 .inner-container .profile .inforHeader::before {
+  right: calc(100% + 1.2rem);
+}
+.template16 .inner-container .profile .inforHeader::after {
+  margin-left: 1rem;
+}
+.template16 .inner-container .header-wrapper .passportDateOfBirth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.template16
+  .inner-container
+  .header-wrapper
+  .passportDateOfBirth
+  .passport-box {
+  max-width: 8rem;
+  border-radius: 50%;
+  justify-self: center;
+  justify-self: center;
+  margin-bottom: 1rem;
+}
+.template16
+  .inner-container
+  .header-wrapper
+  .passportDateOfBirth
+  .passport-box
+  .passport {
+  border-radius: inherit;
+}
+.template16 .inner-container .tiny-content,
+.template16 .inner-container .large-content {
+  border-top: 1px solid #999;
+}
+.template16
+  .inner-container
+  .large-content
+  .recent-experience
+  .inner-content-wrapper {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 3rem;
+}
+.template16 .experience .start-and-end-date {
+  position: relative;
+}
+.template16 .experience .start-and-end-date::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0.5rem;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  left: calc(100% + 1rem);
+}
 .template:hover,
 .resumeAndLetter:hover {
   cursor: pointer;

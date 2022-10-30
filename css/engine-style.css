@@ -4114,7 +4114,8 @@ button {
 .template17 .large-content .certification .content-wrapper li,
 .template17 .tiny-content .inforLabel,
 .template17 .tiny-content li,
-.template17 .tiny-content .references .reference {
+.template17 .tiny-content .references .reference,
+.template17 .languages .content-wrapper {
   position: relative;
 }
 .template17 .large-content .recent-experience .content-wrapper::after,
@@ -4123,6 +4124,7 @@ button {
 .template17 .large-content .certification .content-wrapper li::after,
 .template17 .tiny-content .inforLabel::after,
 .template17 .tiny-content li::after,
+.template17 .languages .content-wrapper::after,
 .template17 .tiny-content .references .reference::after {
   content: "";
   position: absolute;
@@ -4134,6 +4136,7 @@ button {
   left: -1.56rem;
 }
 .template17 .tiny-content .inforLabel::after,
+.template17 .languages .content-wrapper::after,
 .template17 .tiny-content li::after,
 .template17 .tiny-content .references .reference::after {
   background-color: #eead15;

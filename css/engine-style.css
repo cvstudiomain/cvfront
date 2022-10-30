@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Playball&family=Poiret+One&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -3928,6 +3929,234 @@ button {
   border-left: 1px solid #999;
   border-right: 1px solid #999;
   left: calc(100% + 1rem);
+}
+.template17 {
+  grid-template-columns: 20rem 1fr;
+  grid-template-rows: max-content 1fr;
+  padding-bottom: 0;
+}
+.template17 .tiny-content .passportDateOfBirth .passport-box {
+  border-radius: 0;
+  width: 13rem;
+  height: 13rem;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* #Eead15 */
+.template17 .tiny-content {
+  background-color: #2b2b2b;
+  color: #fff;
+  height: 100%;
+}
+.template17 .informationContainer {
+  border-left: 0.2rem solid #eead15;
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+.template17 .large-content .informationContainer {
+  border-color: #2b2b2b;
+  border-bottom: none;
+}
+.template17 .header-wrapper {
+  border-top: 1rem solid #eead15;
+  border-right: 1rem solid #eead15;
+  margin-left: 0;
+  width: 100%;
+}
+.template17 .large-content {
+  margin: 0;
+  height: 100%;
+  border-right: 1rem solid #eead15;
+  border-bottom: 1rem solid #eead15;
+}
+.template17 .tiny-content .informationContainer {
+  margin-left: 2rem;
+}
+.template17 .header-wrapper .user-name-and-profession {
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.template17 .header-wrapper {
+  justify-content: center;
+}
+.template17 .tiny-content .inforLabel {
+  border-radius: 0;
+  /* padding: 0; */
+  color: inherit;
+  height: 1rem;
+  width: 1rem;
+  background-color: inherit;
+}
+.template17 .tiny-content .contact-information .inforLabel,
+.template17 .tiny-content .social-media-links .inforLabel {
+  height: 1rem;
+  width: 1rem;
+  padding: 0;
+}
+.template17 .tiny-content .inforLabel .fa {
+  color: #fff;
+  /* font-size: 0.9rem; */
+}
+
+.template17 .tiny-content .inforHeader {
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  font-size: 1.3rem;
+}
+.template17 .header-wrapper .user-name-and-profession::after {
+  position: absolute;
+  content: "";
+  z-index: 1;
+  height: 8rem;
+  width: 8rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eead15;
+  border-radius: 50%;
+}
+.template17 .header-wrapper .user-name-and-profession .user-name {
+  font-size: 2.4rem;
+  font-family: "Poiret One", cursive;
+
+  font-weight: 600;
+  z-index: 2;
+  margin-bottom: 0;
+}
+.template17 .header-wrapper .user-name-and-profession .profession {
+  z-index: 2;
+  padding: 0;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  margin-top: 0;
+  width: max-content;
+  position: relative;
+}
+.template17 .header-wrapper .user-name-and-profession .profession::after,
+.template17 .header-wrapper .user-name-and-profession .profession::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #2b2b2b;
+  width: 2rem;
+  top: 50%;
+  transform: translatey(-50%);
+}
+.template17 .header-wrapper .user-name-and-profession .profession::before {
+  left: -2.3rem;
+}
+.template17 .header-wrapper .contact-in-header {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: 1rem;
+  flex-wrap: wrap;
+  z-index: 2;
+  max-width: 22rem;
+  align-self: center;
+  position: relative;
+}
+.template17 .header-wrapper .contact-in-header::after,
+.template17 .header-wrapper .contact-in-header::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1.5rem;
+  background-color: #eead15;
+}
+.template17 .header-wrapper .contact-in-header::before {
+  left: -2rem;
+}
+.template17 .header-wrapper .contact-in-header::after {
+  right: -1.6rem;
+}
+.template17 .inforHeader .fa {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.template17 .large-content .inforHeader,
+.template17 .tiny-content .inforHeader {
+  margin: 0;
+  margin-left: -3rem;
+  margin-top: 1rem;
+  letter-spacing: 0;
+}
+.template17 .tiny-content .inforHeader .fa {
+  background-color: #2b2b2b;
+  color: #eead15;
+}
+.template17 .tiny-content .contact-information .inforHeader,
+.template17 .large-content .profile .inforHeader {
+  margin-top: 0;
+}
+.template17 .large-content .inforHeader .fa {
+  background-color: #fff;
+}
+.template17 .large-content .content-wrapper,
+.template17 .large-content .profile p,
+.template17 .large-content .certification .content-wrapper li,
+.template17 .tiny-content .inforLabel,
+.template17 .tiny-content li,
+.template17 .tiny-content .references .reference {
+  position: relative;
+}
+.template17 .large-content .recent-experience .content-wrapper::after,
+.template17 .large-content .educational-background .content-wrapper::after,
+.template17 .large-content .profile p::after,
+.template17 .large-content .certification .content-wrapper li::after,
+.template17 .tiny-content .inforLabel::after,
+.template17 .tiny-content li::after,
+.template17 .tiny-content .references .reference::after {
+  content: "";
+  position: absolute;
+  height: 0.8rem;
+  width: 0.8rem;
+  top: 0;
+  background-color: #2b2b2b;
+  border-radius: 50%;
+  left: -1.56rem;
+}
+.template17 .tiny-content .inforLabel::after,
+.template17 .tiny-content li::after,
+.template17 .tiny-content .references .reference::after {
+  background-color: #eead15;
+}
+.template17 .tiny-content li::after,
+.template17 .large-content .certification .content-wrapper li::after {
+  left: -3.55rem;
+}
+.template17 .tiny-content .references .reference {
+  padding-left: 0;
+  border: none;
+}
+.template17 .tiny-content .contact-information .content-wrapper,
+.template17 .tiny-content .social-media-links .content-wrapper {
+  gap: 1.2rem;
+}
+.template17 .large-content .recent-experience .experience-and-edu-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.template17 .languages .theLevel .theLevelLoader {
+  background-color: #eead15;
 }
 .template:hover,
 .resumeAndLetter:hover {

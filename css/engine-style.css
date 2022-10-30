@@ -3936,18 +3936,11 @@ button {
   padding-bottom: 0;
 }
 .template17 .tiny-content .passportDateOfBirth .passport-box {
-  border-radius: 0;
-  width: 13rem;
-  height: 13rem;
-  -webkit-clip-path: polygon(
-    50% 0%,
-    100% 25%,
-    100% 75%,
-    50% 100%,
-    0% 75%,
-    0% 25%
-  );
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 50%;
+  border: 0.3rem solid #eead15;
+  padding: 0.3rem;
+  width: 9rem;
+  height: 9rem;
 }
 
 /* #Eead15 */
@@ -3981,16 +3974,16 @@ button {
   margin-left: 2rem;
 }
 .template17 .header-wrapper .user-name-and-profession {
-  position: relative;
   margin-top: 4rem;
   margin-bottom: 2rem;
-
+  z-index: 2;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
 .template17 .header-wrapper {
   justify-content: center;
+  position: relative;
 }
 .template17 .tiny-content .inforLabel {
   border-radius: 0;
@@ -4018,10 +4011,13 @@ button {
   color: inherit;
   font-size: 1.3rem;
 }
-.template17 .header-wrapper .user-name-and-profession::after {
+.template17 .header-wrapper {
+  position: relative;
+}
+.template17 .header-wrapper::before {
   position: absolute;
   content: "";
-  z-index: 1;
+  z-index: 0;
   height: 8rem;
   width: 8rem;
   left: 50%;
@@ -4035,17 +4031,15 @@ button {
   font-family: "Poiret One", cursive;
 
   font-weight: 600;
-  z-index: 2;
-  margin-bottom: 0;
+  z-index: 3;
 }
 .template17 .header-wrapper .user-name-and-profession .profession {
-  z-index: 2;
   padding: 0;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.3rem;
-  margin-top: 0;
+  /* margin-top: 2.5rem; */
   width: max-content;
   position: relative;
 }

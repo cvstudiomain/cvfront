@@ -2427,7 +2427,7 @@ button {
   margin-bottom: 1rem;
 }
 .professional-template .inner-container .header-wrapper .contact-information {
-  width: 100%;
+  width: fit-content;
   align-items: center;
   margin-top: 2rem;
 }
@@ -2436,11 +2436,14 @@ button {
   .header-wrapper
   .contact-information
   .content-wrapper {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 0.8fr 0.8fr 1fr;
-  grid-template-rows: 1fr;
+  width: max-content;
+  /* display: grid; */
+  /* grid-auto-columns: max-content; */
+  display: flex;
   flex-direction: row;
+  /* 1.2fr 0.8fr 0.8fr 1fr; */
+  /* grid-template-rows: 1fr; */
+  /* flex-direction: row; */
   background-color: #999;
   gap: 0;
 }
@@ -3290,11 +3293,15 @@ button {
 .template13 .header-wrapper .user-name-and-profession {
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 100%;
   height: 100%;
 }
 .template13 .header-wrapper .user-name-and-profession .user-name {
   font-size: 2.5rem;
+  width: fit-content;
+  overflow-wrap: normal;
+  text-align: center;
 }
 .template13 .header-wrapper .user-name-and-profession .profession {
   font-size: 1.2rem;

@@ -11,7 +11,9 @@ function capitalizeFirstLetter(string) {
 const useInitial = function (data) {
   return data
     ?.split(" ")
-    .map((val) => val[0])
+    .map((val, i) => {
+      if (i === 0 || i === 1) return val[0];
+    })
     .join("")
     .toString()
     .toUpperCase();
@@ -7009,25 +7011,40 @@ ${data.reffrences
         <p class="profession">${data.profession}</p>
       </div>
       <div class="contact-in-header">
+      ${
+        data.phoneNumber
+          ? `
       <div class="information">
         <p class="inforLabel">
           <i class="fa fa-phone-square infor-logo" aria-hidden="true"></i>
         </p>
         <p class="inforVal">${data.phoneNumber}</p>
-      </div>
-
+      </div>`
+          : ""
+      }
+      ${
+        data.email
+          ? `
       <div class="information">
         <p class="inforLabel">
           <i class="fa fa-envelope infor-logo" aria-hidden="true"></i>
         </p>
         <p class="inforVal">${data.email}</p>
-      </div>
+      </div>`
+          : ""
+      }
+      ${
+        data.address
+          ? `
       <div class="information">
         <p class="inforLabel">
           <i class="fa fa-map-marker infor-logo" aria-hidden="true"></i>
         </p>
         <p class="inforVal">${data.address}</p>
-      </div>
+      </div>`
+          : ""
+      }
+
     </div>
        </div>
        

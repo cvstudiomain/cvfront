@@ -3342,6 +3342,7 @@ button {
   .header-sub-decorations
   .span3 {
   height: 0.12rem;
+
   width: 11rem;
   background-color: #9d9d9d;
   position: relative;
@@ -3354,6 +3355,7 @@ button {
   .span3::after {
   content: "";
   top: -0.5rem;
+  left: 0;
   position: absolute;
   min-height: 1rem;
   min-width: 1rem;

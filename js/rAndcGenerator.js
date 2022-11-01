@@ -4167,20 +4167,20 @@ ${data.reffrences
                   data.fullName
                 )}</h1>
               </div>
-              <div class="passport-box">
+              
               ${
                 data.images
-                  ? `<img
+                  ? `<div class="passport-box"><img
         src="${data.images.url}"
         alt=""
         class="passport"
        
         
         
-        />`
-                  : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+        /> </div>`
+                  : ""
               }
-            </div>
+           
           </div>
               <div class="contact-information informationContainer">
               <div class="content-wrapper">
@@ -4971,20 +4971,24 @@ ${data.reffrences
     
           <div class="inner-container">
           <div class="passportDateOfBirth">
-          <div class="passport-box">
+         
             ${
               data.images
-                ? `<img
+                ? `
+                <div class="passport-box">
+                <img
       src="${data.images.url}"
       alt=""
       class="passport"
      
       
       
-      />`
-                : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+      />
+      </div>
+      
+      `
+                : `<p class="no-img"></p>`
             }
-          </div>
         </div>
             <div class="header-wrapper">
               <div class="user-name-and-profession">
@@ -6194,11 +6198,16 @@ ${data.reffrences
             <div class="header-wrapper">
            
               <div class="user-name-and-profession">
-              <div class="profession-inner-container">
+              ${
+                data.profession
+                  ? `   <div class="profession-inner-container">
              
               <p class="profession">${data.profession}</p>
     
-            </div>
+            </div>`
+                  : ""
+              }
+           
                 <h1 class="user-name">${capitalizeFirstLetter(
                   data.fullName
                 )}</h1>
@@ -6235,21 +6244,23 @@ ${data.reffrences
                 </div>
               </div>
               <div class="passportDateOfBirth">
-         
-              <div class="passport-box">
               ${
                 data.images
-                  ? `<img
+                  ? `
+                  <div class="passport-box">
+                  <img
         src="${data.images.url}"
         alt=""
         class="passport"
        
         
         
-        />`
-                  : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+        />
+        </div>
+        
+        `
+                  : `<p class="no-img"></p>`
               }
-            </div>
           </div>
             </div>
          
@@ -6613,7 +6624,7 @@ ${data.reffrences
         
         
         />`
-                  : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+                  : ""
               }
             </div>
               <div class="user-name-and-profession">

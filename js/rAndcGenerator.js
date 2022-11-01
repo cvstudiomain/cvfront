@@ -5811,7 +5811,7 @@ ${data.reffrences
          
          
          />`
-           : `<h1 class="initials">${useInitial(data.fullName)}</h1>`
+           : `<h1 class="initials"></h1>`
        } 
        </div>
       

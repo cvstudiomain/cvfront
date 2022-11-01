@@ -1741,6 +1741,8 @@ button {
   flex-direction: column;
   width: 100%;
   min-width: 100%;
+  min-height: 100%;
+  height: 100%;
   text-align: left;
   /* gap: 1rem; */
   padding: 1.5rem;
@@ -1776,9 +1778,7 @@ button {
 .template .sorgState {
   font-weight: 700;
 }
-.template .tiny-content {
-  height: auto;
-}
+
 .template .start-and-end-date {
   display: flex;
   flex-direction: row;
@@ -3126,6 +3126,8 @@ button {
   margin-top: 0;
   grid-row: 3;
   grid-column: 1;
+  height: 100%;
+  min-height: 100%;
 }
 .template12 .inner-container .passportDateOfBirth {
   grid-column: 1;
@@ -3495,20 +3497,30 @@ button {
 }
 .template14 {
   grid-template-columns: 1fr 20rem;
-  grid-template-rows: fit-content fit-content 1fr;
+  grid-template-rows: max-content 1fr;
 }
 .template14 .large-content {
   grid-column: 1;
-  grid-row: 2/3;
+  grid-row: 2;
   margin: 0;
   padding: 0;
 }
+.template14 .passportDateOfBirth {
+  grid-column: 2;
+  min-height: 100%;
+  max-height: 16rem;
+  grid-row: 1;
+  position: relative;
+  background-color: #079dac;
+}
 .template14 .tiny-content {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 2;
   margin-left: 0;
+  z-index: 2;
   background-color: #3a3b40;
   color: #fff;
+  height: 100%;
 }
 .template14 .tiny-content .inforLabel {
   background-color: #079dac;
@@ -3561,12 +3573,6 @@ button {
   background-color: #bdbec3;
   right: -4.6rem;
   bottom: 0.6rem;
-}
-.template14 .passportDateOfBirth {
-  grid-column: 2;
-  grid-row: 1/2;
-  position: relative;
-  background-color: #079dac;
 }
 
 .template14 .passportDateOfBirth::after {
@@ -4056,6 +4062,8 @@ button {
 }
 .template17 .header-wrapper .user-name-and-profession {
   text-align: center;
+  min-height: 7.375rem;
+
   margin-top: 1rem;
   height: 100%;
 }

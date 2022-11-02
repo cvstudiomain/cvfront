@@ -4076,10 +4076,10 @@ button {
   font-weight: 600;
   letter-spacing: 0.3rem;
   /* margin-top: 2.5rem; */
-  width: max-content;
+  width: 100%;
   position: relative;
 }
-.template17 .header-wrapper .user-name-and-profession .profession::after,
+/* .template17 .header-wrapper .user-name-and-profession .profession::after,
 .template17 .header-wrapper .user-name-and-profession .profession::before {
   content: "";
   position: absolute;
@@ -4091,7 +4091,7 @@ button {
 }
 .template17 .header-wrapper .user-name-and-profession .profession::before {
   left: -2.3rem;
-}
+} */
 .template17 .header-wrapper .contact-in-header {
   display: flex;
   flex-direction: row;
